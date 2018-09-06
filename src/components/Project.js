@@ -1,8 +1,9 @@
 import React from 'react';
-import Swiper from 'react-id-swiper';
-
+import Swiper from 'react-id-swiper/lib/custom';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 const params = {
+	loop: true,
   pagination: {
     el: '.swiper-pagination',
     type: 'bullets',
@@ -20,18 +21,23 @@ const Portfolio = (props) =>
 		<div className="mb-2">
 			{
 				props.portfolio.gallery.length === 0 ? 
-				(<iframe src={props.portfolio.url} title={props.portfolio.title} frameBorder="0" webkitallowfullscreen="" mozallowfullscreen="" allowFullScreen="allowFullScreen"></iframe>)
+				(
+					<iframe 
+						src={props.portfolio.url} 
+						title={props.portfolio.title} 
+						frameBorder="0" 
+						webkitallowfullscreen="" 
+						mozallowfullscreen="" 
+						allowFullScreen="allowFullScreen">
+					</iframe>
+				)
 				:
 				(
-					<Swiper {...params}>
-						<img className="card-img-top" src={"/assets/imgs/project/"+props.portfolio.img_thumb} alt="" />
-						{
-							props.portfolio.gallery.map(gallery => 
-								<img className="card-img-top" src={"/assets/imgs/project/"+gallery} alt="" />
-							)
-						}
- 		        	
-		      </Swiper>
+					<img 
+						onClick={props.gallery} 		
+						className="card-img-top" 
+						src={"/assets/imgs/project/"+props.portfolio.img_thumb} 
+						alt="" />
 		    )
 			}
 		  
@@ -45,17 +51,34 @@ const Portfolio = (props) =>
 
 class Project extends React.Component
 {
-	constructor(){
-		super();
+	constructor(props, context) {
+		super(props, context);
 		this.state = {
 			items:[],
+			gallery: 0,
 			categories:['All', 'Animation', '3D', 'Android', 'Game', 'Web'],
 			activePage: 1,
 			itemsCountPerPage: 6,
 			totalPage: 0,
 			scrolling : false,
+			modal: false,
 		}
+
+    this.toggle = this.toggle.bind(this);
 	}
+
+	toggle() {
+      this.setState({
+        modal: !this.state.modal
+      });
+  }
+
+  updateGallery(val) {
+  		this.setState({
+        gallery: val
+      });
+  		this.toggle();
+  }
 
 	componentWillMount(){
 		fetch('http://demo8555295.mockable.io/')
@@ -71,6 +94,10 @@ class Project extends React.Component
 			this.handleScroll(e);
 		});
 
+	}
+
+
+	componentDidMount(){
 	}
 
 	handleScroll = (e) => {
@@ -119,6 +146,7 @@ class Project extends React.Component
 	render(){
 		let items = this.state.items;
 		let categories = this.state.categories;
+		let galId = this.state.gallery;
 
 		if(this.state.filter){
 			items = items.filter(item=>item.tags.toLowerCase().includes(this.state.filter.toLowerCase()))
@@ -126,8 +154,8 @@ class Project extends React.Component
 
 		const indexOfLastTodo = this.state.activePage * this.state.itemsCountPerPage;
     const currentTodos = items.slice(0, indexOfLastTodo);
-		
-		return(
+    
+		return (
 			<div className="row portfolioWrap">
 				<div className="col-sm-12">
           <ul className="nav nav-pills my-5">
@@ -144,7 +172,42 @@ class Project extends React.Component
           </ul>
         </div>
 
-				{currentTodos.map(item => <Portfolio key={item.title} portfolio={item} />)}		
+        {/*	
+        	*	modal section 
+        	* this part generate details pop up for each project
+        	*/}
+        <div>
+				  <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+				      <ModalHeader>
+				      	{(currentTodos[galId] !== undefined) ? currentTodos[galId].title : ''}
+				      </ModalHeader>
+
+				      <ModalBody>
+				          <Swiper {...params} shouldSwiperUpdate>
+					          {
+											(currentTodos[this.state.gallery] !== undefined) ? 
+											currentTodos[this.state.gallery].gallery.map((gallery, i) => 
+												<img key={i} className="card-img-top" src={"/assets/imgs/project/"+gallery} alt="" />
+											) : ''
+										}
+				          </Swiper>
+				      </ModalBody>
+				      <ModalFooter>
+				          <Button color="primary" onClick={this.toggle}>Do Something</Button>
+				          <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+				      </ModalFooter>
+				  </Modal>
+				</div>
+
+				{/*
+					* loop for each project
+					*/}
+				{currentTodos.map((item, i) => 
+					<Portfolio 
+						key={i} 
+						gallery={() => this.updateGallery(i)}
+						portfolio={item} />
+				)}
 
 						
 			</div>
