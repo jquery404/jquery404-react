@@ -1,9 +1,10 @@
 import React from 'react';
 import Swiper from 'react-id-swiper/lib/custom';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import {Modal, ModalHeader, ModalBody } from 'reactstrap';
 
 const params = {
 	loop: true,
+	centeredSlides: true,
   pagination: {
     el: '.swiper-pagination',
     type: 'bullets',
@@ -18,32 +19,16 @@ const params = {
 
 const Portfolio = (props) => 
 	<div className="col-sm-4">
-		<div className="mb-2">
-			{
-				props.portfolio.gallery.length === 0 ? 
-				(
-					<iframe 
-						src={props.portfolio.url} 
-						title={props.portfolio.title} 
-						frameBorder="0" 
-						webkitallowfullscreen="" 
-						mozallowfullscreen="" 
-						allowFullScreen="allowFullScreen">
-					</iframe>
-				)
-				:
-				(
-					<img 
-						onClick={props.gallery} 		
-						className="card-img-top" 
-						src={"/assets/imgs/project/"+props.portfolio.img_thumb} 
-						alt="" />
-		    )
-			}
+		<div className="mb-2 jq-project">
+			<img 
+				onClick={props.gallery}
+				className="card-img-top" 
+				src={"/assets/imgs/project/"+props.portfolio.thumbnail} 
+				alt="" />
 		  
 		  <div className="card-body">
 		    <h4 className="card-title">{props.portfolio.title}</h4>
-		    <p className="card-text">{props.portfolio.desc}</p>
+		    <p className="card-text">{props.portfolio.desc.length > 200 ? props.portfolio.desc.slice(0,200) + "..." : props.portfolio.desc}</p>
 		  </div>
 	  </div>
 	</div>
@@ -57,31 +42,31 @@ class Project extends React.Component
 			items:[],
 			gallery: 0,
 			categories:['All', 'Animation', '3D', 'Android', 'Game', 'Web'],
+			filter: null,
 			activePage: 1,
 			itemsCountPerPage: 6,
 			totalPage: 0,
 			scrolling : false,
-			modal: false,
+			loadModal: false,
 		}
 
-    this.toggle = this.toggle.bind(this);
+    this.closeModal = this.closeModal.bind(this);
 	}
 
-	toggle() {
-      this.setState({
-        modal: !this.state.modal
-      });
+	closeModal() {
+      this.setState({loadModal: false});
   }
 
   updateGallery(val) {
   		this.setState({
-        gallery: val
+        gallery: val, 
+        loadModal: true,
       });
-  		this.toggle();
+  		// this.toggle();
   }
 
 	componentWillMount(){
-		fetch('http://demo8555295.mockable.io/')
+		fetch('/assets/portfolio.json')
 			.then(response => response.json())
 			.then(({portfolio:items}) => this.setState({
 					items, 
@@ -163,7 +148,7 @@ class Project extends React.Component
             	categories.map(item => 
             		<li 
             			key={item} 
-            			className={this.state.filter === item ? "active px-2": "px-2"} 
+            			className={this.state.filter === item || (this.state.filter === null && item === 'All') ? "active px-2": "px-2"} 
             			onClick={(e)=>this.handleClick({item}, e)}>
             			{item}
             		</li>
@@ -177,25 +162,39 @@ class Project extends React.Component
         	* this part generate details pop up for each project
         	*/}
         <div>
-				  <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+				  <Modal isOpen={this.state.loadModal} size="lg" toggle={this.closeModal}>
 				      <ModalHeader>
 				      	{(currentTodos[galId] !== undefined) ? currentTodos[galId].title : ''}
+				      	<i style={{position: 'absolute', right:20, top:20 }}onClick={this.closeModal} className="fa fa-times" />
 				      </ModalHeader>
 
 				      <ModalBody>
-				          <Swiper {...params} shouldSwiperUpdate>
-					          {
-											(currentTodos[this.state.gallery] !== undefined) ? 
-											currentTodos[this.state.gallery].gallery.map((gallery, i) => 
-												<img key={i} className="card-img-top" src={"/assets/imgs/project/"+gallery} alt="" />
-											) : ''
-										}
-				          </Swiper>
+				          <div className="row">
+					          <div className="col-sm-12 col-md-7">
+						          <Swiper {...params} shouldSwiperUpdate>
+							          {
+													(currentTodos[galId] !== undefined) ? 
+													currentTodos[galId].gallery.map((gallery, i) => 
+														gallery.type==="image" ? 
+															<img key={i} className="card-img-top" src={"/assets/imgs/project/"+gallery.url} alt="" />
+															: <iframe key={i} title={i} className="swiper-slide-container" src={gallery.url} frameborder="0" allowfullscreen></iframe>
+													) : null
+												}
+						          </Swiper>
+					          </div>
+					          
+					          {currentTodos[galId] !== undefined ? 
+					          	<div className="col-sm-12 col-md-5">
+					          		<p>{currentTodos[galId].desc}</p>
+					          		<p>[{currentTodos[galId].tags}]</p>
+					          		{currentTodos[galId].url !== "" ? <a href={currentTodos[galId].url}><u>Project Link</u></a> : null }
+					          	</div>
+					          	: null
+					          }
+				          </div>
+
 				      </ModalBody>
-				      <ModalFooter>
-				          <Button color="primary" onClick={this.toggle}>Do Something</Button>
-				          <Button color="secondary" onClick={this.toggle}>Cancel</Button>
-				      </ModalFooter>
+				      
 				  </Modal>
 				</div>
 
@@ -214,5 +213,4 @@ class Project extends React.Component
 		)
 	}
 }
-
 export default Project;

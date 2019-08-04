@@ -1,7 +1,7 @@
 {
   "name": "jquery404",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "disqus-react": "^1.0.5",
     "react": "^16.4.2",
