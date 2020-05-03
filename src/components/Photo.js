@@ -37,12 +37,14 @@ class Photo extends React.Component
 
 		return (
 			<div className="row portfolioWrap">
+				<div className="col-sm-12">
+					<h1 className="mt-5">Photography</h1>
+					<p>I love creating beautiful & natural photographs with a touch of magic. My specialities are the city, landscape and nature photography. </p>
+				</div>
 				{/*
 					* loop for each project
 					*/}
-					<div className="py-3">
-						<p style={{padding: '1em'}}>I love creating beautiful & natural photographs with a touch of magic. My specialities are the city, landscape and nature photography. </p>
-					</div>
+					
 
 					<div style={{display: 'flex', flexWrap: 'wrap', flexDirection: 'row', alignItems: 'center'}}>
             {

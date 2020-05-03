@@ -91,7 +91,7 @@ class Project extends React.Component
 		if(scrolling || totalPage <= activePage) return;
 
 		var cardWrap = document.querySelector('.portfolioWrap');
-		var cardWrapOffset = cardWrap.clientHeight;
+		var cardWrapOffset = cardWrap.clientHeight ? cardWrap.clientHeight : 100;
 		var pageOffset = window.pageYOffset + window.innerHeight;
 		
 		if(pageOffset > cardWrapOffset + 20) 
