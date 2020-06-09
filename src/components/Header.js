@@ -49,6 +49,9 @@ class Header extends React.Component
 		          <li className="nav-item">
 		            <NavLink activeClassName="active" className="nav-link js-scroll-trigger" to="/research"><div onClick={this.toggleNavbar}>Research</div></NavLink>
 		          </li>
+				  <li className="nav-item">
+		            <NavLink activeClassName="active" className="nav-link js-scroll-trigger" to="/blog"><div onClick={this.toggleNavbar}>Blog</div></NavLink>
+		          </li>
 		          <li className="nav-item">
 		            <NavLink activeClassName="active" className="nav-link js-scroll-trigger" to="/photo"><div onClick={this.toggleNavbar}>Photo</div></NavLink>
 		          </li>

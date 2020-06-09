@@ -76,7 +76,7 @@ class Research extends Component {
 							<ul>
 								<li>It takes an image as input, then recognize and give tags as output.</li>
 								<li>Suggest popular hashtags from API.</li>
-								<li>Trained classNameifier on ~2000 images.</li>
+								<li>Trained classifier on ~2000 images.</li>
 							</ul>
 						</p>
 					</div>
