@@ -81,6 +81,7 @@ class Project extends React.Component
 
 	}
 
+	
 
 	componentDidMount(){
 	}
@@ -89,8 +90,10 @@ class Project extends React.Component
 		const {scrolling, totalPage, activePage} = this.state;
 		
 		if(scrolling || totalPage <= activePage) return;
-
+		
 		var cardWrap = document.querySelector('.portfolioWrap');
+		
+		if(!cardWrap) return;
 		var cardWrapOffset = cardWrap.clientHeight ? cardWrap.clientHeight : 100;
 		var pageOffset = window.pageYOffset + window.innerHeight;
 		

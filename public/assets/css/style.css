@@ -239,3 +239,62 @@ a:hover, a:focus, a:active {
   }
 }
 
+.timeline__nav {
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  right: 0;
+  transition: top 0.3s ease-out;
+}
+.timeline__nav ul {
+  list-style: none;
+  list-style-position: inside;
+  margin: 15px 0;
+}
+.timeline__nav ul li {
+  margin: 15px 0;
+  padding-left: 0;
+  list-style-type: none;
+  color: #bfc1c3;
+  border-bottom: 1px dotted rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+
+/*--------*/
+.timerow {
+display: -ms-flexbox; /* IE10 */
+display: flex;
+-ms-flex-wrap: wrap; /* IE10 */
+flex-wrap: wrap;
+padding: 0 4px;
+}
+
+.column {
+-ms-flex: 25%; /* IE10 */
+flex: 25%;
+max-width: 25%;
+padding: 0 4px;
+}
+
+.column img {
+margin-top: 8px;
+vertical-align: middle;
+width: 100%;
+}
+
+@media screen and (max-width: 800px) {
+.column {
+  -ms-flex: 50%;
+  flex: 50%;
+  max-width: 50%;
+}
+}
+
+@media screen and (max-width: 600px) {
+.column {
+  -ms-flex: 100%;
+  flex: 100%;
+  max-width: 100%;
+}
+}

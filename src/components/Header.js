@@ -19,7 +19,9 @@ class Header extends React.Component
 			collapsed: !this.state.collapsed
 		});
 	}
-
+	componentDidUpdate() {
+		window.scrollTo(0, 0)
+	}
 	render(){
 
 		const collapsed = this.state.collapsed;

@@ -18,13 +18,13 @@ ReactDOM.render(
 		<App>
 			<Switch>
 				<Route exact path="/" component={About} />
-				<Route path="/project" component={Project} />
-				<Route path="/research" component={Research} />
-				<Route path="/blog" exact component={Blog} />
-				<Route path="/blog/:id" component={Post} />
-				<Route path="/photo" component={Photo} />
-				<Route path="/contact" component={Contact} />
-				<Route path="*" component={FourZFour} />
+				<Route exact path="/project" component={Project} />
+				<Route exact path="/research" component={Research} />
+				<Route exact path="/blog" component={Blog} />
+				<Route exact path="/blog/:id" component={Post} />
+				<Route exact path="/photo" component={Photo} />
+				<Route exact path="/contact" component={Contact} />
+				<Route component={FourZFour} />
 			</Switch>
 		</App>
 	</Router>

@@ -44,7 +44,7 @@ class Footer extends React.Component
 	            </ul>
 						</div>
 						<div className="col-12 text-center">
-							&copy; {new Date().getFullYear()}. Written in React. All rights reserved.
+							&copy; {new Date().getFullYear()}. Written with <i className="fa fa-heart"></i> in React. All rights reserved.
 						</div>
 					</div>
 				</div>
