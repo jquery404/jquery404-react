@@ -11,7 +11,7 @@ class App extends React.Component
 			<div className="App">
 				<Header />
 
-				<div className="container">
+				<div className="container-fluid">
 						<div className="row">
         			<div className="col-sm-12">
 								{this.props.children}

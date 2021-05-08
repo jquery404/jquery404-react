@@ -18,10 +18,9 @@ const params = {
 
 
 const Portfolio = (props) => 
-	<div className="col-sm-4">
+	<div className="col-sm-4" onClick={props.gallery}>
 		<div className="mb-2 jq-project">
 			<img 
-				onClick={props.gallery}
 				className="card-img-top" 
 				src={"/assets/imgs/project/"+props.portfolio.thumbnail} 
 				alt="" />

@@ -23,12 +23,15 @@ class About extends React.Component
 	render(){
 		return(
             <div className="row">
-                <div className="col-sm-10">
+                <div className="col-sm-7">
                     <div className="py-5">
                         <h1>Hello,</h1>
                         <div className="subheading mb-5">I'm Faisal (&#934;sal)</div>
-                        <p className="mb-5">I design and develop software for various platforms (Mobile/PC/Web), using different SDKs and tools (React/Angular/Android/Unity) based on the projects needs. I enjoy the challenge of creating engaging solutions and achieving results-driven objectives.
-                        I also worked in electronics, embedded software and designing data-driven solutions using machine learning.</p>
+                        
+                        <div className="pp"><iframe title="jquery404" className="ppp" src="https://player.vimeo.com/video/29850027?autoplay=1&loop=1&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+                        
+                        <p className="my-5">I design and develop software for various platforms (Mobile/PC/Web), using different SDKs and tools (React/Angular/Android/Unity) based on the projects needs. I enjoy the challenge of creating engaging solutions and achieving results-driven objectives.
+                        I have also worked in electronics, embedded software, and data-driven design using machine learning.</p>
                             
                         <p>Nowadays I get my hands dirty with both frontend and backend development and like to ponder stuff like coding standards, design methodologies, usability, and accessibility.</p>
                     </div>

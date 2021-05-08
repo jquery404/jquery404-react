@@ -31,14 +31,13 @@ class Blog extends React.Component {
                     <div className="py-5">
                         <h1>Blog</h1>
                         <div>
-                            {items.map((item, i) =>
+                            {items.map((item, i) => 
                                 <div key={i}>
                                     <h3><Link to={`/blog/${item.number}`}>{item.title}</Link></h3>
-                                    <i>{item.user.login} - {this.minRead(item.body.length)}</i> - 
-                                    <i className="fa fa-comment" aria-hidden="true"></i>{item.comments}
-                                    <p><ReactMarkdown source={item.body} escapeHtml={false} /></p>
-                                </div>
-
+                                    <span className="meta-blog"><i>by {item.user.login} - {this.minRead(item.body.length)}</i> &nbsp;<i className="fa fa-comment" aria-hidden="true"></i>{item.comments}</span>
+                                    <p className="pt-3"><ReactMarkdown source={item.body} escapeHtml={false} /></p>
+                                    <hr></hr>
+                                </div> 
                             )}
                         </div>
                     </div>

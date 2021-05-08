@@ -18,6 +18,27 @@ class Research extends Component {
 			   			</div>
 						
 	            <div className="col-sm-10 my-3">
+	               	<h5 className="mb-3"><i className="fa fa-copy"></i>&nbsp;TensorFlow Lite for Mobile Development</h5>
+	               		
+	               	<a href="https://www.oreilly.com/library/view/tensorflow-lite-for/9781484266663/"><img className="float-left researchImg" src="/assets/imgs/tflite.jpg" alt=""/></a>
+
+	               	<div className="padRight">
+	                  <p>TensorFlow Lite for Mobile Development: Deploy Machine Learning Models on Embedded and Mobile Devices</p>
+	                  
+	                  <p><b>Released:</b>November 2020.</p>
+					  <p><b>Publisher(s):</b>Apress</p>
+					  <p><b>ISBN:</b>9781484266663</p>
+	               
+		               <b>Publications:</b>
+		               <ul>
+		                  <li><a href="https://www.oreilly.com/library/view/tensorflow-lite-for/9781484266663/">https://www.oreilly.com/library/view/tensorflow-lite-for/9781484266663/</a></li>
+		                  <li><a href="https://link.springer.com/video/10.1007/978-1-4842-6666-3/">https://link.springer.com/video/10.1007/978-1-4842-6666-3</a></li>
+		               </ul>
+		               
+					</div>
+				</div>
+						
+				<div className="col-sm-10 my-3">
 	               	<h5 className="mb-3"><i className="fa fa-copy"></i>&nbsp;3D Object Recognition System</h5>
 	               		
 	               	<img className="float-left researchImg" src="/assets/imgs/3dcnn.png" alt=""/>
@@ -39,7 +60,7 @@ class Research extends Component {
 		               </ul>
 					</div>
 				</div>
-						
+				
 				<div className="col-sm-10 my-3">
 				  <h5 className="mb-3"><i className="fa fa-copy"></i>&nbsp;Autonomous Vehicle System using Traffic Sign Recognition</h5>
 					<img className="float-left researchImg" src="/assets/imgs/avest.jpg" alt=""/>

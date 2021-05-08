@@ -4,13 +4,13 @@ import React from 'react';
 const PhotoGrid = (props) => 
 	<div className="pb-5 border-bottom">
 		<h2 className="pt-5 milestone" ref={props.focus}>{props.year}</h2>
-		<div className="timerow">
+		<div className="photos">
 		{
-			props.gallery.map((v, k) => <div className="column" key={k}><img src={v} className="img-thumbnail" alt="" /></div>)
+			props.gallery.map((v, k) => <img src={v} alt="" key={k} />)
 		}
 		</div>
 	</div>
-
+	
 
 class Photo extends React.Component
 {
@@ -18,34 +18,6 @@ class Photo extends React.Component
 		super(props, context);
 		this.state = {
 			items:{
-				2014: [
-					"/assets/imgs/photo/2014/pp1.jpg",
-					"/assets/imgs/photo/2014/pp2.jpg",
-					"/assets/imgs/photo/2014/pp3.jpg",
-				],
-				2015: [
-					"/assets/imgs/photo/2015/pp1.jpg",
-					"/assets/imgs/photo/2015/pp2.jpg",
-				],
-				2016: [
-					"/assets/imgs/photo/2016/pp1.jpg",
-					"/assets/imgs/photo/2016/pp2.jpg",
-					"/assets/imgs/photo/2016/pp3.jpg",
-				],
-				2017: [
-					"/assets/imgs/photo/2017/pp1.jpg",
-					"/assets/imgs/photo/2017/pp2.jpg",
-				],
-				2018: [
-					"/assets/imgs/photo/2018/pp1.jpg",
-					"/assets/imgs/photo/2018/pp2.jpg",
-					"/assets/imgs/photo/2018/pp3.jpg",
-				],
-				2019: [
-					"/assets/imgs/photo/2019/pp1.jpg",
-					"/assets/imgs/photo/2019/pp2.jpg",
-					"/assets/imgs/photo/2019/pp3.jpg",
-				],
 				2020: [
 					"/assets/imgs/photo/2020/pp1.jpg",
 					"/assets/imgs/photo/2020/pp2.jpg",
@@ -54,6 +26,33 @@ class Photo extends React.Component
 					"/assets/imgs/photo/2020/pp5.jpg",
 					"/assets/imgs/photo/2020/pp6.jpg",
 					"/assets/imgs/photo/2020/pp7.jpg",
+				],
+				2019: [
+					"/assets/imgs/photo/2019/pp1.jpg",
+					"/assets/imgs/photo/2019/pp2.jpg",
+				],
+				2018: [
+					"/assets/imgs/photo/2018/pp1.jpg",
+					"/assets/imgs/photo/2018/pp2.jpg",
+					"/assets/imgs/photo/2018/pp3.jpg",
+				],
+				2017: [
+					"/assets/imgs/photo/2017/pp1.jpg",
+					"/assets/imgs/photo/2017/pp2.jpg",
+				],
+				2016: [
+					"/assets/imgs/photo/2016/pp1.jpg",
+					"/assets/imgs/photo/2016/pp2.jpg",
+					"/assets/imgs/photo/2016/pp3.jpg",
+				],
+				2015: [
+					"/assets/imgs/photo/2015/pp1.jpg",
+					"/assets/imgs/photo/2015/pp2.jpg",
+				],
+				2014: [
+					"/assets/imgs/photo/2014/pp1.jpg",
+					"/assets/imgs/photo/2014/pp2.jpg",
+					"/assets/imgs/photo/2014/pp3.jpg",
 				],
 			},
 		}
@@ -70,7 +69,7 @@ class Photo extends React.Component
     }
 
 	render(){
-		const photoItems = this.state.items;
+		let photoItems = this.state.items;
 		Object.entries(photoItems).map(([key,value],i) =>  this.myDivToFocus[i] = React.createRef())
 
 		return (
@@ -84,15 +83,15 @@ class Photo extends React.Component
 				<nav className="timeline__nav fixed">
 					<ul>
 					{
-					Object.entries(photoItems).map(([key,value],i) => <li onClick={()=> this.handleOnClick(i)} key={i}><span>{key}</span></li>)
+					Object.entries(photoItems).reverse().map(([key,value],i) => <li onClick={()=> this.handleOnClick(i)} key={i}><span>{key}</span></li>)
 					}
 					</ul>
 				</nav>
 
-				<section className="timeline__section col-sm-10">
-					{
-					Object.entries(photoItems).map(([key,value],i) => <PhotoGrid focus={this.myDivToFocus[i]} gallery={value} year={key} key={i} /> )
-					}
+				<section className="timeline__section col-sm-11">
+				{
+				Object.entries(photoItems).reverse().map(([key,value],i) => <PhotoGrid focus={this.myDivToFocus[i]} gallery={value} year={key} key={i} /> )
+				}
 				</section>
 			</div>
 		)
