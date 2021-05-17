@@ -25,9 +25,9 @@ class Research extends Component {
 	               	<div className="padRight">
 	                  <p>TensorFlow Lite for Mobile Development: Deploy Machine Learning Models on Embedded and Mobile Devices</p>
 	                  
-	                  <p><b>Released:</b>November 2020.</p>
-					  <p><b>Publisher(s):</b>Apress</p>
-					  <p><b>ISBN:</b>9781484266663</p>
+	                  <p><b>Released:</b> November, 2020.<br/>
+					  <b>Publisher(s):</b> Apress<br/>
+					  <b>ISBN:</b> 9781484266663</p>
 	               
 		               <b>Publications:</b>
 		               <ul>

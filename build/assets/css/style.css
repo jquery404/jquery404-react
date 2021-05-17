@@ -368,3 +368,21 @@ width: 100%;
   padding: 5px 10px;
   font-weight: 800;
 }
+
+.card-horizontal {
+  display: flex;
+  flex: 1 1 auto;
+}
+.img-square-wrapper {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+.update-c{line-height: 1.25rem;}
+.update-card a{
+  color: #000;
+}
+.update-card a:hover{
+  color: #282759;
+  text-decoration: none;
+}
