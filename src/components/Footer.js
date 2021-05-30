@@ -21,7 +21,7 @@ class Footer extends React.Component
                   <a href="https://twitter.com/jquery404" target="_blank" rel="noopener noreferrer">
 	                  <span className="fa-stack fa-lg">
 	                      <i className="fa fa-circle fa-stack-2x"></i>
-	                      <i className="fa fa-twitter fa-stack-1x fa-inverse"></i>
+	                      <i className="fab fa-twitter fa-stack-1x fa-inverse"></i>
 	                  </span>
                   </a>
 	              </li>
@@ -29,7 +29,7 @@ class Footer extends React.Component
 	              	<a href="https://github.com/jquery404/" target="_blank" rel="noopener noreferrer">
 	                  <span className="fa-stack fa-lg">
 	                      <i className="fa fa-circle fa-stack-2x"></i>
-	                      <i className="fa fa-github fa-stack-1x fa-inverse"></i>
+	                      <i className="fab fa-github fa-stack-1x fa-inverse"></i>
 	                  </span>
 	                </a>
 	              </li>
@@ -37,7 +37,7 @@ class Footer extends React.Component
 	              	<a href="http://instagram.com/jquery404" target="_blank" rel="noopener noreferrer">
 	                  <span className="fa-stack fa-lg">
                         <i className="fa fa-circle fa-stack-2x"></i>
-                        <i className="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                        <i className="fab fa-instagram fa-stack-1x fa-inverse"></i>
                     </span>
                   </a>
 	              </li>

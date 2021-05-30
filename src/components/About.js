@@ -30,8 +30,13 @@ class About extends React.Component
                         
                         <div className="pp"><iframe title="jquery404" className="ppp" src="https://player.vimeo.com/video/29850027?autoplay=1&loop=1&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
                         
-                        <p className="my-5">I design and develop software for various platforms (Mobile/PC/Web), using different SDKs and tools (React/Angular/Android/Unity) based on the projects needs. I enjoy the challenge of creating engaging solutions and achieving results-driven objectives.
-                        I have also worked in electronics, embedded software, and data-driven design using machine learning. Nowadays I get my hands dirty with both frontend and backend development and like to ponder stuff like coding standards, design methodologies, usability, and accessibility.</p>
+                        <p className="my-5">
+                            I make software for different platforms (<i className="fab fa-windows"></i> / <i className="fab fa-apple"></i> / <i className="fab fa-linux"></i>) 
+                            using different tools (<i className="fab fa-react"></i> / <i className="fab fa-angular"></i> / <i className="fab fa-android"></i> / <i className="fab fa-unity"></i>) 
+                            depending on the project needs. 
+                            In the past, I have worked in electronics, embedded software and business intelligence (BI) applications.
+                            Currently, I spent most of my time developing XR (<i className="fas fa-vr-cardboard"></i>) tools and love thinking about things like coding standards, design methodologies, usability, and accessibility.
+                        </p>
                     </div>
 
                     <h4>Updates</h4>
