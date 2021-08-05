@@ -1,5 +1,13 @@
 const events = [
     {
+        thumb: "assets/imgs/nzgdc.jpg", 
+        date: "4-6 Aug'21",
+        title: "NZGDC : Indie Biz Showcase",
+        place: "by NZGDA",
+        url: "https://nzgdc.com/indie-biz-showcase/",
+        html: "<i class='fab fa-pagelines'></i> https://tinyurl.com/s7n5d7wf"
+    },
+    {
         thumb: "assets/imgs/gisnz.jpg", 
         date: "17-18 Apr'21",
         title: "TakiWaehere – New Zealand Geospatial Hackathon",
