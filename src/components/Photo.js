@@ -1,16 +1,15 @@
 import React from 'react';
 
-
 const PhotoGrid = (props) => 
 	<div className="pb-5 border-bottom">
 		<h2 className="pt-5 milestone" ref={props.focus}>{props.year}</h2>
 		<div className="photos">
 		{
-			props.gallery.map((v, k) => <img src={v} alt="" key={k} />)
+			props.gallery.map((v, k) => <img src={v} alt="" key={k} onClick={()=> {document.querySelector('.perfundo__overlay').classList.remove("hide"); document.querySelector('.currentPhoto').src = (v)}} />)
 		}
 		</div>
 	</div>
-	
+
 
 class Photo extends React.Component
 {
@@ -18,6 +17,16 @@ class Photo extends React.Component
 		super(props, context);
 		this.state = {
 			items:{
+				2021: [
+					"/assets/imgs/photo/2021/pp1.jpg",
+					"/assets/imgs/photo/2021/pp2.jpg",
+					"/assets/imgs/photo/2021/pp3.jpg",
+					"/assets/imgs/photo/2021/pp4.jpg",
+					"/assets/imgs/photo/2021/pp5.jpg",
+					"/assets/imgs/photo/2021/pp6.jpg",
+					"/assets/imgs/photo/2021/pp7.jpg",
+					"/assets/imgs/photo/2021/pp8.jpg",
+				],
 				2020: [
 					"/assets/imgs/photo/2020/pp1.jpg",
 					"/assets/imgs/photo/2020/pp2.jpg",
@@ -26,6 +35,7 @@ class Photo extends React.Component
 					"/assets/imgs/photo/2020/pp5.jpg",
 					"/assets/imgs/photo/2020/pp6.jpg",
 					"/assets/imgs/photo/2020/pp7.jpg",
+					"/assets/imgs/photo/2020/pp8.jpg",
 				],
 				2019: [
 					"/assets/imgs/photo/2019/pp1.jpg",
@@ -57,6 +67,7 @@ class Photo extends React.Component
 			},
 		}
 		this.myDivToFocus = [];
+		
 	}
 
 	handleOnClick = (i) => { 
@@ -66,6 +77,12 @@ class Photo extends React.Component
                block: "start"
             })
         }
+	}
+
+	handleOnThumb = (e) => {
+		e.preventDefault();
+		document.querySelector('.perfundo__overlay').classList.add("hide");
+		return false;
     }
 
 	render(){
@@ -76,7 +93,7 @@ class Photo extends React.Component
 			<div className="row portfolioWrap">
 				<div className="col-sm-12">
 					<h1 className="mt-5">Photography</h1>
-					<p>I love taking pictures. I specialize in city, landscape, and nature photography.<br/>
+					<p>I love taking pictures. I specialized in city, landscape, and nature photography.<br/>
 					Here are some of my favorite photos I've taken over the years.</p>
 				</div>
 
@@ -93,6 +110,12 @@ class Photo extends React.Component
 				Object.entries(photoItems).reverse().map(([key,value],i) => <PhotoGrid focus={this.myDivToFocus[i]} gallery={value} year={key} key={i} /> )
 				}
 				</section>
+
+				<div className="perfundo__overlay hide">
+					<img className="perfundo__figure currentPhoto" src="" alt="Demo" />
+					<a onClick={(e)=> this.handleOnThumb(e)} href="#perfundo-untarget" className="perfundo__close perfundo__control">Close</a>
+				</div>
+				
 			</div>
 		)
 	}

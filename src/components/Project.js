@@ -167,7 +167,7 @@ class Project extends React.Component
 				  <Modal isOpen={this.state.loadModal} size="lg" toggle={this.closeModal}>
 				      <ModalHeader>
 				      	{(currentTodos[galId] !== undefined) ? currentTodos[galId].title : ''}
-				      	<i style={{position: 'absolute', right:20, top:20 }}onClick={this.closeModal} className="fa fa-times" />
+				      	<i style={{position: 'absolute', right:20, top:20 }} onClick={this.closeModal} className="fa fa-times" />
 				      </ModalHeader>
 
 				      <ModalBody>

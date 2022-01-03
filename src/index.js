@@ -10,6 +10,7 @@ import Blog from './components/Blog';
 import Post from './components/Post';
 import Photo from './components/Photo';
 import Updates from './components/Updates';
+import UpdateDetail from './components/UpdateDetail';
 import Contact from './components/Contact';
 import FourZFour from './components/FourZFour';
 
@@ -25,6 +26,7 @@ ReactDOM.render(
 				<Route exact path="/blog/:id" component={Post} />
 				<Route exact path="/photo" component={Photo} />
 				<Route exact path="/updates" component={Updates} />
+				<Route exact path="/updates/:id" component={UpdateDetail} />
 				<Route exact path="/contact" component={Contact} />
 				<Route component={FourZFour} />
 			</Switch>
