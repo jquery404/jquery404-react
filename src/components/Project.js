@@ -1,4 +1,5 @@
 import React from 'react';
+import {NavLink} from 'react-router-dom';
 import Swiper from 'react-id-swiper/lib/custom';
 import {Modal, ModalHeader, ModalBody } from 'reactstrap';
 
@@ -20,15 +21,16 @@ const params = {
 const Portfolio = (props) => 
 	<div className="col-sm-4" onClick={props.gallery}>
 		<div className="mb-2 jq-project">
-			<img 
-				className="card-img-top" 
-				src={"/assets/imgs/project/"+props.portfolio.thumbnail} 
-				alt="" />
-		  
-		  <div className="card-body">
-		    <h4 className="card-title">{props.portfolio.title}</h4>
-		    <p className="card-text">{props.portfolio.desc.length > 200 ? props.portfolio.desc.slice(0,200) + "..." : props.portfolio.desc}</p>
-		  </div>
+			<div className="jq-project-img-wrap">
+				<img 
+					className="card-img-top" 
+					src={"/assets/imgs/project/"+props.portfolio.thumbnail} 
+					alt="" />
+		  	</div>
+			<div className="card-body">
+				<h4 className="card-title">{props.portfolio.title}</h4>
+				<p className="card-text">{props.portfolio.desc.length > 200 ? props.portfolio.desc.slice(0,200) + "..." : props.portfolio.desc}</p>
+			</div>
 	  </div>
 	</div>
 
@@ -189,7 +191,8 @@ class Project extends React.Component
 					          	<div className="col-sm-12 col-md-5">
 					          		<p>{currentTodos[galId].desc}</p>
 					          		<p>[{currentTodos[galId].tags}]</p>
-					          		{currentTodos[galId].url !== "" ? <a href={currentTodos[galId].url}><u>Project Link</u></a> : null }
+					          		{currentTodos[galId].url !== "" ? <a className="nav-link-inline" target="_blank" href={currentTodos[galId].url}><i class="fa fa-external-link-alt"></i> Project Link</a> : null } {' '}
+					          		<NavLink exact={true} className="nav-link-inline" to={'/p/' + currentTodos[galId].slug}><i class="fa fa-expand"></i> Show more</NavLink>
 					          	</div>
 					          	: null
 					          }

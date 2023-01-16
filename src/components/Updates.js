@@ -19,7 +19,6 @@ const EventCard = (props) =>
 class Updates extends React.Component
 {  
 	render(){
-        console.log(events);
 		return(
             <div className="row">
                 <div className="col-sm-7 py-5">

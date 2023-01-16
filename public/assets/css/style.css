@@ -432,3 +432,58 @@ width: 100%;
   background-size: cover;
   text-indent: -999em;
 }
+
+.jq-project{
+  overflow: hidden;
+}
+
+.jq-project-img-wrap{
+  object-fit: contain;
+  -webkit-transition: all .9s ease;
+}
+
+.jq-project-img-wrap:hover {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+/* Tooltip container */
+.tooltips {
+  position: relative;
+  display: inline-block; 
+}
+
+.tooltips .tooltiptext {
+  visibility: hidden;
+  width: 320px;
+  white-space: pre-wrap;
+  background-color: black;
+  font-style: normal;
+  color: #fff;
+  text-align: left;
+  padding: 5px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltips:hover .tooltiptext {
+  visibility: visible;
+}
+
+.tooltip-bottom {
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+/* project details */
+.projd-title {
+  border-bottom: 2px solid #000;
+}
+.projd-tags {
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 0.85rem;
+  letter-spacing: 0.0625rem;
+}

@@ -1,10 +1,42 @@
 {
   "portfolio": [
     {
+      "title": "Jigmail",
+      "slug": "jigmail",
+      "desc": "A personalised online card builder that you can solve like a jigsaw puzzle. It allows you to create and design your own online card and send it to a friend in a unique style in under a minute.",
+      "thumbnail": "jigmail/cover.png",
+      "url": "https://test.jigmail.com",
+      "tags": "app, web",
+      "gallery": [
+        {
+          "type": "image",
+          "url": "jigmail/jigmail_1.gif"
+        },
+        {
+          "type": "image",
+          "url": "jigmail/jigmail_2.webp"
+        },
+        {
+          "type": "image",
+          "url": "jigmail/jigmail_3.webp"
+        },
+        {
+          "type": "image",
+          "url": "jigmail/jigmail_4.webp"
+        },
+        {
+          "type": "video",
+          "ratio": "landscape",
+          "url": "https://www.youtube.com/embed/VL1amn8LSP8"
+        }
+      ]
+    },
+    {
       "title": "COVID-19 Data Tracker",
+      "slug": "covid-data-tracker",
       "desc": "Coronavirus (COVID-19) Global Data Tracker. This dashboard is designed using Tableau. The data source of this dashboard is taken from publicly available datasets from Johns Hopkins University Center for Systems Science and Engineering (CSSE). You can click the visualization below to interact with the full dashboard.",
       "thumbnail": "covid19/cover.png",
-      "url": "https://public.tableau.com/views/Covid-19Tracker_15883831577520/Dashboard1?:display_count=y&publish=yes&:origin=viz_share_link",
+      "url": "https://public.tableau.com/views/Covid-19Tracker_15883831577520/Dashboard1",
       "tags": "app, web",
       "gallery": [
         {
@@ -22,7 +54,35 @@
       ]
     },
     {
+      "title": "Space Terror - Top Down Space Shooter Game",
+      "slug": "space-terror",
+      "desc": "Gameplay of Space Terror - Unity3D Top Down Shooter Game for iOS and Android.",
+      "thumbnail": "space-terror/cover.jpg",
+      "url": "",
+      "tags": "3d, game",
+      "gallery": [
+        {
+          "type": "video",
+          "ratio": "landscape",
+          "url": "https://www.youtube.com/embed/yq4Dhz3x0tk"
+        },
+        {
+          "type": "image",
+          "url": "space-terror/space_terror_1.png"
+        },
+        {
+          "type": "image",
+          "url": "space-terror/space_terror_2.png"
+        },
+        {
+          "type": "image",
+          "url": "space-terror/space_terror_3.png"
+        }
+      ]
+    },
+    {
       "title": "SignatureClub App by IGT",
+      "slug": "signatureclub-app-igt",
       "desc": "International Game Technology was an American gaming company based in Las Vegas that manufactured and distributed slot machines and other gaming technology. IGT enables players to experience their favorite games across all channels and regulated segments, from Gaming Machines and Lotteries to Digital and Social Gaming.",
       "thumbnail": "igt/cover.png",
       "url": "",
@@ -30,6 +90,7 @@
       "gallery": [
         {
           "type": "video",
+          "ratio": "landscape",
           "url": "https://www.youtube.com/embed/aQdLe08LAGw"
         },
         {
@@ -56,9 +117,10 @@
     },
     {
       "title": "GrabGetGo",
+      "slug": "grabgetgo",
       "desc": "GrabGetGo is a custom software solutions provider for events and brand, with over 11 years experience of developing affordable custom software solutions.",
       "thumbnail": "ggg/cover.png",
-      "url": "https://grabgetgo.com",
+      "url": "https://main.dqbqn5szb1e5i.amplifyapp.com",
       "tags": "web",
       "gallery": [
         {
@@ -77,6 +139,7 @@
     },
     {
       "title": "Foodie",
+      "slug": "foodie-app",
       "desc": "Food delivery app mockup for android. Written in java. Its highly customizable and design can be changed based on the project needs. Feel free to contact me for a demo.",
       "thumbnail": "foodie/cover.jpg",
       "url": "",
@@ -105,7 +168,39 @@
       ]
     },
     {
+      "title": "Musicalight",
+      "slug": "musicalight",
+      "desc": "A personalised online card builder that you can solve like a jigsaw puzzle. It allows you to create and design your own online card and send it to a friend in a unique style in under a minute.",
+      "thumbnail": "musicalight/cover.jpg",
+      "url": "https://test.jigmail.com",
+      "tags": "app, android",
+      "gallery": [
+        {
+          "type": "video",
+          "ratio": "portrait",
+          "url": "https://www.youtube.com/embed/ttjG6WMGRfw"
+        },
+        {
+          "type": "image",
+          "url": "musicalight/musicalight_1.jpg"
+        },
+        {
+          "type": "image",
+          "url": "musicalight/musicalight_2.jpg"
+        },
+        {
+          "type": "image",
+          "url": "musicalight/musicalight_3.jpg"
+        },
+        {
+          "type": "image",
+          "url": "musicalight/musicalight_4.jpg"
+        }
+      ]
+    },
+    {
       "title": "NexSchool - Unified Learning Management System",
+      "slug": "nexschool",
       "desc": "NexSchool is a unified school management system and learning management system that act as a centralised system to manage every aspect of a school. I was the Front End Developer, being responsible for the module development, deployment, and maintenance, version control with GIT, UI/UX design and execution",
       "thumbnail": "nexschool/cover.png",
       "url": "",
@@ -147,6 +242,7 @@
     },
     {
       "title": "NexCRM - Sales Automation",
+      "slug": "nexcrm",
       "desc": "NexCRM is a streamlined sales CRM that was built from the ground up for Malaysian SMEs. Using NexCRM user can add new leads and notes to deals, schedule Pre-Sales Activities, store photos in deals, log phone calls and many more.",
       "thumbnail": "nexcrm/cover.png",
       "url": "https://www.nexible.com.my/crm-software-malaysia/",
@@ -176,6 +272,7 @@
     },
     {
       "title": "MyEG App",
+      "slug": "myeg-app",
       "desc": "MyEG Services Berhad is a concessionaire for the Malaysian E-Government MSC Flagship Application. I was the senior mobile application developer, being responsible for implementing, and enhancing the mobile application, design and development of UI/UX, version controling etc.",
       "thumbnail": "myeg/cover.png",
       "url": "https://play.google.com/store/apps/details?id=mf.myeg.com.eservicemobile",
@@ -183,6 +280,7 @@
       "gallery": [
         {
           "type": "video",
+          "ratio": "portrait",
           "url": "https://www.youtube.com/embed/4xkM0LFEKf0"
         },
         {
@@ -201,6 +299,7 @@
     },
     {
       "title": "Speed Challenger",
+      "slug": "speed-challenger",
       "desc": "Speed Challenger is a futuristic, fast-paced racing game. It was built with love using a 3D library built on top of WebGL.",
       "thumbnail": "speed-challenger/cover.jpg",
       "url": "",
@@ -218,11 +317,22 @@
     },
     {
       "title": "Rivality - Dominate the World",
+      "slug": "rivality",
       "desc": "Rivality is a free game that you play in your web browser no downloads to your computer necessary in order to start playing. On your premises you can start building what is needed to gain power and money in the game.",
       "thumbnail": "rivality/cover.jpg",
       "url": "http://rivality.se",
       "tags": "game, app, web",
       "gallery": [
+        {
+          "type": "video",
+          "ratio": "landscape",
+          "url": "https://www.youtube.com/embed/2iipkx-IzRU"
+        },
+        {
+          "type": "video",
+          "ratio": "landscape",
+          "url": "https://www.youtube.com/embed/jDe2VxUpJAE"
+        },
         {
           "type": "image",
           "url": "rivality/rivality_1.jpg"
@@ -230,11 +340,28 @@
         {
           "type": "image",
           "url": "rivality/rivality_2.jpg"
+        },
+        {
+          "type": "image",
+          "url": "rivality/rivality_3.jpg"
+        },
+        {
+          "type": "image",
+          "url": "rivality/rivality_4.jpg"
+        },
+        {
+          "type": "image",
+          "url": "rivality/rivality_5.jpg"
+        },
+        {
+          "type": "image",
+          "url": "rivality/rivality_6.jpg"
         }
       ]
     },
     {
       "title": "Reddish Chair",
+      "slug": "reddish-chair",
       "desc": "I designed this Car Wheel using SolidWorks. Modelling and texturing was done in SolidWorks 2011. Rendered using Photoview 360.",
       "thumbnail": "reddish-chair/cover.jpg",
       "url": "",
@@ -260,6 +387,7 @@
     },
     {
       "title": "Puzzlebox",
+      "slug": "puzzlebox",
       "desc": "Puzzle box is a match two puzzle game with attractive graphics and art work. Mix and match your way with some cute tiny monster and make them your little friends!",
       "thumbnail": "puzzlebox/cover.png",
       "url": "",
@@ -285,6 +413,7 @@
     },
     {
       "title": "Propeller",
+      "slug": "propeller",
       "desc": "I designed this Propeller using SolidWorks. Modelling and texturing was done in SolidWorks 2011. Rendered using Photoview 360.",
       "thumbnail": "propeller/cover.jpg",
       "url": "",
@@ -302,6 +431,7 @@
     },
     {
       "title": "Pixar FS",
+      "slug": "pixar-fs",
       "desc": "A 3D Animation. I've done the Animation, and Modeling using 3ds Max",
       "thumbnail": "pixarfs/cover.jpg",
       "url": "https://player.vimeo.com/video/26447363?transparent=0",
@@ -309,12 +439,14 @@
       "gallery": [
         {
           "type": "video",
+          "ratio": "landscape",
           "url": "https://player.vimeo.com/video/26447363?transparent=0"
         }
       ]
     },
     {
       "title": "Medic Bottle",
+      "slug": "medic-bottle",
       "desc": "I designed this Bottle using SolidWorks. Modelling and texturing was done in SolidWorks 2011. Rendered using Photoview 360.",
       "thumbnail": "medic-bottle/cover.jpg",
       "url": "",
@@ -344,6 +476,7 @@
     },
     {
       "title": "IRON Penguin",
+      "slug": "iron-penguin",
       "desc": "A 3D Animation. I've done the Animation, and Modeling using 3ds Max",
       "thumbnail": "iron_pengu/cover.jpg",
       "url": "https://player.vimeo.com/video/70920832?transparent=0",
@@ -351,12 +484,14 @@
       "gallery": [
         {
           "type": "video",
+          "ratio": "landscape",
           "url": "https://player.vimeo.com/video/70920832?transparent=0"
         }
       ]
     },
     {
       "title": "Faisal Desk",
+      "slug": "faisal-desk",
       "desc": "A little demonstration of Photoshop and Flash artwork.",
       "thumbnail": "faisal-desk/cover.jpg",
       "url": "",
@@ -382,6 +517,7 @@
     },
     {
       "title": "Curious 3D",
+      "slug": "curious-3d",
       "desc": "A 3D Animation. I've done the Animation, and Modeling using 3ds Max.",
       "thumbnail": "curious3d/cover.jpg",
       "url": "https://player.vimeo.com/video/29850027?transparent=0",
@@ -389,12 +525,14 @@
       "gallery": [
         {
           "type": "video",
+          "ratio": "landscape",
           "url": "https://player.vimeo.com/video/29850027?transparent=0"
         }
       ]
     },
     {
       "title": "CPU Cooler",
+      "slug": "cpu-cooler",
       "desc": "I designed this CPU Cooler using SolidWorks. Modelling and texturing was done in SolidWorks 2011. Rendered using Photoview 360.",
       "thumbnail": "cpu-cooler/cover.jpg",
       "url": "",
@@ -428,6 +566,7 @@
     },
     {
       "title": "Bad Monkeys",
+      "slug": "bad-monkeys",
       "desc": "Bad Monkeys is a HTML5 Canvas Game with full of fun. It is a strategy puzzle type game. I've designed and developed this game using Box2d(game physics), EaselJS and SoundJS, Photoshop(graphics).",
       "thumbnail": "badmonkeys/cover.jpg",
       "url": "",
@@ -453,6 +592,7 @@
     },
     {
       "title": "Belgrade PASS",
+      "slug": "belgrade-pass",
       "desc": "This is the 1st edition of Belgrade PASS Travel Guide, only android application that can save you up to 300 EURO during your stay in Belgrade. After you have installed initial file, your application will download about 19 MB of additional data. This as well will help you save money by decreasing mobile data usage.",
       "thumbnail": "belgradepass/cover.jpg",
       "url": "https://play.google.com/store/apps/details?id=com.jquery404.belgradepass",
@@ -482,6 +622,7 @@
     },
     {
       "title": "Brain teasers",
+      "slug": "brain-teasers",
       "desc": "Brain teasers is a puzzles and riddles to help you to train your brain. It is available to play for Android phone. I have used AndEngine to develop this app for TCI.",
       "thumbnail": "brain-teaser/cover.jpg",
       "url": "",
@@ -511,6 +652,7 @@
     },
     {
       "title": "Car Rim Design",
+      "slug": "car-rim-design",
       "desc": "I designed this Car Rim using SolidWorks. Modelling and texturing was done in SolidWorks 2011. Rendered using Photoview 360.",
       "thumbnail": "car-rim/cover.jpg",
       "url": "",
@@ -532,6 +674,7 @@
     },
     {
       "title": "Car Wheel",
+      "slug": "car-wheel",
       "desc": "I designed this Car Wheel using SolidWorks. Modelling and texturing was done in SolidWorks 2011. Rendered using Photoview 360.",
       "thumbnail": "car-wheel/cover.jpg",
       "url": "",
@@ -557,11 +700,17 @@
     },
     {
       "title": "Compass Live",
+      "slug": "compass-live",
       "desc": "Compass Live combines both compass and navigational data with current location information. Not only does Compass Live give you general directions and degrees like a regular compass would, it also uses your location data to show where you are.",
       "thumbnail": "compasslive/cover.jpg",
       "url": "https://play.google.com/store/apps/details?id=com.jquery404.compasslive",
       "tags": "app, android",
       "gallery": [
+        {
+          "type": "video",
+          "ratio": "portrait",
+          "url": "https://www.youtube.com/embed/93K1xxnssgU"
+        },
         {
           "type": "image",
           "url": "compasslive/compasslive_1.jpg"
@@ -582,11 +731,17 @@
     },
     {
       "title": "The Carpet",
+      "slug": "the-carpet",
       "desc": "RPG type game. I've developed an Isometric 2.5D Engine for this game. I was also involved in level design, gameplay scripting, and character AI. I've uploaded this game in FGL.",
       "thumbnail": "thecarpet/cover.jpg",
       "url": "https://www.fgl.com/view_game.php?from=dev&game_id=8745",
       "tags": "game, web",
       "gallery": [
+        {
+          "type": "video",
+          "ratio": "landscape",
+          "url": "https://www.youtube.com/embed/VEbowL56z1M"
+        },
         {
           "type": "image",
           "url": "thecarpet/thecarpet_1.jpg"

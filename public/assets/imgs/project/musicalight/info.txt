@@ -1,0 +1,8 @@
+Musicalight
+
+Musicalight - makes use of your phone's internal camera LED lights and microphone to create various lighting effects based on a song you are playing. 
+No need for glow sticks, Musicalight is the original disco light and dance light! Just turn on any music and it takes over pulsing to the beat of the music. 
+Now it's so easy to turn your home into party mode.
+
+https://play.google.com/store/apps/details?id=com.jquery404.musicalight
+https://youtu.be/ttjG6WMGRfw

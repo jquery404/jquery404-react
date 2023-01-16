@@ -6,20 +6,18 @@ const EventCard = (props) =>
         <div className="card-horizontal">
             <div className="img-square-wrapper" style={{backgroundImage:`url(${props._.thumb})`}}>......</div>
             <div className="update-card card-body m-0 p-1">
-                <a href={props._.url}>
-                    <small>{props._.date}</small><br/>
-                    <b className="mb-1">{props._.title}</b>
-                    <p className="mb-1">{props._.place}</p>
-                    <small dangerouslySetInnerHTML={{ __html: props._.html }} />
-                </a>
+                <small>{props._.date}</small><br/>
+                <a href={props._.url}><b className="mb-1">{props._.title}</b></a>
+                <p className="mb-1">{props._.place}</p>
+                <small dangerouslySetInnerHTML={{ __html: props._.html }} />
             </div>
         </div>
     </div>
 
-class UpdateDetail extends React.Component
+class UpdateDetails extends React.Component
 {  
 	render(){
-        console.log(events);
+        
 		return(
             <div className="row">
                 <div className="col-sm-7 py-5">
@@ -35,4 +33,4 @@ class UpdateDetail extends React.Component
 	}
 }
 
-export default UpdateDetail;
+export default UpdateDetails;
