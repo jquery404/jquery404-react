@@ -28,6 +28,21 @@
           "type": "video",
           "ratio": "landscape",
           "url": "https://www.youtube.com/embed/VL1amn8LSP8"
+        },
+        {
+          "type": "video",
+          "ratio": "landscape",
+          "url": "https://www.youtube.com/embed/eA0mB6vZrzo"
+        },
+        {
+          "type": "video",
+          "ratio": "landscape",
+          "url": "https://www.youtube.com/embed/a7mvkMoXPsk"
+        },
+        {
+          "type": "video",
+          "ratio": "landscape",
+          "url": "https://www.youtube.com/embed/KkhNX-wZlC4"
         }
       ]
     },
