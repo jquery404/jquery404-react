@@ -1,5 +1,21 @@
 const events = [
     {
+        thumb: "assets/imgs/events/siggraph23.png", 
+        date: "6-10 Aug'23",
+        title: "SIGGRAPH 2023",
+        place: "Los Angeles, USA",
+        url: "https://s2023.siggraph.org/presentation/?id=real_106&sess=sess258",
+        html: "<i class='fab fa-pagelines'></i> https://s2023.siggraph.org/"
+    },
+    {
+        thumb: "assets/imgs/events/siggraph22.png", 
+        date: "6-9 Dec'22",
+        title: "SIGGRAPH Asia 2022",
+        place: "Daegu, South Korea",
+        url: "https://sa2022.siggraph.org",
+        html: "<i class='fab fa-pagelines'></i> https://sa2022.siggraph.org/en/"
+    },
+    {
         thumb: "assets/imgs/events/ieeevr22.png", 
         date: "12-16 Mar'22",
         title: "IEEE VR Conference 2022",
