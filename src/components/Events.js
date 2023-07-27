@@ -1,9 +1,12 @@
+import React from "react";
+
 const events = [
     {
         thumb: "assets/imgs/events/siggraph23.png", 
         date: "6-10 Aug'23",
         title: "SIGGRAPH 2023",
         place: "Los Angeles, USA",
+        role: "presented",
         url: "https://s2023.siggraph.org/presentation/?id=real_106&sess=sess258",
         html: "<i class='fab fa-pagelines'></i> https://s2023.siggraph.org/"
     },
@@ -12,6 +15,7 @@ const events = [
         date: "6-9 Dec'22",
         title: "SIGGRAPH Asia 2022",
         place: "Daegu, South Korea",
+        role: "presented",
         url: "https://sa2022.siggraph.org",
         html: "<i class='fab fa-pagelines'></i> https://sa2022.siggraph.org/en/"
     },
@@ -20,6 +24,7 @@ const events = [
         date: "12-16 Mar'22",
         title: "IEEE VR Conference 2022",
         place: "Christchurch, New Zealand",
+        role: "presented",
         url: "https://ieeevr.org/2022/",
         html: "<i class='fab fa-pagelines'></i> https://ieeevr.org/2022"
     },
@@ -28,7 +33,8 @@ const events = [
         date: "4-6 Aug'21",
         title: "NZGDC : Indie Biz Showcase",
         place: "by NZGDA",
-        url: "https://nzgdc.com/indie-biz-showcase/",
+        role: "presented",
+        url: "https://nzgdc.com/",
         html: "<i class='fab fa-pagelines'></i> https://tinyurl.com/s7n5d7wf"
     },
     {
@@ -36,6 +42,7 @@ const events = [
         date: "17-18 Apr'21",
         title: "TakiWaehere – New Zealand Geospatial Hackathon",
         place: "by MBIE and Maxar",
+        role: "attended",
         url: "https://tinyurl.com/y5ce3s7f",
         html: "<i class='fab fa-github'></i> https://tinyurl.com/y5ce3s7f"
     },
@@ -44,6 +51,7 @@ const events = [
         date: "9-12 Feb'21",
         title: "International XR (AR/VR) Workshop",
         place: "Auckland, University of Auckland",
+        role: "attended",
         url: "https://tinyurl.com/6jaj765v",
         html: "<i class='fab fa-github'></i> https://tinyurl.com/6jaj765v"
     },
@@ -52,9 +60,26 @@ const events = [
         date: "16 Aug'20",
         title: "SWEN 422: CCRPG",
         place: "Victoria University of Wellington",
+        role: "presented",
         url: "https://tinyurl.com/zac5dde3",
         html: "<i class='fab fa-github'></i> https://tinyurl.com/zac5dde3"
     }
 ];
+
+const EventCard = ({ data }) => 
+    <div className="update-c card mb-2">
+        <div className="card-horizontal">
+            <div className="img-square-wrapper" style={{backgroundImage:`url(${data.thumb})`}}>......</div>
+            <div className="update-card card-body m-0 p-1">
+                <small>{data.date}</small>
+                <small className={`float-right badge ${data.role === 'presented' ? 'badge-warning' : 'badge-info'}`}>
+                    {data.role}
+                </small><br/>
+                <a href={data.url}><b className="mb-1">{data.title}</b></a>
+                <p className="mb-1">{data.place}</p>
+                <small dangerouslySetInnerHTML={{ __html: data.html }} />
+            </div>
+        </div>
+    </div>
     
-export { events };
+export { events, EventCard };
