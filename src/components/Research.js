@@ -21,10 +21,67 @@ class Research extends Component {
 				<div className="col-sm-10 my-3">
 	               	<h5 className="mb-3"><i className="fa fa-copy"></i>&nbsp;Multi-User XR Collaboration for High Fidelity Immersive Telepresence</h5>
 	               		
+	               	<img className="float-left researchImg" src="/assets/imgs/research/mrmac.gif" alt=""/>
+
+	               	<div className="padRight">
+					   	<p><b>Faisal Zaman</b>, Craig Anslow, Andrew Chalmers, and Taehyun Rhee. MRMAC: Mixed Reality Multi-user Asymmetric Collaboration. In Proceedings of the IEEE International Symposium on Mixed and Augmented Reality (ISMAR), Sydney, Australia, 2023.</p>
+						
+						<p>
+							<span className="badge badge-dark"><i className="fa fa-file-pdf"></i> PDF</span>&nbsp;
+							<span className="badge badge-dark tooltips"><i className="fa fa-book"></i> Abstract <i className="tooltiptext tooltip-bottom">Coming soon</i></span>&nbsp;
+							<span className="badge badge-dark tooltips"><i className="fa fa-quote-right"></i> BibTeX</span>&nbsp;
+							<span className="badge badge-dark"><i className="fa fa-video"></i> Video</span>
+						</p>
+					</div>
+				</div>
+
+				<div className="col-sm-10 my-3">
+					<img className="float-left researchImg" src="/assets/imgs/research/vicarious.jpg" alt=""/>
+
+					<div className="padRight">
+					<p><b>Faisal Zaman</b>, Craig Anslow, and Taehyun Rhee. Vicarious: Context-aware Viewpoints Selection for Mixed Reality Collaboration. In Proceedings of the ACM Symposium on Virtual Reality Software and Technology (VRST), Christchurch, New Zealand, 2023.</p>
+					<p>
+						<span className="badge badge-dark"><i className="fa fa-file-pdf"></i> PDF</span>&nbsp;
+						<span className="badge badge-dark tooltips"><i className="fa fa-book"></i> Abstract <i className="tooltiptext tooltip-bottom">Coming soon</i></span>&nbsp;
+						<span className="badge badge-dark tooltips"><i className="fa fa-quote-right"></i> BibTeX</span>&nbsp;
+						<span className="badge badge-dark"><i className="fa fa-video"></i> Video</span>
+					</p>
+					</div>
+
+				</div>
+
+				<div className="col-sm-10 my-3">
+					<img className="float-left researchImg" src="/assets/imgs/research/rsmflp.jpg" alt=""/>
+
+					<div className="padRight">
+					<p>Taehyun Rhee, Andrew Chalmers, <b>Faisal Zaman</b>, Anna Stangnes, Vic Roberts. <a href="/assets/papers/840200a940.pdf">Real-time Stage Modelling and Visual Effects for Live Performances</a>. ACM SIGGRAPH Real-Time Live!, Los Angeles, USA, 2023.</p>
+					<p>
+						<a href="/assets/papers/3588430.3597245.pdf"><span className="badge badge-dark"><i className="fa fa-file-pdf"></i> PDF</span></a>&nbsp;
+						<span className="badge badge-dark tooltips"><i className="fa fa-book"></i> Abstract <i className="tooltiptext tooltip-bottom">We present a novel live platform enhancing stage performances with real-time visual effects. Our demo showcases real-time 3D modeling, rendering and blending of assets, and interaction between real and virtual performers. We demonstrate our platform's capabilities with a mixed reality performance featuring virtual and real actors engaged with in-person audiences.</i></span>&nbsp;
+						<span className="badge badge-dark tooltips"><i className="fa fa-quote-right"></i> BibTeX
+						<i className="tooltiptext tooltip-bottom">
+							@inproceedings{'{'}rhee2023real,<br/>
+							title={'{'}Real-time Stage Modelling and Visual Effects for Live Performances.{'}'},<br/>
+							author={'{'}Rhee, Taehyun and Chalmers, Andrew and Zaman, Faisal and Stangnes, Anna and Roberts, Vic{'}'},<br/>
+							booktitle={'{'}ACM SIGGRAPH 2023 Real-Time Live!{'}'},<br/>
+							pages={'{'}1--2{'}'},<br/>
+							year={'{'}2023{'}'},<br/>
+							{'}'}
+						</i>
+						</span>&nbsp;
+						<a href="https://youtu.be/7dhnX0XRwew"><span className="badge badge-dark"><i className="fa fa-video"></i> Video</span></a>&nbsp;
+						<span className="badge badge-warning">Audience Choice Award</span>
+					</p>
+					</div>
+
+				</div>
+
+
+				<div className="col-sm-10 my-3">
 	               	<img className="float-left researchImg" src="/assets/imgs/research/mxrc-dc.png" alt=""/>
 
 	               	<div className="padRight">
-						<p><b>Zaman, F.</b> <a href="/assets/papers/840200a940.pdf">[DC] Improving Multi-User Interaction for Mixed Reality Telecollaboration</a>. In 29th IEEE Conference on Virtual Reality and 3D User Interfaces, 2022. Christchurch, New Zealand.</p>
+						<p><b>Faisal Zaman</b>. <a href="/assets/papers/840200a940.pdf">[DC] Improving Multi-User Interaction for Mixed Reality Telecollaboration</a>. In 29th IEEE Conference on Virtual Reality and 3D User Interfaces, 2022. Christchurch, New Zealand.</p>
 						<p>
 							<a href="/assets/papers/840200a940.pdf"><span className="badge badge-dark"><i className="fa fa-file-pdf"></i> PDF</span></a>&nbsp;
 							<span className="badge badge-dark tooltips"><i className="fa fa-book"></i> Abstract <i className="tooltiptext tooltip-bottom">Mixed reality (MR) approaches offer merging of real and virtual worlds to create new environments and visualizations for real-time interaction. Existing MR systems, however, do not utilise user real environment, lack detail in dynamic environments, and often lack multi-user capabilities. This research focuses on exploring multi-user aspects of immersive collaboration, where an arbitrary number of co-located and remotely located users can collaborate in a single or merged collaborative MR space. The aim is to enable users to experience VR/AR together, irrespective of the type of HMD, and facilitate users with their collaborative tasks. The main goal is to develop an immersive collaboration platform in which users can utilize the space around them and at the same time collaborate and switch between different perspectives of other co-located and remote users.</i></span>&nbsp;
@@ -44,7 +101,9 @@ class Research extends Component {
 						</p>
 					</div>
 				</div>
-						
+
+
+
 	            <div className="col-sm-10 my-3">
 	               	<h5 className="mb-3"><i className="fa fa-copy"></i>&nbsp;TensorFlow Lite for Mobile Development</h5>
 	               		

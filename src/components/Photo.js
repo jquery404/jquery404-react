@@ -106,7 +106,7 @@ class Photo extends React.Component
 				<nav className="timeline__nav fixed">
 					<ul>
 					{
-					Object.entries(photoItems).reverse().map(([key,value],i) => <li onClick={()=> this.handleOnClick(i)} key={i}><span>{key}</span></li>)
+					Object.entries(photoItems).reverse().map(([key,value],i) => <li onClick={()=> this.handleOnClick(i)} key={i}><span>{`'${key.slice(-2)}`}</span></li>)
 					}
 					</ul>
 				</nav>
