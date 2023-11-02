@@ -2,11 +2,30 @@ import React from "react";
 
 const events = [
     {
+        thumb: "assets/imgs/events/ismar23.jpg", 
+        date: "16-20 Oct'23",
+        title: "ISMAR 2023",
+        place: "Sydney, AU",
+        role: "presented",
+        url: "http://jquery404.github.io/#/r/mrmac",
+        html: "<i class='fa fa-globe'></i> https://ismar23.org/"
+    },
+    {
+        thumb: "assets/imgs/events/vrst23.jpg", 
+        date: "9-11 Oct'23",
+        title: "VRST 2023",
+        place: "Christchurch, NZ",
+        role: "presented",
+        url: "http://jquery404.github.io/#/r/vicarious",
+        html: "<i class='fa fa-spider'></i> https://vrst.acm.org/vrst2023/"
+    },
+    {
         thumb: "assets/imgs/events/siggraph23.png", 
         date: "6-10 Aug'23",
         title: "SIGGRAPH 2023",
         place: "Los Angeles, USA",
         role: "presented",
+        award: "Audience Choice Award",
         url: "https://s2023.siggraph.org/presentation/?id=real_106&sess=sess258",
         html: "<i class='fab fa-pagelines'></i> https://s2023.siggraph.org/"
     },
@@ -17,7 +36,7 @@ const events = [
         place: "Daegu, South Korea",
         role: "presented",
         url: "https://sa2022.siggraph.org",
-        html: "<i class='fab fa-pagelines'></i> https://sa2022.siggraph.org/en/"
+        html: "<i class='fab fa-pagelines'></i> https://sa2022.siggraph.org/"
     },
     {
         thumb: "assets/imgs/events/ieeevr22.png", 
@@ -32,7 +51,7 @@ const events = [
         thumb: "assets/imgs/events/nzgdc.jpg", 
         date: "4-6 Aug'21",
         title: "NZGDC : Indie Biz Showcase",
-        place: "by NZGDA",
+        place: "Wellington, New Zealand",
         role: "presented",
         url: "https://nzgdc.com/",
         html: "<i class='fab fa-pagelines'></i> https://tinyurl.com/s7n5d7wf"
@@ -72,10 +91,11 @@ const EventCard = ({ data }) =>
             <div className="img-square-wrapper" style={{backgroundImage:`url(${data.thumb})`}}>......</div>
             <div className="update-card card-body m-0 p-1">
                 <small>{data.date}</small>
+                {data.award && <i className="fa fa-award event-award" title={data.award}></i>}
                 <small className={`float-right badge ${data.role === 'presented' ? 'badge-warning' : 'badge-info'}`}>
                     {data.role}
                 </small><br/>
-                <a href={data.url}><b className="mb-1">{data.title}</b></a>
+                <a href={data.url} target="_blank"><b className="mb-1">{data.title}</b></a>
                 <p className="mb-1">{data.place}</p>
                 <small dangerouslySetInnerHTML={{ __html: data.html }} />
             </div>

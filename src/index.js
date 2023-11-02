@@ -7,6 +7,7 @@ import About from './components/About';
 import Project from './components/Project';
 import ProjectDetails from './components/ProjectDetails';
 import Research from './components/Research';
+import ResearchDetails from './components/ResearchDetails';
 import Blog from './components/Blog';
 import Post from './components/Post';
 import Photo from './components/Photo';
@@ -26,6 +27,7 @@ ReactDOM.render(
 				<Route exact path="/project" component={Project} />
 				<Route exact path="/p/:id" component={ProjectDetails} />
 				<Route exact path="/research" component={Research} />
+				<Route exact path="/r/:id" component={ResearchDetails} />
 				<Route exact path="/blog" component={Blog} />
 				<Route exact path="/blog/:id" component={Post} />
 				<Route exact path="/photo" component={Photo} />

@@ -68,6 +68,8 @@ h2 {
 
 #sideNav .navbar-nav .nav-item .nav-link.active{color: #ffffff;}
 
+.container-fluid{overflow: hidden;}
+
 .subheading {
   text-transform: uppercase;
   font-weight: 500;
@@ -165,7 +167,14 @@ section.resume-section .resume-item .resume-date {
   min-width: none;
 }
 
-
+.event-award {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  color: #dc3545;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
 
 .bg-primary {
   background-color: #FDC204 !important;
@@ -176,7 +185,7 @@ section.resume-section .resume-item .resume-date {
 }
 
 a {
-  color: #FDC204;
+  color: #ffa700;
 }
 
 a:hover, a:focus, a:active {
@@ -486,4 +495,45 @@ width: 100%;
   font-weight: 400;
   font-size: 0.85rem;
   letter-spacing: 0.0625rem;
+}
+
+/* research details */
+p.author-affiliation {
+  font-size: .85rem;
+  line-height: 1rem;
+}
+
+.author-boxes {
+  background: #fffae8;
+}
+
+.journal{
+  font-family: 'Ubuntu';
+  font-size: .95rem;
+}
+
+.bibtex-wrap {
+  background: #fffae8;
+}
+
+.bibtex-pre {
+  font-family: monospace;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+  font-size: 1rem;
+}
+
+.thumbnail-box {
+  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.4), 9px 9px 0px rgba(0, 0, 0, .2);
+}
+
+.bd-callout {
+  margin: .25rem 1.25rem;
+  border: 1px solid #eee;
+  border-left-width: 0.5rem;
+  border-radius: .25rem;
+  border-left-color: #fec201;
 }

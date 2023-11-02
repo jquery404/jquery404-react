@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
+import {NavLink} from 'react-router-dom';
 
 class Research extends Component {
 
     render() {
+		const paper = {
+			vicarious: "Mixed-perspective, combining egocentric (first-person) and exocentric (third-person) viewpoints, have been shown to improve the collaborative experience in remote settings. Such experiences allow remote users to switch between different viewpoints to gain alternative perspectives of the remote space. However, existing systems lack seamless selection and transition between multiple perspectives that better fit the task at hand. To address this, we present a new approach called Vicarious, which simplifies and automates the selection between egocentric and exocentric viewpoints. Vicarious employs a context-aware method for dynamically switching or highlighting the optimal viewpoint based on user actions and the current context. To evaluate the effectiveness of the viewpoint selection method, we conducted a user study n=27 using an asymmetric AR-VR setup where users performed remote collaboration tasks under four distinct conditions: No-view, Manual, Guided, and Automatic selection. The results showed that Guided and Automatic viewpoint selection improved users' understanding of the task space and task performance, and reduced cognitive load compared to Manual or No-view selection. The results also suggest that the asymmetric setup had minimal impact on spatial and social presence, except for differences in task load and preference. Based on these findings, we provide design implications for future research in mixed reality collaboration.",
+			mrmac: "We present MRMAC, a Mixed Reality Multi-user Asymmetric Collaboration system that allows remote users to teleport virtually into a real-world collaboration space to communicate and collaborate with local users. Our system enables telepresence for remote users by live-streaming the physical environment of local users using a 360-degree camera while blending 3D virtual assets into the mixed-reality collaboration space. Our novel client-server architecture enables asymmetric collaboration for multiple AR and VR users and incorporates avatars, view controls, as well as synchronized low-latency audio, video, and asset streaming. We evaluated our implementation with two baseline conditions: conventional 2D and standard 360 videoconferencing. Results show that MRMAC outperformed both baselines in inducing a sense of presence, improving task performance, usability, and overall user preference, demonstrating its potential for immersive multi-user telecollaboration."
+		}
+
         return (
             <div className="row portfolioWrap" style={{fontSize:'1rem'}}>
 				<div className="col-sm-10">
@@ -24,11 +30,12 @@ class Research extends Component {
 	               	<img className="float-left researchImg" src="/assets/imgs/research/mrmac.gif" alt=""/>
 
 	               	<div className="padRight">
-					   	<p><b>Faisal Zaman</b>, Craig Anslow, Andrew Chalmers, and Taehyun Rhee. MRMAC: Mixed Reality Multi-user Asymmetric Collaboration. In Proceedings of the IEEE International Symposium on Mixed and Augmented Reality (ISMAR), Sydney, Australia, 2023.</p>
+					   	<p><b>Faisal Zaman</b>, Craig Anslow, Andrew Chalmers, and Taehyun Rhee. <a href="/assets/papers/5663557.997664.pdf" rel="noopener noreferrer" target="_blank">MRMAC: Mixed Reality Multi-user Asymmetric Collaboration</a>. In Proceedings of the IEEE International Symposium on Mixed and Augmented Reality (ISMAR), Sydney, Australia, 2023.</p>
 						
 						<p>
-							<span className="badge badge-dark"><i className="fa fa-file-pdf"></i> PDF</span>&nbsp;
-							<span className="badge badge-dark tooltips"><i className="fa fa-book"></i> Abstract <i className="tooltiptext tooltip-bottom">Coming soon</i></span>&nbsp;
+							<NavLink exact={true} className="nav-link-inline" to={'/r/mrmac'}><span className="badge badge-dark"><i className="fa fa-folder-plus"></i> Project</span></NavLink>&nbsp;
+							<a href="/assets/papers/5663557.997664.pdf" rel="noopener noreferrer" target="_blank"><span className="badge badge-dark"><i className="fa fa-file-pdf"></i> PDF</span></a>&nbsp;
+							<span className="badge badge-dark tooltips"><i className="fa fa-book"></i> Abstract <i className="tooltiptext tooltip-bottom">{paper.mrmac}</i></span>&nbsp;
 							<span className="badge badge-dark tooltips"><i className="fa fa-quote-right"></i> BibTeX</span>&nbsp;
 							<span className="badge badge-dark"><i className="fa fa-video"></i> Video</span>
 						</p>
@@ -36,14 +43,25 @@ class Research extends Component {
 				</div>
 
 				<div className="col-sm-10 my-3">
-					<img className="float-left researchImg" src="/assets/imgs/research/vicarious.jpg" alt=""/>
+					<img className="float-left researchImg" src="/assets/imgs/research/vicarious.gif" alt=""/>
 
 					<div className="padRight">
-					<p><b>Faisal Zaman</b>, Craig Anslow, and Taehyun Rhee. Vicarious: Context-aware Viewpoints Selection for Mixed Reality Collaboration. In Proceedings of the ACM Symposium on Virtual Reality Software and Technology (VRST), Christchurch, New Zealand, 2023.</p>
+					<p><b>Faisal Zaman</b>, Craig Anslow, and Taehyun Rhee. <a href="/assets/papers/3677878.996443.pdf" rel="noopener noreferrer" target="_blank">Vicarious: Context-aware Viewpoints Selection for Mixed Reality Collaboration</a>. In Proceedings of the ACM Symposium on Virtual Reality Software and Technology (VRST), Christchurch, New Zealand, 2023.</p>
 					<p>
-						<span className="badge badge-dark"><i className="fa fa-file-pdf"></i> PDF</span>&nbsp;
-						<span className="badge badge-dark tooltips"><i className="fa fa-book"></i> Abstract <i className="tooltiptext tooltip-bottom">Coming soon</i></span>&nbsp;
-						<span className="badge badge-dark tooltips"><i className="fa fa-quote-right"></i> BibTeX</span>&nbsp;
+						<NavLink exact={true} className="nav-link-inline" to={'/r/vicarious'}><span className="badge badge-dark"><i className="fa fa-folder-plus"></i> Project</span></NavLink>&nbsp;
+						<a href="/assets/papers/3677878.996443.pdf" rel="noopener noreferrer" target="_blank"><span className="badge badge-dark"><i className="fa fa-file-pdf"></i> PDF</span></a>&nbsp;
+						<span className="badge badge-dark tooltips"><i className="fa fa-book"></i> Abstract <i className="tooltiptext tooltip-bottom">{paper.vicarious}</i></span>&nbsp;
+						<span className="badge badge-dark tooltips"><i className="fa fa-quote-right"></i> BibTeX
+						<i className="tooltiptext tooltip-bottom">
+							@inproceedings{'{'}zaman2023vicarious,<br/>
+							title={'{'}Vicarious: Context-aware Viewpoints Selection for Mixed Reality Collaboration.{'}'},<br/>
+							author={'{'}Zaman, Faisal and Anslow, Craig and Chalmers, Andrew and Rhee, Taehyun{'}'},<br/>
+							booktitle={'{'}Proceedings of the 29th ACM Symposium on Virtual Reality Software and Technology{'}'},<br/>
+							pages={'{'}1--11{'}'},<br/>
+							year={'{'}2023{'}'},<br/>
+							{'}'}
+						</i>
+						</span>&nbsp;
 						<span className="badge badge-dark"><i className="fa fa-video"></i> Video</span>
 					</p>
 					</div>
@@ -56,6 +74,7 @@ class Research extends Component {
 					<div className="padRight">
 					<p>Taehyun Rhee, Andrew Chalmers, <b>Faisal Zaman</b>, Anna Stangnes, Vic Roberts. <a href="/assets/papers/840200a940.pdf">Real-time Stage Modelling and Visual Effects for Live Performances</a>. ACM SIGGRAPH Real-Time Live!, Los Angeles, USA, 2023.</p>
 					<p>
+						<NavLink exact={true} className="nav-link-inline" to={'/r/rtstage'}><span className="badge badge-dark"><i className="fa fa-folder-plus"></i> Project</span></NavLink>&nbsp;
 						<a href="/assets/papers/3588430.3597245.pdf"><span className="badge badge-dark"><i className="fa fa-file-pdf"></i> PDF</span></a>&nbsp;
 						<span className="badge badge-dark tooltips"><i className="fa fa-book"></i> Abstract <i className="tooltiptext tooltip-bottom">We present a novel live platform enhancing stage performances with real-time visual effects. Our demo showcases real-time 3D modeling, rendering and blending of assets, and interaction between real and virtual performers. We demonstrate our platform's capabilities with a mixed reality performance featuring virtual and real actors engaged with in-person audiences.</i></span>&nbsp;
 						<span className="badge badge-dark tooltips"><i className="fa fa-quote-right"></i> BibTeX
@@ -69,8 +88,8 @@ class Research extends Component {
 							{'}'}
 						</i>
 						</span>&nbsp;
-						<a href="https://youtu.be/7dhnX0XRwew"><span className="badge badge-dark"><i className="fa fa-video"></i> Video</span></a>&nbsp;
-						<span className="badge badge-warning">Audience Choice Award</span>
+						<a href="https://youtu.be/7dhnX0XRwew" rel="noopener noreferrer" target="_blank"><span className="badge badge-dark"><i className="fa fa-video"></i> Video</span></a>&nbsp;
+						<NavLink exact={true} className="nav-link-inline" to={'/r/rtstage'}><span className="badge badge-warning"><i className="fa fa-award"></i> Audience Choice Award</span></NavLink>
 					</p>
 					</div>
 
@@ -97,7 +116,7 @@ class Research extends Component {
 								{'}'}
 								</i>
 							</span>&nbsp;
-							<a href="https://youtu.be/qAbx7_ReHvY"><span className="badge badge-dark"><i className="fa fa-video"></i> Video</span></a>
+							<a target="_blank" rel="noopener noreferrer" href="https://youtu.be/qAbx7_ReHvY"><span className="badge badge-dark"><i className="fa fa-video"></i> Video</span></a>
 						</p>
 					</div>
 				</div>
@@ -118,8 +137,8 @@ class Research extends Component {
 	               
 		               <b>Publications:</b>
 		               <ul>
-		                  <li><a href="https://www.oreilly.com/library/view/tensorflow-lite-for/9781484266663/">https://www.oreilly.com/library/view/tensorflow-lite-for/9781484266663/</a></li>
-		                  <li><a href="https://link.springer.com/video/10.1007/978-1-4842-6666-3/">https://link.springer.com/video/10.1007/978-1-4842-6666-3</a></li>
+		                  <li><a target="_blank" rel="noopener noreferrer" href="https://www.oreilly.com/library/view/tensorflow-lite-for/9781484266663/">oreilly/tensorflow-lite</a></li>
+		                  <li><a target="_blank" rel="noopener noreferrer" href="https://link.springer.com/video/10.1007/978-1-4842-6666-3">springer/10.1007/978-1-4842-6666-3</a></li>
 		               </ul>
 		               
 					</div>
@@ -132,15 +151,15 @@ class Research extends Component {
 
 	               	<div className="padRight">
 	                  <b>Problem</b>
-	                  <p>3D point cloud never been used as object recognition. One of the key reason is the lack of generic shape representation. Since most of the RGBD devices are using point cloud to capture the real world data, it is necessary to have such cue in the system.</p>
+	                  <p>Object recognition using 3D point clouds is challenging, and the lack of a generic shape representation makes it difficult to develop universal feature extraction techniques.</p>
 	                  
 	                  <b>Solution</b>
-	                  <p>After conducting a thorough literature review I came up with a pipeline that utilized deep convolution network. To train the network Modelnet (Princeton 3D model dataset) is used.</p>
+	                  <p>We developed a pipeline that employs a deep convolutional network to train on the ModelNet dataset (Princeton 3D model dataset), along with preprocessing that includes denoising.</p>
 	               
 		               <b>Publications:</b>
 		               <ul>
-		                <li><b>Zaman, F.</b>, Wong, Y. P., & Ng, B. Y. <a href="https://arxiv.org/abs/1602.05312">Density-based denoising of point cloud</a>. In 9th International Conference on Robotic, Vision, Signal Processing and Power Applications (pp. 287-295). Springer, Singapore. 
-						  	<span className="badge badge-dark tooltips"><i className="fa fa-book"></i> Abstract <i className="tooltiptext tooltip-bottom">Point cloud source data for surface reconstruction is usually contaminated with noise and outliers. To overcome this deficiency, a density-based point cloud denoising method is presented to remove outliers and noisy points. First, particle-swam optimization technique is employed for automatically approximating optimal bandwidth of multivariate kernel density estimation to ensure the robust performance of density estimation. Then, mean-shift based clustering technique is used to remove outliers through a thresholding scheme. After removing outliers from the point cloud, bilateral mesh filtering is applied to smooth the remaining points. The experimental results show that this approach, comparably, is robust and efficient.</i></span>&nbsp;
+		                <li><b>Zaman, F.</b>, Wong, Y. P., & Ng, B. Y. <a href="https://arxiv.org/abs/1602.05312">Density-based denoising of point cloud</a>. In 9th International Conference on Robotic, Vision, Signal Processing and Power Applications (pp. 287-295). Springer, Singapore.</li>
+						<li><span className="badge badge-dark tooltips"><i className="fa fa-book"></i> Abstract <i className="tooltiptext tooltip-bottom">Point cloud source data for surface reconstruction is usually contaminated with noise and outliers. To overcome this deficiency, a density-based point cloud denoising method is presented to remove outliers and noisy points. First, particle-swam optimization technique is employed for automatically approximating optimal bandwidth of multivariate kernel density estimation to ensure the robust performance of density estimation. Then, mean-shift based clustering technique is used to remove outliers through a thresholding scheme. After removing outliers from the point cloud, bilateral mesh filtering is applied to smooth the remaining points. The experimental results show that this approach, comparably, is robust and efficient.</i></span>&nbsp;
 						  	<a href="https://arxiv.org/abs/1602.05312"><span className="badge badge-dark tooltips"><i className="fa fa-file-pdf"></i> PDF</span></a>&nbsp;
 							<span className="badge badge-dark tooltips"><i className="fa fa-quote-right"></i> BibTeX 
 							<i className="tooltiptext tooltip-bottom">
@@ -152,7 +171,7 @@ class Research extends Component {
 								year={'{'}2017{'}'},<br/>
 								organization={'{'}Springer{'}'}<br/>
 								{'}'}
-							</i></span>&nbsp;<span className="badge badge-warning">Best Paper Award</span>
+							</i></span>&nbsp;<span className="badge badge-warning"><i className="fa fa-award"></i> Best Paper Award</span>
 						</li>
 		               </ul>
 		               
@@ -164,13 +183,6 @@ class Research extends Component {
 					<img className="float-left researchImg" src="/assets/imgs/research/avest.jpg" alt=""/>
 
 					<div className="padRight">
-						<b>Problem</b>
-						<p>For autonomous vehicle system it is important to recognize traffic sign and perform a particular action. But doing all these process in real-time is challenging and at the same time expensive. </p>
-						
-						<b>Solution</b>
-						<p>We have developed AutoVESTS, which is a toy car mounted with VGA camera, that can detect and recognize traffic signs and perform specific task. Software written in C#. It can detect and recognize traffic sign in real-time with 70-75% accuracy.</p>
-
-						<b>Publications and Outcomes:</b>
 						<ul>
 						<li><b>Faisal Zaman</b>, and Raihan Masood. Autonomous Vehicle System using Traffic Sign Recognition. International Conference on Computer and Information Technology (ICCIT), Bangladesh, Dec 2010.</li>
 						<li>National Electronic Project Exhibition and Competition (NEPEC) (2009) for project AutoVEST. <span className="badge badge-warning">3rd Place</span></li>
@@ -204,7 +216,7 @@ class Research extends Component {
 					<img className="float-left researchImg" src="/assets/imgs/research/the-oregano-sage.jpg" alt=""/>
 					
 					<div className="padRight">
-	                  <p>This recipe book represent menu items that I came up with over the course of 2021. They are the essence of what kept me sane and kept me going as I went through pandemic, research, and life. </p>
+	                  <p>This recipe book represents menu items that I came up with over the course of 2021. They are the essence of what kept me sane and kept me going as I went through the pandemic, research, and life.</p>
 	                  
 	                  <p><b>Released:</b> December, 2021.</p>
 	               

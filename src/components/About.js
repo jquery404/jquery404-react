@@ -25,7 +25,7 @@ class About extends React.Component
             <div className="row">
                 <div className="col-sm-7">
                     <div className="py-5">
-                        <h1>Hello,</h1>
+                        <h1>Hello <span role="img" aria-label="Waving hand">👋</span></h1>
                         <div className="subheading mb-5">I'm Faisal (&#934;sal)</div>
                         
                         <div className="pp"><iframe title="jquery404" className="ppp" src="https://player.vimeo.com/video/29850027?autoplay=1&loop=1&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
@@ -41,10 +41,19 @@ class About extends React.Component
 
                     <h4>Updates</h4>
                     {
-                        events.map((item, i) => i<3? <EventCard key={i} data={item} /> : '')
+                        events.map((item, i) => i<4? <EventCard key={i} data={item} /> : '')
                     }
 
                     <Link to="/updates"><small>Show All...</small></Link>
+
+                    {/* <div className="my-5">
+                        <b>Procedural Animation:</b>
+                        <p>I specialize in simulating a wide range of effects, from simple movements like swaying grass to complex behaviors such as simulating crowds of characters or natural phenomena.</p>
+                    
+                    
+                        <img alt="" className="img-fluid" src="https://unity.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Ffuvbjjlp%2Fproduction%2Fcf8c05c7945039784b4b739e8ae76810bff067be-1200x900.png&w=750&q=75"/>
+                        
+                    </div> */}
 
                     
                     <p className="my-5"><i className="material-icons">face</i><i>THE ONLY TIME YOU SHOULD EVER LOOK BACK, IS TO SEE HOW FAR YOU'VE COME</i><i className="material-icons">format_quote</i></p>

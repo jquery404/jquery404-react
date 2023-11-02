@@ -7,7 +7,7 @@ class Footer extends React.Component
 			<footer className="py-5">
 				<div className="container">
         	<div className="row">
-						<div className="col-12 text-center">
+						<div className="col-12">
 							<ul className="list-inline social-buttons">
 	              <li className="list-inline-item">
 		              <a href="mailto:jquery404@gmail.com" target="_blank" rel="noopener noreferrer">
@@ -43,8 +43,9 @@ class Footer extends React.Component
 	              </li>
 	            </ul>
 						</div>
-						<div className="col-12 text-center">
-							&copy; {new Date().getFullYear()}. Written with <i className="fa fa-heart"></i> in React. All rights reserved.
+						<div className="col-12" style={{fontSize: "medium"}}>
+							&copy; {new Date().getFullYear()}. Written with <i className="fa fa-heart"></i> in React.<br/>
+							All rights reserved.
 						</div>
 					</div>
 				</div>
