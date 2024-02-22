@@ -6,7 +6,8 @@ class Research extends Component {
     render() {
 		const paper = {
 			vicarious: "Mixed-perspective, combining egocentric (first-person) and exocentric (third-person) viewpoints, have been shown to improve the collaborative experience in remote settings. Such experiences allow remote users to switch between different viewpoints to gain alternative perspectives of the remote space. However, existing systems lack seamless selection and transition between multiple perspectives that better fit the task at hand. To address this, we present a new approach called Vicarious, which simplifies and automates the selection between egocentric and exocentric viewpoints. Vicarious employs a context-aware method for dynamically switching or highlighting the optimal viewpoint based on user actions and the current context. To evaluate the effectiveness of the viewpoint selection method, we conducted a user study n=27 using an asymmetric AR-VR setup where users performed remote collaboration tasks under four distinct conditions: No-view, Manual, Guided, and Automatic selection. The results showed that Guided and Automatic viewpoint selection improved users' understanding of the task space and task performance, and reduced cognitive load compared to Manual or No-view selection. The results also suggest that the asymmetric setup had minimal impact on spatial and social presence, except for differences in task load and preference. Based on these findings, we provide design implications for future research in mixed reality collaboration.",
-			mrmac: "We present MRMAC, a Mixed Reality Multi-user Asymmetric Collaboration system that allows remote users to teleport virtually into a real-world collaboration space to communicate and collaborate with local users. Our system enables telepresence for remote users by live-streaming the physical environment of local users using a 360-degree camera while blending 3D virtual assets into the mixed-reality collaboration space. Our novel client-server architecture enables asymmetric collaboration for multiple AR and VR users and incorporates avatars, view controls, as well as synchronized low-latency audio, video, and asset streaming. We evaluated our implementation with two baseline conditions: conventional 2D and standard 360 videoconferencing. Results show that MRMAC outperformed both baselines in inducing a sense of presence, improving task performance, usability, and overall user preference, demonstrating its potential for immersive multi-user telecollaboration."
+			mrmac: "We present MRMAC, a Mixed Reality Multi-user Asymmetric Collaboration system that allows remote users to teleport virtually into a real-world collaboration space to communicate and collaborate with local users. Our system enables telepresence for remote users by live-streaming the physical environment of local users using a 360-degree camera while blending 3D virtual assets into the mixed-reality collaboration space. Our novel client-server architecture enables asymmetric collaboration for multiple AR and VR users and incorporates avatars, view controls, as well as synchronized low-latency audio, video, and asset streaming. We evaluated our implementation with two baseline conditions: conventional 2D and standard 360 videoconferencing. Results show that MRMAC outperformed both baselines in inducing a sense of presence, improving task performance, usability, and overall user preference, demonstrating its potential for immersive multi-user telecollaboration.",
+			avatar360:"360° images offer panoramic views of captured environments, placing users within an egocentric perspective. While users can freely rotate their viewpoint, they don’t experience 6-DoF navigation with translational movement. In this research, we introduce Avatar360, a novel method to elicit 6-DoF perception in 360° panoramas, using avatar-assisted navigation combined with an exocentric view of the 360° panorama. We seamlessly integrate a 3D avatar into 360° panoramas, allowing users to navigate a 3D virtual landscape congruent with the 360° background. By aligning the exocentric perspective of the 360° panorama with the avatar’s movements, we replicate a sensation of 6-DoF navigation in 360° panoramas. We explore mechanisms for simultaneous avatar and viewpoint controls, as well as procedures for transitions between spatially connected 360° panoramas. A user study was conducted to assess the perception of 6-DoF navigation in 360° panoramas via a 3D avatar, evaluating users’ sense of movement, disorientation, and presence. We also gained insight into perspective view controls and transition techniques between panoramas. Statistical analysis shows avatar-assisted navigation elicits a user’s sense of movement within 360° panoramas. Our results also provide guidelines for effective view control and transition strategies in avatar-assisted 360° navigation."
 		}
 
         return (
@@ -24,9 +25,43 @@ class Research extends Component {
 					</a>
 				</div>
 
-				<div className="col-sm-10 my-3">
-	               	<h5 className="mb-3"><i className="fa fa-copy"></i>&nbsp;Multi-User XR Collaboration for High Fidelity Immersive Telepresence</h5>
-	               		
+				<div className="col-sm-10 mt-3">
+	               	<h5 className="mb-3">
+						<i className="fa fa-copy"></i>&nbsp;Multi-User XR Collaboration for High Fidelity Immersive Telepresence&nbsp;&nbsp;
+					   	<NavLink exact={true} className="nav-link-inline" to={'/r/thesis'}><span className="badge badge-dark"><i className="fa fa-folder-plus"></i> Project</span></NavLink>
+					</h5>
+				</div>
+				
+
+				{/* avatar360 */}
+				<div className="col-sm-10 mb-3">
+	               	<img className="float-left researchImg" src="/assets/imgs/research/avatar360.gif" alt=""/>
+
+	               	<div className="padRight">
+						<p>Andrew Chalmers, <b>Faisal Zaman</b>, and Taehyun Rhee. <a href="/assets/papers/2344.98885.777.pdf">Avatar360: Emulating 6-DoF Perception in 360° Panoramas through Avatar-Assisted Navigation</a>. In 31st IEEE Conference on Virtual Reality and 3D User Interfaces (IEEE VR), 2024. Orlando, FL, USA.</p>
+						<p>
+						<NavLink exact={true} className="nav-link-inline" to={'/r/avatar360'}><span className="badge badge-dark"><i className="fa fa-folder-plus"></i> Project</span></NavLink>&nbsp;
+							<a href="/assets/papers/2344.98885.777.pdf"><span className="badge badge-dark"><i className="fa fa-file-pdf"></i> PDF</span></a>&nbsp;
+							<span className="badge badge-dark tooltips"><i className="fa fa-book"></i> Abstract <i className="tooltiptext tooltip-bottom">{paper.avatar360}</i></span>&nbsp;
+							<span className="badge badge-dark tooltips"><i className="fa fa-quote-right"></i> BibTeX
+								<i className="tooltiptext tooltip-bottom">
+								@inproceedings{'{'}chalmers2023avatar360,<br/>
+								title={'{'}Avatar360: Emulating 6-DoF Perception in 360° Panoramas through Avatar-Assisted Navigation{'}'},<br/>
+								author={'{'}Chalmers, Andrew and Zaman, Faisal and Rhee, Taehyun{'}'},<br/>
+								booktitle={'{'}2024 IEEE Conference on Virtual Reality and 3D User Interfaces (IEEE VR){'}'},<br/>
+								pages={'{'}940--941{'}'},<br/>
+								year={'{'}2024{'}'},<br/>
+								organization={'{'}IEEE{'}'}<br/>
+								{'}'}
+								</i>
+							</span>&nbsp;
+							<a target="_blank" rel="noopener noreferrer" href="https://youtu.be/ucvvg1_1eR0"><span className="badge badge-dark"><i className="fa fa-video"></i> Video</span></a>
+						</p>
+					</div>
+				</div>
+				
+				{/* mrmac */}
+				<div className="col-sm-10 my-3">   		
 	               	<img className="float-left researchImg" src="/assets/imgs/research/mrmac.gif" alt=""/>
 
 	               	<div className="padRight">
@@ -37,11 +72,12 @@ class Research extends Component {
 							<a href="/assets/papers/5663557.997664.pdf" rel="noopener noreferrer" target="_blank"><span className="badge badge-dark"><i className="fa fa-file-pdf"></i> PDF</span></a>&nbsp;
 							<span className="badge badge-dark tooltips"><i className="fa fa-book"></i> Abstract <i className="tooltiptext tooltip-bottom">{paper.mrmac}</i></span>&nbsp;
 							<span className="badge badge-dark tooltips"><i className="fa fa-quote-right"></i> BibTeX</span>&nbsp;
-							<span className="badge badge-dark"><i className="fa fa-video"></i> Video</span>
+							<NavLink exact={true} className="nav-link-inline" to={'/r/mrmac'}><span className="badge badge-dark"><i className="fa fa-video"></i> Video</span></NavLink>
 						</p>
 					</div>
 				</div>
 
+				{/* vicarious */}
 				<div className="col-sm-10 my-3">
 					<img className="float-left researchImg" src="/assets/imgs/research/vicarious.gif" alt=""/>
 
@@ -62,12 +98,13 @@ class Research extends Component {
 							{'}'}
 						</i>
 						</span>&nbsp;
-						<span className="badge badge-dark"><i className="fa fa-video"></i> Video</span>
+						<NavLink exact={true} className="nav-link-inline" to={'/r/vicarious'}><span className="badge badge-dark"><i className="fa fa-video"></i> Video</span></NavLink>
 					</p>
 					</div>
 
 				</div>
 
+				{/* rsmflp */}
 				<div className="col-sm-10 my-3">
 					<img className="float-left researchImg" src="/assets/imgs/research/rsmflp.jpg" alt=""/>
 
@@ -95,7 +132,35 @@ class Research extends Component {
 
 				</div>
 
+				{/* rtauditorium */}
+				<div className="col-sm-10 my-3">
+					<img className="float-left researchImg" src="/assets/imgs/research/ramflp.jpg" alt=""/>
 
+					<div className="padRight">
+					<p>Andrew Chalmers, <b>Faisal Zaman</b>, Anna Stangnes, Taehyun Rhee. <a href="/assets/papers/840200a940.pdf">Real-time Auditorium Modelling and Visual Effects for Live Performances</a>. ACM SIGGRAPH Real-Time Live!, Sydney, Australia, 2023.</p>
+					<p>
+						<NavLink exact={true} className="nav-link-inline" to={'/r/rtauditorium'}><span className="badge badge-dark"><i className="fa fa-folder-plus"></i> Project</span></NavLink>&nbsp;
+						<a href="/assets/papers/3588430.3597245.pdf"><span className="badge badge-dark"><i className="fa fa-file-pdf"></i> PDF</span></a>&nbsp;
+						<span className="badge badge-dark tooltips"><i className="fa fa-book"></i> Abstract <i className="tooltiptext tooltip-bottom">We present a novel live platform enhancing stage performances with real-time visual effects. Our demo showcases real-time 3D modeling, rendering and blending of assets, and interaction between real and virtual performers. We demonstrate our platform's capabilities with a mixed reality performance featuring virtual and real actors engaged with in-person audiences.</i></span>&nbsp;
+						<span className="badge badge-dark tooltips"><i className="fa fa-quote-right"></i> BibTeX
+						<i className="tooltiptext tooltip-bottom">
+							@inproceedings{'{'}chalmers2023real,<br/>
+							title={'{'}Real-time Auditorium Modelling and Visual Effects for Live Performances.{'}'},<br/>
+							author={'{'}Chalmers, Andrew and Zaman, Faisal and Stangnes, Anna and Rhee, Taehyun{'}'},<br/>
+							booktitle={'{'}ACM SIGGRAPH ASIA 2023 Real-Time Live!{'}'},<br/>
+							pages={'{'}1--2{'}'},<br/>
+							year={'{'}2023{'}'},<br/>
+							{'}'}
+						</i>
+						</span>&nbsp;
+						<NavLink exact={true} className="nav-link-inline" to={'/r/rtauditorium'}><span className="badge badge-dark"><i className="fa fa-video"></i> Video</span></NavLink>&nbsp;
+					</p>
+					</div>
+
+				</div>
+
+
+				{/* dc ieee vr */}
 				<div className="col-sm-10 my-3">
 	               	<img className="float-left researchImg" src="/assets/imgs/research/mxrc-dc.png" alt=""/>
 

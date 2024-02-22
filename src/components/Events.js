@@ -2,6 +2,24 @@ import React from "react";
 
 const events = [
     {
+        thumb: "assets/imgs/events/ieeevr24.png", 
+        date: "16-21 Mar'24",
+        title: "IEEEVR 2024",
+        place: "Orlando, FL, USA",
+        role: "presented",
+        url: "http://jquery404.github.io/#/r/avatar360",
+        html: "<i class='fab fa-pagelines'></i> https://ieeevr.org/2024/"
+    },
+    {
+        thumb: "assets/imgs/events/siggraph_asia23.png", 
+        date: "16-20 Oct'23",
+        title: "SIGGRAPH Asia 2023",
+        place: "Sydney, AU",
+        role: "presented",
+        url: "http://jquery404.github.io/#/r/rtauditorium",
+        html: "<i class='fab fa-pagelines'></i> https://asia.siggraph.org/2023/"
+    },
+    {
         thumb: "assets/imgs/events/ismar23.jpg", 
         date: "16-20 Oct'23",
         title: "ISMAR 2023",

@@ -1,6 +1,46 @@
 {
     "research": [
       {
+        "title": "Avatar360: Emulating 6-DoF Perception in 360° Panoramas through Avatar-Assisted Navigation.",
+        "slug": "avatar360",
+        "slogan": "",
+        "desc": "360° images offer panoramic views of captured environments, placing users within an egocentric perspective. While users can freely rotate their viewpoint, they don’t experience 6-DoF navigation with translational movement. In this research, we introduce Avatar360, a novel method to elicit 6-DoF perception in 360° panoramas, using avatar-assisted navigation combined with an exocentric view of the 360° panorama. We seamlessly integrate a 3D avatar into 360° panoramas, allowing users to navigate a 3D virtual landscape congruent with the 360° background. By aligning the exocentric perspective of the 360° panorama with the avatar’s movements, we replicate a sensation of 6-DoF navigation in 360° panoramas. We explore mechanisms for simultaneous avatar and viewpoint controls, as well as procedures for transitions between spatially connected 360° panoramas. A user study was conducted to assess the perception of 6-DoF navigation in 360° panoramas via a 3D avatar, evaluating users’ sense of movement, disorientation, and presence. We also gained insight into perspective view controls and transition techniques between panoramas. Statistical analysis shows avatar-assisted navigation elicits a user’s sense of movement within 360° panoramas. Our results also provide guidelines for effective view control and transition strategies in avatar-assisted 360° navigation.",
+        "thumbnail": "avatar360/avatar360.png",
+        "paper_thumb": "avatar360/paper_thumb.jpg",
+        "journal": "IEEE Conference on Virtual Reality and 3D User Interfaces (IEEE VR 2024)",
+        "authors": [
+            {
+                "name": "Andrew Chalmers",
+                "url": "https://people.wgtn.ac.nz/andrew.chalmers",
+                "affiliation": "CMIC, Victoria University of Wellington"
+            },
+            {
+                "name": "Faisal Zaman",
+                "url": "https://jquery404.github.io",
+                "affiliation": "CMIC, Victoria University of Wellington"
+            },
+            {
+                "name": "Taehyun Rhee",
+                "url": "https://people.wgtn.ac.nz/taehyun.rhee",
+                "affiliation": "CMIC, Victoria University of Wellington"
+            }
+        ],
+        "url": "assets/papers/2344.98885.777.pdf",
+        "file_info": "PDF, 306kb",
+        "tags": "vr, ar, 360-video, collaboration",
+        "bibtex": "@inproceedings{zaman2023mrmac,\ntitle={MRMAC: Mixed Reality Multi-user Asymmetric Collaboration},\nauthor={Zaman, Faisal and Anslow, Craig and Chalmers, Andrew and Rhee, Taehyun James},\nbooktitle={Proceedings of the IEEE International Symposium on Mixed and Augmented Reality (ISMAR)},\npages={1--10},\nyear={2023}}",
+        "gallery": [
+            {
+                "header": "Submission Video",
+                "type": "video",
+                "ratio": "landscape",
+                "url": "https://www.youtube.com/embed/ucvvg1_1eR0"
+            }
+            
+        ]
+        
+      },
+      {
         "title": "MRMAC: Mixed Reality Multi-user Asymmetric Collaboration",
         "slug": "mrmac",
         "slogan": "",
@@ -48,14 +88,17 @@
                 "url": "https://www.youtube.com/embed/rRfPdnijaiI"
             }
         ],
-        "slides": [
-            {
-                "slide_thumb": "mrmac/mrmac_10m_slides.png",
-                "title": "10min ISMAR talk",
-                "file_info": "PDF, 1.8mb",
-                "pdf": "mrmac/ISMAR2023_MRMAC_slides.pdf"
-            }
-        ]
+        "slides": {
+            "header": "Slides",
+            "list": [
+                {
+                    "slide_thumb": "mrmac/mrmac_10m_slides.png",
+                    "title": "10min ISMAR talk",
+                    "file_info": "PDF, 1.8mb",
+                    "pdf": "mrmac/ISMAR2023_MRMAC_slides.pdf"
+                }
+            ]
+        }
       },
       {
         "title": "Vicarious: Context-aware Viewpoints Selection for Mixed Reality Collaboration",
@@ -100,14 +143,17 @@
                 "url": "https://www.youtube.com/embed/QYR45GyM4Iw"
             }
         ],
-        "slides": [
-            {
-                "slide_thumb": "vicarious/slide_thumb.jpg",
-                "title": "15min VRST talk",
-                "file_info": "PDF, 1.2mb",
-                "pdf": "vicarious/VRST2023_Vicarious_slides.pdf"
-            }
-        ]
+        "slides": {
+            "header": "Slides",
+            "list": [
+                {
+                    "slide_thumb": "vicarious/slide_thumb.jpg",
+                    "title": "15min VRST talk",
+                    "file_info": "PDF, 1.2mb",
+                    "pdf": "vicarious/VRST2023_Vicarious_slides.pdf"
+                }
+            ]
+        }
       },
       {
         "title": "Real-time Stage Modelling and Visual Effects for Live Performances.",
@@ -157,24 +203,192 @@
                 "url": "https://www.youtube.com/embed/7dhnX0XRwew"
             }
         ],
-        "slides": [
-            
+
+        "articles": {
+            "header": "Press Coverage",
+            "list": [
+                {
+                    "header": "Step Into the Virtual Arena With Real-time Stage Modeling and Visual Effects",
+                    "url": "https://blog.siggraph.org/2023/10/step-into-the-virtual-arena-with-real-time-stage-modeling-and-visual-effects.html/"
+                },
+                {
+                    "header": "CMIC wins Audience Choice Award at Real-Time Live! SIGGRAPH 2023",
+                    "url": "https://www.wgtn.ac.nz/cmic/news/real-time-live-wins-peoples-choice-award-at-siggraph-2023"
+                },
+                {
+                    "header": "University project wins award at international computer graphics conference",
+                    "url": "https://www.wgtn.ac.nz/engineering/news/university-project-wins-award-at-international-computer-graphics-conference"
+                }
+            ]
+        }
+      },
+      {
+        "title": "Real-time Auditorium Modelling and Visual Effects for Live Performances.",
+        "slug": "rtauditorium",
+        "slogan": "Why work remotely when you can work Vicariously",
+        "desc": "We present a novel live platform enhancing stage performances with real-time visual effects. Our demo showcases real-time 3D modeling, rendering and blending of assets, and interaction between real and virtual performers. We demonstrate our platform's capabilities with a mixed reality performance featuring virtual and real actors engaged with in-person audiences.",
+        "thumbnail": "rtauditorium/teaser.jpg",
+        "paper_thumb": "rtstage/paper_thumb.jpg",
+        "journal": "ACM SIGGRAPH Asia Real-Time Live! (SIGGRAPH Asia 2023)",
+        "authors": [
+            {
+                "name": "Andrew Chalmers",
+                "url": "https://people.wgtn.ac.nz/andrew.chalmers",
+                "affiliation": "CMIC, Victoria University of Wellington"
+            },
+            {
+                "name": "Faisal Zaman",
+                "url": "https://jquery404.github.io",
+                "affiliation": "CMIC, Victoria University of Wellington"
+            },
+            {
+                "name": "Anna Stangnes",
+                "url": "https://www.wgtn.ac.nz/cmic",
+                "affiliation": "CMIC, Victoria University of Wellington"
+            },
+            {
+                "name": "Taehyun Rhee",
+                "url": "https://people.wgtn.ac.nz/taehyun.rhee",
+                "affiliation": "CMIC, Victoria University of Wellington"
+            }
+        ],
+        "url": "assets/papers/3588430.3597245.pdf",
+        "file_info": "PDF, 3.4mb",
+        "tags": "live visual effects, real-time performance, mixed reality, televerse",
+        "bibtex": "@incollection{chalmers2023real,\ntitle={Real-time Auditorium Modelling and Visual Effects for Live Performances},\nauthor={Chalmers, Andrew and Zaman, Faisal and Stangnes, Anna and Rhee, Taehyun},\nbooktitle={ACM SIGGRAPH ASIA   2023 Real-Time Live!},\npages={1--2},\nyear={2023}}",
+        "gallery": [
+            {
+                "header": "Presentation",
+                "type": "video",
+                "ratio": "landscape",
+                "url": "https://www.youtube.com/embed/P3kS95vIv-Q"
+            },
+            {
+                "header": "Presentation",
+                "type": "video",
+                "ratio": "landscape",
+                "url": "https://www.youtube.com/embed/_UXg0zN6JqI"
+            },
+            {
+                "type": "image",
+                "url": "rtauditorium/pic.jpg"
+            },
+            {
+                "type": "image",
+                "url": "rtauditorium/pic1.jpg"
+            },
+            {
+                "type": "image",
+                "url": "rtauditorium/pic2.jpg"
+            }
         ],
 
-        "articles": [
+        "articles": {
+            "header": "Press Coverage",
+            "list": [
+                {
+                    "header": "SIGGRAPH Asia 2023, Day3 : Real-Time Live! and Omniverse steal the show",
+                    "url": "https://3dvf.com/en/siggraph-asia-2023-day3-real-time-live-and-omniverse-steal-the-show/"
+                }
+            ]
+        }
+      },
+      {
+        "title": "Mixed Reality Multi-user Asymmetric Telecollaboration",
+        "slug": "thesis",
+        "slogan": "Why work remotely when you can work Vicariously",
+        "desc": "Creating a seamless mixed reality (MR) collaborative environment to facilitate natural collaboration between multiple remote and local users within a shared physical space is challenging. Existing collaboration technologies, such as 2D and 3D videoconferencing, as well as virtual reality (VR) solutions, fall short of delivering a fully immersive, real-time, and cohesive collaborative experience for multiple users. Remote users often feel disconnected from the shared physical space. This thesis aims to overcome these limitations by developing a multi-user immersive MR system. The primary objective is to enable remote users to perceive the physical environment and collaborate effectively with local users in real-time. First, a framework is described that enables local users to live-stream their physical environment to multiple remote users while seamlessly blending 3D virtual assets. This provides a more immersive and interactive collaborative space with minimal latency. The system seamlessly integrates these elements, allowing remote and local users to collaborate within physical spaces as if they were present together. Second, the effectiveness of the system is evaluated through performance assessments and user studies. The results of these evaluations demonstrate the system's ability to induce various forms of presence among participants in mixed-reality collaboration. These findings enable a second application that employs a context-aware method for selecting and dynamically switching or highlighting optimal viewpoints based on user actions and the current context. This allows participants to explore the collaboration space from different perspectives. The application is also evaluated, and the results of the evaluation provide insight into enabling effective mixed-perspective collaboration within the multi-user MR system. These findings also show reduced cognitive load and improved task understanding among participants. Thus, it demonstrates its effectiveness in enhancing the collaborative experience.",
+        "thumbnail": "thesis/demo-reel.webm",
+        "paper_thumb": "thesis/paper_thumb.png",
+        "journal": "VUW PhD Thesis (2023)",
+        "authors": [
             {
-                "header": "Step Into the Virtual Arena With Real-time Stage Modeling and Visual Effects",
-                "url": "https://blog.siggraph.org/2023/10/step-into-the-virtual-arena-with-real-time-stage-modeling-and-visual-effects.html/"
-            },
-            {
-                "header": "CMIC wins Audience Choice Award at Real-Time Live! SIGGRAPH 2023",
-                "url": "https://www.wgtn.ac.nz/cmic/news/real-time-live-wins-peoples-choice-award-at-siggraph-2023"
-            },
-            {
-                "header": "University project wins award at international computer graphics conference",
-                "url": "https://www.wgtn.ac.nz/engineering/news/university-project-wins-award-at-international-computer-graphics-conference"
+                "name": "Faisal Zaman",
+                "url": "https://jquery404.github.io",
+                "affiliation": "CMIC, Victoria University of Wellington"
             }
-        ]
+        ],
+        "url": "assets/papers/3588430.3597245.pdf",
+        "file_info": "PDF, 3.4mb",
+        "tags": "360-video, mixed reality, mixed perspective, live streaming",
+        "bibtex": "@book{zaman2023multiuser,\ntitle={Mixed Reality Multi-User Asymmetric Telecollaboration},\nauthor={Zaman, Faisal},\npages={1--159},\nyear={2023},\npublisher={Victoria University of Wellington, New Zealand}",
+        "gallery": [
+            {
+                "header": "Presentation",
+                "type": "video",
+                "ratio": "landscape",
+                "url": "https://www.youtube.com/embed/rRfPdnijaiI"
+            },
+            {
+                "header": "Presentation",
+                "type": "video",
+                "ratio": "landscape",
+                "url": "https://www.youtube.com/embed/QYR45GyM4Iw"
+            },
+            {
+                "header": "Presentation",
+                "type": "video",
+                "ratio": "landscape",
+                "url": "https://www.youtube.com/embed/qAbx7_ReHvY"
+            }
+        ],
+        "slides": {
+            "header": "Slides",
+            "list": [
+                {
+                    "slide_thumb": "mrmac/mrmac_10m_slides.png",
+                    "title": "10min ISMAR talk",
+                    "file_info": "PDF, 1.8mb",
+                    "pdf": "mrmac/ISMAR2023_MRMAC_slides.pdf"
+                },
+                {
+                    "slide_thumb": "vicarious/slide_thumb.jpg",
+                    "title": "15min VRST talk",
+                    "file_info": "PDF, 1.2mb",
+                    "pdf": "vicarious/VRST2023_Vicarious_slides.pdf"
+                }
+            ]
+        },
+        "content": {
+            "header": "What is this Thesis about?",
+            "list": [
+                {
+                    "title": "",
+                    "img": "thesis/teaser.jpg",
+                    "body": "Immersive telecollaboration combines immersive technologies, such as Virtual Reality (VR) or Augmented Reality (AR), with remote collaboration tools to enable multiple users to work together as if they were in the same physical location. This allows geographically distant users (e.g., Bob and David) to come together within the shared virtual space, providing remote participants with a strong sense of telepresence. In telepresence experiences people are rendered as virtual copies and broadcast to a remote location, ideally affording remote embodied collaborative experiences. Researchers have explored systems for shared telepresence and telecollaboration among remote users for decades. While video links offer visual access, they lack the nuanced non-verbal behaviors crucial for effective co-located interactions."
+                },
+                {
+                    "title": "",
+                    "img": "thesis/architechture.jpg",
+                    "body": ""
+                },
+                {
+                    "title": "",
+                    "img": ["thesis/visual_cues.gif", "thesis/annotation.gif", "thesis/gesture.gif"],
+                    "body": ""
+                },
+                {
+                    "title": "Viewpoint Selection Conditions",
+                    "img": ["thesis/no_selection.gif", "thesis/guided.gif", "thesis/automatic.gif"],
+                    "body": "No-view Selection (NS): is a stripped down version of Vicarious with all the view selection tools removed. Instead, users have full control over their viewing perspective without interference.<br/>Manual Selection (MS): allows users to manually choose between ego- or exocentric viewpoints by clicking or moving PiP windows within their field of view. The selected view gradually fills the user's field of view and can be reverted by clicking anywhere on the window.<br/>Guided Selection (GS): refers to the viewpoint selection technique that visually highlights the optimal view from the FoV list to prompt the local user to manually select the optimal viewpoint for the remote user's actions."
+                },
+                {
+                    "title": "Viewpoint Visualization",
+                    "img": ["thesis/zoom.gif", "thesis/pinned.gif", "thesis/follow.gif"],
+                    "body": "To visualize contextual information about important content outside of the user's current view, we overlay other users' points of view on the main thumbnail view, where the user can select them manually or automatically to bring them on top."
+                },
+                {
+                    "title": "",
+                    "img": "thesis/ego_exo.jpg",
+                    "body": "Egocentric View: Live video stream from the local user's AR camera is shared with the remote experts. The video stream is displayed in picture-in-picture (PiP) mode, which smoothly follows the user's field of view or can be anchored or pinned to a fixed location in the world space. Users can interact with the PiP window by clicking on it (using either a VR controller or their hands in case of an AR user).<br/>Exocentric View: A live 360-degree camera, mounted in the local user's space, provides a panoramic view of the environment, which is then streamed to remote users. Remote users can view the video through a VR headset and have 3 degrees of freedom (3-DoF). Each VR user is represented as an avatar, and the movement of avatars is achieved by utilizing inverse kinematics from head and hand tracking"
+                },
+                {
+                    "title": "Visual cues",
+                    "img": ["thesis/panoview.gif", "thesis/point.gif", "thesis/annotate.gif"],
+                    "body": "We integrated visual cues to make it easier for users to communicate and collaborate. We share three visual cues from the remote to the local side"
+                }
+            ]
+        }
       }
     ]
 }
