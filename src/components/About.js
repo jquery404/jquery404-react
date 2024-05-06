@@ -31,11 +31,17 @@ class About extends React.Component
                         <div className="pp"><iframe title="jquery404" className="ppp" src="https://player.vimeo.com/video/29850027?autoplay=1&loop=1&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
                         
                         <p className="my-5">
-                        I create software for all sorts of platforms (<i className="fab fa-windows"></i> / <i className="fab fa-apple"></i> / <i className="fab fa-linux"></i>). 
-                        I use different tools depending on what the project needs (<i className="fab fa-react"></i> / <i className="fab fa-angular"></i> / <i className="fab fa-android"></i> / <i className="fab fa-unity"></i>). 
-                        I've dabbled in electronics, embedded software, and even business intelligence (BI) applications before. 
-                        Right now, I spend most of my days developing XR (<i className="fas fa-vr-cardboard"></i>) tools and getting lost in my thoughts about coding standards, design methodologies, usability, and accessibility. 
-                        And when I'm not doing that, I'm just making some weird stuff like the kind you saw in that video. Cheers!
+                        I develop software for all sorts of platforms (<i className="fab fa-windows"></i> / <i className="fab fa-apple"></i> / <i className="fab fa-linux"></i>) 
+                        using different tools depending on the <Link to="/project">project</Link> needs (<i className="fab fa-react"></i> / <i className="fab fa-angular"></i> / <i className="fab fa-android"></i> / <i className="fab fa-unity"></i>). 
+                        
+                        <br/>
+                        <br/>
+                        I received my Ph.D. in computer graphics at CMIC, Victoria University of Wellington, New Zealand. 
+                        Right now, I spend most of my days <Link to="/research">researching</Link> XR (<i className="fas fa-vr-cardboard"></i>) tools and getting lost in my thoughts about coding standards, design methodologies, usability, and accessibility. 
+                        
+                        <br/>
+                        <br/>
+                        And when I'm not doing that, I watch <Link to="/movies">movies</Link>, take <Link to="/photo">pictures</Link>, or create weird stuff like the kind you saw in that video. Cheers!
                         </p>
                     </div>
 

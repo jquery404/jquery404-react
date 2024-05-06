@@ -28,7 +28,7 @@
         "url": "assets/papers/2344.98885.777.pdf",
         "file_info": "PDF, 306kb",
         "tags": "vr, ar, 360-video, collaboration",
-        "bibtex": "@inproceedings{zaman2023mrmac,\ntitle={MRMAC: Mixed Reality Multi-user Asymmetric Collaboration},\nauthor={Zaman, Faisal and Anslow, Craig and Chalmers, Andrew and Rhee, Taehyun James},\nbooktitle={Proceedings of the IEEE International Symposium on Mixed and Augmented Reality (ISMAR)},\npages={1--10},\nyear={2023}}",
+        "bibtex": "@inproceedings{chalmers2024avatar360,\ntitle={Avatar360: Emulating 6-DoF Perception in 360° Panoramas through Avatar-Assisted Navigation.},\nauthor={Chalmers, Andrew and Zaman, Faisal  and Rhee, Taehyun James},\nbooktitle={Proceedings of the IEEE International Symposium on Mixed and Augmented Reality (ISMAR)},\npages={1--9},\nyear={2024}}",
         "gallery": [
             {
                 "header": "Submission Video",
@@ -37,7 +37,18 @@
                 "url": "https://www.youtube.com/embed/ucvvg1_1eR0"
             }
             
-        ]
+        ],
+        "slides": {
+            "header": "Slides",
+            "list": [
+                {
+                    "slide_thumb": "avatar360/avatar360_ieeevr_24_slides.png",
+                    "title": "15min IEEE VR talk",
+                    "file_info": "PDF, 2.5mb",
+                    "pdf": "avatar360/avatar360_ieeevr_24_slides.pdf"
+                }
+            ]
+        }
         
       },
       {

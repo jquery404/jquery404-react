@@ -42,7 +42,7 @@ class Project extends React.Component
 		this.state = {
 			items:[],
 			gallery: 0,
-			categories:['All', 'Animation', '3D', 'Android', 'Game', 'Web'],
+			categories:['All', 'Web', 'Android', '3D', 'Game', 'Animation'],
 			filter: null,
 			activePage: 1,
 			itemsCountPerPage: 6,

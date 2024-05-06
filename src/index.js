@@ -16,6 +16,7 @@ import UpdateDetails from './components/UpdateDetails';
 import Contact from './components/Contact';
 import Shop from './components/Shop';
 import Note from './components/Note';
+import Movie from './components/Movie';
 import FourZFour from './components/FourZFour';
 
 
@@ -36,6 +37,7 @@ ReactDOM.render(
 				<Route exact path="/contact" component={Contact} />
 				<Route exact path="/shop" component={Shop} />
 				<Route exact path="/note" component={Note} />
+				<Route exact path="/movies" component={Movie} />
 				<Route component={FourZFour} />
 			</Switch>
 		</App>

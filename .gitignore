@@ -40,10 +40,9 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
-<<<<<<< HEAD
-=======
+
 dist/
->>>>>>> 602dbddb177a48ff3401613b7d2172d1f34f5b9a
+
 
 # TypeScript v1 declaration files
 typings/

@@ -14,7 +14,7 @@ class Research extends Component {
             <div className="row portfolioWrap" style={{fontSize:'1rem'}}>
 				<div className="col-sm-10">
 					<h1 className="mt-5">Research Projects</h1>
-					<p className="text-small">I am a PhD candidate at the Computational Media Innovation Centre (CMIC) at the University of Victoria in Wellington, New Zealand. My current research is in the field of human-computer interaction. My research interests include Mixed Reality, eXtended Reality, collaborative immersive analytics, and computer vision. I am passionate about building and improving interactive real-time collaboration systems that highlight core innovation.</p>
+					<p className="text-small">I completed my Ph.D. in computer graphics at the Computational Media Innovation Centre (CMIC) at the Victoria University of Wellington, New Zealand. My current research is in the field of human-computer interaction. My research interests include Mixed Reality, eXtended Reality, collaborative immersive analytics, and computer vision. I am passionate about building and improving interactive real-time collaboration systems that highlight core innovation.</p>
 					<p>I've had the privilege to work on several projects of a diverse nature. Below I list them according to topic (by date), with relevant publications.</p>
 					
 					<a className="p-2" target="_bank" href="https://uhunt.onlinejudge.org/id/261727">
@@ -45,11 +45,11 @@ class Research extends Component {
 							<span className="badge badge-dark tooltips"><i className="fa fa-book"></i> Abstract <i className="tooltiptext tooltip-bottom">{paper.avatar360}</i></span>&nbsp;
 							<span className="badge badge-dark tooltips"><i className="fa fa-quote-right"></i> BibTeX
 								<i className="tooltiptext tooltip-bottom">
-								@inproceedings{'{'}chalmers2023avatar360,<br/>
+								@inproceedings{'{'}chalmers2024avatar360,<br/>
 								title={'{'}Avatar360: Emulating 6-DoF Perception in 360° Panoramas through Avatar-Assisted Navigation{'}'},<br/>
 								author={'{'}Chalmers, Andrew and Zaman, Faisal and Rhee, Taehyun{'}'},<br/>
 								booktitle={'{'}2024 IEEE Conference on Virtual Reality and 3D User Interfaces (IEEE VR){'}'},<br/>
-								pages={'{'}940--941{'}'},<br/>
+								pages={'{'}630--638{'}'},<br/>
 								year={'{'}2024{'}'},<br/>
 								organization={'{'}IEEE{'}'}<br/>
 								{'}'}
