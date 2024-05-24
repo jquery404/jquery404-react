@@ -1,6 +1,78 @@
 {
   "portfolio": [
     {
+      "title": "NexSchool - Unified Learning Management System",
+      "slug": "nexschool",
+      "desc": "NexSchool is a unified school management system and learning management system that act as a centralised system to manage every aspect of a school. I was the Front End Developer, being responsible for the module development, deployment, and maintenance, version control with GIT, UI/UX design and execution",
+      "thumbnail": "nexschool/cover.png",
+      "url": "",
+      "tags": "web",
+      "gallery": [
+        {
+          "type": "image",
+          "url": "nexschool/nexschool_1.jpg"
+        },
+        {
+          "type": "image",
+          "url": "nexschool/nexschool_2.jpg"
+        },
+        {
+          "type": "image",
+          "url": "nexschool/nexschool_3.jpg"
+        },
+        {
+          "type": "image",
+          "url": "nexschool/nexschool_4.jpg"
+        },
+        {
+          "type": "image",
+          "url": "nexschool/nexschool_5.jpg"
+        },
+        {
+          "type": "image",
+          "url": "nexschool/nexschool_6.jpg"
+        },
+        {
+          "type": "image",
+          "url": "nexschool/nexschool_7.jpg"
+        },
+        {
+          "type": "image",
+          "url": "nexschool/nexschool_8.jpg"
+        }
+      ]
+    },
+    {
+      "title": "NexCRM - Sales Automation",
+      "slug": "nexcrm",
+      "desc": "NexCRM is a streamlined sales CRM that was built from the ground up for Malaysian SMEs. Using NexCRM user can add new leads and notes to deals, schedule Pre-Sales Activities, store photos in deals, log phone calls and many more.",
+      "thumbnail": "nexcrm/cover.png",
+      "url": "https://www.nexible.com.my/crm-software-malaysia/",
+      "tags": "web, app, android, ios",
+      "gallery": [
+        {
+          "type": "image",
+          "url": "nexcrm/nexcrm_1.png"
+        },
+        {
+          "type": "image",
+          "url": "nexcrm/nexcrm_2.png"
+        },
+        {
+          "type": "image",
+          "url": "nexcrm/nexcrm_3.png"
+        },
+        {
+          "type": "image",
+          "url": "nexcrm/nexcrm_4.png"
+        },
+        {
+          "type": "image",
+          "url": "nexcrm/nexcrm_5.png"
+        }
+      ]
+    },
+    {
       "title": "Jigmail",
       "slug": "jigmail",
       "desc": "A personalised online card builder that you can solve like a jigsaw puzzle. It allows you to create and design your own online card and send it to a friend in a unique style in under a minute.",
@@ -74,33 +146,6 @@
       ]
     },
     {
-      "title": "Space Terror - Top Down Space Shooter Game",
-      "slug": "space-terror",
-      "desc": "Gameplay of Space Terror - Unity3D Top Down Shooter Game for iOS and Android.",
-      "thumbnail": "space-terror/cover.jpg",
-      "url": "",
-      "tags": "3d, game",
-      "gallery": [
-        {
-          "type": "video",
-          "ratio": "landscape",
-          "url": "https://www.youtube.com/embed/yq4Dhz3x0tk"
-        },
-        {
-          "type": "image",
-          "url": "space-terror/space_terror_1.png"
-        },
-        {
-          "type": "image",
-          "url": "space-terror/space_terror_2.png"
-        },
-        {
-          "type": "image",
-          "url": "space-terror/space_terror_3.png"
-        }
-      ]
-    },
-    {
       "title": "SignatureClub App by IGT",
       "slug": "signatureclub-app-igt",
       "desc": "International Game Technology was an American gaming company based in Las Vegas that manufactured and distributed slot machines and other gaming technology. IGT enables players to experience their favorite games across all channels and regulated segments, from Gaming Machines and Lotteries to Digital and Social Gaming.",
@@ -158,6 +203,33 @@
       ]
     },
     {
+      "title": "MyEG App",
+      "slug": "myeg-app",
+      "desc": "MyEG Services Berhad is a concessionaire for the Malaysian E-Government MSC Flagship Application. I was the senior mobile application developer, being responsible for implementing, and enhancing the mobile application, design and development of UI/UX, version controling etc.",
+      "thumbnail": "myeg/cover.png",
+      "url": "https://play.google.com/store/apps/details?id=mf.myeg.com.eservicemobile",
+      "tags": "app, android",
+      "gallery": [
+        {
+          "type": "video",
+          "ratio": "portrait",
+          "url": "https://www.youtube.com/embed/4xkM0LFEKf0"
+        },
+        {
+          "type": "image",
+          "url": "myeg/myeg_1.png"
+        },
+        {
+          "type": "image",
+          "url": "myeg/myeg_2.png"
+        },
+        {
+          "type": "image",
+          "url": "myeg/myeg_3.png"
+        }
+      ]
+    },
+    {
       "title": "Foodie",
       "slug": "foodie-app",
       "desc": "Food delivery app mockup for android. Written in java. Its highly customizable and design can be changed based on the project needs. Feel free to contact me for a demo.",
@@ -184,6 +256,33 @@
         {
           "type": "image",
           "url": "foodie/foodie_4.jpg"
+        }
+      ]
+    },
+    {
+      "title": "Space Terror - Top Down Space Shooter Game",
+      "slug": "space-terror",
+      "desc": "Gameplay of Space Terror - Unity3D Top Down Shooter Game for iOS and Android.",
+      "thumbnail": "space-terror/cover.jpg",
+      "url": "",
+      "tags": "3d, game",
+      "gallery": [
+        {
+          "type": "video",
+          "ratio": "landscape",
+          "url": "https://www.youtube.com/embed/yq4Dhz3x0tk"
+        },
+        {
+          "type": "image",
+          "url": "space-terror/space_terror_1.png"
+        },
+        {
+          "type": "image",
+          "url": "space-terror/space_terror_2.png"
+        },
+        {
+          "type": "image",
+          "url": "space-terror/space_terror_3.png"
         }
       ]
     },
@@ -215,105 +314,6 @@
         {
           "type": "image",
           "url": "musicalight/musicalight_4.jpg"
-        }
-      ]
-    },
-    {
-      "title": "NexSchool - Unified Learning Management System",
-      "slug": "nexschool",
-      "desc": "NexSchool is a unified school management system and learning management system that act as a centralised system to manage every aspect of a school. I was the Front End Developer, being responsible for the module development, deployment, and maintenance, version control with GIT, UI/UX design and execution",
-      "thumbnail": "nexschool/cover.png",
-      "url": "",
-      "tags": "web",
-      "gallery": [
-        {
-          "type": "image",
-          "url": "nexschool/nexschool_1.jpg"
-        },
-        {
-          "type": "image",
-          "url": "nexschool/nexschool_2.jpg"
-        },
-        {
-          "type": "image",
-          "url": "nexschool/nexschool_3.jpg"
-        },
-        {
-          "type": "image",
-          "url": "nexschool/nexschool_4.jpg"
-        },
-        {
-          "type": "image",
-          "url": "nexschool/nexschool_5.jpg"
-        },
-        {
-          "type": "image",
-          "url": "nexschool/nexschool_6.jpg"
-        },
-        {
-          "type": "image",
-          "url": "nexschool/nexschool_7.jpg"
-        },
-        {
-          "type": "image",
-          "url": "nexschool/nexschool_8.jpg"
-        }
-      ]
-    },
-    {
-      "title": "NexCRM - Sales Automation",
-      "slug": "nexcrm",
-      "desc": "NexCRM is a streamlined sales CRM that was built from the ground up for Malaysian SMEs. Using NexCRM user can add new leads and notes to deals, schedule Pre-Sales Activities, store photos in deals, log phone calls and many more.",
-      "thumbnail": "nexcrm/cover.png",
-      "url": "https://www.nexible.com.my/crm-software-malaysia/",
-      "tags": "web, app, android, ios",
-      "gallery": [
-        {
-          "type": "image",
-          "url": "nexcrm/nexcrm_1.png"
-        },
-        {
-          "type": "image",
-          "url": "nexcrm/nexcrm_2.png"
-        },
-        {
-          "type": "image",
-          "url": "nexcrm/nexcrm_3.png"
-        },
-        {
-          "type": "image",
-          "url": "nexcrm/nexcrm_4.png"
-        },
-        {
-          "type": "image",
-          "url": "nexcrm/nexcrm_5.png"
-        }
-      ]
-    },
-    {
-      "title": "MyEG App",
-      "slug": "myeg-app",
-      "desc": "MyEG Services Berhad is a concessionaire for the Malaysian E-Government MSC Flagship Application. I was the senior mobile application developer, being responsible for implementing, and enhancing the mobile application, design and development of UI/UX, version controling etc.",
-      "thumbnail": "myeg/cover.png",
-      "url": "https://play.google.com/store/apps/details?id=mf.myeg.com.eservicemobile",
-      "tags": "app, android",
-      "gallery": [
-        {
-          "type": "video",
-          "ratio": "portrait",
-          "url": "https://www.youtube.com/embed/4xkM0LFEKf0"
-        },
-        {
-          "type": "image",
-          "url": "myeg/myeg_1.png"
-        },
-        {
-          "type": "image",
-          "url": "myeg/myeg_2.png"
-        },
-        {
-          "type": "image",
-          "url": "myeg/myeg_3.png"
         }
       ]
     },

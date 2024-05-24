@@ -313,9 +313,9 @@ class Movie extends React.Component {
           <div className="row">
             {movFiles.map((file) => (
               <div key={file.id} className="col-sm-2">
-              <div className="card">
+              <div className="card my-1">
                 {file.imageUrl && <img className="card-img-top" src={file.imageUrl} alt={file.title} />}
-                <div className="card-body">
+                <div className="card-body" style={{"display":"none"}}>
                   {file.titleType === 'tvSeries' || file.titleType === 'tvEpisode' ? (
                     <div>
                       <h5 className="card-title">{file.title} ({file.seriesStartYear}-{file.seriesEndYear})</h5>

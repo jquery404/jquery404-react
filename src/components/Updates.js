@@ -1,5 +1,6 @@
 import React from 'react';
-import {events, EventCard} from './Events';
+import {events} from './Events';
+import {EventCard} from './Helper';
 
 class Updates extends React.Component
 {  

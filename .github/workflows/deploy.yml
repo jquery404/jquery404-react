@@ -1,0 +1,46 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master 
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # Use the version of Node.js your project requires
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build the project
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Clone the gitpage-io repository
+          git clone https://github.com/jquery404/jquery404.github.io.git deploy-repo
+          cd deploy-repo
+          git pull origin main  # Ensure we have the latest code
+
+          # Copy the build files to the deploy-repo
+          rm -rf *
+          cp -R ../build/* .
+
+          # Commit and push the changes
+          git add .
+          git commit -m "Deploy from gitpage-react: ${GITHUB_SHA}"
+          git push origin main
+
+      - name: Clean up
+        run: rm -rf deploy-repo

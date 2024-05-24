@@ -1,4 +1,4 @@
-import React from "react";
+
 
 const events = [
     {
@@ -103,21 +103,5 @@ const events = [
     }
 ];
 
-const EventCard = ({ data }) => 
-    <div className="update-c card mb-2">
-        <div className="card-horizontal">
-            <div className="img-square-wrapper" style={{backgroundImage:`url(${data.thumb})`}}>......</div>
-            <div className="update-card card-body m-0 p-1">
-                <small>{data.date}</small>
-                {data.award && <i className="fa fa-award event-award" title={data.award}></i>}
-                <small className={`float-right badge ${data.role === 'presented' ? 'badge-warning' : 'badge-info'}`}>
-                    {data.role}
-                </small><br/>
-                <a href={data.url} target="_blank"><b className="mb-1">{data.title}</b></a>
-                <p className="mb-1">{data.place}</p>
-                <small dangerouslySetInnerHTML={{ __html: data.html }} />
-            </div>
-        </div>
-    </div>
-    
-export { events, EventCard };
+
+export { events };

@@ -32,10 +32,10 @@ class Blog extends React.Component {
                         <h1>Blog</h1>
                         <div>
                             {items.map((item, i) => 
-                                <div key={i}>
+                                <div key={i} className="mb-5">
                                     <h3><Link to={`/blog/${item.number}`}>{item.title}</Link></h3>
                                     <span className="meta-blog"><i>by {item.user.login} - {this.minRead(item.body.length)}</i> &nbsp;<i className="fa fa-comment" aria-hidden="true"></i>{item.comments}</span>
-                                    <p className="pt-3"><ReactMarkdown source={item.body} escapeHtml={false} /></p>
+                                    <div className="pt-3"><ReactMarkdown source={item.body} escapeHtml={false} /></div>
                                     <hr></hr>
                                 </div> 
                             )}

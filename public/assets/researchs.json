@@ -1,0 +1,538 @@
+{
+    "project": [
+        {
+            "title": "Multi-User XR Collaboration for High Fidelity Immersive Telepresence",
+            "type": "project",
+            "publications": [
+                {
+                    "thumbnail": "thesis.gif",
+                    "authors": "<b>Faisal Zaman</b>.",
+                    "paper": "2344.98885.777.pdf",
+                    "title": "Mixed Reality Multi-user Asymmetric Telecollaboration.",
+                    "venue": "Doctoral Dissertation, Victoria University of Wellington.",
+                    "links": {
+                        "project": "/r/thesis",
+                        "pdf": "/r/avatar360.pdf",
+                        "abstract": "360° images offer panoramic views of captured environments, placing users within an egocentric perspective. While users can freely rotate their viewpoint, they don’t experience 6-DoF navigation with translational movement. In this research, we introduce Avatar360, a novel method to elicit 6-DoF perception in 360° panoramas, using avatar-assisted navigation combined with an exocentric view of the 360° panorama. We seamlessly integrate a 3D avatar into 360° panoramas, allowing users to navigate a 3D virtual landscape congruent with the 360° background. By aligning the exocentric perspective of the 360° panorama with the avatar’s movements, we replicate a sensation of 6-DoF navigation in 360° panoramas. We explore mechanisms for simultaneous avatar and viewpoint controls, as well as procedures for transitions between spatially connected 360° panoramas. A user study was conducted to assess the perception of 6-DoF navigation in 360° panoramas via a 3D avatar, evaluating users’ sense of movement, disorientation, and presence. We also gained insight into perspective view controls and transition techniques between panoramas. Statistical analysis shows avatar-assisted navigation elicits a user’s sense of movement within 360° panoramas. Our results also provide guidelines for effective view control and transition strategies in avatar-assisted 360° navigation.",
+                        "bibtex": "@inproceedings{chalmers2024avatar360,\n  title={Avatar360: Emulating 6-DoF Perception in 360° Panoramas through Avatar-Assisted Navigation},\n  author={Chalmers, Andrew and Zaman, Faisal and Rhee, Taehyun},\n  booktitle={2024 IEEE Conference on Virtual Reality and 3D User Interfaces (IEEE VR)},\n  pages={630--638},\n  year={2024},\n  organization={IEEE}\n}",
+                        "video": "https://youtu.be/ucvvg1_1eR0"
+                    }
+                },
+                {
+                    "thumbnail": "avatar360.gif",
+                    "authors": "Andrew Chalmers, <b>Faisal Zaman</b>, and Taehyun Rhee",
+                    "paper": "2344.98885.777.pdf",
+                    "title": "Avatar360: Emulating 6-DoF Perception in 360° Panoramas through Avatar-Assisted Navigation",
+                    "venue": "In 31st IEEE Conference on Virtual Reality and 3D User Interfaces (IEEE VR), 2024, Orlando, FL, USA",
+                    "links": {
+                        "project": "/r/avatar360",
+                        "pdf": "/r/avatar360.pdf",
+                        "abstract": "360° images offer panoramic views of captured environments, placing users within an egocentric perspective. While users can freely rotate their viewpoint, they don’t experience 6-DoF navigation with translational movement. In this research, we introduce Avatar360, a novel method to elicit 6-DoF perception in 360° panoramas, using avatar-assisted navigation combined with an exocentric view of the 360° panorama. We seamlessly integrate a 3D avatar into 360° panoramas, allowing users to navigate a 3D virtual landscape congruent with the 360° background. By aligning the exocentric perspective of the 360° panorama with the avatar’s movements, we replicate a sensation of 6-DoF navigation in 360° panoramas. We explore mechanisms for simultaneous avatar and viewpoint controls, as well as procedures for transitions between spatially connected 360° panoramas. A user study was conducted to assess the perception of 6-DoF navigation in 360° panoramas via a 3D avatar, evaluating users’ sense of movement, disorientation, and presence. We also gained insight into perspective view controls and transition techniques between panoramas. Statistical analysis shows avatar-assisted navigation elicits a user’s sense of movement within 360° panoramas. Our results also provide guidelines for effective view control and transition strategies in avatar-assisted 360° navigation.",
+                        "bibtex": "@inproceedings{chalmers2024avatar360,\n  title={Avatar360: Emulating 6-DoF Perception in 360° Panoramas through Avatar-Assisted Navigation},\n  author={Chalmers, Andrew and Zaman, Faisal and Rhee, Taehyun},\n  booktitle={2024 IEEE Conference on Virtual Reality and 3D User Interfaces (IEEE VR)},\n  pages={630--638},\n  year={2024},\n  organization={IEEE}\n}",
+                        "video": "https://youtu.be/ucvvg1_1eR0"
+                    }
+                },
+                {
+                    "thumbnail": "mrmac.gif",
+                    "authors": "<b>Faisal Zaman</b>, Craig Anslow, Andrew Chalmers, and Taehyun Rhee",
+                    "paper": "5663557.997664.pdf",
+                    "title": "MRMAC: Mixed Reality Multi-user Asymmetric Collaboration",
+                    "venue": "In Proceedings of the IEEE International Symposium on Mixed and Augmented Reality (ISMAR), Sydney, Australia, 2023",
+                    "links": {
+                        "project": "/r/mrmac",
+                        "pdf": "/r/avatar360.pdf",
+                        "abstract": "We present MRMAC, a Mixed Reality Multi-user Asymmetric Collaboration system that allows remote users to teleport virtually into a real-world collaboration space to communicate and collaborate with local users. Our system enables telepresence for remote users by live-streaming the physical environment of local users using a 360-degree camera while blending 3D virtual assets into the mixed-reality collaboration space. Our novel client-server architecture enables asymmetric collaboration for multiple AR and VR users and incorporates avatars, view controls, as well as synchronized low-latency audio, video, and asset streaming. We evaluated our implementation with two baseline conditions: conventional 2D and standard 360 videoconferencing. Results show that MRMAC outperformed both baselines in inducing a sense of presence, improving task performance, usability, and overall user preference, demonstrating its potential for immersive multi-user telecollaboration.\n",
+                        "bibtex": "@inproceedings{chalmers2024avatar360,\n  title={Avatar360: Emulating 6-DoF Perception in 360° Panoramas through Avatar-Assisted Navigation},\n  author={Chalmers, Andrew and Zaman, Faisal and Rhee, Taehyun},\n  booktitle={2024 IEEE Conference on Virtual Reality and 3D User Interfaces (IEEE VR)},\n  pages={630--638},\n  year={2024},\n  organization={IEEE}\n}",
+                        "video": "/r/mrmac"
+                    }
+                },
+                {
+                    "thumbnail": "vicarious.gif",
+                    "authors": "Andrew Chalmers, <b>Faisal Zaman</b>, and Taehyun Rhee",
+                    "paper": "2344.98885.777.pdf",
+                    "title": "Vicarious: Context-aware Viewpoints Selection for Mixed Reality Collaboration",
+                    "venue": "In Proceedings of the ACM Symposium on Virtual Reality Software and Technology (VRST), Christchurch, New Zealand, 2023",
+                    "links": {
+                        "project": "/r/avatar360",
+                        "pdf": "/r/avatar360.pdf",
+                        "abstract": "360° images offer panoramic views of captured environments, placing users within an egocentric perspective. While users can freely rotate their viewpoint, they don’t experience 6-DoF navigation with translational movement. In this research, we introduce Avatar360, a novel method to elicit 6-DoF perception in 360° panoramas, using avatar-assisted navigation combined with an exocentric view of the 360° panorama. We seamlessly integrate a 3D avatar into 360° panoramas, allowing users to navigate a 3D virtual landscape congruent with the 360° background. By aligning the exocentric perspective of the 360° panorama with the avatar’s movements, we replicate a sensation of 6-DoF navigation in 360° panoramas. We explore mechanisms for simultaneous avatar and viewpoint controls, as well as procedures for transitions between spatially connected 360° panoramas. A user study was conducted to assess the perception of 6-DoF navigation in 360° panoramas via a 3D avatar, evaluating users’ sense of movement, disorientation, and presence. We also gained insight into perspective view controls and transition techniques between panoramas. Statistical analysis shows avatar-assisted navigation elicits a user’s sense of movement within 360° panoramas. Our results also provide guidelines for effective view control and transition strategies in avatar-assisted 360° navigation.",
+                        "bibtex": "@inproceedings{chalmers2024avatar360,\n  title={Avatar360: Emulating 6-DoF Perception in 360° Panoramas through Avatar-Assisted Navigation},\n  author={Chalmers, Andrew and Zaman, Faisal and Rhee, Taehyun},\n  booktitle={2024 IEEE Conference on Virtual Reality and 3D User Interfaces (IEEE VR)},\n  pages={630--638},\n  year={2024},\n  organization={IEEE}\n}",
+                        "video": "https://youtu.be/ucvvg1_1eR0"
+                    }
+                },
+                {
+                    "thumbnail": "rsmflp.jpg",
+                    "authors": "Taehyun Rhee, Andrew Chalmers, <b>Faisal Zaman</b>, Anna Stangnes, Vic Roberts",
+                    "paper": "2344.98885.777.pdf",
+                    "title": "Real-time Stage Modelling and Visual Effects for Live Performances",
+                    "venue": "ACM SIGGRAPH Real-Time Live!, Los Angeles, USA, 2023",
+                    "links": {
+                        "project": "/r/avatar360",
+                        "pdf": "/r/avatar360.pdf",
+                        "abstract": "360° images offer panoramic views of captured environments, placing users within an egocentric perspective. While users can freely rotate their viewpoint, they don’t experience 6-DoF navigation with translational movement. In this research, we introduce Avatar360, a novel method to elicit 6-DoF perception in 360° panoramas, using avatar-assisted navigation combined with an exocentric view of the 360° panorama. We seamlessly integrate a 3D avatar into 360° panoramas, allowing users to navigate a 3D virtual landscape congruent with the 360° background. By aligning the exocentric perspective of the 360° panorama with the avatar’s movements, we replicate a sensation of 6-DoF navigation in 360° panoramas. We explore mechanisms for simultaneous avatar and viewpoint controls, as well as procedures for transitions between spatially connected 360° panoramas. A user study was conducted to assess the perception of 6-DoF navigation in 360° panoramas via a 3D avatar, evaluating users’ sense of movement, disorientation, and presence. We also gained insight into perspective view controls and transition techniques between panoramas. Statistical analysis shows avatar-assisted navigation elicits a user’s sense of movement within 360° panoramas. Our results also provide guidelines for effective view control and transition strategies in avatar-assisted 360° navigation.",
+                        "bibtex": "@inproceedings{chalmers2024avatar360,\n  title={Avatar360: Emulating 6-DoF Perception in 360° Panoramas through Avatar-Assisted Navigation},\n  author={Chalmers, Andrew and Zaman, Faisal and Rhee, Taehyun},\n  booktitle={2024 IEEE Conference on Virtual Reality and 3D User Interfaces (IEEE VR)},\n  pages={630--638},\n  year={2024},\n  organization={IEEE}\n}",
+                        "video": "https://youtu.be/ucvvg1_1eR0",
+                        "award": "Audience Choice Award"
+                    }
+                },
+                {
+                    "thumbnail": "ramflp.jpg",
+                    "authors": "Andrew Chalmers, Faisal Zaman, Anna Stangnes, Taehyun Rhee",
+                    "paper": "2344.98885.777.pdf",
+                    "title": "Real-time Auditorium Modelling and Visual Effects for Live Performances",
+                    "venue": "ACM SIGGRAPH Real-Time Live!, Los Angeles, USA, 2023",
+                    "links": {
+                        "project": "/r/avatar360",
+                        "pdf": "/r/avatar360.pdf",
+                        "abstract": "360° images offer panoramic views of captured environments, placing users within an egocentric perspective. While users can freely rotate their viewpoint, they don’t experience 6-DoF navigation with translational movement. In this research, we introduce Avatar360, a novel method to elicit 6-DoF perception in 360° panoramas, using avatar-assisted navigation combined with an exocentric view of the 360° panorama. We seamlessly integrate a 3D avatar into 360° panoramas, allowing users to navigate a 3D virtual landscape congruent with the 360° background. By aligning the exocentric perspective of the 360° panorama with the avatar’s movements, we replicate a sensation of 6-DoF navigation in 360° panoramas. We explore mechanisms for simultaneous avatar and viewpoint controls, as well as procedures for transitions between spatially connected 360° panoramas. A user study was conducted to assess the perception of 6-DoF navigation in 360° panoramas via a 3D avatar, evaluating users’ sense of movement, disorientation, and presence. We also gained insight into perspective view controls and transition techniques between panoramas. Statistical analysis shows avatar-assisted navigation elicits a user’s sense of movement within 360° panoramas. Our results also provide guidelines for effective view control and transition strategies in avatar-assisted 360° navigation.",
+                        "bibtex": "@inproceedings{chalmers2024avatar360,\n  title={Avatar360: Emulating 6-DoF Perception in 360° Panoramas through Avatar-Assisted Navigation},\n  author={Chalmers, Andrew and Zaman, Faisal and Rhee, Taehyun},\n  booktitle={2024 IEEE Conference on Virtual Reality and 3D User Interfaces (IEEE VR)},\n  pages={630--638},\n  year={2024},\n  organization={IEEE}\n}",
+                        "video": "https://youtu.be/ucvvg1_1eR0"
+                    }
+                },
+                {
+                    "thumbnail": "mxrc-dc.png",
+                    "authors": "<b>Faisal Zaman</b>",
+                    "paper": "2344.98885.777.pdf",
+                    "title": "[DC] Improving Multi-User Interaction for Mixed Reality Telecollaboration",
+                    "venue": "In 29th IEEE Conference on Virtual Reality and 3D User Interfaces, 2022. Christchurch, New Zealand",
+                    "links": {
+                        "pdf": "/r/avatar360.pdf",
+                        "abstract": "360° images offer panoramic views of captured environments, placing users within an egocentric perspective. While users can freely rotate their viewpoint, they don’t experience 6-DoF navigation with translational movement. In this research, we introduce Avatar360, a novel method to elicit 6-DoF perception in 360° panoramas, using avatar-assisted navigation combined with an exocentric view of the 360° panorama. We seamlessly integrate a 3D avatar into 360° panoramas, allowing users to navigate a 3D virtual landscape congruent with the 360° background. By aligning the exocentric perspective of the 360° panorama with the avatar’s movements, we replicate a sensation of 6-DoF navigation in 360° panoramas. We explore mechanisms for simultaneous avatar and viewpoint controls, as well as procedures for transitions between spatially connected 360° panoramas. A user study was conducted to assess the perception of 6-DoF navigation in 360° panoramas via a 3D avatar, evaluating users’ sense of movement, disorientation, and presence. We also gained insight into perspective view controls and transition techniques between panoramas. Statistical analysis shows avatar-assisted navigation elicits a user’s sense of movement within 360° panoramas. Our results also provide guidelines for effective view control and transition strategies in avatar-assisted 360° navigation.",
+                        "bibtex": "@inproceedings{chalmers2024avatar360,\n  title={Avatar360: Emulating 6-DoF Perception in 360° Panoramas through Avatar-Assisted Navigation},\n  author={Chalmers, Andrew and Zaman, Faisal and Rhee, Taehyun},\n  booktitle={2024 IEEE Conference on Virtual Reality and 3D User Interfaces (IEEE VR)},\n  pages={630--638},\n  year={2024},\n  organization={IEEE}\n}",
+                        "video": "https://youtu.be/ucvvg1_1eR0"
+                    }
+                }
+            ]
+        },
+        {
+            "title": "TensorFlow Lite for Mobile Development",
+            "type": "book",
+            "publications": [
+                {
+                    "thumbnail": "tflite.jpg",
+                    "authors": "<p>TensorFlow Lite for Mobile Development: Deploy Machine Learning Models on Embedded and Mobile Devices.</p><p><b>Released:</b> November, 2020.<br/><b>Publisher(s):</b> Apress<br/><b>ISBN:</b> 9781484266663</p><b>Publications:</b><ul><li><a target='_blank' rel='noopener noreferrer' href='https://www.oreilly.com/library/view/tensorflow-lite-for/9781484266663/'>oreilly/tensorflow-lite</a></li><li><a target='_blank' rel='noopener noreferrer' href='https://link.springer.com/video/10.1007/978-1-4842-6666-3'>springer/10.1007/978-1-4842-6666-3</a></li></ul>",
+                    "links": {
+                        
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Cookbook - The Oregano Sage",
+            "type": "book",
+            "publications": [
+                {
+                    "thumbnail": "the-oregano-sage.jpg",
+                    "authors": "This recipe book represents menu items that I came up with over the course of 2021. They are the essence of what kept me sane and kept me going as I went through the pandemic, research, and life.</p>",
+                    "links": {
+                        
+                    }
+                }
+            ]
+        }
+    ],
+    
+    "research": [
+      {
+        "title": "Avatar360: Emulating 6-DoF Perception in 360° Panoramas through Avatar-Assisted Navigation.",
+        "slug": "avatar360",
+        "slogan": "",
+        "desc": "360° images offer panoramic views of captured environments, placing users within an egocentric perspective. While users can freely rotate their viewpoint, they don’t experience 6-DoF navigation with translational movement. In this research, we introduce Avatar360, a novel method to elicit 6-DoF perception in 360° panoramas, using avatar-assisted navigation combined with an exocentric view of the 360° panorama. We seamlessly integrate a 3D avatar into 360° panoramas, allowing users to navigate a 3D virtual landscape congruent with the 360° background. By aligning the exocentric perspective of the 360° panorama with the avatar’s movements, we replicate a sensation of 6-DoF navigation in 360° panoramas. We explore mechanisms for simultaneous avatar and viewpoint controls, as well as procedures for transitions between spatially connected 360° panoramas. A user study was conducted to assess the perception of 6-DoF navigation in 360° panoramas via a 3D avatar, evaluating users’ sense of movement, disorientation, and presence. We also gained insight into perspective view controls and transition techniques between panoramas. Statistical analysis shows avatar-assisted navigation elicits a user’s sense of movement within 360° panoramas. Our results also provide guidelines for effective view control and transition strategies in avatar-assisted 360° navigation.",
+        "thumbnail": "avatar360/avatar360.png",
+        "paper_thumb": "avatar360/paper_thumb.jpg",
+        "journal": "IEEE Conference on Virtual Reality and 3D User Interfaces (IEEE VR 2024)",
+        "authors": [
+            {
+                "name": "Andrew Chalmers",
+                "url": "https://people.wgtn.ac.nz/andrew.chalmers",
+                "affiliation": "CMIC, Victoria University of Wellington"
+            },
+            {
+                "name": "Faisal Zaman",
+                "url": "https://jquery404.github.io",
+                "affiliation": "CMIC, Victoria University of Wellington"
+            },
+            {
+                "name": "Taehyun Rhee",
+                "url": "https://people.wgtn.ac.nz/taehyun.rhee",
+                "affiliation": "CMIC, Victoria University of Wellington"
+            }
+        ],
+        "url": "assets/papers/2344.98885.777.pdf",
+        "file_info": "PDF, 306kb",
+        "tags": "vr, ar, 360-video, collaboration",
+        "bibtex": "@inproceedings{chalmers2024avatar360,\ntitle={Avatar360: Emulating 6-DoF Perception in 360° Panoramas through Avatar-Assisted Navigation.},\nauthor={Chalmers, Andrew and Zaman, Faisal  and Rhee, Taehyun James},\nbooktitle={Proceedings of the IEEE International Symposium on Mixed and Augmented Reality (ISMAR)},\npages={1--9},\nyear={2024}}",
+        "gallery": [
+            {
+                "header": "Submission Video",
+                "type": "video",
+                "ratio": "landscape",
+                "url": "https://www.youtube.com/embed/ucvvg1_1eR0"
+            }
+            
+        ],
+        "slides": {
+            "header": "Slides",
+            "list": [
+                {
+                    "slide_thumb": "avatar360/avatar360_ieeevr_24_slides.png",
+                    "title": "15min IEEE VR talk",
+                    "file_info": "PDF, 2.5mb",
+                    "pdf": "avatar360/avatar360_ieeevr_24_slides.pdf"
+                }
+            ]
+        }
+        
+      },
+      {
+        "title": "MRMAC: Mixed Reality Multi-user Asymmetric Collaboration",
+        "slug": "mrmac",
+        "slogan": "",
+        "desc": "We present MRMAC, a Mixed Reality Multi-user Asymmetric Collaboration system that allows remote users to teleport virtually into a real-world collaboration space to communicate and collaborate with local users. Our system enables telepresence for remote users by live-streaming the physical environment of local users using a 360-degree camera while blending 3D virtual assets into the mixed-reality collaboration space. Our novel client-server architecture enables asymmetric collaboration for multiple AR and VR users and incorporates avatars, view controls, as well as synchronized low-latency audio, video, and asset streaming. We evaluated our implementation with two baseline conditions: conventional 2D and standard 360-degree videoconferencing. Results show that MRMAC outperformed both baselines in inducing a sense of presence, improving task performance, usability, and overall user preference, demonstrating its potential for immersive multi-user telecollaboration.",
+        "thumbnail": "mrmac/mrmac-teaser.png",
+        "paper_thumb": "mrmac/mrmac-pdf.jpg",
+        "journal": "IEEE International Symposium on Mixed and Augmented Reality (ISMAR 2023)",
+        "authors": [
+            {
+                "name": "Faisal Zaman",
+                "url": "https://jquery404.github.io",
+                "affiliation": "CMIC, Victoria University of Wellington"
+            },
+            {
+                "name": "Craig Anslow",
+                "url": "https://homepages.ecs.vuw.ac.nz/~craig/",
+                "affiliation": "ECS, Victoria University of Wellington"
+            },
+            {
+                "name": "Andrew Chalmers",
+                "url": "https://people.wgtn.ac.nz/andrew.chalmers",
+                "affiliation": "CMIC, Victoria University of Wellington"
+            },
+            {
+                "name": "Taehyun Rhee",
+                "url": "https://people.wgtn.ac.nz/taehyun.rhee",
+                "affiliation": "CMIC, Victoria University of Wellington"
+            }
+        ],
+        "url": "assets/papers/5663557.997664.pdf",
+        "file_info": "PDF, 7.6mb",
+        "tags": "vr, ar, 360-video, collaboration",
+        "bibtex": "@inproceedings{zaman2023mrmac,\ntitle={MRMAC: Mixed Reality Multi-user Asymmetric Collaboration},\nauthor={Zaman, Faisal and Anslow, Craig and Chalmers, Andrew and Rhee, Taehyun James},\nbooktitle={Proceedings of the IEEE International Symposium on Mixed and Augmented Reality (ISMAR)},\npages={1--10},\nyear={2023}}",
+        "gallery": [
+            {
+                "header": "Submission Video",
+                "type": "video",
+                "ratio": "landscape",
+                "url": "https://www.youtube.com/embed/ReZbxpT1LqE"
+            },
+            {
+                "header": "Presentation Video",
+                "type": "video",
+                "ratio": "landscape",
+                "url": "https://www.youtube.com/embed/rRfPdnijaiI"
+            }
+        ],
+        "slides": {
+            "header": "Slides",
+            "list": [
+                {
+                    "slide_thumb": "mrmac/mrmac_10m_slides.png",
+                    "title": "10min ISMAR talk",
+                    "file_info": "PDF, 1.8mb",
+                    "pdf": "mrmac/ISMAR2023_MRMAC_slides.pdf"
+                }
+            ]
+        }
+      },
+      {
+        "title": "Vicarious: Context-aware Viewpoints Selection for Mixed Reality Collaboration",
+        "slug": "vicarious",
+        "slogan": "Why work remotely when you can work Vicariously",
+        "desc": "Mixed-perspective, combining egocentric (first-person) and exocentric (third-person) viewpoints, have been shown to improve the collaborative experience in remote settings. Such experiences allow remote users to switch between different viewpoints to gain alternative perspectives of the remote space. However, existing systems lack seamless selection and transition between multiple perspectives that better fit the task at hand. To address this, we present a new approach called Vicarious, which simplifies and automates the selection between egocentric and exocentric viewpoints. Vicarious employs a context-aware method for dynamically switching or highlighting the optimal viewpoint based on user actions and the current context. To evaluate the effectiveness of the viewpoint selection method, we conducted a user study (n = 27) using an asymmetric AR-VR setup where users performed remote collaboration tasks under four distinct conditions: No-view, Manual, Guided, and Automatic selection. The results showed that Guided and Automatic viewpoint selection improved users’ understanding of the task space and task performance, and reduced cognitive load compared to Manual or No-view selection. The results also suggest that the asymmetric setup had minimal impact on spatial and social presence, except for differences in task load and preference. Based on these findings, we provide design implications for future research in mixed reality collaboration.",
+        "thumbnail": "vicarious/teaser.jpg",
+        "paper_thumb": "vicarious/paper_thumb.jpg",
+        "journal": "ACM Symposium on Virtual Reality Software and Technology (VRST 2023)",
+        "authors": [
+            {
+                "name": "Faisal Zaman",
+                "url": "https://jquery404.github.io",
+                "affiliation": "CMIC, Victoria University of Wellington"
+            },
+            {
+                "name": "Craig Anslow",
+                "url": "https://homepages.ecs.vuw.ac.nz/~craig/",
+                "affiliation": "ECS, Victoria University of Wellington"
+            },
+            {
+                "name": "Taehyun Rhee",
+                "url": "https://people.wgtn.ac.nz/taehyun.rhee",
+                "affiliation": "CMIC, Victoria University of Wellington"
+            }
+        ],
+        "url": "assets/papers/3677878.996443.pdf",
+        "file_info": "PDF, 18.4mb",
+        "tags": "vr, ar, 360-video, viewpoint sharing, collaboration",
+        "bibtex": "@inproceedings{zaman2023vicarious,\ntitle={Vicarious: Context-aware Viewpoints Selection for Mixed Reality Collaboration},\nauthor={Zaman, Faisal and Anslow, Craig and Rhee, Taehyun James},\nbooktitle={Proceedings of the 29th ACM Symposium on Virtual Reality Software and Technology},\npages={1--11},\nyear={2023}}",
+        "gallery": [
+            {
+                "header": "Submission Video",
+                "type": "video",
+                "ratio": "landscape",
+                "url": "https://www.youtube.com/embed/peyOakF4dmg"
+            },
+            {
+                "header": "Presentation Video",
+                "type": "video",
+                "ratio": "landscape",
+                "url": "https://www.youtube.com/embed/QYR45GyM4Iw"
+            }
+        ],
+        "slides": {
+            "header": "Slides",
+            "list": [
+                {
+                    "slide_thumb": "vicarious/slide_thumb.jpg",
+                    "title": "15min VRST talk",
+                    "file_info": "PDF, 1.2mb",
+                    "pdf": "vicarious/VRST2023_Vicarious_slides.pdf"
+                }
+            ]
+        }
+      },
+      {
+        "title": "Real-time Stage Modelling and Visual Effects for Live Performances.",
+        "slug": "rtstage",
+        "slogan": "Why work remotely when you can work Vicariously",
+        "desc": "We present a novel live platform enhancing stage performances with real-time visual effects. Our demo showcases real-time 3D modeling, rendering and blending of assets, and interaction between real and virtual performers. We demonstrate our platform's capabilities with a mixed reality performance featuring virtual and real actors engaged with in-person audiences.",
+        "thumbnail": "rtstage/teaser.jpg",
+        "paper_thumb": "rtstage/paper_thumb.jpg",
+        "journal": "ACM SIGGRAPH Real-Time Live! (SIGGRAPH 2023)",
+        "award": "Audience Choice Award",
+        "authors": [
+            {
+                "name": "Taehyun Rhee",
+                "url": "https://people.wgtn.ac.nz/taehyun.rhee",
+                "affiliation": "CMIC, Victoria University of Wellington"
+            },
+            {
+                "name": "Andrew Chalmers",
+                "url": "https://people.wgtn.ac.nz/andrew.chalmers",
+                "affiliation": "CMIC, Victoria University of Wellington"
+            },
+            {
+                "name": "Faisal Zaman",
+                "url": "https://jquery404.github.io",
+                "affiliation": "CMIC, Victoria University of Wellington"
+            },
+            {
+                "name": "Anna Stangnes",
+                "url": "https://www.wgtn.ac.nz/cmic",
+                "affiliation": "CMIC, Victoria University of Wellington"
+            },
+            {
+                "name": "Vic Roberts",
+                "url": "https://www.wgtn.ac.nz/cmic",
+                "affiliation": "CMIC, Victoria University of Wellington"
+            }
+        ],
+        "url": "assets/papers/3588430.3597245.pdf",
+        "file_info": "PDF, 3.4mb",
+        "tags": "live visual effects, real-time performance, mixed reality, televerse",
+        "bibtex": "@incollection{rhee2023real,\ntitle={Real-time Stage Modelling and Visual Effects for Live Performances},\nauthor={Rhee, Taehyun and Chalmers, Andrew and Zaman, Faisal and Stangnes, Anna and Roberts, Vic},\nbooktitle={ACM SIGGRAPH 2023 Real-Time Live!},\npages={1--2},\nyear={2023}}",
+        "gallery": [
+            {
+                "header": "Presentation",
+                "type": "video",
+                "ratio": "landscape",
+                "url": "https://www.youtube.com/embed/7dhnX0XRwew"
+            }
+        ],
+
+        "articles": {
+            "header": "Press Coverage",
+            "list": [
+                {
+                    "header": "Step Into the Virtual Arena With Real-time Stage Modeling and Visual Effects",
+                    "url": "https://blog.siggraph.org/2023/10/step-into-the-virtual-arena-with-real-time-stage-modeling-and-visual-effects.html/"
+                },
+                {
+                    "header": "CMIC wins Audience Choice Award at Real-Time Live! SIGGRAPH 2023",
+                    "url": "https://www.wgtn.ac.nz/cmic/news/real-time-live-wins-peoples-choice-award-at-siggraph-2023"
+                },
+                {
+                    "header": "University project wins award at international computer graphics conference",
+                    "url": "https://www.wgtn.ac.nz/engineering/news/university-project-wins-award-at-international-computer-graphics-conference"
+                }
+            ]
+        }
+      },
+      {
+        "title": "Real-time Auditorium Modelling and Visual Effects for Live Performances.",
+        "slug": "rtauditorium",
+        "slogan": "Why work remotely when you can work Vicariously",
+        "desc": "We present a novel live platform enhancing stage performances with real-time visual effects. Our demo showcases real-time 3D modeling, rendering and blending of assets, and interaction between real and virtual performers. We demonstrate our platform's capabilities with a mixed reality performance featuring virtual and real actors engaged with in-person audiences.",
+        "thumbnail": "rtauditorium/teaser.jpg",
+        "paper_thumb": "rtstage/paper_thumb.jpg",
+        "journal": "ACM SIGGRAPH Asia Real-Time Live! (SIGGRAPH Asia 2023)",
+        "authors": [
+            {
+                "name": "Andrew Chalmers",
+                "url": "https://people.wgtn.ac.nz/andrew.chalmers",
+                "affiliation": "CMIC, Victoria University of Wellington"
+            },
+            {
+                "name": "Faisal Zaman",
+                "url": "https://jquery404.github.io",
+                "affiliation": "CMIC, Victoria University of Wellington"
+            },
+            {
+                "name": "Anna Stangnes",
+                "url": "https://www.wgtn.ac.nz/cmic",
+                "affiliation": "CMIC, Victoria University of Wellington"
+            },
+            {
+                "name": "Taehyun Rhee",
+                "url": "https://people.wgtn.ac.nz/taehyun.rhee",
+                "affiliation": "CMIC, Victoria University of Wellington"
+            }
+        ],
+        "url": "assets/papers/3588430.3597245.pdf",
+        "file_info": "PDF, 3.4mb",
+        "tags": "live visual effects, real-time performance, mixed reality, televerse",
+        "bibtex": "@incollection{chalmers2023real,\ntitle={Real-time Auditorium Modelling and Visual Effects for Live Performances},\nauthor={Chalmers, Andrew and Zaman, Faisal and Stangnes, Anna and Rhee, Taehyun},\nbooktitle={ACM SIGGRAPH ASIA   2023 Real-Time Live!},\npages={1--2},\nyear={2023}}",
+        "gallery": [
+            {
+                "header": "Presentation",
+                "type": "video",
+                "ratio": "landscape",
+                "url": "https://www.youtube.com/embed/P3kS95vIv-Q"
+            },
+            {
+                "header": "Presentation",
+                "type": "video",
+                "ratio": "landscape",
+                "url": "https://www.youtube.com/embed/_UXg0zN6JqI"
+            },
+            {
+                "type": "image",
+                "url": "rtauditorium/pic.jpg"
+            },
+            {
+                "type": "image",
+                "url": "rtauditorium/pic1.jpg"
+            },
+            {
+                "type": "image",
+                "url": "rtauditorium/pic2.jpg"
+            }
+        ],
+
+        "articles": {
+            "header": "Press Coverage",
+            "list": [
+                {
+                    "header": "SIGGRAPH Asia 2023, Day3 : Real-Time Live! and Omniverse steal the show",
+                    "url": "https://3dvf.com/en/siggraph-asia-2023-day3-real-time-live-and-omniverse-steal-the-show/"
+                }
+            ]
+        }
+      },
+      {
+        "title": "Mixed Reality Multi-user Asymmetric Telecollaboration",
+        "slug": "thesis",
+        "slogan": "Why work remotely when you can work Vicariously",
+        "desc": "Creating a seamless mixed reality (MR) collaborative environment to facilitate natural collaboration between multiple remote and local users within a shared physical space is challenging. Existing collaboration technologies, such as 2D and 3D videoconferencing, as well as virtual reality (VR) solutions, fall short of delivering a fully immersive, real-time, and cohesive collaborative experience for multiple users. Remote users often feel disconnected from the shared physical space. This thesis aims to overcome these limitations by developing a multi-user immersive MR system. The primary objective is to enable remote users to perceive the physical environment and collaborate effectively with local users in real-time. First, a framework is described that enables local users to live-stream their physical environment to multiple remote users while seamlessly blending 3D virtual assets. This provides a more immersive and interactive collaborative space with minimal latency. The system seamlessly integrates these elements, allowing remote and local users to collaborate within physical spaces as if they were present together. Second, the effectiveness of the system is evaluated through performance assessments and user studies. The results of these evaluations demonstrate the system's ability to induce various forms of presence among participants in mixed-reality collaboration. These findings enable a second application that employs a context-aware method for selecting and dynamically switching or highlighting optimal viewpoints based on user actions and the current context. This allows participants to explore the collaboration space from different perspectives. The application is also evaluated, and the results of the evaluation provide insight into enabling effective mixed-perspective collaboration within the multi-user MR system. These findings also show reduced cognitive load and improved task understanding among participants. Thus, it demonstrates its effectiveness in enhancing the collaborative experience.",
+        "thumbnail": "thesis/demo-reel.webm",
+        "paper_thumb": "thesis/paper_thumb.png",
+        "journal": "VUW PhD Thesis (2023)",
+        "authors": [
+            {
+                "name": "Faisal Zaman",
+                "url": "https://jquery404.github.io",
+                "affiliation": "CMIC, Victoria University of Wellington"
+            }
+        ],
+        "url": "assets/papers/3588430.3597245.pdf",
+        "file_info": "PDF, 3.4mb",
+        "tags": "360-video, mixed reality, mixed perspective, live streaming",
+        "bibtex": "@book{zaman2023multiuser,\ntitle={Mixed Reality Multi-User Asymmetric Telecollaboration},\nauthor={Zaman, Faisal},\npages={1--159},\nyear={2023},\npublisher={Victoria University of Wellington, New Zealand}",
+        "gallery": [
+            {
+                "header": "Presentation",
+                "type": "video",
+                "ratio": "landscape",
+                "url": "https://www.youtube.com/embed/rRfPdnijaiI"
+            },
+            {
+                "header": "Presentation",
+                "type": "video",
+                "ratio": "landscape",
+                "url": "https://www.youtube.com/embed/QYR45GyM4Iw"
+            },
+            {
+                "header": "Presentation",
+                "type": "video",
+                "ratio": "landscape",
+                "url": "https://www.youtube.com/embed/qAbx7_ReHvY"
+            }
+        ],
+        "slides": {
+            "header": "Slides",
+            "list": [
+                {
+                    "slide_thumb": "mrmac/mrmac_10m_slides.png",
+                    "title": "10min ISMAR talk",
+                    "file_info": "PDF, 1.8mb",
+                    "pdf": "mrmac/ISMAR2023_MRMAC_slides.pdf"
+                },
+                {
+                    "slide_thumb": "vicarious/slide_thumb.jpg",
+                    "title": "15min VRST talk",
+                    "file_info": "PDF, 1.2mb",
+                    "pdf": "vicarious/VRST2023_Vicarious_slides.pdf"
+                }
+            ]
+        },
+        "content": {
+            "header": "What is this Thesis about?",
+            "list": [
+                {
+                    "title": "",
+                    "img": "thesis/teaser.jpg",
+                    "body": "Immersive telecollaboration combines immersive technologies, such as Virtual Reality (VR) or Augmented Reality (AR), with remote collaboration tools to enable multiple users to work together as if they were in the same physical location. This allows geographically distant users (e.g., Bob and David) to come together within the shared virtual space, providing remote participants with a strong sense of telepresence. In telepresence experiences people are rendered as virtual copies and broadcast to a remote location, ideally affording remote embodied collaborative experiences. Researchers have explored systems for shared telepresence and telecollaboration among remote users for decades. While video links offer visual access, they lack the nuanced non-verbal behaviors crucial for effective co-located interactions."
+                },
+                {
+                    "title": "",
+                    "img": "thesis/architechture.jpg",
+                    "body": ""
+                },
+                {
+                    "title": "",
+                    "img": ["thesis/visual_cues.gif", "thesis/annotation.gif", "thesis/gesture.gif"],
+                    "body": ""
+                },
+                {
+                    "title": "Viewpoint Selection Conditions",
+                    "img": ["thesis/no_selection.gif", "thesis/guided.gif", "thesis/automatic.gif"],
+                    "body": "No-view Selection (NS): is a stripped down version of Vicarious with all the view selection tools removed. Instead, users have full control over their viewing perspective without interference.<br/>Manual Selection (MS): allows users to manually choose between ego- or exocentric viewpoints by clicking or moving PiP windows within their field of view. The selected view gradually fills the user's field of view and can be reverted by clicking anywhere on the window.<br/>Guided Selection (GS): refers to the viewpoint selection technique that visually highlights the optimal view from the FoV list to prompt the local user to manually select the optimal viewpoint for the remote user's actions."
+                },
+                {
+                    "title": "Viewpoint Visualization",
+                    "img": ["thesis/zoom.gif", "thesis/pinned.gif", "thesis/follow.gif"],
+                    "body": "To visualize contextual information about important content outside of the user's current view, we overlay other users' points of view on the main thumbnail view, where the user can select them manually or automatically to bring them on top."
+                },
+                {
+                    "title": "",
+                    "img": "thesis/ego_exo.jpg",
+                    "body": "Egocentric View: Live video stream from the local user's AR camera is shared with the remote experts. The video stream is displayed in picture-in-picture (PiP) mode, which smoothly follows the user's field of view or can be anchored or pinned to a fixed location in the world space. Users can interact with the PiP window by clicking on it (using either a VR controller or their hands in case of an AR user).<br/>Exocentric View: A live 360-degree camera, mounted in the local user's space, provides a panoramic view of the environment, which is then streamed to remote users. Remote users can view the video through a VR headset and have 3 degrees of freedom (3-DoF). Each VR user is represented as an avatar, and the movement of avatars is achieved by utilizing inverse kinematics from head and hand tracking"
+                },
+                {
+                    "title": "Visual cues",
+                    "img": ["thesis/panoview.gif", "thesis/point.gif", "thesis/annotate.gif"],
+                    "body": "We integrated visual cues to make it easier for users to communicate and collaborate. We share three visual cues from the remote to the local side"
+                }
+            ]
+        }
+      }
+    ]
+}

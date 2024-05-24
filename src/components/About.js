@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { events, EventCard } from './Events';
+import { events } from './Events';
+import { EventCard, ResearchCard, ProjectCard, BlogCard } from './Helper';
 
 class About extends React.Component
 {
@@ -8,11 +9,33 @@ class About extends React.Component
         super(props, context);
 
         this.state = {
-          modal: false
+          modal: false,
+          project:[],
+          research:[],
+          inthelab:[]
         };
 
         this.toggle = this.toggle.bind(this);
     };
+
+    componentDidMount() {
+        Promise.all([
+            fetch(`/assets/research.json`).then(response => response.json()),
+            fetch(`/assets/portfolio.json`).then(response => response.json()),
+            fetch(`https://api.github.com/repos/jquery404/jquery404.github.io/issues`).then(response => response.json()),
+        ])
+        .then(([researchData, projectData, blogData]) => {
+            this.setState({
+                research: researchData.project,
+                project: projectData.portfolio,
+                inthelab: blogData
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+    }
+    
 
     toggle() {
         this.setState({
@@ -21,6 +44,8 @@ class About extends React.Component
     }
 
 	render(){
+        const {research, project, inthelab} = this.state;
+
 		return(
             <div className="row">
                 <div className="col-sm-7">
@@ -28,7 +53,7 @@ class About extends React.Component
                         <h1>Hello <span role="img" aria-label="Waving hand">👋</span></h1>
                         <div className="subheading mb-5">I'm Faisal (&#934;sal)</div>
                         
-                        <div className="pp"><iframe title="jquery404" className="ppp" src="https://player.vimeo.com/video/29850027?autoplay=1&loop=1&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+                        {/* <div className="pp"><iframe title="jquery404" className="ppp" src="https://player.vimeo.com/video/29850027?autoplay=1&loop=1&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div> */}
                         
                         <p className="my-5">
                         I develop software for all sorts of platforms (<i className="fab fa-windows"></i> / <i className="fab fa-apple"></i> / <i className="fab fa-linux"></i>) 
@@ -52,14 +77,59 @@ class About extends React.Component
 
                     <Link to="/updates"><small>Show All...</small></Link>
 
-                    {/* <div className="my-5">
-                        <b>Procedural Animation:</b>
-                        <p>I specialize in simulating a wide range of effects, from simple movements like swaying grass to complex behaviors such as simulating crowds of characters or natural phenomena.</p>
+                    <div className="py-5"></div>
+
+                    <h4>Latest research</h4>
+
+                    <div className="row">
+                    {research && research.length > 0 ? (
+                        <React.Fragment>
+                            {research[0].publications.slice(0, 2).map(item => (
+                                <ResearchCard key={Math.random()} item={item} />
+                            ))}
+                            <Link className="px-4" to="/research"><small>Show All Research...</small></Link>
+                        </React.Fragment>
+                    ) : (
+                        <p>Loading research data...</p>
+                    )}
+                    </div>
+
+
+                    <div className="py-5"></div>
+
+
+                    <h4>Latest project</h4>
                     
+                    <div className="row">
+                    {project && project.length > 0 ? (
+                        <React.Fragment>
+                            {project.slice(0, 2).map(item => (
+                                <ProjectCard key={Math.random()} item={item} />
+                            ))}
+                            <Link className="px-4" to="/project"><small>Show All Projects...</small></Link>
+                        </React.Fragment>
+                    ) : (
+                        <p>Loading project data...</p>
+                    )}
+                    </div>
+
+
+
+                    <div className="py-5"></div>
+
+
+                    <h4>In the lab</h4>
                     
-                        <img alt="" className="img-fluid" src="https://unity.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Ffuvbjjlp%2Fproduction%2Fcf8c05c7945039784b4b739e8ae76810bff067be-1200x900.png&w=750&q=75"/>
-                        
-                    </div> */}
+                    {inthelab && inthelab.length > 0 ? (
+                        <React.Fragment>
+                            {inthelab.slice(0, 2).map(item => (
+                                <BlogCard key={item.id} item={item} />
+                            ))}
+                            <Link to="/blog"><small>Show All Posts...</small></Link>
+                        </React.Fragment>
+                    ) : (
+                        <p>Loading project data...</p>
+                    )}
 
                     
                     <p className="my-5"><i className="material-icons">face</i><i>THE ONLY TIME YOU SHOULD EVER LOOK BACK, IS TO SEE HOW FAR YOU'VE COME</i><i className="material-icons">format_quote</i></p>

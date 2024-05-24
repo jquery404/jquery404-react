@@ -537,3 +537,16 @@ p.author-affiliation {
   border-radius: .25rem;
   border-left-color: #fec201;
 }
+
+
+.home-card {
+  cursor: pointer;
+}
+
+.home-card:hover img {
+  opacity: 0.4;
+}
+
+.log-tbl {font-size: small; padding: 0;}
+.log-tbl th{padding: 0 5px;}
+.log-tbl td{padding: 0 5px;}

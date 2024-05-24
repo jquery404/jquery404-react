@@ -17,6 +17,7 @@ import Contact from './components/Contact';
 import Shop from './components/Shop';
 import Note from './components/Note';
 import Movie from './components/Movie';
+import Log from './components/Log';
 import FourZFour from './components/FourZFour';
 
 
@@ -36,6 +37,7 @@ ReactDOM.render(
 				<Route exact path="/updates/:id" component={UpdateDetails} />
 				<Route exact path="/contact" component={Contact} />
 				<Route exact path="/shop" component={Shop} />
+				<Route exact path="/log" component={Log} />
 				<Route exact path="/note" component={Note} />
 				<Route exact path="/movies" component={Movie} />
 				<Route component={FourZFour} />

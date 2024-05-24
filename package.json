@@ -1,6 +1,7 @@
 {
   "name": "jquery404",
   "version": "0.1.0",
+  "homepage": "https://jquery404.github.io",
   "private": false,
   "dependencies": {
     "disqus-react": "^1.0.5",
