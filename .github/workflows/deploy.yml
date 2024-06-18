@@ -34,7 +34,7 @@ jobs:
         git config --global user.name "jquery404"
         git clone --branch master https://github.com/jquery404/jquery404.github.io.git dist-branch
         cd dist-branch
-        rm -rf .
+        find . -mindepth 1 -delete
         cp -R ../jquery404-react/dist/* .
         git add .
         git commit -m "Deploy from GitHub Actions"
