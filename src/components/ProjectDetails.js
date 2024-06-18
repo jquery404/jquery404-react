@@ -34,7 +34,7 @@ const Markup = (props) => {
             
             <div className="col-sm-8">
                 {project.desc}
-                {project.url !== "" ? <a className="nav-link" href={project.url} target="_blank"><i className="fa fa-external-link-alt"></i> Project Link</a> : null }
+                {project.url !== "" ? <a className="nav-link" href={project.url} target="_blank" rel="noreferrer"><i className="fa fa-external-link-alt"></i> Project Link</a> : null }
                 <div className="row">
                     {
                     project.gallery.map((gallery, i) => 

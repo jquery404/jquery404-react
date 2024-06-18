@@ -1,6 +1,6 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
-import Swiper from 'react-id-swiper/lib/custom';
+import Swiper from 'react-id-swiper';
 import {Modal, ModalHeader, ModalBody } from 'reactstrap';
 
 const params = {
@@ -191,8 +191,8 @@ class Project extends React.Component
 					          	<div className="col-sm-12 col-md-5">
 					          		<p>{currentTodos[galId].desc}</p>
 					          		<p>[{currentTodos[galId].tags}]</p>
-					          		{currentTodos[galId].url !== "" ? <a className="nav-link-inline" target="_blank" href={currentTodos[galId].url}><i class="fa fa-external-link-alt"></i> Project Link</a> : null } {' '}
-					          		<NavLink exact={true} className="nav-link-inline" to={'/p/' + currentTodos[galId].slug}><i class="fa fa-expand"></i> Show more</NavLink>
+					          		{currentTodos[galId].url !== "" ? <a className="nav-link-inline" target="_blank" rel="noreferrer" href={currentTodos[galId].url}><i className="fa fa-external-link-alt"></i> Project Link</a> : null } {' '}
+					          		<NavLink exact={true} className="nav-link-inline" to={'/p/' + currentTodos[galId].slug}><i className="fa fa-expand"></i> Show more</NavLink>
 					          	</div>
 					          	: null
 					          }

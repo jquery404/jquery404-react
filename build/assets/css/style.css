@@ -550,3 +550,18 @@ p.author-affiliation {
 .log-tbl {font-size: small; padding: 0;}
 .log-tbl th{padding: 0 5px;}
 .log-tbl td{padding: 0 5px;}
+
+.mapTooltip {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 3px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.travelMap{background-color: #D3D3D3;}

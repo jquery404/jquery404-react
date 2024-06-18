@@ -12,7 +12,7 @@
             "url": "/r/thesis",
             "links": {
               "project": "/r/thesis",
-              "pdf": "/r/avatar360.pdf",
+              "pdf": "/r/thesis",
               "abstract": "Creating a seamless mixed reality (MR) collaborative environment to facilitate natural collaboration between multiple remote and local users within a shared physical space is challenging. Existing collaboration technologies, such as 2D and 3D videoconferencing, as well as virtual reality (VR) solutions, fall short of delivering a fully immersive, real-time, and cohesive collaborative experience for multiple users. Remote users often feel disconnected from the shared physical space. This thesis aims to overcome these limitations by developing a multi-user immersive MR system. The primary objective is to enable remote users to perceive the physical environment and collaborate effectively with local users in real-time. The contributions made in this thesis have effectively addressed critical challenges in multi-user asymmetric collaboration and viewpoint selection, thereby enabling more immersive, inclusive, and effective collaborative experiences. As MR continues to evolve, this work serves as a strong foundation upon which future innovations can be built.",
               "slides": "/assets/papers/thesis/thesis_slides.pdf",
               "bibtex": "@inproceedings{zaman2024mixed,\n  title={Mixed Reality Multi-user Asymmetric Telecollaboration.},\n  author={Zaman, Faisal},\n  school={Victoria Univerisy of Wellington},\n  year={2024}\n}",
@@ -41,7 +41,7 @@
             "venue": "In Proceedings of the IEEE International Symposium on Mixed and Augmented Reality (ISMAR), Sydney, Australia, 2023",
             "links": {
               "project": "/r/mrmac",
-              "pdf": "/r/avatar360.pdf",
+              "pdf": "/assets/paper/5663557.997664.pdf",
               "abstract": "We present MRMAC, a Mixed Reality Multi-user Asymmetric Collaboration system that allows remote users to teleport virtually into a real-world collaboration space to communicate and collaborate with local users. Our system enables telepresence for remote users by live-streaming the physical environment of local users using a 360-degree camera while blending 3D virtual assets into the mixed-reality collaboration space. Our novel client-server architecture enables asymmetric collaboration for multiple AR and VR users and incorporates avatars, view controls, as well as synchronized low-latency audio, video, and asset streaming. We evaluated our implementation with two baseline conditions: conventional 2D and standard 360 videoconferencing. Results show that MRMAC outperformed both baselines in inducing a sense of presence, improving task performance, usability, and overall user preference, demonstrating its potential for immersive multi-user telecollaboration.",
               "bibtex": "@inproceedings{chalmers2024avatar360,\n  title={Avatar360: Emulating 6-DoF Perception in 360° Panoramas through Avatar-Assisted Navigation},\n  author={Chalmers, Andrew and Zaman, Faisal and Rhee, Taehyun},\n  booktitle={2024 IEEE Conference on Virtual Reality and 3D User Interfaces (IEEE VR)},\n  pages={630--638},\n  year={2024},\n  organization={IEEE}\n}",
               "video": "/r/mrmac"
@@ -55,7 +55,7 @@
             "venue": "In Proceedings of the ACM Symposium on Virtual Reality Software and Technology (VRST), Christchurch, New Zealand, 2023",
             "links": {
               "project": "/r/vicarious",
-              "pdf": "3677878.996443.pdf",
+              "pdf": "/assets/paper/3677878.996443.pdf",
               "abstract": "Mixed-perspective, combining egocentric (first-person) and exocentric (third-person) viewpoints, have been shown to improve the collaborative experience in remote settings. Such experiences allow remote users to switch between different viewpoints to gain alternative perspectives of the remote space. However, existing systems lack seamless selection and transition between multiple perspectives that better fit the task at hand. To address this, we present a new approach called Vicarious, which simplifies and automates the selection between egocentric and exocentric viewpoints. Vicarious employs a context-aware method for dynamically switching or highlighting the optimal viewpoint based on user actions and the current context. To evaluate the effectiveness of the viewpoint selection method, we conducted a user study n=27 using an asymmetric AR-VR setup where users performed remote collaboration tasks under four distinct conditions: No-view, Manual, Guided, and Automatic selection. The results showed that Guided and Automatic viewpoint selection improved users' understanding of the task space and task performance, and reduced cognitive load compared to Manual or No-view selection. The results also suggest that the asymmetric setup had minimal impact on spatial and social presence, except for differences in task load and preference. Based on these findings, we provide design implications for future research in mixed reality collaboration.",
               "bibtex": "@inproceedings{chalmers2024avatar360,\n  title={Avatar360: Emulating 6-DoF Perception in 360° Panoramas through Avatar-Assisted Navigation},\n  author={Chalmers, Andrew and Zaman, Faisal and Rhee, Taehyun},\n  booktitle={2024 IEEE Conference on Virtual Reality and 3D User Interfaces (IEEE VR)},\n  pages={630--638},\n  year={2024},\n  organization={IEEE}\n}",
               "video": "https://youtu.be/QYR45GyM4Iw"
@@ -69,7 +69,7 @@
             "venue": "ACM SIGGRAPH Real-Time Live!, Los Angeles, USA, 2023.",
             "links": {
               "project": "/r/rtstage",
-              "pdf": "840200a940.pdf",
+              "pdf": "/assets/paper/3588430.3597245.pdf",
               "abstract": "Mixed-perspective, combining egocentric (first-person) and exocentric (third-person) viewpoints, have been shown to improve the collaborative experience in remote settings. Such experiences allow remote users to switch between different viewpoints to gain alternative perspectives of the remote space. However, existing systems lack seamless selection and transition between multiple perspectives that better fit the task at hand. To address this, we present a new approach called Vicarious, which simplifies and automates the selection between egocentric and exocentric viewpoints. Vicarious employs a context-aware method for dynamically switching or highlighting the optimal viewpoint based on user actions and the current context. To evaluate the effectiveness of the viewpoint selection method, we conducted a user study n=27 using an asymmetric AR-VR setup where users performed remote collaboration tasks under four distinct conditions: No-view, Manual, Guided, and Automatic selection. The results showed that Guided and Automatic viewpoint selection improved users' understanding of the task space and task performance, and reduced cognitive load compared to Manual or No-view selection. The results also suggest that the asymmetric setup had minimal impact on spatial and social presence, except for differences in task load and preference. Based on these findings, we provide design implications for future research in mixed reality collaboration.",
               "bibtex": "@inproceedings{rhee2023real,\n  title={Real-time Stage Modelling and Visual Effects for Live Performances.},\n  author={Rhee, Taehyun and Chalmers, Andrew and Zaman, Faisal and Stangnes, Anna and Roberts, Vic},\n  booktitle={ACM SIGGRAPH 2023 Real-Time Live!},\n  pages={1--2},\n  year={2023}\n}",
               "video": "https://youtu.be/7dhnX0XRwew",
@@ -84,7 +84,7 @@
             "venue": "ACM SIGGRAPH Real-Time Live!, Sydney, Australia, 2023.",
             "links": {
               "project": "/r/rtauditorium",
-              "pdf": "840200a940.pdf",
+              "pdf": "/r/rtauditorium",
               "abstract": "We present a novel live platform enhancing stage performances with real-time visual effects. Our demo showcases real-time 3D modeling, rendering and blending of assets, and interaction between real and virtual performers. We demonstrate our platform's capabilities with a mixed reality performance featuring virtual and real actors engaged with in-person audiences.",
               "bibtex": "@inproceedings{chalmers2023real,\n  title={Real-time Auditorium Modelling and Visual Effects for Live Performances.},\n  author={Chalmers, Andrew and Zaman, Faisal and Stangnes, Anna and Rhee, Taehyun},\n  booktitle={ACM SIGGRAPH 2023 Real-Time Live!},\n  pages={1--1},\n  year={2023}\n}",
               "video": "/r/rtauditorium"
@@ -93,11 +93,11 @@
           {
             "thumbnail": "mxrc-dc.png",
             "authors": "<b>Faisal Zaman</b>.",
-            "url": "/r/rtauditorium",
+            "url": "/assets/papers/840200a940.pdf",
             "title": "[DC] Improving Multi-User Interaction for Mixed Reality Telecollaboration.",
             "venue": "In 29th IEEE Conference on Virtual Reality and 3D User Interfaces, 2022. Christchurch, New Zealand.",
             "links": {
-              "pdf": "840200a940.pdf",
+              "pdf": "/assets/papers/840200a940.pdf",
               "abstract": "Mixed reality (MR) approaches offer merging of real and virtual worlds to create new environments and visualizations for real-time interaction. Existing MR systems, however, do not utilise user real environment, lack detail in dynamic environments, and often lack multi-user capabilities. This research focuses on exploring multi-user aspects of immersive collaboration, where an arbitrary number of co-located and remotely located users can collaborate in a single or merged collaborative MR space. The aim is to enable users to experience VR/AR together, irrespective of the type of HMD, and facilitate users with their collaborative tasks. The main goal is to develop an immersive collaboration platform in which users can utilize the space around them and at the same time collaborate and switch between different perspectives of other co-located and remote users.",
               "bibtex": "@inproceedings{zaman2022dc,\n  title={[DC] Improving Multi-User Interaction for Mixed Reality Telecollaboration},\n  author={Zaman, Faisal},\n  booktitle={2022 IEEE Conference on Virtual Reality and 3D User Interfaces Abstracts and Workshops (VRW)},\n  pages={940--941},\n  year={2022}\n organization={IEEE}\n}",
               "video": "https://youtu.be/qAbx7_ReHvY"
@@ -137,7 +137,7 @@
         "publications": [
           {
             "links": {
-              "googleplay": "https://arxiv.org/abs/1602.05312"
+              "googleplay": "https://play.google.com/store/apps/details?id=com.jquery404.picturesque"
             }
           }
         ]
@@ -514,11 +514,17 @@
                   "affiliation": "CMIC, Victoria University of Wellington"
               }
           ],
-          "url": "assets/papers/3588430.3597245.pdf",
-          "file_info": "PDF, 3.4mb",
+          "url": "assets/papers/thesis/thesis.pdf",
+          "file_info": "PDF, 4.5mb",
           "tags": "360-video, mixed reality, mixed perspective, live streaming",
           "bibtex": "@book{zaman2023multiuser,\ntitle={Mixed Reality Multi-User Asymmetric Telecollaboration},\nauthor={Zaman, Faisal},\npages={1--159},\nyear={2023},\npublisher={Victoria University of Wellington, New Zealand}",
           "gallery": [
+              {
+                  "header": "Presentation",
+                  "type": "video",
+                  "ratio": "landscape",
+                  "url": "https://www.youtube.com/embed/YRA6Aitr4Ek"
+              },
               {
                   "header": "Presentation",
                   "type": "video",
@@ -544,7 +550,7 @@
                   {
                       "slide_thumb": "thesis/thesis_slides.jpg",
                       "title": "15min Thesis talk",
-                      "file_info": "PDF, 4.6mb",
+                      "file_info": "PDF, 3.7mb",
                       "pdf": "thesis/thesis_slides.pdf"
                   },
                   {

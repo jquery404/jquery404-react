@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import {Route, Switch, HashRouter as Router} from 'react-router-dom';
 
 import App from './App';
@@ -17,12 +17,14 @@ import Contact from './components/Contact';
 import Shop from './components/Shop';
 import Note from './components/Note';
 import Movie from './components/Movie';
+import WorldMap from './components/WorldMap';
 import Log from './components/Log';
 import FourZFour from './components/FourZFour';
 
-
-ReactDOM.render(
-	<Router>
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+	<React.StrictMode>
+	  <Router>
 		<App>
 			<Switch>
 				<Route exact path="/" component={About} />
@@ -38,11 +40,13 @@ ReactDOM.render(
 				<Route exact path="/contact" component={Contact} />
 				<Route exact path="/shop" component={Shop} />
 				<Route exact path="/log" component={Log} />
+				<Route exact path="/travel" component={WorldMap} />
 				<Route exact path="/note" component={Note} />
 				<Route exact path="/movies" component={Movie} />
 				<Route component={FourZFour} />
 			</Switch>
 		</App>
 	</Router>
-	, root
+	</React.StrictMode>
 );
+

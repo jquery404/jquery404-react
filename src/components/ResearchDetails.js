@@ -28,7 +28,7 @@ const Markup = (props) => {
     return (
         <div className="row">
             <div className="col-sm-10 pt-5">
-                <NavLink exact={true} className="nav-link-inline" to={'/research'}><i class="fa fa-chevron-left"></i> Back to Home</NavLink>
+                <NavLink exact={true} className="nav-link-inline" to={'/research'}><i className="fa fa-chevron-left"></i> Back to Home</NavLink>
                 {project.thumbnail.endsWith('.webm') ? (
                     <video className="card-img-top" autoPlay loop muted>
                     <source src={`/assets/papers/${project.thumbnail}`} type="video/webm" />
@@ -41,7 +41,7 @@ const Markup = (props) => {
 
                 <p className="mt-3 p-0 journal">{project.journal}</p>
                 <h2 className="projd-title pb-3">{project.title}</h2>
-                {project.award && <p className="projd-title pb-3" style={{ color: "#ff1100" }}><i class="fa fa-award"></i> {project.award}</p>}
+                {project.award && <p className="projd-title pb-3" style={{ color: "#ff1100" }}><i className="fa fa-award"></i> {project.award}</p>}
                 <div className="row author-boxes">
                     {
                     project.authors.map((author, i) => 
@@ -59,7 +59,7 @@ const Markup = (props) => {
                  
                 <div className="row mt-5">
                     <div className="col-sm-4 text-center">
-                        <a className="nav-link" href={project.url} target="_blank">
+                        <a className="nav-link" href={project.url} target="_blank" rel="noreferrer">
                             <img src={"/assets/papers/"+project.paper_thumb} alt="preview" className="thumbnail-box img-thumbnail" />
                         </a>
                         <div className="fileInfo"><i className="fa fa-external-link-alt"></i> {project.file_info}</div>
@@ -104,7 +104,7 @@ const Markup = (props) => {
                                         <img className="img-fluid thumbnail-box" width="250px" src={"/assets/papers/" + slide.slide_thumb} alt={slide.title} />
                                     </div>
                                     <div className="d-flex flex-column justify-content-center">
-                                        <a className="nav-link text-left text-decoration-underline" href={"/assets/papers/" + slide.pdf} target="_blank">
+                                        <a className="nav-link text-left text-decoration-underline" href={"/assets/papers/" + slide.pdf} target="_blank" rel="noreferrer">
                                             {slide.title}&nbsp;({slide.file_info})
                                         </a>
                                     </div>

@@ -17,15 +17,19 @@ class Photo extends React.Component
 		super(props, context);
 		this.state = {
 			items:{
+				2024: [
+					"/assets/imgs/photo/2024/pp0.jpg",
+					"/assets/imgs/photo/2024/pp1.jpg",
+					"/assets/imgs/photo/2024/pp2.jpg",
+					"/assets/imgs/photo/2024/pp3.jpg",
+					"/assets/imgs/photo/2024/pp4.jpg",
+				],
 				2023: [
 					"/assets/imgs/photo/2023/pp0.jpg",
 					"/assets/imgs/photo/2023/pp1.jpg",
 					"/assets/imgs/photo/2023/pp2.jpg",
 					"/assets/imgs/photo/2023/pp3.jpg",
-					"/assets/imgs/photo/2023/pp0.png",
-					"/assets/imgs/photo/2023/pp1.png",
-					"/assets/imgs/photo/2023/pp2.png",
-					"/assets/imgs/photo/2023/pp3.png",
+					"/assets/imgs/photo/2023/pp4.jpg",
 				],
 				2022: [
 					"/assets/imgs/photo/2022/pp0.jpg",

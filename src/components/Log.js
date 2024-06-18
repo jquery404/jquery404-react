@@ -81,7 +81,14 @@ class Log extends Component {
                     <ul className="pagination">
                         {Array.from({ length: totalPage }, (_, index) => (
                             <li className="page-item" key={index}>
-                                <a className="page-link" onClick={() => this.handlePaging(index + 2)}>{index + 1}</a>
+                                <a href="uu"
+                                className="page-link"
+                                onClick={(event) => {
+                                    event.preventDefault();
+                                    this.handlePaging(index + 2);
+                                }}>
+                                {index + 1}
+                                </a>
                             </li>
                         ))}
                     </ul>

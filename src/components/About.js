@@ -53,7 +53,7 @@ class About extends React.Component
                         <h1>Hello <span role="img" aria-label="Waving hand">👋</span></h1>
                         <div className="subheading mb-5">I'm Faisal (&#934;sal)</div>
                         
-                        {/* <div className="pp"><iframe title="jquery404" className="ppp" src="https://player.vimeo.com/video/29850027?autoplay=1&loop=1&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div> */}
+                        <div className="pp"><iframe title="jquery404" className="ppp" src="https://player.vimeo.com/video/29850027?autoplay=1&loop=1&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
                         
                         <p className="my-5">
                         I develop software for all sorts of platforms (<i className="fab fa-windows"></i> / <i className="fab fa-apple"></i> / <i className="fab fa-linux"></i>) 
@@ -61,12 +61,12 @@ class About extends React.Component
                         
                         <br/>
                         <br/>
-                        I received my Ph.D. in computer graphics at CMIC, Victoria University of Wellington, New Zealand. 
+                        I received my Ph.D. in computer graphics from Victoria University of Wellington, New Zealand. 
                         Right now, I spend most of my days <Link to="/research">researching</Link> XR (<i className="fas fa-vr-cardboard"></i>) tools and getting lost in my thoughts about coding standards, design methodologies, usability, and accessibility. 
                         
                         <br/>
                         <br/>
-                        And when I'm not doing that, I watch <Link to="/movies">movies</Link>, take <Link to="/photo">pictures</Link>, or create weird stuff like the kind you saw in that video. Cheers!
+                        And when I'm not doing that, I watch <Link to="/movies">movies</Link>, take <Link to="/photo">pictures</Link>, go on <Link to="/travel">adventures</Link>, or create weird stuff like the kind you saw in that video. Cheers!
                         </p>
                     </div>
 

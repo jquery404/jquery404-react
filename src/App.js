@@ -36,7 +36,7 @@ class App extends React.Component
 				return response.json();
 			})
 			.then(data => {
-				if (data.country_code === "ID" || data.country_code === "MY") {
+				if (data.country_code === "ID") {
 				window.location.href = "https://www.google.com";
 				} else {
 				data.country_population = pathname; 

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactMarkdown from 'react-markdown';
 
 class Post extends Component {
 
@@ -53,9 +52,9 @@ class Post extends Component {
                 <div className="col-sm-10">
                     <div className="py-5">
                         <div>
-                            <i onClick={this.props.history.goBack} className="pointer fa fa-chevron-left"></i>
+                            <span className="pointer" onClick={this.props.history.goBack} ><i className="fa fa-chevron-left"></i> Back</span>
                             <h3>{item.title}</h3>
-                            <p><ReactMarkdown source={item.body} escapeHtml={false} /></p>
+                            <p dangerouslySetInnerHTML={{ __html: item.body }}></p>
                         </div>
                         <div>
                             <hr/>
@@ -67,7 +66,7 @@ class Post extends Component {
                             {comments.length?comments.map((comment, i) =>
                                 <div key={i}>
                                     <span className="avatar">{comment.user.login.charAt(0).toUpperCase()}</span> <i>{comment.user.login}</i>
-                                    <p><ReactMarkdown source={comment.body} escapeHtml={false} /></p>
+                                    <p dangerouslySetInnerHTML={{ __html: item.body }}></p>
                                 </div>
 
                             ): ' No comments yet'}

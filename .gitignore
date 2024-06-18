@@ -111,3 +111,8 @@ dist
 
 # vscode tag 
 .vscode/
+
+# OS-specific files (Mac)
+.DS_Store
+.AppleDouble
+.LSOverride

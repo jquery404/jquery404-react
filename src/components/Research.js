@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {NavLink} from 'react-router-dom';
-import {RenderLink} from './Helper';
+import {RenderLink, RenderShortLink} from './Helper';
 
 
 
@@ -88,11 +88,7 @@ const ProjectComponent = ({ project }) => {
                     <img className="float-left researchImg" src={`/assets/imgs/research/${pub.thumbnail}`} alt={`${pub.title}`} />
                     <div className="padRight">
                         <p className="mb-0">
-                            <span dangerouslySetInnerHTML={{ __html: pub.authors }}></span> {pub.url.includes("https") ? (
-                                <NavLink to={pub.url}>{pub.title}</NavLink>
-                            ) : (
-                                <a href={pub.url}>{pub.title}</a>
-                            )} {pub.venue}
+                            <span dangerouslySetInnerHTML={{ __html: pub.authors }}></span> {RenderShortLink('project', pub.url, pub.title)}{pub.venue}
                         </p>
                         <p className="p-0">
                             {pub.links.project && RenderLink('project', pub.links.project, 'fa fa-folder-plus', 'Project')}
@@ -189,9 +185,12 @@ class Research extends Component {
             <div className="row portfolioWrap" style={{fontSize:'1rem'}}>
                 <div className="col-sm-10">
                     <h1 className="mt-5">Research Projects</h1>
-                    <p className="text-small">I completed my Ph.D. in computer graphics at the Computational Media Innovation Centre (CMIC) at the Victoria University of Wellington, New Zealand. My current research is in the field of human-computer interaction. My research interests include Mixed Reality, eXtended Reality, collaborative immersive analytics, and computer vision. I am passionate about building and improving interactive real-time collaboration systems that highlight core innovation.</p>
+                    <p className="text-small">I completed my Ph.D. in computer graphics from Victoria University of Wellington, New Zealand. My current research is in the field of human-computer interaction. My research interests include Mixed Reality, eXtended Reality, collaborative immersive analytics, and computer vision. I am passionate about building and improving interactive real-time collaboration systems that highlight core innovation.</p>
                     <p>I've had the privilege to work on several projects of a diverse nature. Below I list them according to topic (by date), with relevant publications.</p>
                     
+                    <a className="p-2" target="_bank" href="https://scholar.google.com/citations?user=Mw5d13UAAAAJ">
+                        <img style={{width:'24px'}} src="/assets/imgs/scholar.png" alt="" />
+                    </a>
                     <a className="p-2" target="_bank" href="https://uhunt.onlinejudge.org/id/261727">
                         <img style={{width:'24px'}} src="/assets/imgs/uva.jpg" alt="" />
                     </a>
