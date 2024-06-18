@@ -35,7 +35,7 @@ jobs:
         git clone --branch master https://github.com/jquery404/jquery404.github.io.git dist-branch
         cd dist-branch
         find . -mindepth 1 -delete
-        cp -R ../jquery404-react/build/* .
+        cp -R ../build/* .
         git add .
         git commit -m "Deploy from GitHub Actions"
         git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/jquery404/jquery404.github.io.git master
