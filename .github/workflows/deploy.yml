@@ -33,9 +33,8 @@ jobs:
         git config --global user.email "jquery404@gmail.com"
         git config --global user.name "jquery404"
         git clone --branch master https://github.com/jquery404/jquery404.github.io.git dist-branch
+        cp -r build/* dist-branch/
         cd dist-branch
-        find . -mindepth 1 -delete
-        cp -R ../build/* .
         git add .
         git commit -m "Deploy from GitHub Actions"
         git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/jquery404/jquery404.github.io.git master
