@@ -2,7 +2,7 @@ import React from 'react';
 
 const repoOwner = 'jquery404';
 const repoName = 'jquery404.github.io';
-const branchName = 'master'; 
+const branchName = 'master';
 const folderPath = 'movies';
 const accessToken = 'process.env.REACT_APP_ACCESS_TOKEN';
 
@@ -86,22 +86,22 @@ class Movie extends React.Component {
     const options = {
       method: 'GET',
       headers: {
-          'X-RapidAPI-Key': this.state.imdbApiKey,
-          'X-RapidAPI-Host': 'imdb8.p.rapidapi.com'
+        'X-RapidAPI-Key': this.state.imdbApiKey,
+        'X-RapidAPI-Host': 'imdb8.p.rapidapi.com'
       }
     };
-    
-    let id = content[key].id.substring(7, content[key].id.length-1);
+
+    let id = content[key].id.substring(7, content[key].id.length - 1);
 
     this.setState({
       loading: true
     });
-    
+
     Promise.all([
-        fetch('https://imdb8.p.rapidapi.com/title/get-genres?tconst='+id, options).then(response => response.json()),
-        fetch('https://imdb8.p.rapidapi.com/title/get-ratings?tconst='+id, options).then(response => response.json())
+      fetch('https://imdb8.p.rapidapi.com/title/get-genres?tconst=' + id, options).then(response => response.json()),
+      fetch('https://imdb8.p.rapidapi.com/title/get-ratings?tconst=' + id, options).then(response => response.json())
     ])
-    .then(async ([genresResponse, ratingsResponse]) => {
+      .then(async ([genresResponse, ratingsResponse]) => {
         content[key].genres = genresResponse;
         content[key].rating = ratingsResponse.rating;
         content[key].ratingsHistograms = ratingsResponse.ratingsHistograms;
@@ -117,51 +117,52 @@ class Movie extends React.Component {
           const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`;
 
           const fetchResponse = await fetch(url, {
-              headers: {
-                  Authorization: `token ${gitAccessToken}`,
-              }
+            headers: {
+              Authorization: `token ${gitAccessToken}`,
+            }
           });
-      
+
           if (!fetchResponse.ok) {
-              throw new Error('Failed to fetch existing file');
+            throw new Error('Failed to fetch existing file');
           }
-      
+
           const { sha } = await fetchResponse.json();
-      
+
           // Update movFiles array and stringify it to JSON
           const updatedContent = JSON.stringify(this.state.movFiles);
-      
+
           // Encode updated content to base64
-          const updatedContentBase64 = Buffer.from(updatedContent).toString('base64');
-      
+          const updatedContentBase64 = btoa(updatedContent);
+
           // Make PUT request to update the file
           const updateResponse = await fetch(url, {
-              method: 'PUT',
-              headers: {
-                  Authorization: `token ${gitAccessToken}`,
-              },
-              body: JSON.stringify({
-                  message: `Update ${fileName}`,
-                  content: updatedContentBase64,
-                  sha: sha, 
-                  branch: branchName,
-              }),
+            method: 'PUT',
+            headers: {
+              Authorization: `token ${gitAccessToken}`,
+            },
+            body: JSON.stringify({
+              message: `Update ${fileName}`,
+              content: updatedContentBase64,
+              sha: sha,
+              branch: branchName,
+            }),
           });
-      
+
           if (updateResponse.ok) {
-              this.setState({ 
-                uploadTxtStatus: 'Text updated successfully!',
-                results: [] 
-              });
+            this.setState({
+              uploadTxtStatus: 'Text updated successfully!',
+              textContent: '',
+              results: []
+            });
           } else {
-              this.setState({ uploadTxtStatus: 'Failed to update text. Please try again.' });
+            this.setState({ uploadTxtStatus: 'Failed to update text. Please try again.' });
           }
         } catch (error) {
           console.error('Error uploading text:', error);
           this.setState({ uploadTxtStatus: 'An error occurred. Please try again later.' });
         }
-    })
-    .catch(err => console.error(err));
+      })
+      .catch(err => console.error(err));
   };
 
   componentDidMount() {
@@ -185,7 +186,7 @@ class Movie extends React.Component {
       const promises = textFiles.map(async (file) => {
         const contentResponse = await fetch(file.download_url);
         const content = await contentResponse.json();
-        
+
         return content;
       });
 
@@ -219,56 +220,63 @@ class Movie extends React.Component {
     }
 
     const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': this.state.imdbApiKey,
-            'X-RapidAPI-Host': 'imdb8.p.rapidapi.com'
-        }
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Key': this.state.imdbApiKey,
+        'X-RapidAPI-Host': 'imdb8.p.rapidapi.com'
+      }
     };
 
     fetch(`https://imdb8.p.rapidapi.com/title/find?q=${textContent}`, options)
-        .then(response => response.json())
-        .then(data => {
-            this.setState({ content: [] });
+      .then(response => response.json())
+      .then(data => {
+        this.setState({ content: [] });
 
-            const newResults = data.results.map((elm, key) => {
-                let cardHtml = (
-                    <div className="col-sm-2" key={key}>
-                        <div className="card">
-                            {elm.image && <img className="card-img-top" src={elm.image.url} alt={elm.title} />}
-                            <div className="card-body">
-                                <h5 className="card-title">{elm.title} ({elm.year})</h5>
-                                <span className="badge badge-pill badge-primary">{elm.titleType}</span>
-                                <p className="card-text">RunningTime {elm.runningTimeInMinutes}m</p>
-                                {elm.principals && elm.principals.map((val, index) => (
-                                    <span className="badge badge-dark" key={index}>{val.name}</span>
-                                ))}
-                                <br />
-                                <button onClick={() => this.handleUploadText(elm, key)} className="btn btn-primary">ADD</button>
-                            </div>
-                        </div>
-                    </div>
-                );
+        const newResults = data.results.map((elm, key) => {
+          let cardHtml = (
+            <div className="col-sm-2" key={key}>
+              <div className="card">
+                {elm.image && <img className="card-img-top" src={elm.image.url} alt={elm.title} />}
+                <div className="card-body">
+                  <h5 className="card-title">{elm.title} ({elm.year})</h5>
+                  <span className="badge badge-pill badge-primary">{elm.titleType}</span>
+                  <p className="card-text">RunningTime {elm.runningTimeInMinutes}m</p>
+                  {elm.principals && elm.principals.map((val, index) => (
+                    <span className="badge badge-dark" key={index}>{val.name}</span>
+                  ))}
+                  <br />
+                  <button onClick={() => this.handleUploadText(elm, key)} className="btn btn-primary">ADD</button>
+                </div>
+              </div>
+            </div>
+          );
 
-                let t = {
-                    id: elm.id,
-                    title: elm.title,
-                    year: elm.year,
-                    runningTimeInMinutes: elm.runningTimeInMinutes,
-                    titleType: elm.titleType,
-                    imageUrl: elm.image ? elm.image.url : null,
-                    imageWidth: elm.image ? elm.image.width : null,
-                    imageHeight: elm.image ? elm.image.height : null,
-                    principals: elm.principals ? elm.principals.map(val => val.name) : null
-                };
-                this.state.content.push(t);    
+          let t = {
+            id: elm.id,
+            title: elm.title,
+            year: elm.year,
+            runningTimeInMinutes: elm.runningTimeInMinutes,
+            titleType: elm.titleType,
+            imageUrl: elm.image ? elm.image.url : null,
+            imageWidth: elm.image ? elm.image.width : null,
+            imageHeight: elm.image ? elm.image.height : null,
+            principals: elm.principals ? elm.principals.map(val => val.name) : null
+          };
 
-                return cardHtml;
-            });
 
-            this.setState({ results: newResults });
-        })
-        .catch(err => console.error(err));
+          return { cardHtml, t };
+        });
+
+        const cardHtmlArray = newResults.map(result => result.cardHtml);
+        const newContentArray = newResults.map(result => result.t);
+
+        // Update the state in a single setState call
+        this.setState(prevState => ({
+          results: cardHtmlArray,
+          content: newContentArray
+        }));
+      })
+      .catch(err => console.error(err));
   }
 
   handleToggleEdit = () => {
@@ -284,9 +292,9 @@ class Movie extends React.Component {
     return (
       <div>
         <h1>Movies</h1>
-        <p>I'm a big fan of movies and have probably seen hundreds, if not thousands of them! 
-          But with so many under my belt, it's becoming quite a task to find new gems that tickle my fancy. 
-          Still, there are a few that hold a special place in my heart, ones I can't resist revisiting time and again.
+        <p>I'm a big fan of movies and have probably seen hundreds, if not thousands of them!
+        But with so many under my belt, it's becoming quite a task to find new gems that tickle my fancy.
+        Still, there are a few that hold a special place in my heart, ones I can't resist revisiting time and again.
           This page is dedicated to those special films.</p>
         <button className="btn btn-primary" onClick={this.handleToggleEdit}>
           {showEdit ? 'Hide Add' : 'Show Add'}
@@ -297,50 +305,50 @@ class Movie extends React.Component {
             <textarea
               rows={2}
               cols={50}
-              value={this.state.textContent}
+              value={this.state.textContent || ''}
               onChange={this.handleTextChange}
-            /><br/>
+            /><br />
             <button className="btn btn-sm btn-secondary" onClick={this.search}>Search</button>
             {uploadTxtStatus && <p>{uploadTxtStatus}</p>}
           </div>
         )}
         <div className="row search-content">{results}</div>
-        <hr/>
+        <hr />
 
         {loading ? (
-        <div>Loading...</div>
+          <div>Loading...</div>
         ) : (
-          <div className="row">
-            {movFiles.map((file) => (
-              <div key={file.id} className="col-sm-2">
-              <div className="card my-1">
-                {file.imageUrl && <img className="card-img-top" src={file.imageUrl} alt={file.title} />}
-                <div className="card-body" style={{"display":"none"}}>
-                  {file.titleType === 'tvSeries' || file.titleType === 'tvEpisode' ? (
-                    <div>
-                      <h5 className="card-title">{file.title} ({file.seriesStartYear}-{file.seriesEndYear})</h5>
-                      <span className="badge badge-pill badge-primary">{file.titleType}</span>
-                      <span className="badge badge-pill badge-warning">{file.numberOfEpisodes} Episodes</span>
+            <div className="row">
+              {movFiles.map((file) => (
+                <div key={file.id} className="col-sm-2">
+                  <div className="card my-1">
+                    {file.imageUrl && <img className="card-img-top" src={file.imageUrl} alt={file.title} />}
+                    <div className="card-body" style={{ "display": "none" }}>
+                      {file.titleType === 'tvSeries' || file.titleType === 'tvEpisode' ? (
+                        <div>
+                          <h5 className="card-title">{file.title} ({file.seriesStartYear}-{file.seriesEndYear})</h5>
+                          <span className="badge badge-pill badge-primary">{file.titleType}</span>
+                          <span className="badge badge-pill badge-warning">{file.numberOfEpisodes} Episodes</span>
+                        </div>
+                      ) : (
+                          <div>
+                            <h5 className="card-title">{file.title} ({file.year})</h5>
+                            <span className="badge badge-pill badge-primary">{file.titleType}</span>
+                          </div>
+                        )}
+                      <p className="card-text">{file.runningTimeInMinutes} min</p>
+                      {file.genres && <p>Genres: {file.genres.join(', ')}</p>}
+                      {file.rating && (
+                        <div>
+                          Rating: {file.rating}
+                        </div>
+                      )}
                     </div>
-                  ) : (
-                    <div>
-                      <h5 className="card-title">{file.title} ({file.year})</h5>
-                      <span className="badge badge-pill badge-primary">{file.titleType}</span>
-                    </div>
-                  )}
-                  <p className="card-text">{file.runningTimeInMinutes} min</p>
-                  {file.genres && <p>Genres: {file.genres.join(', ')}</p>}
-                  {file.rating && (
-                    <div>
-                      Rating: {file.rating}
-                    </div>
-                  )}
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
-            ))}
-          </div>
-        )}
+          )}
       </div>
     );
   }

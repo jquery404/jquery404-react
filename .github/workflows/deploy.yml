@@ -36,5 +36,5 @@ jobs:
         cp -r build/* dist-branch/
         cd dist-branch
         git add .
-        git commit -m "Deploy from GitHub Actions"
+        git commit -m "the most important commit of all time"
         git push https://x-access-token:${{ secrets.JQUERY_REACT }}@github.com/jquery404/jquery404.github.io.git master

@@ -565,3 +565,24 @@ p.author-affiliation {
   transition: opacity 0.2s;
 }
 .travelMap{background-color: #D3D3D3;}
+
+.btn-primary {
+  color: #000;
+  background-color: #fec207;
+  border-color: #fece53;
+}
+
+.btn-primary.focus, .btn-primary:focus {
+  box-shadow: 0 0 0 0.2rem #fece53;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #fece53;
+  border-color: #fec207;
+}
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #fec207;
+  border-color: #fece53;
+}
