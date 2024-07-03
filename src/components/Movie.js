@@ -12,6 +12,7 @@ class Movie extends React.Component {
     this.state = {
       movFiles: [],
       loading: true,
+      isFetching: false,
       showEdit: false,
       selectedImage: null,
       uploadStatus: null,
@@ -80,6 +81,14 @@ class Movie extends React.Component {
     });
   };
 
+  b64EncodeUnicode(str) {
+    return btoa(
+      encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function (match, p1) {
+        return String.fromCharCode('0x' + p1);
+      })
+    );
+  }
+
   async handleUploadText(elm, key) {
     const { content, gitAccessToken } = this.state;
 
@@ -132,7 +141,7 @@ class Movie extends React.Component {
           const updatedContent = JSON.stringify(this.state.movFiles);
 
           // Encode updated content to base64
-          const updatedContentBase64 = btoa(updatedContent);
+          const updatedContentBase64 = this.b64EncodeUnicode(updatedContent);
 
           // Make PUT request to update the file
           const updateResponse = await fetch(url, {
@@ -227,6 +236,8 @@ class Movie extends React.Component {
       }
     };
 
+    this.setState({ isFetching: true, });
+
     fetch(`https://imdb8.p.rapidapi.com/title/find?q=${textContent}`, options)
       .then(response => response.json())
       .then(data => {
@@ -273,7 +284,8 @@ class Movie extends React.Component {
         // Update the state in a single setState call
         this.setState(prevState => ({
           results: cardHtmlArray,
-          content: newContentArray
+          content: newContentArray,
+          isFetching: false,
         }));
       })
       .catch(err => console.error(err));
@@ -285,9 +297,8 @@ class Movie extends React.Component {
     }));
   };
 
-
   render() {
-    const { uploadTxtStatus, showEdit, movFiles, loading, results } = this.state;
+    const { uploadTxtStatus, isFetching, showEdit, movFiles, loading, results } = this.state;
 
     return (
       <div>
@@ -308,7 +319,7 @@ class Movie extends React.Component {
               value={this.state.textContent || ''}
               onChange={this.handleTextChange}
             /><br />
-            <button className="btn btn-sm btn-secondary" onClick={this.search}>Search</button>
+            <button className="btn btn-sm btn-secondary" disabled={isFetching} onClick={this.search}>Search</button>
             {uploadTxtStatus && <p>{uploadTxtStatus}</p>}
           </div>
         )}
