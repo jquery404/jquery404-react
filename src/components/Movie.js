@@ -288,7 +288,10 @@ class Movie extends React.Component {
           isFetching: false,
         }));
       })
-      .catch(err => console.error(err));
+      .catch(err => {
+        console.error(err);
+        this.setState({ isFetching: false, });
+      });
   }
 
   handleToggleEdit = () => {
