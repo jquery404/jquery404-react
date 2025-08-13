@@ -1,4 +1,0 @@
-Speed Challenger
-
-A flash racing game. This is my first time using Flash to create any kind of game at all, so I've kept it simple and so far so good, really :P . You can play it here ... Speed Challenger
-http://jquery404.com/lab/speed_challenger/
