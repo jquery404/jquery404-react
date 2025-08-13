@@ -8,12 +8,9 @@ import ProjectSection from '../sections/ProjectSection';
 import BlogSection from '../sections/BlogSection';
 
 function About() {
-  const [modal, setModal] = useState(false);
   const [project, setProject] = useState([]);
   const [research, setResearch] = useState([]);
   const [inthelab, setInthelab] = useState([]);
-
-  const toggle = () => setModal(!modal);
 
   useEffect(() => {
     Promise.all([

@@ -45,6 +45,13 @@ const Project = () => {
   }, [itemsCountPerPage]);
 
   const handleScroll = useCallback(() => {
+    const handlePageChange = () => {
+      setScrolling(true);
+      if (activePage < totalPage) {
+        setActivePage((prev) => prev + 1);
+        setScrolling(false);
+      }
+    };
     if (scrolling || totalPage <= activePage) return;
     const cardWrap = document.querySelector('.portfolioWrap');
     if (!cardWrap) return;
@@ -61,14 +68,6 @@ const Project = () => {
   const filterItems = (value) => {
     if (value.toLowerCase() === 'all') setFilter(null);
     else setFilter(value);
-  };
-
-  const handlePageChange = () => {
-    setScrolling(true);
-    if (activePage < totalPage) {
-      setActivePage((prev) => prev + 1);
-      setScrolling(false);
-    }
   };
 
   const filteredItems = filter ? items.filter((item) => item.tags.toLowerCase().includes(filter.toLowerCase())) : items;
