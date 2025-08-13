@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import {Route, Switch, HashRouter as Router} from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
 import App from './App';
 import About from './components/About';
@@ -23,30 +23,30 @@ import FourZFour from './components/FourZFour';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-	<React.StrictMode>
-	  <Router>
-		<App>
-			<Switch>
-				<Route exact path="/" component={About} />
-				<Route exact path="/project" component={Project} />
-				<Route exact path="/p/:id" component={ProjectDetails} />
-				<Route exact path="/research" component={Research} />
-				<Route exact path="/r/:id" component={ResearchDetails} />
-				<Route exact path="/blog" component={Blog} />
-				<Route exact path="/blog/:id" component={Post} />
-				<Route exact path="/photo" component={Photo} />
-				<Route exact path="/updates" component={Updates} />
-				<Route exact path="/updates/:id" component={UpdateDetails} />
-				<Route exact path="/contact" component={Contact} />
-				<Route exact path="/shop" component={Shop} />
-				<Route exact path="/log" component={Log} />
-				<Route exact path="/travel" component={WorldMap} />
-				<Route exact path="/note" component={Note} />
-				<Route exact path="/movies" component={Movie} />
-				<Route component={FourZFour} />
-			</Switch>
-		</App>
-	</Router>
-	</React.StrictMode>
+  <React.StrictMode>
+    <Router>
+      <App>
+        <Routes>
+          <Route path='/' element={<About />} />
+          <Route path='/project' element={<Project />} />
+          <Route path='/p/:id' element={<ProjectDetails />} />
+          <Route path='/research' element={<Research />} />
+          <Route path='/r/:id' element={<ResearchDetails />} />
+          <Route path='/blog' element={<Blog />} />
+          <Route path='/blog/:id' element={<Post />} />
+          <Route path='/photo' element={<Photo />} />
+          <Route path='/updates' element={<Updates />} />
+          <Route path='/updates/:id' element={<UpdateDetails />} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/shop' element={<Shop />} />
+          <Route path='/log' element={<Log />} />
+          <Route path='/travel' element={<WorldMap />} />
+          <Route path='/note' element={<Note />} />
+          <Route path='/movies' element={<Movie />} />
+          {/* catch-all route */}
+          <Route path='*' element={<FourZFour />} />
+        </Routes>
+      </App>
+    </Router>
+  </React.StrictMode>
 );
-

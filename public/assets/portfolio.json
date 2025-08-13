@@ -1,6 +1,50 @@
 {
   "portfolio": [
     {
+      "title": "Plan Generation in New Landonline",
+      "slug": "linz",
+      "desc": "Use Plan Generation to define and layout diagrams for Survey and Title sheets, and generate Records of Survey and Title plans for a survey dataset.",
+      "thumbnail": "plangen/cover.png",
+      "url": "https://www.linz.govt.nz/guidance/landonline-support/new-landonline-survey-support/transitioning-new-landonline-survey",
+      "tags": "web",
+      "gallery": [
+        {
+          "type": "video",
+          "ratio": "landscape",
+          "url": "https://www.youtube.com/embed/0vRErpeOgrw"
+        },
+        {
+          "type": "image",
+          "url": "plangen/plangen_1.gif"
+        },
+        {
+          "type": "image",
+          "url": "plangen/plangen_2.gif"
+        },
+        {
+          "type": "image",
+          "url": "plangen/plangen_3.png"
+        },
+        {
+          "type": "image",
+          "url": "plangen/plangen_4.gif"
+        },
+        {
+          "type": "image",
+          "url": "plangen/plangen_5.gif"
+        },
+        {
+          "type": "video",
+          "ratio": "landscape",
+          "url": "plangen/plangen_6.mp4"
+        },
+        {
+          "type": "image",
+          "url": "plangen/plangen_7.png"
+        }
+      ]
+    },
+    {
       "title": "NexSchool - Unified Learning Management System",
       "slug": "nexschool",
       "desc": "NexSchool is a unified school management system and learning management system that act as a centralised system to manage every aspect of a school. I was the Front End Developer, being responsible for the module development, deployment, and maintenance, version control with GIT, UI/UX design and execution",
@@ -723,7 +767,7 @@
       "slug": "compass-live",
       "desc": "Compass Live combines both compass and navigational data with current location information. Not only does Compass Live give you general directions and degrees like a regular compass would, it also uses your location data to show where you are.",
       "thumbnail": "compasslive/cover.jpg",
-      "url": "https://play.google.com/store/apps/details?id=com.jquery404.compasslive",
+      "url": "https://compass-live.en.softonic.com/android",
       "tags": "app, android",
       "gallery": [
         {

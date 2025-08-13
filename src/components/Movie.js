@@ -1,371 +1,202 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const repoOwner = 'jquery404';
 const repoName = 'jquery404.github.io';
 const branchName = 'master';
 const folderPath = 'movies';
-const accessToken = 'process.env.REACT_APP_ACCESS_TOKEN';
+const dataFileName = 'movdb.json';
+const gitAccessToken = 'x';
 
-class Movie extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      movFiles: [],
-      loading: true,
-      isFetching: false,
-      showEdit: false,
-      selectedImage: null,
-      uploadStatus: null,
-      textContent: null,
-      uploadTxtStatus: null,
-      imdbApiKey: '',
-      gitAccessToken: '',
-      results: [],
-      content: [],
-    };
-    this.search = this.search.bind(this);
-  }
+const Movie = () => {
+  const [localMovies, setLocalMovies] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [showAdd, setShowAdd] = useState(false);
+  const [wikiTitle, setWikiTitle] = useState('');
+  const [status, setStatus] = useState(null);
 
-  handleImageChange = (event) => {
-    this.setState({
-      selectedImage: event.target.files[0],
-    });
+  useEffect(() => {
+    fetchMovieFiles();
+  }, []);
+
+  const utf8ToBase64 = (str) => {
+    return window.btoa(unescape(encodeURIComponent(str)));
   };
 
-  handleUploadImage = async () => {
-    const { selectedImage } = this.state;
+  const fetchMovieFiles = async () => {
+    try {
+      const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${folderPath}/${dataFileName}`;
+      const response = await fetch(url, {
+        headers: {
+          Authorization: `token ${gitAccessToken}`,
+        },
+      });
 
-    if (!selectedImage) {
-      this.setState({ uploadStatus: 'Please select an image first.' });
-      return;
+      if (!response.ok) throw new Error('Failed to fetch movie data');
+
+      const { content } = await response.json();
+      const decodedContent = atob(content);
+      const movies = JSON.parse(decodedContent);
+
+      setLocalMovies(movies);
+    } catch (error) {
+      console.error(error);
+      setStatus('Error loading movies');
+    } finally {
+      setLoading(false);
     }
+  };
+
+  const handleAddFromWikipedia = async () => {
+    if (!wikiTitle) return alert('Enter a Wikipedia title!');
 
     try {
-      const file = selectedImage;
-      const content = await file.arrayBuffer();
-      const base64Content = Buffer.from(content).toString('base64');
-      const currentTimestamp = new Date().toISOString().replace(/[-:.T]/g, '');
-      const uniqueFileName = `image_${currentTimestamp}.jpg`;
-      const filePath = `${folderPath}/${uniqueFileName}`;
+      const wikiResponse = await fetch(
+        `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(wikiTitle)}`
+      );
+      if (!wikiResponse.ok) throw new Error('Wikipedia page not found');
 
-      const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`;
+      const wikiData = await wikiResponse.json();
+      const newMovie = {
+        id: wikiData.pageid,
+        title: wikiData.title,
+        description: wikiData.extract,
+        imageUrl: wikiData.thumbnail?.source || null,
+        url: wikiData.content_urls?.desktop.page || null,
+      };
 
-      console.log("----", accessToken);
+      setLocalMovies((prev) => [newMovie, ...prev]);
+      setWikiTitle('');
+      setStatus(`Added "${newMovie.title}" locally`);
+    } catch (err) {
+      console.error(err);
+      setStatus('Error fetching from Wikipedia');
+    }
+  };
 
-      const response = await fetch(url, {
-        method: 'PUT',
+  const handleDeleteMovie = (id) => {
+    setLocalMovies((prev) => prev.filter((movie) => movie.id !== id));
+    setStatus('Movie removed locally');
+  };
+
+  const uploadToGitHub = async () => {
+    try {
+      const filePath = `${folderPath}/${dataFileName}`;
+      const getUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`;
+
+      // First get current file to get SHA
+      const getResp = await fetch(getUrl, {
         headers: {
-          Authorization: `token ${accessToken}`,
+          Authorization: `token ${gitAccessToken}`,
         },
+      });
+
+      if (!getResp.ok) throw new Error('Failed to fetch current file');
+
+      const { sha } = await getResp.json();
+
+      // Fix: Properly encode UTF-8 strings to base64
+      const content = utf8ToBase64(JSON.stringify(localMovies, null, 2));
+      // Alternative if Buffer is not available:
+      // const content = window.btoa(unescape(encodeURIComponent(JSON.stringify(localMovies, null, 2))));
+
+      const putResp = await fetch(getUrl, {
+        method: 'PUT',
+        headers: { Authorization: `token ${gitAccessToken}` },
         body: JSON.stringify({
-          message: `Add ${file.name}`,
-          content: base64Content,
+          message: `Updated movies list`,
+          content: content,
+          sha: sha,
           branch: branchName,
         }),
       });
 
-      if (response.ok) {
-        this.setState({ uploadStatus: 'Image uploaded successfully!' });
+      if (putResp.ok) {
+        setStatus('Successfully updated movies on GitHub!');
+        fetchMovieFiles(); // Refresh to confirm changes
       } else {
-        this.setState({ uploadStatus: 'Failed to upload image. Please try again.' });
+        setStatus('Failed to update on GitHub');
       }
-    } catch (error) {
-      console.error('Error uploading image:', error);
-      this.setState({ uploadStatus: 'An error occurred. Please try again later.' });
+    } catch (err) {
+      console.error(err);
+      setStatus('Error uploading to GitHub');
     }
   };
 
-  handleTextChange = (event) => {
-    this.setState({
-      textContent: event.target.value,
-    });
-  };
+  return (
+    <div className='container'>
+      <h1>Movies</h1>
+      <p>
+        I'm a big fan of movies and have probably seen hundreds, if not thousands of them! This page shows my favorites
+        with the ability to edit them locally before uploading.
+      </p>
 
-  b64EncodeUnicode(str) {
-    return btoa(
-      encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function (match, p1) {
-        return String.fromCharCode('0x' + p1);
-      })
-    );
-  }
+      <div className='mb-4'>
+        <button className='btn btn-primary me-2' onClick={() => setShowAdd(!showAdd)}>
+          {showAdd ? 'Hide Add Form' : 'Add New Movie'}
+        </button>
 
-  async handleUploadText(elm, key) {
-    const { content, gitAccessToken } = this.state;
+        <button className='btn btn-success' onClick={uploadToGitHub} disabled={loading}>
+          Upload All Changes to GitHub
+        </button>
+      </div>
 
-    const options = {
-      method: 'GET',
-      headers: {
-        'X-RapidAPI-Key': this.state.imdbApiKey,
-        'X-RapidAPI-Host': 'imdb8.p.rapidapi.com'
-      }
-    };
+      {showAdd && (
+        <div className='card mb-4 p-3'>
+          <div className='form-group'>
+            <input
+              type='text'
+              className='form-control mb-2'
+              placeholder="Wikipedia title (e.g., 'Inception')"
+              value={wikiTitle}
+              onChange={(e) => setWikiTitle(e.target.value)}
+            />
+            <button className='btn btn-secondary' onClick={handleAddFromWikipedia}>
+              Add from Wikipedia
+            </button>
+          </div>
+        </div>
+      )}
 
-    let id = content[key].id.substring(7, content[key].id.length - 1);
+      {status && (
+        <div className={`alert ${status.includes('Success') ? 'alert-success' : 'alert-info'} mb-4`}>{status}</div>
+      )}
 
-    this.setState({
-      loading: true
-    });
-
-    Promise.all([
-      fetch('https://imdb8.p.rapidapi.com/title/get-genres?tconst=' + id, options).then(response => response.json()),
-      fetch('https://imdb8.p.rapidapi.com/title/get-ratings?tconst=' + id, options).then(response => response.json())
-    ])
-      .then(async ([genresResponse, ratingsResponse]) => {
-        content[key].genres = genresResponse;
-        content[key].rating = ratingsResponse.rating;
-        content[key].ratingsHistograms = ratingsResponse.ratingsHistograms;
-
-        this.setState(prevState => ({
-          movFiles: [content[key], ...prevState.movFiles],
-          loading: false
-        }));
-
-        try {
-          const fileName = 'movdb.json';
-          const filePath = `${folderPath}/${fileName}`;
-          const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`;
-
-          const fetchResponse = await fetch(url, {
-            headers: {
-              Authorization: `token ${gitAccessToken}`,
-            }
-          });
-
-          if (!fetchResponse.ok) {
-            throw new Error('Failed to fetch existing file');
-          }
-
-          const { sha } = await fetchResponse.json();
-
-          // Update movFiles array and stringify it to JSON
-          const updatedContent = JSON.stringify(this.state.movFiles);
-
-          // Encode updated content to base64
-          const updatedContentBase64 = this.b64EncodeUnicode(updatedContent);
-
-          // Make PUT request to update the file
-          const updateResponse = await fetch(url, {
-            method: 'PUT',
-            headers: {
-              Authorization: `token ${gitAccessToken}`,
-            },
-            body: JSON.stringify({
-              message: `Update ${fileName}`,
-              content: updatedContentBase64,
-              sha: sha,
-              branch: branchName,
-            }),
-          });
-
-          if (updateResponse.ok) {
-            this.setState({
-              uploadTxtStatus: 'Text updated successfully!',
-              textContent: '',
-              results: []
-            });
-          } else {
-            this.setState({ uploadTxtStatus: 'Failed to update text. Please try again.' });
-          }
-        } catch (error) {
-          console.error('Error uploading text:', error);
-          this.setState({ uploadTxtStatus: 'An error occurred. Please try again later.' });
-        }
-      })
-      .catch(err => console.error(err));
-  };
-
-  componentDidMount() {
-    this.fetchMovieFiles();
-  }
-
-  fetchMovieFiles = async () => {
-    try {
-      const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${folderPath}`;
-
-      const response = await fetch(url);
-
-      if (!response.ok) {
-        throw new Error('Failed to fetch repository contents.');
-      }
-
-      const data = await response.json();
-      const textFiles = data.filter((file) => file.name.endsWith('.json'));
-
-      // Fetch and read the content of each text file
-      const promises = textFiles.map(async (file) => {
-        const contentResponse = await fetch(file.download_url);
-        const content = await contentResponse.json();
-
-        return content;
-      });
-
-      const textFilesContent = await Promise.all(promises);
-
-
-      this.setState({
-        movFiles: textFilesContent[0],
-        loading: false,
-      });
-    } catch (error) {
-      console.error('Error fetching text files:', error);
-      this.setState({
-        loading: false,
-      });
-    }
-  };
-
-  search() {
-    const { imdbApiKey, gitAccessToken, textContent } = this.state;
-
-    if (!imdbApiKey) {
-      const apiKey = prompt('Please enter X-RapidAPI-Key');
-      if (!apiKey) return; // User cancelled
-      this.setState({ imdbApiKey: apiKey });
-    }
-    if (!gitAccessToken) {
-      const accessToken = prompt('Please enter AccessToken');
-      if (!accessToken) return; // User cancelled
-      this.setState({ gitAccessToken: accessToken });
-    }
-
-    const options = {
-      method: 'GET',
-      headers: {
-        'X-RapidAPI-Key': this.state.imdbApiKey,
-        'X-RapidAPI-Host': 'imdb8.p.rapidapi.com'
-      }
-    };
-
-    this.setState({ isFetching: true, });
-
-    fetch(`https://imdb8.p.rapidapi.com/title/find?q=${textContent}`, options)
-      .then(response => response.json())
-      .then(data => {
-        this.setState({ content: [] });
-
-        const newResults = data.results.map((elm, key) => {
-          let cardHtml = (
-            <div className="col-sm-2" key={key}>
-              <div className="card">
-                {elm.image && <img className="card-img-top" src={elm.image.url} alt={elm.title} />}
-                <div className="card-body">
-                  <h5 className="card-title">{elm.title} ({elm.year})</h5>
-                  <span className="badge badge-pill badge-primary">{elm.titleType}</span>
-                  <p className="card-text">RunningTime {elm.runningTimeInMinutes}m</p>
-                  {elm.principals && elm.principals.map((val, index) => (
-                    <span className="badge badge-dark" key={index}>{val.name}</span>
-                  ))}
-                  <br />
-                  <button onClick={() => this.handleUploadText(elm, key)} className="btn btn-primary">ADD</button>
+      {loading ? (
+        <div className='text-center'>Loading movies...</div>
+      ) : (
+        <div className='row'>
+          {localMovies.map((movie) => (
+            <div key={movie.id} className='col-md-4 col-lg-3 mb-4'>
+              <div className='card h-100'>
+                {movie.imageUrl && (
+                  <img
+                    src={movie.imageUrl}
+                    alt={movie.title}
+                    className='card-img-top'
+                    style={{ height: '200px', objectFit: 'cover' }}
+                  />
+                )}
+                <div className='card-body d-flex flex-column'>
+                  <h5 className='card-title'>{movie.title}</h5>
+                  <p className='card-text flex-grow-1'>{movie.description?.substring(0, 150)}...</p>
+                  <div className='d-flex justify-content-between align-items-center mt-2'>
+                    {movie.url && (
+                      <a href={movie.url} target='_blank' rel='noreferrer' className='btn btn-sm btn-outline-primary'>
+                        Read More
+                      </a>
+                    )}
+                    <button onClick={() => handleDeleteMovie(movie.id)} className='btn btn-sm btn-danger'>
+                      Delete
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-          );
-
-          let t = {
-            id: elm.id,
-            title: elm.title,
-            year: elm.year,
-            runningTimeInMinutes: elm.runningTimeInMinutes,
-            titleType: elm.titleType,
-            imageUrl: elm.image ? elm.image.url : null,
-            imageWidth: elm.image ? elm.image.width : null,
-            imageHeight: elm.image ? elm.image.height : null,
-            principals: elm.principals ? elm.principals.map(val => val.name) : null
-          };
-
-
-          return { cardHtml, t };
-        });
-
-        const cardHtmlArray = newResults.map(result => result.cardHtml);
-        const newContentArray = newResults.map(result => result.t);
-
-        // Update the state in a single setState call
-        this.setState(prevState => ({
-          results: cardHtmlArray,
-          content: newContentArray,
-          isFetching: false,
-        }));
-      })
-      .catch(err => {
-        console.error(err);
-        this.setState({ isFetching: false, });
-      });
-  }
-
-  handleToggleEdit = () => {
-    this.setState((prevState) => ({
-      showEdit: !prevState.showEdit,
-    }));
-  };
-
-  render() {
-    const { uploadTxtStatus, isFetching, showEdit, movFiles, loading, results } = this.state;
-
-    return (
-      <div>
-        <h1>Movies</h1>
-        <p>I'm a big fan of movies and have probably seen hundreds, if not thousands of them!
-        But with so many under my belt, it's becoming quite a task to find new gems that tickle my fancy.
-        Still, there are a few that hold a special place in my heart, ones I can't resist revisiting time and again.
-          This page is dedicated to those special films.</p>
-        <button className="btn btn-primary" onClick={this.handleToggleEdit}>
-          {showEdit ? 'Hide Add' : 'Show Add'}
-        </button>
-
-        {showEdit && (
-          <div>
-            <textarea
-              rows={2}
-              cols={50}
-              value={this.state.textContent || ''}
-              onChange={this.handleTextChange}
-            /><br />
-            <button className="btn btn-sm btn-secondary" disabled={isFetching} onClick={this.search}>Search</button>
-            {uploadTxtStatus && <p>{uploadTxtStatus}</p>}
-          </div>
-        )}
-        <div className="row search-content">{results}</div>
-        <hr />
-
-        {loading ? (
-          <div>Loading...</div>
-        ) : (
-            <div className="row">
-              {movFiles.map((file) => (
-                <div key={file.id} className="col-sm-2">
-                  <div className="card my-1">
-                    {file.imageUrl && <img className="card-img-top" src={file.imageUrl} alt={file.title} />}
-                    <div className="card-body" style={{ "display": "none" }}>
-                      {file.titleType === 'tvSeries' || file.titleType === 'tvEpisode' ? (
-                        <div>
-                          <h5 className="card-title">{file.title} ({file.seriesStartYear}-{file.seriesEndYear})</h5>
-                          <span className="badge badge-pill badge-primary">{file.titleType}</span>
-                          <span className="badge badge-pill badge-warning">{file.numberOfEpisodes} Episodes</span>
-                        </div>
-                      ) : (
-                          <div>
-                            <h5 className="card-title">{file.title} ({file.year})</h5>
-                            <span className="badge badge-pill badge-primary">{file.titleType}</span>
-                          </div>
-                        )}
-                      <p className="card-text">{file.runningTimeInMinutes} min</p>
-                      {file.genres && <p>Genres: {file.genres.join(', ')}</p>}
-                      {file.rating && (
-                        <div>
-                          Rating: {file.rating}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-      </div>
-    );
-  }
-}
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
 
 export default Movie;
