@@ -6,59 +6,39 @@ import Footer from './components/Footer';
 function App({ children }) {
   const location = useLocation();
   const [ipInfo, setIpInfo] = useState(null);
-  const [error, setError] = useState(null);
+  // Removed unused error state since it's not being used in the component
 
-  //   useEffect(() => {
-  //     const fetchData = () => {
-  //       const pathname = location.pathname;
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const pathname = location.pathname;
 
-  //       if (ipInfo === null) {
-  //         fetch('https://ipapi.co/json/')
-  //           .then((response) => {
-  //             if (!response.ok) throw new Error('Failed to fetch IP information');
-  //             return response.json();
-  //           })
-  //           .then((data) => {
-  //             if (data.country_code === 'ID') {
-  //               window.location.href = 'https://www.google.com';
-  //             } else {
-  //               data.country_population = pathname;
-  //               setIpInfo(data);
-  //               setError(null);
-  //               //   callAwsLambdaFunction(data);
-  //             }
-  //           })
-  //           .catch((err) => {
-  //             setError(err.message);
-  //           });
-  //       } else {
-  //         let newData = { ...ipInfo, country_population: pathname };
-  //         setIpInfo(newData);
-  //         // callAwsLambdaFunction(newData);
-  //       }
-  //     };
-  //     fetchData();
-  //   }, [ipInfo, location.pathname]);
+        // Only fetch if we don't have IP info yet
+        if (ipInfo === null) {
+          const response = await fetch('https://ipapi.co/json/');
+          if (!response.ok) throw new Error('Failed to fetch IP information');
 
-  const callAwsLambdaFunction = (ipInfo) => {
-    const apiUrl = 'https://adnke1sq71.execute-api.ap-southeast-2.amazonaws.com/default/jq404';
+          const data = await response.json();
+          if (data.country_code === 'ID') {
+            window.location.href = 'https://www.google.com';
+            return; // Exit if redirecting
+          }
 
-    fetch(apiUrl, {
-      method: 'POST',
-      body: JSON.stringify({ key1: JSON.stringify(ipInfo) }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Failed to call AWS Lambda function');
+          // Set initial IP info with current path
+          setIpInfo({ ...data, country_population: pathname });
+        } else {
+          // Update only the pathname if IP info already exists
+          setIpInfo((prev) => ({ ...prev, country_population: pathname }));
         }
-      })
-      .catch((error) => {
-        console.error('Error calling AWS Lambda function:', error.message);
-      });
-  };
+      } catch (err) {
+        console.error('Error fetching IP info:', err);
+        // Handle error if needed
+      }
+    };
+
+    fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.pathname]);
 
   return (
     <div className='App'>
