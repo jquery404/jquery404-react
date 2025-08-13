@@ -25,11 +25,7 @@ const Movie = () => {
   const fetchMovieFiles = async () => {
     try {
       const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${folderPath}/${dataFileName}`;
-      const response = await fetch(url, {
-        headers: {
-          Authorization: `token ${gitAccessToken}`,
-        },
-      });
+      const response = await fetch(url);
 
       if (!response.ok) throw new Error('Failed to fetch movie data');
 
@@ -173,7 +169,7 @@ const Movie = () => {
                     src={movie.imageUrl}
                     alt={movie.title}
                     className='card-img-top'
-                    style={{ height: '200px', objectFit: 'cover' }}
+                    style={{ height: 'auto', objectFit: 'cover' }}
                   />
                 )}
                 <div className='card-body d-flex flex-column'>
