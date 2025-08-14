@@ -5,7 +5,6 @@ const repoName = 'jquery404.github.io';
 const branchName = 'master';
 const folderPath = 'movies';
 const dataFileName = 'movdb.json';
-const gitAccessToken = 'x';
 
 const Movie = () => {
   const [localMovies, setLocalMovies] = useState([]);
@@ -75,6 +74,11 @@ const Movie = () => {
   };
 
   const uploadToGitHub = async () => {
+    const gitAccessToken = prompt('AccessToken:');
+    if (!gitAccessToken) {
+      alert('Upload cancelled - no token provided');
+      return;
+    }
     try {
       const filePath = `${folderPath}/${dataFileName}`;
       const getUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`;
@@ -105,7 +109,6 @@ const Movie = () => {
           branch: branchName,
         }),
       });
-
       if (putResp.ok) {
         setStatus('Successfully updated movies on GitHub!');
         fetchMovieFiles(); // Refresh to confirm changes
@@ -130,7 +133,7 @@ const Movie = () => {
         <button className='btn btn-primary me-2' onClick={() => setShowAdd(!showAdd)}>
           {showAdd ? 'Hide Add Form' : 'Add New Movie'}
         </button>
-
+        &nbsp;
         <button className='btn btn-success' onClick={uploadToGitHub} disabled={loading}>
           Upload All Changes to GitHub
         </button>
