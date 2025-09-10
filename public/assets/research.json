@@ -111,6 +111,17 @@
           }
         },
         {
+          "thumbnail": "collabxr.jpg",
+          "authors": "<b>Faisal Zaman</b>, Craig Anslow, and Taehyun Rhee.",
+          "url": "https://main.d3hmutmb4n9wkp.amplifyapp.com/",
+          "title": "CollabXR - A Systematic Review of Research, Applications, and Opportunities in XR Collaboration",
+          "venue": "",
+          "links": {
+            "pdf": "/assets/papers/763.009.777.pdf",
+            "abstract": "A systematic review of 557 papers detailing collaboration research utilizing augmented, virtual, and mixed reality (AR/VR/MR) across various publication venues spanning 2000 to 2023 is presented. The aim is to evaluate the approaches used in Extended Reality (XR) collaboration and explore future opportunities within this domain. A taxonomy has been developed to provide a structured understanding of the current research landscape. Based on this taxonomy, publications are categorized by input type (e.g., 360 video, point cloud), device type (e.g., HMDs, HHDs), interaction modality, collaboration mode (e.g., one-to-one, one-to-many), and evaluation type (e.g., Presence and Immersion). This classification helps in systematically analyzing the diverse approaches and technologies employed in XR collaboration research. Further analysis of 395 papers from the top ten publication venues provides insights into current trends in publication types (e.g., System Design, User Study) and application areas (e.g., Immersive Learning, Healthcare). Key findings from the review highlighted the importance of low-latency, real-time communication in XR collaboration, which was essential for inducing a sense of presence and immersion among users and enabling natural interactions like interacting with and manipulating virtual objects. Supporting multiple users, beyond traditional one-on-one interactions, with asymmetric compatibility ensured diverse teams could engage effectively within the XR collaboration space. In terms of collaboration styles and user experience principles, the focus was on spatial, remote, and asynchronous interaction, enhancing user experience through presence, intuitive interaction design, and considerations for comfort and ergonomics. The main gaps and opportunities in this research area have been identified by examining current trends in XR collaboration. These trends underscore the need for adopting multi-user platforms, integrating AI, and developing industry-specific applications. However, challenges such as network optimization, privacy concerns, and the refinement of interaction models persist. Addressing these issues is crucial for advancing the capabilities and usability of XR collaboration tools."
+          }
+        },
+        {
           "thumbnail": "mxrc-dc.png",
           "authors": "<b>Faisal Zaman</b>.",
           "url": "/assets/papers/840200a940.pdf",
@@ -221,7 +232,7 @@
       "slogan": "",
       "desc": "Gait training and rehabilitation have traditionally been done through movement observation during in-person sessions with medical professionals and follow-up exercises at home. However, these methods are costly, have low patient adherence, and have a decreased accuracy in assessing and modeling patient gait. We present XRGait, a system that seamlessly integrates wearable sensors with immersive technologies to provide real-time support for gait training and rehabilitation. Our system combines smart insoles and wearable motion tracking sensors with immersive displays to provide the patient with real-time feedback about their gait within an engaging training environment. We conducted two studies comparing different system environments and gait visualizations to assess usability and user experience. Findings indicate users found the virtual reality environment most engaging (vs. augmented reality or screen-only) and valued real-time feedback, with a preference for full lower body visualization. We discuss these results, along with limitations and future directions.",
       "thumbnail": "xrgait/xsens_sensors_alignment.png",
-      "paper_thumb": "default.jpg",
+      "paper_thumb": "xrgait/paper_thumb.png",
       "journal": "37th Australian Conference on Human-Computer Interaction (OzCHI 2025, ACM SIGCHI)",
       "authors": [
         {
@@ -260,8 +271,8 @@
           "affiliation": "School of Design Innovation, Victoria University of Wellington, NZ"
         }
       ],
-      "url": "",
-      "file_info": "",
+      "url": "assets/papers/283.2455.6673.pdf",
+      "file_info": "PDF, 1.5mb",
       "tags": "gait training, wearable sensors, virtual reality",
       "bibtex": "Coming soon...",
       "gallery": [
