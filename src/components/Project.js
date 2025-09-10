@@ -114,7 +114,7 @@ const Project = () => {
 
         <ModalBody>
           <div className='row'>
-            <div className='col-sm-12 col-md-7'>
+            <div className='col-sm-12 col-md-7' style={{ overflow: 'hidden' }}>
               <Swiper {...swiperParams}>
                 {currentTodos[gallery]?.gallery.map((g, i) => (
                   <SwiperSlide key={i}>
