@@ -1,15 +1,20 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
-const RenderCardLink = (url) => {
-  const isExternalOrStatic = url.includes('https') || url.startsWith('/assets');
+// Convert to a hook-based component
+const useCardNavigation = () => {
+  const navigate = useNavigate();
 
-  if (isExternalOrStatic) {
-    window.location.href = url;
-  } else {
-    const currentUrl = window.location.href.replace(/\/$/, '');
-    window.location.href = `${currentUrl}${url}`;
-  }
+  return (url) => {
+    const isExternalOrStatic = url.includes('https') || url.startsWith('/assets');
+
+    if (isExternalOrStatic) {
+      window.location.href = url;
+    } else {
+      // Use React Router's navigate instead of window.location
+      navigate(url);
+    }
+  };
 };
 
 const RenderLinkComponent = (url, content, isExternalOrStatic) =>
@@ -48,30 +53,6 @@ const RenderShortLink = (type, url, content) => {
   );
 };
 
-// const RenderLink = (type, url, icon, label) => {
-//     const isExternalOrStatic = url.includes("https") || url.startsWith("/assets");
-
-//     return isExternalOrStatic ? (
-//       <React.Fragment key={type}>
-//         <a href={url} target="_blank" rel="noopener noreferrer">
-//           <span className="badge badge-dark tooltips">
-//             <i className={icon}></i> {label}
-//           </span>
-//         </a>
-//         &nbsp;
-//       </React.Fragment>
-//     ) : (
-//       <React.Fragment key={type}>
-//         <NavLink to={url}>
-//           <span className="badge badge-dark tooltips">
-//             <i className={icon}></i> {label}
-//           </span>
-//         </NavLink>
-//         &nbsp;
-//       </React.Fragment>
-//     );
-// };
-
 const EventCard = ({ data }) => (
   <div className='update-c card mb-2'>
     <div className='card-horizontal'>
@@ -96,12 +77,14 @@ const EventCard = ({ data }) => (
 );
 
 const ResearchCard = ({ item }) => {
+  const handleNavigation = useCardNavigation();
+
   const handleCardClick = () => {
-    RenderCardLink(item.url);
+    handleNavigation(item.url);
   };
 
   return (
-    <div className='card home-card col-sm-6 p-4 border-0' onClick={handleCardClick}>
+    <div className='card home-card col-sm-6 p-4 border-0' onClick={handleCardClick} style={{ cursor: 'pointer' }}>
       <img className='card-img-top' src={`/assets/imgs/research/${item.thumbnail}`} alt={item.title} />
       <div className='card-body p-0 border-1'>
         <b>{item.title}</b> <br />
@@ -111,12 +94,14 @@ const ResearchCard = ({ item }) => {
 };
 
 const ProjectCard = ({ item }) => {
+  const handleNavigation = useCardNavigation();
+
   const handleCardClick = () => {
-    RenderCardLink('p/' + item.slug);
+    handleNavigation('/p/' + item.slug);
   };
 
   return (
-    <div className='card home-card col-sm-6 p-4 border-0' onClick={handleCardClick}>
+    <div className='card home-card col-sm-6 p-4 border-0' onClick={handleCardClick} style={{ cursor: 'pointer' }}>
       <img className='card-img-top' src={`/assets/imgs/project/${item.thumbnail}`} alt={item.title} />
       <div className='card-body p-0 border-1'>
         <b>{item.title}</b> <br />
@@ -127,18 +112,21 @@ const ProjectCard = ({ item }) => {
     </div>
   );
 };
+
 function formatDate(isoString) {
   const date = new Date(isoString);
   return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 }
 
 const BlogCard = ({ item }) => {
+  const handleNavigation = useCardNavigation();
+
   const handleCardClick = () => {
-    RenderCardLink(`/blog/${item.number}`);
+    handleNavigation(`/blog/${item.number}`);
   };
 
   return (
-    <div className='update-c card home-card mb-2' onClick={handleCardClick}>
+    <div className='update-c card home-card mb-2' onClick={handleCardClick} style={{ cursor: 'pointer' }}>
       <div className='card-horizontal'>
         <div className='img-square-wrapper'>
           <img src={item.user.avatar_url} alt={item.user.html_url} width='50px' />
@@ -155,4 +143,4 @@ const BlogCard = ({ item }) => {
   );
 };
 
-export { RenderLink, RenderShortLink, RenderCardLink, EventCard, ResearchCard, ProjectCard, BlogCard };
+export { RenderLink, RenderShortLink, useCardNavigation, EventCard, ResearchCard, ProjectCard, BlogCard };
