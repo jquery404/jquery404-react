@@ -15,6 +15,7 @@
             "pdf": "/r/xrgait",
             "abstract": "Gait training and rehabilitation have traditionally been done through movement observation during in-person sessions with medical professionals and follow-up exercises at home. However, these methods are costly, have low patient adherence, and have a decreased accuracy in assessing and modeling patient gait. We present XRGait, a system that seamlessly integrates wearable sensors with immersive technologies to provide real-time support for gait training and rehabilitation. Our system combines smart insoles and wearable motion tracking sensors with immersive displays to provide the patient with real-time feedback about their gait within an engaging training environment. We conducted two studies comparing different system environments and gait visualizations to assess usability and user experience. Findings indicate users found the virtual reality environment most engaging (vs. augmented reality or screen-only) and valued real-time feedback, with a preference for full lower body visualization. We discuss these results, along with limitations and future directions.",
             "bibtex": "@inproceedings{zaman2025xrgait,\n  title={XRGait: Immersive Gait Training Visualization with Integrated Sensing},\n  author={Zaman, Faisal and Pantidi, Nadia and Young, Jacob and Kuffner dos Anjos, Rafael and Trengrove, Tom and Drown, James and Lee, Jonathan},\n  booktitle={Proceedings of the 37th Australian Conference on Human-Computer Interaction},\n  pages={414--425},\n  year={2025}\n}",
+            "slides": "/assets/papers/xrgait/xrgait_slides.pdf",
             "video": "/r/xrgait"
           }
         }
@@ -284,7 +285,14 @@
       ],
       "slides": {
         "header": "Slides",
-        "list": []
+        "list": [
+          {
+            "slide_thumb": "xrgait/xrgait_slide_thumb.jpg",
+            "title": "10min OzCHI'25 Presentation",
+            "file_info": "PDF, 2mb",
+            "pdf": "xrgait/xrgait_slides.pdf"
+          }
+        ]
       }
     },
     {
