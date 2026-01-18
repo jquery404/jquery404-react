@@ -213,8 +213,10 @@ const ResearchDetails = () => {
   const { id } = useParams();
   const [project, setProject] = useState(null);
   const [hasFound, setHasFound] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     fetch(`/assets/research.json`)
       .then((res) => res.json())
       .then(({ research: items }) => {
@@ -225,9 +227,29 @@ const ResearchDetails = () => {
         } else {
           setHasFound(-1);
         }
+        setLoading(false);
       })
-      .catch(console.error);
+      .catch((error) => {
+        console.error(error);
+        setLoading(false);
+        setHasFound(-1);
+      });
   }, [id]);
+
+  if (loading) {
+    return (
+      <div className='row'>
+        <div className='col-sm-10'>
+          <div className='py-5 text-center'>
+            <div className='spinner-border text-primary' role='status'>
+              <span className='sr-only'>Loading...</span>
+            </div>
+            <p className='mt-3'>Loading research details...</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return <Markup hasFound={hasFound} project={project} />;
 };

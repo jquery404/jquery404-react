@@ -92,11 +92,13 @@ const Markup = ({ hasFound, project, onBack }) => {
 const ProjectDetails = () => {
   const [project, setProject] = useState(null);
   const [hasFound, setHasFound] = useState(0);
+  const [loading, setLoading] = useState(true);
   const { id } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
     let isMounted = true;
+    setLoading(true);
 
     const fetchProject = async () => {
       try {
@@ -111,10 +113,12 @@ const ProjectDetails = () => {
           } else {
             setHasFound(-1);
           }
+          setLoading(false);
         }
       } catch (error) {
         if (isMounted) {
           setHasFound(-1);
+          setLoading(false);
           console.error('Error fetching project:', error);
         }
       }
@@ -130,6 +134,21 @@ const ProjectDetails = () => {
   const handleBack = () => {
     navigate(-1);
   };
+
+  if (loading) {
+    return (
+      <div className='row'>
+        <div className='col-sm-10'>
+          <div className='py-5 text-center'>
+            <div className='spinner-border text-primary' role='status'>
+              <span className='sr-only'>Loading...</span>
+            </div>
+            <p className='mt-3'>Loading project details...</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return <Markup hasFound={hasFound} project={project} onBack={handleBack} />;
 };

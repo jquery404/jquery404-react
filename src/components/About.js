@@ -11,8 +11,10 @@ function About() {
   const [project, setProject] = useState([]);
   const [research, setResearch] = useState([]);
   const [inthelab, setInthelab] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     Promise.all([
       fetch(`/assets/research.json`).then((response) => response.json()),
       fetch(`/assets/portfolio.json`).then((response) => response.json()),
@@ -22,11 +24,28 @@ function About() {
         setResearch(researchData.project || []);
         setProject(projectData.portfolio || []);
         setInthelab(blogData || []);
+        setLoading(false);
       })
       .catch((error) => {
         console.error('Error fetching data:', error);
+        setLoading(false);
       });
   }, []);
+
+  if (loading) {
+    return (
+      <div className='row'>
+        <div className='col-12 col-md-10 col-lg-8'>
+          <div className='py-5 text-center'>
+            <div className='spinner-border text-primary' role='status'>
+              <span className='sr-only'>Loading...</span>
+            </div>
+            <p className='mt-3'>Loading content...</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className='row'>

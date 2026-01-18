@@ -33,15 +33,21 @@ const Project = () => {
   const [totalPage, setTotalPage] = useState(0);
   const [scrolling, setScrolling] = useState(false);
   const [loadModal, setLoadModal] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     fetch('/assets/portfolio.json')
       .then((res) => res.json())
       .then(({ portfolio }) => {
         setItems(portfolio);
         setTotalPage(Math.ceil(portfolio.length / itemsCountPerPage));
+        setLoading(false);
       })
-      .catch(console.error);
+      .catch((error) => {
+        console.error(error);
+        setLoading(false);
+      });
   }, [itemsCountPerPage]);
 
   const handleScroll = useCallback(() => {
@@ -82,6 +88,21 @@ const Project = () => {
     navigation: true,
     modules: [Navigation, Pagination],
   };
+
+  if (loading) {
+    return (
+      <div className='row'>
+        <div className='col-sm-12'>
+          <div className='py-5 text-center'>
+            <div className='spinner-border text-primary' role='status'>
+              <span className='sr-only'>Loading...</span>
+            </div>
+            <p className='mt-3'>Loading projects...</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className='row portfolioWrap'>

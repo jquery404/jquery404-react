@@ -8,19 +8,27 @@ const Post = () => {
   const [item, setItem] = useState({});
   const [comments, setComments] = useState([]);
   const [comment, setComment] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     // Fetch post
-    fetch(`https://api.github.com/repos/jquery404/jquery404.github.io/issues/${id}`)
-      .then((response) => response.json())
-      .then((data) => setItem(data))
-      .catch((error) => console.error(error));
-
-    // Fetch comments
-    fetch(`https://api.github.com/repos/jquery404/jquery404.github.io/issues/${id}/comments`)
-      .then((response) => response.json())
-      .then((data) => setComments(data))
-      .catch((error) => console.error(error));
+    Promise.all([
+      fetch(`https://api.github.com/repos/jquery404/jquery404.github.io/issues/${id}`)
+        .then((response) => response.json()),
+      fetch(`https://api.github.com/repos/jquery404/jquery404.github.io/issues/${id}/comments`)
+        .then((response) => response.json())
+    ])
+      .then(([postData, commentsData]) => {
+        setItem(postData);
+        setComments(commentsData);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error(error);
+        setLoading(false);
+      });
   }, [id]);
 
   const minRead = (length) => {
@@ -31,6 +39,9 @@ const Post = () => {
 
   const postComment = (e) => {
     e.preventDefault();
+    if (!comment.trim() || submitting) return;
+    
+    setSubmitting(true);
     fetch(`https://api.github.com/repos/jquery404/jquery404.github.io/issues/${id}/comments`, {
       method: 'POST',
       body: JSON.stringify({ body: comment }),
@@ -41,9 +52,28 @@ const Post = () => {
         console.log(data);
         setComments((prev) => [...prev, data]);
         setComment('');
+        setSubmitting(false);
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        console.error(error);
+        setSubmitting(false);
+      });
   };
+
+  if (loading) {
+    return (
+      <div className='row'>
+        <div className='col-sm-10'>
+          <div className='py-5 text-center'>
+            <div className='spinner-border text-primary' role='status'>
+              <span className='sr-only'>Loading...</span>
+            </div>
+            <p className='mt-3'>Loading post...</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className='row'>
@@ -67,8 +97,18 @@ const Post = () => {
             <hr />
             <b>Comments:</b> <br />
             <form onSubmit={postComment}>
-              <input type='text' value={comment} onChange={(e) => setComment(e.target.value)} />
-              <input type='submit' value='Submit' />
+              <input 
+                type='text' 
+                value={comment} 
+                onChange={(e) => setComment(e.target.value)}
+                disabled={submitting}
+                placeholder="Write a comment..."
+              />
+              <input 
+                type='submit' 
+                value={submitting ? 'Submitting...' : 'Submit'}
+                disabled={submitting || !comment.trim()}
+              />
             </form>
             {comments.length
               ? comments.map((c, i) => (
