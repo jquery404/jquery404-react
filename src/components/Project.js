@@ -6,6 +6,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Modal, ModalHeader, ModalBody } from 'reactstrap';
+import ProjectMedia from './ProjectMedia';
 
 const Portfolio = ({ portfolio, gallery }) => (
   <div className='col-sm-4' onClick={gallery}>
@@ -82,7 +83,7 @@ const Project = () => {
   const currentTodos = filteredItems.slice(0, indexOfLast);
 
   const swiperParams = {
-    loop: true,
+    loop: Boolean(currentTodos[gallery]?.gallery?.length > 1),
     centeredSlides: true,
     pagination: { clickable: true },
     navigation: true,
@@ -123,7 +124,7 @@ const Project = () => {
         </ul>
       </div>
 
-      <Modal isOpen={loadModal} size='lg' toggle={() => setLoadModal(false)}>
+      <Modal isOpen={loadModal} size='xl' className='project-modal' toggle={() => setLoadModal(false)}>
         <ModalHeader>
           {currentTodos[gallery]?.title || ''}
           <i
@@ -133,38 +134,21 @@ const Project = () => {
           />
         </ModalHeader>
 
-        <ModalBody>
-          <div className='row'>
-            <div className='col-sm-12 col-md-7' style={{ overflow: 'hidden' }}>
-              <Swiper {...swiperParams}>
-                {currentTodos[gallery]?.gallery.map((g, i) => (
+        <ModalBody className='project-modal-body'>
+          <div className='row project-modal-layout'>
+            <div className='col-12 project-modal-media-col'>
+              <Swiper {...swiperParams} key={`${currentTodos[gallery]?.slug || 'project'}-${gallery}`}>
+                {currentTodos[gallery]?.gallery.map((g, i) => {
+                  return (
                   <SwiperSlide key={i}>
-                    {g.type === 'image' ? (
-                      <img className='card-img-top' src={`/assets/imgs/project/${g.url}`} alt='' />
-                    ) : g.url.endsWith('.mp4') ? (
-                      <div className='video-container'>
-                        <video autoPlay muted loop playsInline className='swiper-slide-video'>
-                          <source src={`/assets/imgs/project/${g.url}`} type='video/mp4' />
-                          Your browser does not support the video tag.
-                        </video>
-                      </div>
-                    ) : (
-                      <div className='iframe-container'>
-                        <iframe
-                          title={i}
-                          className='swiper-slide-iframe'
-                          src={g.url}
-                          frameBorder='0'
-                          allowFullScreen
-                        ></iframe>
-                      </div>
-                    )}
+                    <ProjectMedia item={g} index={i} context='modal' />
                   </SwiperSlide>
-                ))}
+                );
+                })}
               </Swiper>
             </div>
 
-            <div className='col-sm-12 col-md-5'>
+            <div className='col-12 project-modal-content-col'>
               <p>{currentTodos[gallery]?.desc}</p>
               <p>[{currentTodos[gallery]?.tags}]</p>
               {currentTodos[gallery]?.url && (

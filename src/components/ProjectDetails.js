@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, NavLink } from 'react-router-dom';
+import ProjectMedia from './ProjectMedia';
 
 const Markup = ({ hasFound, project, onBack }) => {
   if (hasFound === -1) {
@@ -51,29 +52,7 @@ const Markup = ({ hasFound, project, onBack }) => {
                   gallery.type === 'image' ? 'col-sm-6' : gallery.ratio === 'landscape' ? 'col-sm-12' : 'col-sm-6'
                 }
               >
-                {gallery.type === 'image' ? (
-                  <img className='p-3 img-fluid' src={`/assets/imgs/project/${gallery.url}`} alt='' />
-                ) : gallery.url.endsWith('.mp4') ? (
-                  <div className='video-container'>
-                    <video autoPlay muted loop playsInline className='swiper-slide-video'>
-                      <source src={`/assets/imgs/project/${gallery.url}`} type='video/mp4' />
-                      Your browser does not support the video tag.
-                    </video>
-                  </div>
-                ) : (
-                  <div
-                    className={`embed-responsive ${
-                      gallery.ratio === 'landscape' ? 'embed-responsive-16by9' : 'embed-responsive-1by1'
-                    }`}
-                  >
-                    <iframe
-                      title={`gallery-${i}`}
-                      className='embed-responsive-item'
-                      src={gallery.url}
-                      allowFullScreen
-                    ></iframe>
-                  </div>
-                )}
+                <ProjectMedia item={gallery} index={i} context='details' />
               </div>
             ))}
           </div>
