@@ -30,13 +30,17 @@ jobs:
 
     - name: Deploy to GitHub Pages
       env:
-        GITHUB_TOKEN: ${{ secrets.JQUERY_REACT }}
+        GH_PAGES_TOKEN: ${{ secrets.JQUERY_REACT }}
       run: |
-        git config --global user.email "jquery404@gmail.com"
-        git config --global user.name "jquery404"
-        git clone --branch master https://github.com/jquery404/jquery404.github.io.git dist-branch
+        if [ -z "$GH_PAGES_TOKEN" ]; then
+          echo "Missing secret JQUERY_REACT. Set a PAT with repo write access to jquery404/jquery404.github.io."
+          exit 1
+        fi
+        git clone --branch master "https://x-access-token:${GH_PAGES_TOKEN}@github.com/jquery404/jquery404.github.io.git" dist-branch
         rsync -av --delete build/ dist-branch/
         cd dist-branch
+        git config user.email "jquery404@gmail.com"
+        git config user.name "jquery404"
         git add .
         git diff --cached --quiet || git commit -m "deploy: update site build"
-        git push https://x-access-token:${{ secrets.JQUERY_REACT }}@github.com/jquery404/jquery404.github.io.git master
+        git push origin master
