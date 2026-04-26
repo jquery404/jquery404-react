@@ -39,6 +39,7 @@ jobs:
           exit 1
         fi
         TARGET_URL="https://x-access-token:${GH_PAGES_TOKEN}@github.com/${TARGET_REPO}.git"
+        rm -rf dist-branch
         git clone --branch "$TARGET_BRANCH" "$TARGET_URL" dist-branch
         rsync -av --delete build/ dist-branch/
         cd dist-branch
