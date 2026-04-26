@@ -18,8 +18,47 @@ const Movie = () => {
   }, []);
 
   const utf8ToBase64 = (str) => {
-    return window.btoa(unescape(encodeURIComponent(str)));
+    const bytes = new TextEncoder().encode(str);
+    let binary = '';
+    bytes.forEach((b) => {
+      binary += String.fromCharCode(b);
+    });
+    return window.btoa(binary);
   };
+
+  const decodeBase64Utf8 = (base64) => {
+    const binary = window.atob(base64.replace(/\n/g, ''));
+    const bytes = Uint8Array.from(binary, (char) => char.charCodeAt(0));
+    return new TextDecoder('utf-8').decode(bytes);
+  };
+
+  const tryRepairMojibake = (text) => {
+    if (typeof text !== 'string') return text;
+    if (!/[ÃÂâ]/.test(text)) return text;
+
+    let fixed = text;
+    for (let i = 0; i < 3; i += 1) {
+      if (!/[ÃÂâ]/.test(fixed)) break;
+      try {
+        const next = decodeURIComponent(escape(fixed));
+        if (!next || next === fixed) break;
+        fixed = next;
+      } catch {
+        break;
+      }
+    }
+
+    return fixed;
+  };
+
+  const normalizeMovieStrings = (movies = []) =>
+    movies.map((movie) => ({
+      ...movie,
+      title: tryRepairMojibake(movie.title),
+      description: tryRepairMojibake(movie.description),
+      url: tryRepairMojibake(movie.url),
+      imageUrl: tryRepairMojibake(movie.imageUrl),
+    }));
 
   const fetchMovieFiles = async () => {
     try {
@@ -29,8 +68,8 @@ const Movie = () => {
       if (!response.ok) throw new Error('Failed to fetch movie data');
 
       const { content } = await response.json();
-      const decodedContent = atob(content);
-      const movies = JSON.parse(decodedContent);
+      const decodedContent = decodeBase64Utf8(content);
+      const movies = normalizeMovieStrings(JSON.parse(decodedContent));
 
       setLocalMovies(movies);
     } catch (error) {
@@ -94,10 +133,9 @@ const Movie = () => {
 
       const { sha } = await getResp.json();
 
-      // Fix: Properly encode UTF-8 strings to base64
-      const content = utf8ToBase64(JSON.stringify(localMovies, null, 2));
-      // Alternative if Buffer is not available:
-      // const content = window.btoa(unescape(encodeURIComponent(JSON.stringify(localMovies, null, 2))));
+      // Always normalize text before persisting to avoid writing mojibake back into movdb.json
+      const normalizedMovies = normalizeMovieStrings(localMovies);
+      const content = utf8ToBase64(JSON.stringify(normalizedMovies, null, 2));
 
       const putResp = await fetch(getUrl, {
         method: 'PUT',
