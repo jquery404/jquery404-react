@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master  # Triggers the workflow on push to the master branch
+      - master
 
 jobs:
   deploy:
@@ -13,13 +13,13 @@ jobs:
     - name: Checkout the repository
       uses: actions/checkout@v4
       with:
-        fetch-depth: 2  # Shallow clone with history
+        fetch-depth: 2
         persist-credentials: false
 
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '20'  # LTS runtime for build
+        node-version: '20'
 
     - name: Install dependencies
       run: npm install
@@ -36,29 +36,23 @@ jobs:
         TARGET_BRANCH: master
       run: |
         if [ -z "$GH_PAGES_TOKEN" ]; then
-          echo "Missing secret JQUERY_REACT. Set a PAT with repo write access to jquery404/jquery404.github.io."
+          echo "Missing secret JQUERY_REACT. Set a PAT with repo write access."
           exit 1
         fi
+
         TARGET_URL="https://x-access-token:${GH_PAGES_TOKEN}@github.com/${TARGET_REPO}.git"
-        rm -rf dist-branch
-        git clone --branch "$TARGET_BRANCH" "$TARGET_URL" dist-branch
-        rsync -av --delete build/ dist-branch/
-        cd dist-branch
-        git config --unset-all http.https://github.com/.extraheader || true
-        git config user.email "jquery404@gmail.com"
-        git config user.name "jquery404"
-        git remote set-url origin "$TARGET_URL"
-        git remote -v
+
+        # Configure git identity
+        git config --global user.email "jquery404@gmail.com"
+        git config --global user.name "jquery404"
+
+        # Create a brand-new orphan branch from the build output
+        cd build
+        git init
+        git checkout --orphan "$TARGET_BRANCH"
         git add .
-        git diff --cached --quiet || git commit -m "deploy: update site build"
-        for attempt in 1 2 3; do
-          if git push origin "$TARGET_BRANCH"; then
-            echo "Deploy push succeeded on attempt ${attempt}."
-            exit 0
-          fi
-          echo "Push failed (attempt ${attempt}); rebasing on latest remote and retrying..."
-          git fetch origin "$TARGET_BRANCH"
-          git rebase "origin/$TARGET_BRANCH"
-        done
-        echo "Deploy push failed after retries."
-        exit 1
+        git commit -m "deploy: update site build (${GITHUB_SHA::7})"
+
+        # Force push — this is intentional for a Pages deploy target
+        git push --force "$TARGET_URL" "$TARGET_BRANCH"
+        echo "Deploy succeeded."
