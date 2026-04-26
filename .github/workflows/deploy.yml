@@ -51,4 +51,14 @@ jobs:
         git remote -v
         git add .
         git diff --cached --quiet || git commit -m "deploy: update site build"
-        git push origin "$TARGET_BRANCH"
+        for attempt in 1 2 3; do
+          if git push origin "$TARGET_BRANCH"; then
+            echo "Deploy push succeeded on attempt ${attempt}."
+            exit 0
+          fi
+          echo "Push failed (attempt ${attempt}); rebasing on latest remote and retrying..."
+          git fetch origin "$TARGET_BRANCH"
+          git rebase "origin/$TARGET_BRANCH"
+        done
+        echo "Deploy push failed after retries."
+        exit 1
