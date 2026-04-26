@@ -1,3 +1,0 @@
-Brain teasers
-
-Brain teasers is a puzzles and riddles to help you to train your brain. It is available to play for Android phone. I have used AndEngine to develop this app for TCI.

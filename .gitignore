@@ -12,6 +12,7 @@ pnpm-debug.log*
 ### Build directories ###
 /dist/
 /build/
+/dist-branch/
 /.next/
 /out/
 /.nuxt/
