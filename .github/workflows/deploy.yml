@@ -14,6 +14,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         fetch-depth: 2  # Shallow clone with history
+        persist-credentials: false
 
     - name: Set up Node.js
       uses: actions/setup-node@v4
@@ -43,6 +44,7 @@ jobs:
         git clone --branch "$TARGET_BRANCH" "$TARGET_URL" dist-branch
         rsync -av --delete build/ dist-branch/
         cd dist-branch
+        git config --unset-all http.https://github.com/.extraheader || true
         git config user.email "jquery404@gmail.com"
         git config user.name "jquery404"
         git remote set-url origin "$TARGET_URL"
