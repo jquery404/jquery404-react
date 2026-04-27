@@ -1,10 +1,54 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import './Movie.css';
 
 const repoOwner = 'jquery404';
 const repoName = 'jquery404.github.io';
 const branchName = 'master';
 const folderPath = 'movies';
 const dataFileName = 'movdb.json';
+
+const utf8ToBase64 = (str) => {
+  const bytes = new TextEncoder().encode(str);
+  let binary = '';
+  bytes.forEach((b) => {
+    binary += String.fromCharCode(b);
+  });
+  return window.btoa(binary);
+};
+
+const decodeBase64Utf8 = (base64) => {
+  const binary = window.atob(base64.replace(/\n/g, ''));
+  const bytes = Uint8Array.from(binary, (char) => char.charCodeAt(0));
+  return new TextDecoder('utf-8').decode(bytes);
+};
+
+const tryRepairMojibake = (text) => {
+  if (typeof text !== 'string') return text;
+  if (!/[ÃÂâ]/.test(text)) return text;
+
+  let fixed = text;
+  for (let i = 0; i < 3; i += 1) {
+    if (!/[ÃÂâ]/.test(fixed)) break;
+    try {
+      const next = decodeURIComponent(escape(fixed));
+      if (!next || next === fixed) break;
+      fixed = next;
+    } catch {
+      break;
+    }
+  }
+
+  return fixed;
+};
+
+const normalizeMovieStrings = (movies = []) =>
+  movies.map((movie) => ({
+    ...movie,
+    title: tryRepairMojibake(movie.title),
+    description: tryRepairMojibake(movie.description),
+    url: tryRepairMojibake(movie.url),
+    imageUrl: tryRepairMojibake(movie.imageUrl),
+  }));
 
 const Movie = () => {
   const [localMovies, setLocalMovies] = useState([]);
@@ -13,54 +57,7 @@ const Movie = () => {
   const [wikiTitle, setWikiTitle] = useState('');
   const [status, setStatus] = useState(null);
 
-  useEffect(() => {
-    fetchMovieFiles();
-  }, []);
-
-  const utf8ToBase64 = (str) => {
-    const bytes = new TextEncoder().encode(str);
-    let binary = '';
-    bytes.forEach((b) => {
-      binary += String.fromCharCode(b);
-    });
-    return window.btoa(binary);
-  };
-
-  const decodeBase64Utf8 = (base64) => {
-    const binary = window.atob(base64.replace(/\n/g, ''));
-    const bytes = Uint8Array.from(binary, (char) => char.charCodeAt(0));
-    return new TextDecoder('utf-8').decode(bytes);
-  };
-
-  const tryRepairMojibake = (text) => {
-    if (typeof text !== 'string') return text;
-    if (!/[ÃÂâ]/.test(text)) return text;
-
-    let fixed = text;
-    for (let i = 0; i < 3; i += 1) {
-      if (!/[ÃÂâ]/.test(fixed)) break;
-      try {
-        const next = decodeURIComponent(escape(fixed));
-        if (!next || next === fixed) break;
-        fixed = next;
-      } catch {
-        break;
-      }
-    }
-
-    return fixed;
-  };
-
-  const normalizeMovieStrings = (movies = []) =>
-    movies.map((movie) => ({
-      ...movie,
-      title: tryRepairMojibake(movie.title),
-      description: tryRepairMojibake(movie.description),
-      url: tryRepairMojibake(movie.url),
-      imageUrl: tryRepairMojibake(movie.imageUrl),
-    }));
-
-  const fetchMovieFiles = async () => {
+  const fetchMovieFiles = useCallback(async () => {
     try {
       const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${folderPath}/${dataFileName}`;
       const response = await fetch(url);
@@ -78,7 +75,11 @@ const Movie = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    fetchMovieFiles();
+  }, [fetchMovieFiles]);
 
   const handleAddFromWikipedia = async () => {
     if (!wikiTitle) return alert('Enter a Wikipedia title!');
@@ -159,77 +160,96 @@ const Movie = () => {
     }
   };
 
-  return (
-    <div className='container'>
-      <h1>Movies</h1>
-      <p>
-        I'm a big fan of movies and have probably seen hundreds, if not thousands of them! This page shows my favorites
-        with the ability to edit them locally before uploading.
-      </p>
+  const toastType = status
+    ? status.toLowerCase().includes('success')
+      ? 'success'
+      : status.toLowerCase().includes('error')
+      ? 'error'
+      : 'info'
+    : null;
 
-      <div className='mb-4'>
-        <button className='btn btn-primary me-2' onClick={() => setShowAdd(!showAdd)}>
-          {showAdd ? 'Hide Add Form' : 'Add New Movie'}
-        </button>
-        &nbsp;
-        <button className='btn btn-success' onClick={uploadToGitHub} disabled={loading}>
-          Upload All Changes to GitHub
-        </button>
+  return (
+    <div className='movie-page'>
+      {/* Hero header */}
+      <div className='movie-hero'>
+        <h1>Movies</h1>
+        <p>
+          A curated list of films I love — spanning genres, languages, and decades. Hover any poster to learn more.
+        </p>
+        <div className='movie-hero-controls'>
+          <button className='btn-movie btn-movie--ghost' onClick={() => setShowAdd(!showAdd)}>
+            {showAdd ? '✕ Cancel' : '+ Add Movie'}
+          </button>
+          <button className='btn-movie btn-movie--red' onClick={uploadToGitHub} disabled={loading}>
+            ↑ Save to GitHub
+          </button>
+          {!loading && (
+            <span className='movie-hero-count'>{localMovies.length} films</span>
+          )}
+        </div>
       </div>
 
+      {/* Add from Wikipedia */}
       {showAdd && (
-        <div className='card mb-4 p-3'>
-          <div className='form-group'>
-            <input
-              type='text'
-              className='form-control mb-2'
-              placeholder="Wikipedia title (e.g., 'Inception')"
-              value={wikiTitle}
-              onChange={(e) => setWikiTitle(e.target.value)}
-            />
-            <button className='btn btn-secondary' onClick={handleAddFromWikipedia}>
-              Add from Wikipedia
-            </button>
-          </div>
+        <div className='movie-add-bar'>
+          <input
+            type='text'
+            placeholder="Wikipedia title — e.g. Spirited Away, Parasite, Amélie"
+            value={wikiTitle}
+            onChange={(e) => setWikiTitle(e.target.value)}
+            onKeyDown={(e) => e.key === 'Enter' && handleAddFromWikipedia()}
+            autoFocus
+          />
+          <button className='btn-movie btn-movie--red' onClick={handleAddFromWikipedia}>
+            Add
+          </button>
         </div>
       )}
 
-      {status && (
-        <div className={`alert ${status.includes('Success') ? 'alert-success' : 'alert-info'} mb-4`}>{status}</div>
-      )}
-
+      {/* Loading */}
       {loading ? (
-        <div className='text-center'>Loading movies...</div>
+        <div className='movie-loading'>
+          <div className='movie-spinner' />
+          <span>Loading movies…</span>
+        </div>
       ) : (
-        <div className='row'>
-          {localMovies.map((movie) => (
-            <div key={movie.id} className='col-md-4 col-lg-3 mb-4'>
-              <div className='card h-100'>
-                {movie.imageUrl && (
-                  <img
-                    src={movie.imageUrl}
-                    alt={movie.title}
-                    className='card-img-top'
-                    style={{ height: 'auto', objectFit: 'cover' }}
-                  />
-                )}
-                <div className='card-body d-flex flex-column'>
-                  <h5 className='card-title'>{movie.title}</h5>
-                  <p className='card-text flex-grow-1'>{movie.description?.substring(0, 150)}...</p>
-                  <div className='d-flex justify-content-between align-items-center mt-2'>
-                    {movie.url && (
-                      <a href={movie.url} target='_blank' rel='noreferrer' className='btn btn-sm btn-outline-primary'>
-                        Read More
-                      </a>
-                    )}
-                    <button onClick={() => handleDeleteMovie(movie.id)} className='btn btn-sm btn-danger'>
-                      Delete
-                    </button>
-                  </div>
+        <div className='movie-mosaic'>
+          {localMovies.map((movie, index) => (
+            <div
+              key={movie.id}
+              className={`movie-tile${index % 7 === 0 ? ' movie-tile--featured' : ''}`}
+            >
+              {movie.imageUrl ? (
+                <img src={movie.imageUrl} alt={movie.title} loading='lazy' />
+              ) : (
+                <div className='movie-tile-placeholder'>
+                  {movie.title.charAt(0)}
+                </div>
+              )}
+              <div className='movie-tile-overlay'>
+                <h3 className='movie-tile-title'>{movie.title}</h3>
+                <p className='movie-tile-desc'>{movie.description}</p>
+                <div className='movie-tile-actions'>
+                  {movie.url && (
+                    <a href={movie.url} target='_blank' rel='noreferrer' className='btn-tile btn-tile--wiki'>
+                      Wikipedia
+                    </a>
+                  )}
+                  <button onClick={() => handleDeleteMovie(movie.id)} className='btn-tile btn-tile--del'>
+                    Remove
+                  </button>
                 </div>
               </div>
             </div>
           ))}
+        </div>
+      )}
+
+      {/* Toast notification */}
+      {status && (
+        <div className={`movie-toast movie-toast--${toastType}`}>
+          <span>{status}</span>
+          <button className='movie-toast__close' onClick={() => setStatus(null)}>✕</button>
         </div>
       )}
     </div>
