@@ -513,15 +513,18 @@
         "list": [
           {
             "header": "Step Into the Virtual Arena With Real-time Stage Modeling and Visual Effects",
-            "url": "https://blog.siggraph.org/2023/10/step-into-the-virtual-arena-with-real-time-stage-modeling-and-visual-effects.html/"
+            "url": "https://blog.siggraph.org/2023/10/step-into-the-virtual-arena-with-real-time-stage-modeling-and-visual-effects.html/",
+            "archive": "/archive/press/siggraph-2023-virtual-arena/go.html"
           },
           {
             "header": "CMIC wins Audience Choice Award at Real-Time Live! SIGGRAPH 2023",
-            "url": "https://www.wgtn.ac.nz/cmic/news/real-time-live-wins-peoples-choice-award-at-siggraph-2023"
+            "url": "https://www.wgtn.ac.nz/cmic/news/real-time-live-wins-peoples-choice-award-at-siggraph-2023",
+            "archive": "/archive/press/wgtn-cmic-2023-rtl-award/go.html"
           },
           {
             "header": "University project wins award at international computer graphics conference",
-            "url": "https://www.wgtn.ac.nz/engineering/news/university-project-wins-award-at-international-computer-graphics-conference"
+            "url": "https://www.wgtn.ac.nz/engineering/news/university-project-wins-award-at-international-computer-graphics-conference",
+            "archive": "/archive/press/wgtn-2023-siggraph-award/go.html"
           }
         ]
       }

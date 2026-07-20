@@ -162,7 +162,16 @@ const Markup = ({ hasFound, project }) => {
               </div>
               {project.articles.list.map((article, i) => (
                 <div className='px-3 bd-callout w-100' key={i}>
-                  <a href={article.url} target='_blank' rel='noopener noreferrer'>
+                  <a
+                    href={article.archive || article.url}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    title={
+                      article.archive
+                        ? 'Opens the original if available; otherwise our archived copy'
+                        : undefined
+                    }
+                  >
                     {article.header}
                   </a>
                 </div>

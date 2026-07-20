@@ -1,0 +1,29 @@
+{
+  "description": "Local mirrors of external press coverage. Used as a fallback when the original URL is unreachable or returns 404.",
+  "entries": [
+    {
+      "id": "siggraph-2023-virtual-arena",
+      "title": "Step Into the Virtual Arena With Real-time Stage Modeling and Visual Effects",
+      "source": "ACM SIGGRAPH Blog",
+      "originalUrl": "https://blog.siggraph.org/2023/10/step-into-the-virtual-arena-with-real-time-stage-modeling-and-visual-effects.html/",
+      "retrievedAt": "2026-07-20",
+      "path": "/archive/press/siggraph-2023-virtual-arena/"
+    },
+    {
+      "id": "wgtn-cmic-2023-rtl-award",
+      "title": "CMIC wins Audience Choice Award at Real-Time Live! SIGGRAPH 2023",
+      "source": "Victoria University of Wellington — Computational Media Innovation Centre",
+      "originalUrl": "https://www.wgtn.ac.nz/cmic/news/real-time-live-wins-peoples-choice-award-at-siggraph-2023",
+      "retrievedAt": "2026-07-20",
+      "path": "/archive/press/wgtn-cmic-2023-rtl-award/"
+    },
+    {
+      "id": "wgtn-2023-siggraph-award",
+      "title": "University project wins award at international computer graphics conference",
+      "source": "Victoria University of Wellington — Faculty of Engineering",
+      "originalUrl": "https://www.wgtn.ac.nz/engineering/news/university-project-wins-award-at-international-computer-graphics-conference",
+      "retrievedAt": "2026-07-20",
+      "path": "/archive/press/wgtn-2023-siggraph-award/"
+    }
+  ]
+}

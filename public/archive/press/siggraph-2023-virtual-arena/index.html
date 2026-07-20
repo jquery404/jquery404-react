@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Step Into the Virtual Arena With Real-time Stage Modeling and Visual Effects (Archived) — jquery404</title>
+  <meta name="description" content="Archived copy of the ACM SIGGRAPH Blog interview about SIGGRAPH 2023 Real-Time Live! Audience Choice award." />
+  <link rel="canonical" href="https://blog.siggraph.org/2023/10/step-into-the-virtual-arena-with-real-time-stage-modeling-and-visual-effects.html/" />
+  <style>
+    :root {
+      --bg: #f7f5f2;
+      --fg: #1a1a1a;
+      --muted: #5c5c5c;
+      --border: #ddd6cc;
+      --accent: #0b3d5c;
+      --banner: #fff8e6;
+      --max: 720px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      color: var(--fg);
+      background: var(--bg);
+    }
+    .archive-banner {
+      font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+      font-size: 0.875rem;
+      line-height: 1.45;
+      background: var(--banner);
+      border-bottom: 1px solid var(--border);
+      padding: 0.85rem 1.25rem;
+      color: #3d3420;
+    }
+    .archive-banner a { color: var(--accent); }
+    .archive-banner strong { font-weight: 600; }
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 2rem 1.25rem 4rem;
+    }
+    .meta {
+      font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+    h1 {
+      font-size: clamp(1.75rem, 4vw, 2.35rem);
+      line-height: 1.25;
+      margin: 0 0 1.25rem;
+      font-weight: 700;
+    }
+    .hero {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 0 1.5rem;
+      border-radius: 2px;
+    }
+    .entry p { margin: 0 0 1.15rem; }
+    .entry strong { font-weight: 700; }
+    .entry em { font-style: italic; }
+    .entry figure {
+      margin: 1.25rem 0;
+    }
+    .entry figure.alignright {
+      float: right;
+      margin: 0 0 1rem 1.25rem;
+      max-width: 220px;
+    }
+    .entry figure.alignleft {
+      float: left;
+      margin: 0 1.25rem 1rem 0;
+      max-width: 150px;
+    }
+    .entry img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    .entry a { color: var(--accent); }
+    .entry::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    @media (max-width: 560px) {
+      .entry figure.alignright,
+      .entry figure.alignleft {
+        float: none;
+        margin: 1rem auto;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="archive-banner">
+    <strong>Archived copy</strong> —
+    Retrieved 2026-07-20 from
+    <a href="https://blog.siggraph.org/2023/10/step-into-the-virtual-arena-with-real-time-stage-modeling-and-visual-effects.html/" rel="noopener noreferrer">https://blog.siggraph.org/2023/10/step-into-the-virtual-arena-with-real-time-stage-modeling-and-visual-effects.html/</a>.
+    Original content © ACM SIGGRAPH. Hosted here as a fallback if the live URL becomes unavailable.
+  </div>
+  <article class="wrap">
+    <p class="meta">ACM SIGGRAPH Blog · by SIGGRAPH Conferences · 19 October 2023 · Conferences, Real-Time, Visual Effects</p>
+    <h1>Step Into the Virtual Arena With Real-time Stage Modeling and Visual Effects</h1>
+    <img class="hero" src="assets/header.png" alt="SIGGRAPH Real-Time Live! 2023 blog header" width="850" height="480" />
+    <div class="entry">
+
+				
+				
+				
+				
+				
+<p class="has-text-align-right wp-block-paragraph"><em>Image Credit: All rights reserved by the Computational Media Innovation Centre, Victoria University of Wellington, New Zealand.</em></p>
+
+
+
+<p class="wp-block-paragraph">Real-Time Live! is where the stage meets the screens. SIGGRAPH 2023 Real-Time Live! selection &#8220;Real-time Stage Modelling and Visual Effects for Live Performances&#8221; took home this year&#8217;s Audience Choice award thanks to their show-stopping visual effects, creative interaction between real and virtual performers, and excellent ability to showcase real-time 3D modeling — plus, killer whales! SIGGRAPH caught up with contributor Taehyun Rhee to discuss how this demo came to life, the challenges the team encountered, and what&#8217;s to come with this next-level technology.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>SIGGRAPH: Congratulations on winning the SIGGRAPH 2023 Real-Time Live! Audience Choice award! Share some background on your winning demo. What was the inspiration behind your work?</strong></p>
+
+
+
+<figure class="wp-block-image alignright size-medium"><a href="assets/Award_v3_enhanced.jpg"><img width="300" height="263" src="assets/Award_v3_enhanced.jpg" alt="" class="wp-image-16995" /></a></figure>
+
+
+
+<p class="wp-block-paragraph"><strong>Taehyun Rhee (TR): </strong>Thank you! We are delighted to have received the Real-Time Live! Audience Choice award at SIGGRAPH 2023. This recognition is particularly special to us as it is based on live votes from both the in-person and online audiences. Our journey with Real-Time Live! began in 2018, and this marks our fifth performance, spanning both SIGGRAPH and SIGGRAPH Asia events.</p>
+
+
+
+<p class="wp-block-paragraph">Our inspiration for this project lies in the desire to revolutionize live performances using real-time computer graphics and visual effects. We envisioned a platform that could break free from traditional pipelines, typically designed for recorded media like films, and instead, offer a dynamic stage where artists, producers, and media engineers can seamlessly blend the real and the virtual. This innovation is driven by the need for richer interactions between performers and audiences, as well as between the physical and digital worlds.</p>
+
+
+
+<p class="wp-block-paragraph">The development of this platform gained momentum during the COVID-19 pandemic when physical presence at live events became challenging. Consequently, we embarked on creating a real-time live platform capable of capturing, streaming, rendering, and facilitating interaction remotely, without the need for physical attendance. Our current demo is a part of this broader telepresence initiative called &#8220;Televerse,&#8221; designed for immersive telepresence and telecommunication, including live event and concert scenarios.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>SIGGRAPH: Your demo showcased real-time 3D modeling, rendering, and blending of assets, as well as interaction between real and virtual performers. With all of these moving parts, did you encounter any challenges during the project’s creation?</strong></p>
+
+
+
+<p class="wp-block-paragraph"><strong>TR: </strong>Absolutely. Developing this project presented us with a series of technical challenges. Our goal was to transform the traditional pipeline designed for recorded media into an interactive platform, offering a seamless blend of the real and virtual worlds, encompassing both appearance and interaction. This required innovation in three key areas: immersion, interactivity, and intelligence within computer graphics and visual effects.</p>
+
+
+
+<p class="wp-block-paragraph">Our performance builds upon a decade of our prior research, spanning over 20 peer-reviewed conference and journal papers. While we&#8217;ve made significant strides, we believe we are still in the midst of our journey. We anticipate exciting research opportunities and collaborations to further enhance and adapt our technologies for immersive and interactive events and storytelling.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>SIGGRAPH: What’s next for this technology? How do you imagine it will evolve? How do you anticipate others using it for live performances? </strong></p>
+
+
+
+<p class="wp-block-paragraph"><strong>TR: </strong>We see two promising directions for the future of this technology following our demonstration at SIGGRAPH 2023. First, we are seeking opportunities for case studies to apply our platform to real-live events such as concerts, offering richer and more immersive stage performances enhanced with live visual effects. In this scenario, real performers can interact with virtual performers (e.g., virtual choreographers on stage), blending various live visual effects seamlessly. This approach aims to recreate the sensation of attending a live concert while introducing the artistic possibilities of computer graphics and visual effects.</p>
+
+
+
+<p class="wp-block-paragraph">The second direction involves live streaming these performances through high-speed internet. Our framework is rooted in real-time and live technology, from capture to visualization. By doing so, we can accommodate virtual audiences during concerts and events, offering an immersive telepresence experience that goes far beyond current video conferencing solutions. Through augmented 360 panoramic video streaming, our framework creates an augmented digital twin of the real world, accessible remotely. This enables people to teleport virtually, augment their telepresence, and engage in creative and immersive communication and storytelling with on-site performers and audiences.</p>
+
+
+
+<p class="wp-block-paragraph">While we have developed key solutions for essential components, our goal is challenging and still requires additional research and development to be implemented in real events. We are open to collaboration on research problem-solving, case studies for live events, and exploring potential tech transfer opportunities to create a more widely accessible platform.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>SIGGRAPH: What was your favorite part of participating in Real-Time Live! at the SIGGRAPH 2023?</strong></p>
+
+
+
+<p class="wp-block-paragraph"><strong>TR: </strong>Participating in Real-Time Live! at SIGGRAPH 2023 was a true highlight for me. It is one of my favorite events within SIGGRAPH, as it encapsulates the perfect blend of cutting-edge technology, creative storytelling, and direct audience interaction. The condensed format of a six-minute live media show creates a dynamic and intense atmosphere.</p>
+
+
+
+<p class="wp-block-paragraph">Behind the scenes, there&#8217;s a palpable sense of tension and stress for all the performing teams, but that energy translates into an incredible live show on stage. The opportunity to showcase our work in this format is a unique and rewarding experience.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>SIGGRAPH: What advice do you have for those submitting to Real-Time Live! in the future?</strong></p>
+
+
+
+<p class="wp-block-paragraph"><strong>TR: </strong>I believe that media technology is rapidly advancing toward real-time and live media platforms and content. The Real-Time Live! program serves as a powerful platform to showcase the latest advancements in media technology and performance to both in-person and online audiences. It is the ideal place to highlight your research and creativity while gaining significant visibility.</p>
+
+
+
+<p class="wp-block-paragraph">While preparing a live show for Real-Time Live! undoubtedly demands effort and time, the experience is truly worth it. Collaborating with other performers; working closely with the committee, chairs, and stage experts; and engaging with live audiences is an invaluable experience. Being on the stage as the main performer, whether you&#8217;re a researcher, programmer, engineer, designer, or student, is a unique opportunity. Real-Time Live! is not only fun, but it&#8217;s also a bit addictive, as the experience of performing on stage is unlike any other.</p>
+
+
+
+<p class="wp-block-paragraph">Best of luck to future participants, and I look forward to witnessing their innovative contributions on the Real-Time Live! stage!</p>
+
+
+
+<p class="wp-block-paragraph"><em>Stay connected on all things SIGGRAPH! <a href="https://s2023.siggraph.org/join-mailing-list/">Sign up for our mailing list</a> to receive important updates on registration, industry news, and program submissions — including Real-Time Live!</em></p>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+
+
+
+<figure class="wp-block-image alignright size-thumbnail"><a href="assets/TJ-RTL-Headshot.png"><img width="150" height="150" src="assets/TJ-RTL-Headshot.png" alt="" class="wp-image-16982" /></a></figure>
+
+
+
+<p class="wp-block-paragraph"><em><strong><a href="https://www.linkedin.com/in/taehyun-james-tj-rhee/">A. Prof. Taehyun James (TJ) Rhee</a></strong> is a director of the Computational Media Innovation Centre and the co-founder of Computer Graphics degrees at Victoria University of Wellington. With over 25 years of experience in the immersive and interactive media sector, he has worked in both academia and industry (including 17 years in Samsung) and published numerous top-tier papers and patents. He has demonstrated leadership in the computer graphics community as the VRAR Programme Chair at SIGGRAPH Asia 2018, General Chair at Pacific Graphics 2020 and 2021, and Executive Committee of Asia Graphics Association. Prof. Rhee also presented live demos in various venues including Real-Time Live! at SIGGRAPH 2018, SIGGRAPH 2021, and SIGGRAPH 2023, as well as SIGGRAPH Asia 2018 and 2022. His current research focus is to advance immersive, interactive, and intelligent media technologies for augmented telepresence, digital twins, and live visual effects.</em></p>
+
+
+
+<figure class="wp-block-image alignleft size-thumbnail"><a href="assets/Andrew-RTL-Headshot.png"><img width="150" height="150" src="assets/Andrew-RTL-Headshot.png" alt="" class="wp-image-16983" /></a></figure>
+
+
+
+<p class="has-text-align-left wp-block-paragraph"><em><a href="https://www.linkedin.com/in/andrew-chalmers-b37b0b143"><strong>Dr. Andrew Chalmers</strong></a> is a research fellow at the Computational Media Innovation Centre, Victoria University of Wellington. He specializes in lighting and reflectance modelling, virtual and augmented reality, and real-time rendering. Dr. Chalmers has contributed to the computer graphics community as a Local Chair for Pacific Graphics 2020 and 2021 and as a Programme Committee member for both SIGGRAPH Asia 2018 and AIVR 2020. He has presented his research papers and live demonstrations at numerous venues, including Real-time Live! at SIGGRAPH and SIGGRAPH Asia. His current research focuses on digital twins and virtual telepresence.</em></p>
+
+
+
+<div style="height:5px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<figure class="wp-block-image alignright size-thumbnail"><a href="assets/Fasial-RTL-Headshot.png"><img width="150" height="150" src="assets/Fasial-RTL-Headshot.png" alt="" class="wp-image-16984" /></a></figure>
+
+
+
+<p class="wp-block-paragraph"><em><strong><a href="https://jquery404.github.io/#/">Faisal Zaman</a></strong> is in the final year of his Ph.D. studies at the Computational Media Innovation Centre, Victoria University of Wellington, focusing on developing a multi-user mixed-reality collaboration system.</em></p>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+
+
+<div style="height:5px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<figure class="wp-block-image alignleft size-thumbnail"><a href="assets/Anna-RTL-Headshot.png"><img width="150" height="150" src="assets/Anna-RTL-Headshot.png" alt="" class="wp-image-16985" /></a></figure>
+
+
+
+<p class="wp-block-paragraph"><em><strong><a href="https://www.linkedin.com/in/anna-stangnes/">Anna Stangnes</a></strong> recently completed her master&#8217;s in computer graphics and is now a research assistant at the Computational Media Innovation Centre. Her research areas include reflectance modelling and digital twins.</em></p>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+
+
+<div style="height:5px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<figure class="wp-block-image alignright size-thumbnail"><a href="assets/Vic-RTL-Headshot.png"><img width="150" height="150" src="assets/Vic-RTL-Headshot.png" alt="" class="wp-image-16986" /></a></figure>
+
+
+
+<p class="wp-block-paragraph"><em><strong><a href="https://www.linkedin.com/in/vic-roberts-86a79b266/">Vic Roberts</a></strong> is a research assistant at the Computational Media Innovation Centre who is currently finishing honors in computer graphics at Victoria University of Wellington.</em></p>
+
+			</div><div class="et_pb_module et_pb_post_title et_pb_post_title_1_tb_body post-meta-tags et_pb_bg_layout_light  et_pb_text_align_left"   >
+				
+				
+				
+				
+				
+				<div class="et_pb_title_container">
+					
+				
+    </div>
+  </article>
+</body>
+</html>

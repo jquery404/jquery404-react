@@ -106,9 +106,9 @@ const Project = () => {
   }
 
   return (
-    <div className='row portfolioWrap'>
-      <div className='col-sm-12'>
-        <ul className='nav nav-pills my-5'>
+    <div className='portfolioWrap'>
+      <div className='project-filter-bar'>
+        <ul className='nav nav-pills project-filter-pills'>
           {categories.map((item) => (
             <li
               key={item}
@@ -127,11 +127,14 @@ const Project = () => {
       <Modal isOpen={loadModal} size='xl' className='project-modal' toggle={() => setLoadModal(false)}>
         <ModalHeader>
           {currentTodos[gallery]?.title || ''}
-          <i
-            style={{ position: 'absolute', right: 20, top: 20 }}
+          <button
+            type='button'
+            className='project-modal-close'
+            aria-label='Close'
             onClick={() => setLoadModal(false)}
-            className='fa fa-times'
-          />
+          >
+            ✕
+          </button>
         </ModalHeader>
 
         <ModalBody className='project-modal-body'>
@@ -150,30 +153,39 @@ const Project = () => {
 
             <div className='col-12 project-modal-content-col'>
               <p>{currentTodos[gallery]?.desc}</p>
-              <p>[{currentTodos[gallery]?.tags}]</p>
-              {currentTodos[gallery]?.url && (
-                <a className='nav-link-inline' target='_blank' rel='noreferrer' href={currentTodos[gallery].url}>
-                  <i className='fa fa-external-link-alt'></i> Project Link
-                </a>
-              )}{' '}
-              <NavLink className='nav-link-inline' to={`/p/${currentTodos[gallery]?.slug}`}>
-                <i className='fa fa-expand'></i> Show more
-              </NavLink>
+              <p className='project-modal-tags'>[{currentTodos[gallery]?.tags}]</p>
+              <div className='project-modal-actions'>
+                {currentTodos[gallery]?.url && (
+                  <a
+                    className='btn-modal-action'
+                    target='_blank'
+                    rel='noreferrer'
+                    href={currentTodos[gallery].url}
+                  >
+                    <i className='fa fa-external-link-alt'></i> Project Link
+                  </a>
+                )}
+                <NavLink className='btn-modal-action btn-modal-action--primary' to={`/p/${currentTodos[gallery]?.slug}`}>
+                  <i className='fa fa-expand'></i> Show more
+                </NavLink>
+              </div>
             </div>
           </div>
         </ModalBody>
       </Modal>
 
-      {currentTodos.map((item, i) => (
-        <Portfolio
-          key={i}
-          gallery={() => {
-            setGallery(i);
-            setLoadModal(true);
-          }}
-          portfolio={item}
-        />
-      ))}
+      <div className='row'>
+        {currentTodos.map((item, i) => (
+          <Portfolio
+            key={i}
+            gallery={() => {
+              setGallery(i);
+              setLoadModal(true);
+            }}
+            portfolio={item}
+          />
+        ))}
+      </div>
     </div>
   );
 };

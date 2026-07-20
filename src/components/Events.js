@@ -1,5 +1,14 @@
 const events = [
   {
+    thumb: 'assets/imgs/events/geocart26.png',
+    date: "26-28 Aug'26",
+    title: "GeoCart'2026 — Mapping in Times of Need",
+    place: 'Wellington, NZ',
+    role: 'presented',
+    url: 'https://cartography.org.nz/geocart2026',
+    html: "<i class='fa fa-map'></i> https://cartography.org.nz/geocart2026",
+  },
+  {
     thumb: 'assets/imgs/events/ozchi25.jpg',
     date: "29 Nov - 3 Dec'25",
     title: 'OzCHI 2025',
