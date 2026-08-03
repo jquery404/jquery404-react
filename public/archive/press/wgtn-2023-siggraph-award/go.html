@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Opening press coverage…</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+      background: #f7f5f2;
+      color: #1a1a1a;
+    }
+    .box {
+      max-width: 28rem;
+      padding: 1.5rem;
+      text-align: center;
+      line-height: 1.5;
+    }
+    .muted { color: #5c5c5c; font-size: 0.9rem; }
+    a { color: #0b3d5c; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <p id="status">Checking original source…</p>
+    <p class="muted">
+      If nothing happens,
+      <a id="archive-link" href="./index.html">open the archived copy</a>.
+    </p>
+  </div>
+  <script>
+    (async function () {
+      const ORIGINAL =
+        'https://www.wgtn.ac.nz/engineering/news/university-project-wins-award-at-international-computer-graphics-conference';
+      const ARCHIVE = './index.html';
+      // VUW HTML has no CORS; use the featured image as a liveness probe
+      const CHECK_IMAGE =
+        'https://www.wgtn.ac.nz/engineering/news/university-project-wins-award-at-international-computer-graphics-conference/siggraph-award.jpg';
+      const statusEl = document.getElementById('status');
+
+      const goArchive = (reason) => {
+        statusEl.textContent = reason || 'Original unavailable — opening archived copy…';
+        location.replace(ARCHIVE);
+      };
+
+      const imageExists = (url) =>
+        new Promise((resolve) => {
+          const img = new Image();
+          const done = (ok) => {
+            clearTimeout(timer);
+            resolve(ok);
+          };
+          const timer = setTimeout(() => done(false), 5000);
+          img.onload = () => done(true);
+          img.onerror = () => done(false);
+          img.src = url + (url.includes('?') ? '&' : '?') + '_=' + Date.now();
+        });
+
+      try {
+        const alive = await imageExists(CHECK_IMAGE);
+        if (alive) {
+          statusEl.textContent = 'Opening original article…';
+          location.replace(ORIGINAL);
+          return;
+        }
+        goArchive('Original media missing — opening archived copy…');
+      } catch (err) {
+        goArchive('Could not reach original — opening archived copy…');
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,39 +1,32 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import { Modal, ModalHeader, ModalBody } from 'reactstrap';
-import ProjectMedia from './ProjectMedia';
 
-const Portfolio = ({ portfolio, gallery }) => (
-  <div className='col-sm-4' onClick={gallery}>
-    <div className='mb-2 jq-project'>
-      <div className='jq-project-img-wrap'>
-        <img className='card-img-top' src={`/assets/imgs/project/${portfolio.thumbnail}`} alt='' />
+const Portfolio = ({ portfolio }) => (
+  <div className='col-sm-4'>
+    <NavLink className='jq-project-link' to={`/p/${portfolio.slug}`}>
+      <div className='mb-2 jq-project'>
+        <div className='jq-project-img-wrap'>
+          <img className='card-img-top' src={`/assets/imgs/project/${portfolio.thumbnail}`} alt='' />
+        </div>
+        <div className='card-body'>
+          <h4 className='card-title'>{portfolio.title}</h4>
+          <p className='card-text'>
+            {portfolio.desc.length > 200 ? portfolio.desc.slice(0, 200) + '...' : portfolio.desc}
+          </p>
+        </div>
       </div>
-      <div className='card-body'>
-        <h4 className='card-title'>{portfolio.title}</h4>
-        <p className='card-text'>
-          {portfolio.desc.length > 200 ? portfolio.desc.slice(0, 200) + '...' : portfolio.desc}
-        </p>
-      </div>
-    </div>
+    </NavLink>
   </div>
 );
 
 const Project = () => {
   const [items, setItems] = useState([]);
-  const [gallery, setGallery] = useState(0);
   const [categories] = useState(['All', 'Web', 'Android', '3D', 'Game', 'Animation']);
   const [filter, setFilter] = useState(null);
   const [activePage, setActivePage] = useState(1);
   const [itemsCountPerPage] = useState(6);
   const [totalPage, setTotalPage] = useState(0);
   const [scrolling, setScrolling] = useState(false);
-  const [loadModal, setLoadModal] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -82,14 +75,6 @@ const Project = () => {
   const indexOfLast = activePage * itemsCountPerPage;
   const currentTodos = filteredItems.slice(0, indexOfLast);
 
-  const swiperParams = {
-    loop: Boolean(currentTodos[gallery]?.gallery?.length > 1),
-    centeredSlides: true,
-    pagination: { clickable: true },
-    navigation: true,
-    modules: [Navigation, Pagination],
-  };
-
   if (loading) {
     return (
       <div className='row'>
@@ -106,9 +91,9 @@ const Project = () => {
   }
 
   return (
-    <div className='row portfolioWrap'>
-      <div className='col-sm-12'>
-        <ul className='nav nav-pills my-5'>
+    <div className='portfolioWrap'>
+      <div className='project-filter-bar'>
+        <ul className='nav nav-pills project-filter-pills'>
           {categories.map((item) => (
             <li
               key={item}
@@ -124,56 +109,11 @@ const Project = () => {
         </ul>
       </div>
 
-      <Modal isOpen={loadModal} size='xl' className='project-modal' toggle={() => setLoadModal(false)}>
-        <ModalHeader>
-          {currentTodos[gallery]?.title || ''}
-          <i
-            style={{ position: 'absolute', right: 20, top: 20 }}
-            onClick={() => setLoadModal(false)}
-            className='fa fa-times'
-          />
-        </ModalHeader>
-
-        <ModalBody className='project-modal-body'>
-          <div className='row project-modal-layout'>
-            <div className='col-12 project-modal-media-col'>
-              <Swiper {...swiperParams} key={`${currentTodos[gallery]?.slug || 'project'}-${gallery}`}>
-                {currentTodos[gallery]?.gallery.map((g, i) => {
-                  return (
-                  <SwiperSlide key={i}>
-                    <ProjectMedia item={g} index={i} context='modal' />
-                  </SwiperSlide>
-                );
-                })}
-              </Swiper>
-            </div>
-
-            <div className='col-12 project-modal-content-col'>
-              <p>{currentTodos[gallery]?.desc}</p>
-              <p>[{currentTodos[gallery]?.tags}]</p>
-              {currentTodos[gallery]?.url && (
-                <a className='nav-link-inline' target='_blank' rel='noreferrer' href={currentTodos[gallery].url}>
-                  <i className='fa fa-external-link-alt'></i> Project Link
-                </a>
-              )}{' '}
-              <NavLink className='nav-link-inline' to={`/p/${currentTodos[gallery]?.slug}`}>
-                <i className='fa fa-expand'></i> Show more
-              </NavLink>
-            </div>
-          </div>
-        </ModalBody>
-      </Modal>
-
-      {currentTodos.map((item, i) => (
-        <Portfolio
-          key={i}
-          gallery={() => {
-            setGallery(i);
-            setLoadModal(true);
-          }}
-          portfolio={item}
-        />
-      ))}
+      <div className='row'>
+        {currentTodos.map((item, i) => (
+          <Portfolio key={i} portfolio={item} />
+        ))}
+      </div>
     </div>
   );
 };

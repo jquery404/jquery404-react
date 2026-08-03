@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Opening press coverage…</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+      background: #f7f5f2;
+      color: #1a1a1a;
+    }
+    .box {
+      max-width: 28rem;
+      padding: 1.5rem;
+      text-align: center;
+      line-height: 1.5;
+    }
+    .muted { color: #5c5c5c; font-size: 0.9rem; }
+    a { color: #0b3d5c; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <p id="status">Checking original source…</p>
+    <p class="muted">
+      If nothing happens,
+      <a id="archive-link" href="./index.html">open the archived copy</a>.
+    </p>
+  </div>
+  <script>
+    (async function () {
+      const ORIGINAL =
+        'https://blog.siggraph.org/2023/10/step-into-the-virtual-arena-with-real-time-stage-modeling-and-visual-effects.html/';
+      const ARCHIVE = './index.html';
+      const CHECK =
+        'https://blog.siggraph.org/wp-json/wp/v2/posts/16951?_fields=id,status,link';
+      const statusEl = document.getElementById('status');
+
+      const goArchive = (reason) => {
+        statusEl.textContent = reason || 'Original unavailable — opening archived copy…';
+        location.replace(ARCHIVE);
+      };
+
+      try {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), 5000);
+        const res = await fetch(CHECK, {
+          method: 'GET',
+          signal: controller.signal,
+          headers: { Accept: 'application/json' },
+        });
+        clearTimeout(timer);
+
+        if (!res.ok) {
+          goArchive('Original returned ' + res.status + ' — opening archived copy…');
+          return;
+        }
+
+        const data = await res.json();
+        if (data && data.status === 'publish' && data.link) {
+          statusEl.textContent = 'Opening original article…';
+          location.replace(data.link || ORIGINAL);
+          return;
+        }
+
+        goArchive('Original no longer published — opening archived copy…');
+      } catch (err) {
+        goArchive('Could not reach original — opening archived copy…');
+      }
+    })();
+  </script>
+</body>
+</html>

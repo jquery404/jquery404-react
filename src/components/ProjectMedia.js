@@ -6,23 +6,21 @@ const ProjectMedia = ({ item = {}, index = 0, context = 'modal' }) => {
 
   if (context === 'details') {
     if (mediaType === 'image') {
-      return <img className='p-3 img-fluid' src={`/assets/imgs/project/${item.url}`} alt='' />;
+      return <img className='projd-media-img' src={`/assets/imgs/project/${item.url}`} alt='' />;
     }
 
     if (mediaType === 'video-file') {
       return (
-        <div className='video-container'>
-          <video controls muted loop playsInline className='swiper-slide-video'>
-            <source src={`/assets/imgs/project/${item.url}`} type='video/mp4' />
-            Your browser does not support the video tag.
-          </video>
-        </div>
+        <video controls muted loop playsInline className='projd-media-video'>
+          <source src={`/assets/imgs/project/${item.url}`} type='video/mp4' />
+          Your browser does not support the video tag.
+        </video>
       );
     }
 
     return (
-      <div className={`embed-responsive ${item.ratio === 'landscape' ? 'embed-responsive-16by9' : 'embed-responsive-1by1'}`}>
-        <iframe title={`gallery-${index}`} className='embed-responsive-item' src={item.url} allowFullScreen></iframe>
+      <div className={`projd-media-embed projd-media-embed--${mediaRatio}`}>
+        <iframe title={`gallery-${index}`} src={item.url} allowFullScreen></iframe>
       </div>
     );
   }

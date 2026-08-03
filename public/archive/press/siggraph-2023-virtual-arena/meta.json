@@ -1,0 +1,10 @@
+{
+  "id": "siggraph-2023-virtual-arena",
+  "title": "Step Into the Virtual Arena With Real-time Stage Modeling and Visual Effects",
+  "source": "ACM SIGGRAPH Blog",
+  "originalUrl": "https://blog.siggraph.org/2023/10/step-into-the-virtual-arena-with-real-time-stage-modeling-and-visual-effects.html/",
+  "retrievedAt": "2026-07-20",
+  "checkUrl": "https://blog.siggraph.org/wp-json/wp/v2/posts/16951?_fields=id,status,link",
+  "archivePath": "/archive/press/siggraph-2023-virtual-arena/",
+  "relatedResearch": ["rtstage"]
+}

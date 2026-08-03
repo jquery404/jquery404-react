@@ -1,57 +1,31 @@
 import React from 'react';
 
-class Footer extends React.Component
-{
-	render(){
-		return(
-			<footer className="py-5">
-				<div className="container">
-        	<div className="row">
-						<div className="col-12">
-							<ul className="list-inline social-buttons">
-	              <li className="list-inline-item">
-		              <a href="mailto:jquery404@gmail.com" target="_blank" rel="noopener noreferrer">
-		                  <span className="fa-stack fa-lg">
-		                      <i className="fa fa-circle fa-stack-2x"></i>
-		                      <i className="fa fa-envelope fa-stack-1x fa-inverse"></i>
-		                  </span>
-		              </a>	
-                </li>
-	              <li className="list-inline-item">
-                  <a href="https://twitter.com/jquery404" target="_blank" rel="noopener noreferrer">
-	                  <span className="fa-stack fa-lg">
-	                      <i className="fa fa-circle fa-stack-2x"></i>
-	                      <i className="fab fa-twitter fa-stack-1x fa-inverse"></i>
-	                  </span>
-                  </a>
-	              </li>
-	              <li className="list-inline-item">
-	              	<a href="https://github.com/jquery404/" target="_blank" rel="noopener noreferrer">
-	                  <span className="fa-stack fa-lg">
-	                      <i className="fa fa-circle fa-stack-2x"></i>
-	                      <i className="fab fa-github fa-stack-1x fa-inverse"></i>
-	                  </span>
-	                </a>
-	              </li>
-	              <li className="list-inline-item">
-	              	<a href="http://instagram.com/jquery404" target="_blank" rel="noopener noreferrer">
-	                  <span className="fa-stack fa-lg">
-                        <i className="fa fa-circle fa-stack-2x"></i>
-                        <i className="fab fa-instagram fa-stack-1x fa-inverse"></i>
-                    </span>
-                  </a>
-	              </li>
-	            </ul>
-						</div>
-						<div className="col-12" style={{fontSize: "medium"}}>
-							&copy; {new Date().getFullYear()}. Written with <i className="fa fa-heart"></i> in React.<br/>
-							All rights reserved.
-						</div>
-					</div>
-				</div>
-			</footer>
-		)
-	}
+class Footer extends React.Component {
+  render() {
+    return (
+      <footer className='site-footer'>
+        <div className='site-footer-inner'>
+          <div className='site-footer-links'>
+            <a href='mailto:jquery404@gmail.com' aria-label='Email'>
+              <i className='fa fa-envelope'></i>
+            </a>
+            <a href='https://twitter.com/jquery404' target='_blank' rel='noopener noreferrer' aria-label='Twitter'>
+              <i className='fab fa-twitter'></i>
+            </a>
+            <a href='https://github.com/jquery404/' target='_blank' rel='noopener noreferrer' aria-label='GitHub'>
+              <i className='fab fa-github'></i>
+            </a>
+            <a href='http://instagram.com/jquery404' target='_blank' rel='noopener noreferrer' aria-label='Instagram'>
+              <i className='fab fa-instagram'></i>
+            </a>
+          </div>
+          <p className='site-footer-copy'>
+            &copy; {new Date().getFullYear()} Faisal (ΦSAL) · jQuery404
+          </p>
+        </div>
+      </footer>
+    );
+  }
 }
 
 export default Footer;

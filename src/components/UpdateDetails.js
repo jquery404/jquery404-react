@@ -14,7 +14,7 @@ class UpdateDetails extends React.Component
                     
                     <h4>Updates</h4>
                     {
-                        events.map((item, i) => <EventCard key={i} _={item} />)
+                        events.map((item, i) => <EventCard key={i} data={item} />)
                     }
                 </div>
 

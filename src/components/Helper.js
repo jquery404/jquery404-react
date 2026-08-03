@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 
-// Convert to a hook-based component
 const useCardNavigation = () => {
   const navigate = useNavigate();
 
@@ -11,7 +10,6 @@ const useCardNavigation = () => {
     if (isExternalOrStatic) {
       window.location.href = url;
     } else {
-      // Use React Router's navigate instead of window.location
       navigate(url);
     }
   };
@@ -54,62 +52,77 @@ const RenderShortLink = (type, url, content) => {
 };
 
 const EventCard = ({ data }) => (
-  <div className='update-c card mb-2'>
-    <div className='card-horizontal'>
-      <div className='img-square-wrapper' style={{ backgroundImage: `url(${data.thumb})` }}>
-        ......
-      </div>
-      <div className='update-card card-body m-0 p-1'>
-        <small>{data.date}</small>
-        {data.award && <i className='fa fa-award event-award' title={data.award}></i>}
-        <small className={`float-right badge ${data.role === 'presented' ? 'badge-warning' : 'badge-info'}`}>
+  <a className='event-row' href={data.url} target='_blank' rel='noreferrer'>
+    <div className='event-thumb' style={{ backgroundImage: `url(${data.thumb})` }} aria-hidden='true' />
+    <div className='event-body'>
+      <div className='event-meta'>
+        <span>{data.date}</span>
+        <span className={`event-role ${data.role === 'presented' ? 'is-presented' : 'is-other'}`}>
           {data.role}
-        </small>
-        <br />
-        <a href={data.url} target='_blank' rel='noreferrer'>
-          <b className='mb-1'>{data.title}</b>
-        </a>
-        <p className='mb-1'>{data.place}</p>
-        <small dangerouslySetInnerHTML={{ __html: data.html }} />
+        </span>
       </div>
+      <h3 className='event-title'>
+        {data.title}
+        {data.award ? <i className='fa fa-award event-award-inline' title={data.award}></i> : null}
+      </h3>
+      <p className='event-place'>{data.place}</p>
     </div>
-  </div>
+  </a>
 );
 
 const ResearchCard = ({ item }) => {
   const handleNavigation = useCardNavigation();
 
-  const handleCardClick = () => {
-    handleNavigation(item.url);
-  };
-
   return (
-    <div className='card home-card col-sm-6 p-4 border-0' onClick={handleCardClick} style={{ cursor: 'pointer' }}>
-      <img className='card-img-top' src={`/assets/imgs/research/${item.thumbnail}`} alt={item.title} />
-      <div className='card-body p-0 border-1'>
-        <b>{item.title}</b> <br />
+    <article
+      className='work-card'
+      onClick={() => handleNavigation(item.url)}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleNavigation(item.url);
+        }
+      }}
+      role='link'
+      tabIndex={0}
+    >
+      <div className='work-card-media'>
+        <img src={`/assets/imgs/research/${item.thumbnail}`} alt='' />
       </div>
-    </div>
+      <div className='work-card-body'>
+        <h3>{item.title}</h3>
+        {item.venue || item.journal ? (
+          <p className='work-card-meta'>{item.venue || item.journal}</p>
+        ) : null}
+      </div>
+    </article>
   );
 };
 
 const ProjectCard = ({ item }) => {
   const handleNavigation = useCardNavigation();
 
-  const handleCardClick = () => {
-    handleNavigation('/p/' + item.slug);
-  };
-
   return (
-    <div className='card home-card col-sm-6 p-4 border-0' onClick={handleCardClick} style={{ cursor: 'pointer' }}>
-      <img className='card-img-top' src={`/assets/imgs/project/${item.thumbnail}`} alt={item.title} />
-      <div className='card-body p-0 border-1'>
-        <b>{item.title}</b> <br />
-        <small>
-          <em className='badge badge-warning'>{item.tags}</em>
-        </small>
+    <article
+      className='work-card'
+      onClick={() => handleNavigation('/p/' + item.slug)}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleNavigation('/p/' + item.slug);
+        }
+      }}
+      role='link'
+      tabIndex={0}
+    >
+      <div className='work-card-media'>
+        <img src={`/assets/imgs/project/${item.thumbnail}`} alt='' />
       </div>
-    </div>
+      <div className='work-card-body'>
+        <h3>{item.title}</h3>
+        {item.tags ? <p className='work-card-meta'>{item.tags}</p> : null}
+      </div>
+    </article>
   );
 };
 
@@ -118,28 +131,43 @@ function formatDate(isoString) {
   return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 }
 
+function firstImageFromBody(body) {
+  if (!body) return null;
+  const match = body.match(/<img[^>]+src=["']([^"']+)["']/i) || body.match(/!\[[^\]]*]\(([^)]+)\)/);
+  return match ? match[1] : null;
+}
+
 const BlogCard = ({ item }) => {
   const handleNavigation = useCardNavigation();
-
-  const handleCardClick = () => {
-    handleNavigation(`/blog/${item.number}`);
-  };
+  const thumb = firstImageFromBody(item.body);
 
   return (
-    <div className='update-c card home-card mb-2' onClick={handleCardClick} style={{ cursor: 'pointer' }}>
-      <div className='card-horizontal'>
-        <div className='img-square-wrapper'>
-          <img src={item.user.avatar_url} alt={item.user.html_url} width='50px' />
-        </div>
-        <div className='update-card card-body m-0 p-1'>
-          <small>{formatDate(item.created_at)}</small>
-          <br />
-          <b className='mb-1'>{item.title}</b>
-          <br />
-          <small dangerouslySetInnerHTML={{ __html: item.body }} />
-        </div>
+    <article
+      className='work-card'
+      onClick={() => handleNavigation(`/blog/${item.number}`)}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleNavigation(`/blog/${item.number}`);
+        }
+      }}
+      role='link'
+      tabIndex={0}
+    >
+      <div className='work-card-media'>
+        {thumb ? (
+          <img src={thumb} alt='' />
+        ) : (
+          <div className='work-card-placeholder' aria-hidden='true'>
+            {item.title?.charAt(0) || 'N'}
+          </div>
+        )}
       </div>
-    </div>
+      <div className='work-card-body'>
+        <h3>{item.title}</h3>
+        <p className='work-card-meta'>{formatDate(item.created_at)}</p>
+      </div>
+    </article>
   );
 };
 

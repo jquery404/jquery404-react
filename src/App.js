@@ -40,15 +40,19 @@ function App({ children }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname]);
 
+  const isFullBleed = location.pathname === '/movies';
+
   return (
-    <div className='App'>
+    <div className={`App${isFullBleed ? ' app-fullbleed' : ''}`}>
       <Header />
-      <div className='container-fluid'>
+      <div className={`container-fluid${isFullBleed ? ' is-fullbleed' : ''}`}>
         <div className='row'>
-          <div className='col-sm-12'>{children}</div>
+          <div className='col-sm-12'>
+            {isFullBleed ? children : <div className='page-shell'>{children}</div>}
+          </div>
         </div>
       </div>
-      <Footer />
+      {!isFullBleed && <Footer />}
     </div>
   );
 }

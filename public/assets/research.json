@@ -2,6 +2,26 @@
   "project": [
     {
       "type": "research",
+      "title": "CadastrAR: Collaborative Mixed-Reality for Cadastral Field Decision Support",
+      "publications": [
+        {
+          "thumbnail": "cadastrar.png",
+          "authors": "<b>Faisal Zaman</b>, Nadia Pantidi, and Mairéad de Róiste.",
+          "title": "CadastrAR: Collaborative Mixed-Reality for Cadastral Field Decision Support.",
+          "venue": "In GeoCart'2026 - Mapping in Times of Need, Wellington, New Zealand, 2026",
+          "url": "/r/cadastrar",
+          "links": {
+            "project": "/r/cadastrar",
+            "pdf": "/assets/papers/cadastrar/CadastrAR_GeoCart2026_Abstract.pdf",
+            "abstract": "CadastrAR is a collaborative mixed-reality system that supports cadastral field decision-making by bringing spatial data, stakeholders, and on-site context into a shared immersive workspace.",
+            "bibtex": "@inproceedings{zaman2026cadastrar,\n  title={CadastrAR: Collaborative Mixed-Reality for Cadastral Field Decision Support},\n  author={Zaman, Faisal and Pantidi, Nadia and de R{\\'o}iste, Mair{\\'e}ad},\n  booktitle={GeoCart'2026 - Mapping in Times of Need},\n  year={2026},\n  address={Wellington, New Zealand}\n}",
+            "video": "/r/cadastrar"
+          }
+        }
+      ]
+    },
+    {
+      "type": "research",
       "title": "XRGait: Immersive Gait Training Visualization with Integrated Sensing Technology",
       "publications": [
         {
@@ -227,6 +247,41 @@
   ],
 
   "research": [
+    {
+      "title": "CadastrAR: Collaborative Mixed-Reality for Cadastral Field Decision Support",
+      "slug": "cadastrar",
+      "slogan": "",
+      "desc": "CadastrAR is a collaborative mixed-reality system that supports cadastral field decision-making by bringing spatial data, stakeholders, and on-site context into a shared immersive workspace.",
+      "thumbnail": "cadastrar/cadastrar.png",
+      "paper_thumb": "cadastrar/paper_thumb.png",
+      "journal": "GeoCart'2026 - Mapping in Times of Need, Wellington, New Zealand",
+      "authors": [
+        {
+          "name": "Faisal Zaman",
+          "url": "https://jquery404.github.io",
+          "affiliation": "School of Design Innovation, Victoria University of Wellington, NZ"
+        },
+        {
+          "name": "Nadia Pantidi",
+          "url": "https://people.wgtn.ac.nz/nadia.pantidi",
+          "affiliation": "School of Design Innovation, Victoria University of Wellington, NZ"
+        },
+        {
+          "name": "Mairéad de Róiste",
+          "url": "https://people.wgtn.ac.nz/mairead.deroiste",
+          "affiliation": "School of Geography, Environment and Earth Sciences, Victoria University of Wellington, NZ"
+        }
+      ],
+      "url": "assets/papers/cadastrar/CadastrAR_GeoCart2026_Abstract.pdf",
+      "file_info": "PDF, 4.5mb",
+      "tags": "cadastral, mixed reality, collaboration, field decision support",
+      "bibtex": "@inproceedings{zaman2026cadastrar,\n  title={CadastrAR: Collaborative Mixed-Reality for Cadastral Field Decision Support},\n  author={Zaman, Faisal and Pantidi, Nadia and de R{\\'o}iste, Mair{\\'e}ad},\n  booktitle={GeoCart'2026 - Mapping in Times of Need},\n  year={2026},\n  address={Wellington, New Zealand}\n}",
+      "gallery": [],
+      "slides": {
+        "header": "Slides",
+        "list": []
+      }
+    },
     {
       "title": "XRGait: Immersive Gait Training Visualization with Integrated Sensing Technology",
       "slug": "xrgait",
@@ -513,15 +568,18 @@
         "list": [
           {
             "header": "Step Into the Virtual Arena With Real-time Stage Modeling and Visual Effects",
-            "url": "https://blog.siggraph.org/2023/10/step-into-the-virtual-arena-with-real-time-stage-modeling-and-visual-effects.html/"
+            "url": "https://blog.siggraph.org/2023/10/step-into-the-virtual-arena-with-real-time-stage-modeling-and-visual-effects.html/",
+            "archive": "/archive/press/siggraph-2023-virtual-arena/go.html"
           },
           {
             "header": "CMIC wins Audience Choice Award at Real-Time Live! SIGGRAPH 2023",
-            "url": "https://www.wgtn.ac.nz/cmic/news/real-time-live-wins-peoples-choice-award-at-siggraph-2023"
+            "url": "https://www.wgtn.ac.nz/cmic/news/real-time-live-wins-peoples-choice-award-at-siggraph-2023",
+            "archive": "/archive/press/wgtn-cmic-2023-rtl-award/go.html"
           },
           {
             "header": "University project wins award at international computer graphics conference",
-            "url": "https://www.wgtn.ac.nz/engineering/news/university-project-wins-award-at-international-computer-graphics-conference"
+            "url": "https://www.wgtn.ac.nz/engineering/news/university-project-wins-award-at-international-computer-graphics-conference",
+            "archive": "/archive/press/wgtn-2023-siggraph-award/go.html"
           }
         ]
       }
