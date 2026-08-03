@@ -18,9 +18,7 @@ function About() {
     Promise.all([
       fetch(`/assets/research.json`).then((response) => response.json()),
       fetch(`/assets/portfolio.json`).then((response) => response.json()),
-      fetch(`https://api.github.com/repos/jquery404/jquery404.github.io/issues`).then((response) =>
-        response.json()
-      ),
+      fetch(`https://api.github.com/repos/jquery404/jquery404.github.io/issues`).then((response) => response.json()),
     ])
       .then(([researchData, projectData, blogData]) => {
         setResearch(researchData.project || []);
@@ -48,16 +46,24 @@ function About() {
   return (
     <>
       <header className='home-hero'>
-        <p className='home-kicker'>Computer graphics · XR · systems</p>
-        <h1 className='home-name'>Faisal Zaman</h1>
+        <h1 className='home-name'>
+          Hello{' '}
+          <span role='img' aria-label='Waving hand'>
+            👋
+          </span>
+        </h1>
+        <div className='subheading mb-5'>I'm Faisal (Φsal)</div>
         <p className='home-lede'>
-          Ph.D. in computer graphics from Victoria University of Wellington. I build real-time XR
-          platforms and research tools that connect academic work with production systems.
+          I build solutions across multiple platforms (<i className='fab fa-windows'></i> /{' '}
+          <i className='fab fa-apple'></i> / <i className='fab fa-linux'></i>) using different tools
+          depending on the <Link className='pill-link' to='/project'>project</Link> needs (<i className='fab fa-react'></i>{' '}
+          / <i className='fab fa-angular'></i> / <i className='fab fa-android'></i> /{' '}
+          <i className='fab fa-unity'></i>).
         </p>
 
         <ul className='cred-row'>
           <li>
-            <i className='fa fa-graduation-cap'></i> Ph.D., Computer Graphics
+            <i className='fa fa-graduation-cap'></i> <Link to='/r/thesis'>Ph.D., Computer Graphics</Link>
           </li>
           <li>
             <i className='fab fa-aws'></i>{' '}
@@ -66,12 +72,12 @@ function About() {
             </a>
           </li>
           <li>
-            <i className='fa fa-award'></i> SIGGRAPH Real-Time Live! Audience Choice
+            <i className='fa fa-award'></i> <Link to='/r/rtstage'>SIGGRAPH Real-Time Live!</Link>
           </li>
         </ul>
 
         <div className='home-cta'>
-          <Link className='btn btn-primary' to='/research'>
+          <Link className='btn btn-outline-navy' to='/research'>
             Research
           </Link>
           <Link className='btn btn-outline-navy' to='/project'>
@@ -85,15 +91,11 @@ function About() {
 
       <section className='home-section'>
         <div className='section-head'>
-          <h2>Research</h2>
+          <h2>Latest research</h2>
           <Link className='section-more' to='/research'>
             All research →
           </Link>
         </div>
-        <p className='section-intro'>
-          Recent work on mixed reality, telepresence, and real-time visual effects for live
-          performances.
-        </p>
         <div className='card-grid'>
           <ResearchSection research={research} />
         </div>
@@ -115,7 +117,7 @@ function About() {
 
       <section className='home-section'>
         <div className='section-head'>
-          <h2>Projects</h2>
+          <h2>Latest projects</h2>
           <Link className='section-more' to='/project'>
             All projects →
           </Link>
@@ -127,23 +129,35 @@ function About() {
 
       <section className='home-section'>
         <div className='section-head'>
-          <h2>Notes from the lab</h2>
+          <h2>Once in a while,</h2>
           <Link className='section-more' to='/blog'>
             All posts →
           </Link>
         </div>
+        <p className='section-intro'>
+          I like making experiments that recreate interesting behaviours and patterns.
+        </p>
         <div className='card-grid'>
           <BlogSection inthelab={inthelab} />
         </div>
       </section>
 
       <section className='home-section home-about-more'>
-        <h2>Also</h2>
+        <h2>And</h2>
         <p>
-          I work across platforms and stacks depending on the problem — React, Unity, Android, AWS —
-          and I still make the occasional weird experiment. When I&apos;m offline:{' '}
-          <Link to='/movies'>movies</Link>, <Link to='/photo'>photos</Link>, and{' '}
-          <Link to='/travel'>travel</Link>.
+          when I&apos;m not doing that, I watch{' '}
+          <Link className='pill-link' to='/movies'>
+            movies
+          </Link>
+          , take{' '}
+          <Link className='pill-link' to='/photo'>
+            pictures
+          </Link>
+          , go on{' '}
+          <Link className='pill-link' to='/travel'>
+            adventures
+          </Link>
+          , or create weird stuff like this ....
         </p>
         <div className='pp home-video'>
           <iframe
@@ -155,6 +169,10 @@ function About() {
             allowFullScreen
           ></iframe>
         </div>
+      </section>
+
+      <section className='home-section home-cheers'>
+        <h2>Cheers!</h2>
       </section>
     </>
   );
