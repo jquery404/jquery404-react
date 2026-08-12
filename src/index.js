@@ -20,6 +20,7 @@ import Movie from './components/Movie';
 import WorldMap from './components/WorldMap';
 import Log from './components/Log';
 import FourZFour from './components/FourZFour';
+import HomeV2 from './components/HomeV2';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -28,6 +29,7 @@ root.render(
       <App>
         <Routes>
           <Route path='/' element={<About />} />
+          <Route path='/v2' element={<HomeV2 />} />
           <Route path='/project' element={<Project />} />
           <Route path='/p/:id' element={<ProjectDetails />} />
           <Route path='/research' element={<Research />} />
