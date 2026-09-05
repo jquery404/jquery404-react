@@ -217,13 +217,12 @@ const Research = () => {
         <h1 className='mt-5'>Research Projects</h1>
         <p className='text-small'>
           I completed my Ph.D. in computer graphics from Victoria University of Wellington, New Zealand. My current
-          research is in the field of human-computer interaction. My research interests include Mixed Reality, eXtended
-          Reality, collaborative immersive analytics, and computer vision. I am passionate about building and improving
-          interactive real-time collaboration systems that highlight core innovation.
+          research is in human-computer interaction, with interests in Mixed Reality, Extended Reality, collaborative
+          immersive analytics, and computer vision. I build and improve interactive real-time collaboration systems.
         </p>
         <p>
-          I've had the privilege to work on several projects of a diverse nature. Below I list them according to topic
-          (by date), with relevant publications.
+          I've worked on several projects across different areas. Below, I list them by topic and date, with
+          relevant publications.
         </p>
 
         <a

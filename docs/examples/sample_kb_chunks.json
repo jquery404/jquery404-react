@@ -1,0 +1,312 @@
+{
+  "_meta": {
+    "description": "Dry-run normalized KB records for TODO 3. Not production. Provider-neutral.",
+    "generatedFrom": "docs/AI_KB_NORMALIZER_SPEC.md",
+    "notIncluded": [
+      "embeddings",
+      "vector database ids",
+      "LLM provider fields",
+      "production public/assets/kb/"
+    ],
+    "edgeCaseNotes": {
+      "jigshare": "NZGDC 2025 event url /#/r/jigshare has no matching research slug; do not link to jigmail. Mark unresolved.",
+      "list_only_research": "CollabXR, DC workshop, Picturesque emit as list_research/book with route null — not in this sample.",
+      "geocart_cadastrar": "Uncertain venue overlap only; not linked here."
+    }
+  },
+  "records": [
+    {
+      "type": "research",
+      "id": "mrmac",
+      "route": "/#/r/mrmac",
+      "title": "MRMAC: Mixed Reality Multi-user Asymmetric Collaboration",
+      "text": "Title: MRMAC: Mixed Reality Multi-user Asymmetric Collaboration\nVenue: IEEE International Symposium on Mixed and Augmented Reality (ISMAR 2023)\nAuthors: Faisal Zaman, Craig Anslow, Andrew Chalmers, Taehyun Rhee\nTags: vr, ar, 360-video, collaboration\nWe present MRMAC, a Mixed Reality Multi-user Asymmetric Collaboration system that allows remote users to teleport virtually into a real-world collaboration space to communicate and collaborate with local users. Our system enables telepresence for remote users by live-streaming the physical environment of local users using a 360-degree camera while blending 3D virtual assets into the mixed-reality collaboration space. Our novel client-server architecture enables asymmetric collaboration for multiple AR and VR users and incorporates avatars, view controls, as well as synchronized low-latency audio, video, and asset streaming. We evaluated our implementation with two baseline conditions: conventional 2D and standard 360-degree videoconferencing. Results show that MRMAC outperformed both baselines in inducing a sense of presence, improving task performance, usability, and overall user preference, demonstrating its potential for immersive multi-user telecollaboration.",
+      "tags": [
+        "vr",
+        "ar",
+        "360-video",
+        "collaboration"
+      ],
+      "related": [
+        {
+          "type": "event",
+          "id": "event:ismar-2023",
+          "relation": "presented_at",
+          "confidence": "confirmed"
+        }
+      ],
+      "provenance": {
+        "sourceType": "research.json#research",
+        "sourcePath": "public/assets/research.json",
+        "sourceId": "mrmac",
+        "fieldsUsed": [
+          "title",
+          "journal",
+          "authors",
+          "tags",
+          "desc"
+        ]
+      },
+      "extras": {
+        "journal": "IEEE International Symposium on Mixed and Augmented Reality (ISMAR 2023)",
+        "award": null,
+        "authorNames": [
+          "Faisal Zaman",
+          "Craig Anslow",
+          "Andrew Chalmers",
+          "Taehyun Rhee"
+        ]
+      }
+    },
+    {
+      "type": "research",
+      "id": "rtstage",
+      "route": "/#/r/rtstage",
+      "title": "Real-time Stage Modelling and Visual Effects for Live Performances.",
+      "text": "Title: Real-time Stage Modelling and Visual Effects for Live Performances.\nVenue: ACM SIGGRAPH Real-Time Live! (SIGGRAPH 2023)\nAward: Audience Choice Award\nAuthors: Taehyun Rhee, Andrew Chalmers, Faisal Zaman, Anna Stangnes, Vic Roberts\nTags: live visual effects, real-time performance, mixed reality, televerse\nWe present a novel live platform enhancing stage performances with real-time visual effects. Our demo showcases real-time 3D modeling, rendering and blending of assets, and interaction between real and virtual performers. We demonstrate our platform's capabilities with a mixed reality performance featuring virtual and real actors engaged with in-person audiences.\nPress coverage: Step Into the Virtual Arena With Real-time Stage Modeling and Visual Effects; CMIC wins Audience Choice Award at Real-Time Live! SIGGRAPH 2023; University project wins award at international computer graphics conference",
+      "tags": [
+        "live visual effects",
+        "real-time performance",
+        "mixed reality",
+        "televerse"
+      ],
+      "related": [
+        {
+          "type": "press",
+          "id": "siggraph-2023-virtual-arena",
+          "relation": "supports",
+          "confidence": "confirmed"
+        },
+        {
+          "type": "press",
+          "id": "wgtn-cmic-2023-rtl-award",
+          "relation": "supports",
+          "confidence": "confirmed"
+        },
+        {
+          "type": "press",
+          "id": "wgtn-2023-siggraph-award",
+          "relation": "supports",
+          "confidence": "confirmed"
+        }
+      ],
+      "provenance": {
+        "sourceType": "research.json#research",
+        "sourcePath": "public/assets/research.json",
+        "sourceId": "rtstage",
+        "fieldsUsed": [
+          "title",
+          "journal",
+          "authors",
+          "tags",
+          "desc",
+          "award",
+          "articles"
+        ]
+      },
+      "extras": {
+        "journal": "ACM SIGGRAPH Real-Time Live! (SIGGRAPH 2023)",
+        "award": "Audience Choice Award",
+        "authorNames": [
+          "Taehyun Rhee",
+          "Andrew Chalmers",
+          "Faisal Zaman",
+          "Anna Stangnes",
+          "Vic Roberts"
+        ]
+      }
+    },
+    {
+      "type": "press",
+      "id": "siggraph-2023-virtual-arena",
+      "route": "/archive/press/siggraph-2023-virtual-arena/",
+      "title": "Step Into the Virtual Arena With Real-time Stage Modeling and Visual Effects",
+      "text": "Title: Step Into the Virtual Arena With Real-time Stage Modeling and Visual Effects\nSource: ACM SIGGRAPH Blog\nOriginal: https://blog.siggraph.org/2023/10/step-into-the-virtual-arena-with-real-time-stage-modeling-and-visual-effects.html/\nRelated research: rtstage",
+      "tags": [
+        "press",
+        "siggraph",
+        "real-time-live"
+      ],
+      "related": [
+        {
+          "type": "research",
+          "id": "rtstage",
+          "relation": "press_about",
+          "confidence": "confirmed"
+        }
+      ],
+      "provenance": {
+        "sourceType": "press/meta.json",
+        "sourcePath": "public/archive/press/siggraph-2023-virtual-arena/meta.json",
+        "sourceId": "siggraph-2023-virtual-arena",
+        "fieldsUsed": [
+          "title",
+          "source",
+          "originalUrl",
+          "relatedResearch"
+        ]
+      },
+      "extras": {
+        "retrievedAt": "2026-07-20",
+        "originalUrl": "https://blog.siggraph.org/2023/10/step-into-the-virtual-arena-with-real-time-stage-modeling-and-visual-effects.html/"
+      }
+    },
+    {
+      "type": "project",
+      "id": "linz",
+      "route": "/#/p/linz",
+      "title": "Plan Generation in New Landonline",
+      "text": "Title: Plan Generation in New Landonline\nTags: web\nUse Plan Generation to define and layout diagrams for Survey and Title sheets, and generate Records of Survey and Title plans for a survey dataset.\nProject link: https://www.linz.govt.nz/guidance/landonline-support/new-landonline-survey-support/transitioning-new-landonline-survey",
+      "tags": [
+        "web"
+      ],
+      "related": [],
+      "provenance": {
+        "sourceType": "portfolio.json#portfolio",
+        "sourcePath": "public/assets/portfolio.json",
+        "sourceId": "linz",
+        "fieldsUsed": [
+          "title",
+          "tags",
+          "desc",
+          "url"
+        ]
+      },
+      "extras": {
+        "externalUrl": "https://www.linz.govt.nz/guidance/landonline-support/new-landonline-survey-support/transitioning-new-landonline-survey"
+      }
+    },
+    {
+      "type": "project",
+      "id": "nexschool",
+      "route": "/#/p/nexschool",
+      "alsoRoutes": [
+        "/#/a/nexschool"
+      ],
+      "title": "NexSchool - Unified Learning Management System",
+      "text": "Title: NexSchool - Unified Learning Management System\nTagline: Unified school & learning management, in your pocket\nCategory: Education\nPlatforms: android, ios\nTags: web; android, ios, education\nNexSchool is a unified school management system and learning management system that act as a centralised system to manage every aspect of a school. I was the Front End Developer, being responsible for the module development, deployment, and maintenance, version control with GIT, UI/UX design and execution\nNexSchool is a unified school management and learning management system that acts as a centralised platform to manage every aspect of a school — attendance, grading, timetables, fees, and parent communication. Built mobile-first so teachers, students, and parents stay in sync anywhere.",
+      "tags": [
+        "android",
+        "education",
+        "ios",
+        "web"
+      ],
+      "related": [],
+      "provenance": {
+        "sourceType": "portfolio.json#portfolio+apps.json#apps",
+        "sourcePath": "public/assets/portfolio.json",
+        "sourceId": "nexschool",
+        "fieldsUsed": [
+          "title",
+          "desc",
+          "tags",
+          "tagline",
+          "category",
+          "platform",
+          "apps.desc"
+        ],
+        "secondarySourcePath": "public/assets/apps.json",
+        "mergePolicy": "portfolio_canonical_apps_attached"
+      },
+      "extras": {
+        "category": "Education",
+        "platform": [
+          "android",
+          "ios"
+        ],
+        "version": "1.0.0",
+        "updated": "2025-08-14"
+      }
+    },
+    {
+      "type": "research",
+      "id": "xrgait",
+      "route": "/#/r/xrgait",
+      "title": "XRGait: Immersive Gait Training Visualization with Integrated Sensing Technology",
+      "text": "Title: XRGait: Immersive Gait Training Visualization with Integrated Sensing Technology\nVenue: 37th Australian Conference on Human-Computer Interaction (OzCHI 2025, ACM SIGCHI)\nAuthors: Faisal Zaman, Nadia Pantidi, Jacob Young, Rafael K. dos Anjos, Tom Trengrove, James Drown, Jonathan Lee\nTags: gait training, wearable sensors, virtual reality\nGait training and rehabilitation have traditionally been done through movement observation during in-person sessions with medical professionals and follow-up exercises at home. However, these methods are costly, have low patient adherence, and have a decreased accuracy in assessing and modeling patient gait. We present XRGait, a system that seamlessly integrates wearable sensors with immersive technologies to provide real-time support for gait training and rehabilitation. Our system combines smart insoles and wearable motion tracking sensors with immersive displays to provide the patient with real-time feedback about their gait within an engaging training environment. We conducted two studies comparing different system environments and gait visualizations to assess usability and user experience. Findings indicate users found the virtual reality environment most engaging (vs. augmented reality or screen-only) and valued real-time feedback, with a preference for full lower body visualization. We discuss these results, along with limitations and future directions.",
+      "tags": [
+        "gait training",
+        "wearable sensors",
+        "virtual reality"
+      ],
+      "related": [
+        {
+          "type": "event",
+          "id": "event:ozchi-2025",
+          "relation": "presented_at",
+          "confidence": "confirmed"
+        }
+      ],
+      "provenance": {
+        "sourceType": "research.json#research",
+        "sourcePath": "public/assets/research.json",
+        "sourceId": "xrgait",
+        "fieldsUsed": [
+          "title",
+          "journal",
+          "authors",
+          "tags",
+          "desc"
+        ]
+      },
+      "extras": {
+        "journal": "37th Australian Conference on Human-Computer Interaction (OzCHI 2025, ACM SIGCHI)",
+        "award": null,
+        "authorNames": [
+          "Faisal Zaman",
+          "Nadia Pantidi",
+          "Jacob Young",
+          "Rafael K. dos Anjos",
+          "Tom Trengrove",
+          "James Drown",
+          "Jonathan Lee"
+        ]
+      }
+    },
+    {
+      "type": "event",
+      "id": "event:ozchi-2025",
+      "route": "/#/updates",
+      "title": "OzCHI 2025",
+      "text": "Title: OzCHI 2025\nDate: 29 Nov - 3 Dec'25\nPlace: Sydney, AU\nRole: presented",
+      "tags": [
+        "event",
+        "presented"
+      ],
+      "related": [
+        {
+          "type": "research",
+          "id": "xrgait",
+          "relation": "presented_at",
+          "confidence": "confirmed"
+        }
+      ],
+      "provenance": {
+        "sourceType": "Events.js",
+        "sourcePath": "src/components/Events.js",
+        "sourceId": "event:ozchi-2025",
+        "fieldsUsed": [
+          "title",
+          "date",
+          "place",
+          "role",
+          "url"
+        ],
+        "note": "Provisional derived id until Events.js migration"
+      },
+      "extras": {
+        "sourceUrl": "http://jquery404.github.io/#/r/xrgait",
+        "idStability": "provisional"
+      }
+    }
+  ],
+  "unresolved": [
+    {
+      "kind": "event_route",
+      "eventTitle": "NZGDC 2025 - Kiwi Games Zone",
+      "url": "http://jquery404.github.io/#/r/jigshare",
+      "confidence": "uncertain",
+      "action": "do_not_map_to_jigmail; human fix or drop relatedResearch"
+    }
+  ]
+}

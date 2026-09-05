@@ -1,0 +1,107 @@
+{
+  "_meta": {
+    "description": "TODO 9 grounded LLM bake-off questions. Same evidence packs for all models."
+  },
+  "queries": [
+    {
+      "id": "who",
+      "query": "Who is Faisal?",
+      "expect": { "kind": "bio", "inference": "may_infer_capability" }
+    },
+    {
+      "id": "ai",
+      "query": "What has Faisal done with AI?",
+      "expect": { "kind": "ai_synthesis", "inference": "may_infer_capability" }
+    },
+    {
+      "id": "product_thinking",
+      "query": "What experience demonstrates product thinking?",
+      "expect": { "kind": "product_inference", "inference": "may_infer_capability" }
+    },
+    {
+      "id": "pm_title",
+      "query": "Has Faisal worked as a Product Manager?",
+      "expect": { "kind": "product_inference", "inference": "must_not_claim_pm_title" }
+    },
+    {
+      "id": "ai_eng",
+      "query": "What makes him suitable for an AI engineering role?",
+      "expect": { "kind": "ai_synthesis", "inference": "may_infer_capability" }
+    },
+    {
+      "id": "leadership",
+      "query": "What demonstrates technical leadership?",
+      "expect": { "kind": "leadership", "inference": "may_infer_capability" }
+    },
+    {
+      "id": "cloud",
+      "query": "What has he done with cloud architecture?",
+      "expect": { "kind": "direct_credential", "inference": "direct_only" }
+    },
+    {
+      "id": "mr",
+      "query": "What has he done with mixed reality?",
+      "expect": { "kind": "xr", "inference": "direct_only" }
+    },
+    {
+      "id": "research_eng",
+      "query": "How does his research connect to his engineering work?",
+      "expect": { "kind": "synthesis", "inference": "may_infer_capability" }
+    },
+    {
+      "id": "enterprise",
+      "query": "What has he built for enterprise users?",
+      "expect": { "kind": "enterprise", "inference": "may_infer_capability" }
+    },
+    {
+      "id": "strongest",
+      "query": "What is his strongest project?",
+      "expect": { "kind": "opinionated", "inference": "may_infer_capability" }
+    },
+    {
+      "id": "different",
+      "query": "What differentiates him from a conventional software engineer?",
+      "expect": { "kind": "synthesis", "inference": "may_infer_capability" }
+    },
+    {
+      "id": "knows_aws",
+      "query": "Does he know AWS?",
+      "expect": { "kind": "direct_credential", "inference": "direct_only" }
+    },
+    {
+      "id": "knows_rust",
+      "query": "Does he know Rust?",
+      "expect": { "kind": "unsupported", "inference": "direct_only" }
+    },
+    {
+      "id": "google",
+      "query": "Did he work at Google?",
+      "expect": { "kind": "unsupported", "inference": "direct_only" }
+    },
+    {
+      "id": "chatgpt",
+      "query": "Did he build ChatGPT?",
+      "expect": { "kind": "unsupported", "inference": "direct_only" }
+    },
+    {
+      "id": "managed_100",
+      "query": "Has he managed 100 engineers?",
+      "expect": { "kind": "unsupported", "inference": "direct_only" }
+    },
+    {
+      "id": "typo_ai",
+      "query": "waht has faisal done wth AI/ml??",
+      "expect": { "kind": "ai_synthesis", "inference": "may_infer_capability" }
+    },
+    {
+      "id": "awkward_pm",
+      "query": "so like… product management vibes?? any proof?",
+      "expect": { "kind": "product_inference", "inference": "must_not_claim_pm_title" }
+    },
+    {
+      "id": "aws_cert",
+      "query": "Does Faisal hold an AWS certification?",
+      "expect": { "kind": "direct_credential", "inference": "direct_only" }
+    }
+  ]
+}

@@ -19,14 +19,34 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@xenova/transformers": "^2.17.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "serve": "serve -s build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "kb:normalize": "node scripts/normalize-kb.mjs",
+    "kb:validate": "node scripts/normalize-kb.mjs --validate",
+    "kb:test": "node --test scripts/kb-normalize.test.mjs scripts/kb-retrieve.test.mjs scripts/kb-bakeoff.test.mjs scripts/kb-evidence.test.mjs scripts/kb-conversational.test.mjs scripts/kb-llm.test.mjs scripts/kb-agent.test.mjs scripts/agent-ui.test.mjs scripts/kb-browser.test.mjs scripts/agent-generate-validate.test.mjs",
+    "kb:retrieve:sync": "node scripts/kb-retrieve.mjs sync",
+    "kb:retrieve:search": "node scripts/kb-retrieve.mjs search",
+    "kb:retrieve:eval": "node scripts/kb-retrieve.mjs eval",
+    "kb:bakeoff": "node scripts/kb-bakeoff.mjs",
+    "kb:bakeoff:fast": "node scripts/kb-bakeoff.mjs --skip-minilm",
+    "kb:evidence": "node scripts/kb-evidence.mjs",
+    "kb:evidence:eval": "node scripts/kb-evidence.mjs --eval",
+    "llm:bakeoff": "node scripts/kb-llm-bakeoff.mjs",
+    "llm:answer": "node scripts/kb-llm-bakeoff.mjs --answer",
+    "agent:chat": "node scripts/agent-chat.mjs",
+    "agent:bridge": "node scripts/agent-bridge.mjs",
+    "start:ai": "node scripts/dev-ai.mjs",
+    "kb:browser": "node scripts/build-browser-kb.mjs",
+    "kb:browser:runtime": "npx --yes esbuild@0.25.0 scripts/lib/kb-browser-entry.mjs --bundle --format=esm --platform=browser --outfile=public/assets/kb/runtime.mjs --external:https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2/+esm",
+    "kb:browser:bench": "node scripts/kb-browser-bench.mjs",
+    "prebuild": "npm run kb:browser && npm run kb:browser:runtime"
   },
   "eslintConfig": {
     "extends": [

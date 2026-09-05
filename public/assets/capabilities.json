@@ -1,0 +1,134 @@
+{
+  "_meta": {
+    "description": "Curated capability→evidence map. References existing KB identities; does not restate project/research bodies. claimStrength labels inference honestly.",
+    "claimStrengthValues": ["direct", "strongly_supported", "reasonably_inferred"]
+  },
+  "capabilities": [
+    {
+      "id": "ai_machine_learning",
+      "capability": "ai_machine_learning",
+      "label": "AI / machine learning",
+      "claimStrength": "direct",
+      "queryTerms": [
+        "AI",
+        "machine learning",
+        "deep learning",
+        "ML",
+        "neural network",
+        "TensorFlow",
+        "CNN"
+      ],
+      "evidenceKeys": [
+        "book:tensorflow-lite-for-mobile-development",
+        "list_research:list:picturesque",
+        "list_research:list:3d-object-recognition-system"
+      ],
+      "notes": "Direct evidence from the TensorFlow Lite book, Picturesque deep-learning photo tagging app, and 3D object recognition CNN pipeline. Does not claim shipped LLM or generative-AI products."
+    },
+    {
+      "id": "product_thinking",
+      "capability": "product_thinking",
+      "label": "Product thinking",
+      "claimStrength": "reasonably_inferred",
+      "queryTerms": [
+        "product",
+        "product thinking",
+        "product design",
+        "end-to-end",
+        "domain workflow"
+      ],
+      "evidenceKeys": [
+        "project:nexschool",
+        "project:nexcrm",
+        "project:myeg-app",
+        "project:linz",
+        "research:cadastrar"
+      ],
+      "notes": "Reasonably inferred from shipping LMS/CRM/gov mobile workflows and stakeholder-oriented field decision support. Not a Product Manager title claim."
+    },
+    {
+      "id": "collaboration",
+      "capability": "collaboration",
+      "label": "Collaboration",
+      "claimStrength": "direct",
+      "queryTerms": [
+        "collaboration",
+        "collaborative",
+        "telecollaboration",
+        "multi-user",
+        "remote collaboration"
+      ],
+      "evidenceKeys": [
+        "research:thesis",
+        "research:mrmac",
+        "research:vicarious",
+        "research:avatar360",
+        "research:cadastrar",
+        "list_research:list:collabxr-a-systematic-review-of-research-applications-and-opportunities-in-xr-co"
+      ],
+      "notes": "Core stated theme across MR telecollaboration research and CollabXR review."
+    },
+    {
+      "id": "research",
+      "capability": "research",
+      "label": "Research",
+      "claimStrength": "direct",
+      "queryTerms": ["research", "publication", "paper", "HCI", "computer graphics"],
+      "evidenceKeys": [
+        "research:thesis",
+        "research:mrmac",
+        "research:vicarious",
+        "research:avatar360",
+        "research:rtstage",
+        "research:rtauditorium",
+        "research:cadastrar",
+        "research:xrgait",
+        "credential:phd-computer-graphics"
+      ],
+      "notes": "Direct from research detail pages, publications, and Ph.D. credential."
+    },
+    {
+      "id": "mobile_engineering",
+      "capability": "mobile_engineering",
+      "label": "Mobile engineering",
+      "claimStrength": "strongly_supported",
+      "queryTerms": ["mobile", "android", "ios", "app", "embedded"],
+      "evidenceKeys": [
+        "project:nexschool",
+        "project:myeg-app",
+        "project:belgrade-pass",
+        "book:tensorflow-lite-for-mobile-development",
+        "list_research:list:picturesque"
+      ],
+      "notes": "Strongly supported by mobile portfolio/apps, Picturesque on Google Play, and TFLite mobile/embedded book."
+    },
+    {
+      "id": "spatial_computing_xr",
+      "capability": "spatial_computing_xr",
+      "label": "Spatial computing / XR",
+      "claimStrength": "direct",
+      "queryTerms": [
+        "XR",
+        "VR",
+        "AR",
+        "MR",
+        "mixed reality",
+        "extended reality",
+        "spatial computing",
+        "virtual reality",
+        "augmented reality"
+      ],
+      "evidenceKeys": [
+        "research:thesis",
+        "research:mrmac",
+        "research:vicarious",
+        "research:avatar360",
+        "research:rtstage",
+        "research:rtauditorium",
+        "research:cadastrar",
+        "research:xrgait"
+      ],
+      "notes": "Direct from XR/MR/VR research titles, tags, and venues."
+    }
+  ]
+}

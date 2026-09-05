@@ -18,9 +18,15 @@
   background:
     radial-gradient(ellipse 70% 80% at 90% 0%, rgba(62, 200, 232, 0.1), transparent 50%),
     linear-gradient(160deg, #171614 0%, #242220 100%);
-  padding: 36px 24px 24px;
+  padding: 36px 0 24px;
   margin-bottom: 0;
   border-bottom: 1px solid #2c2a27;
+}
+
+.movie-hero-inner {
+  max-width: 76rem;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
 .movie-hero h1 {
@@ -203,9 +209,11 @@
 /* ── Mosaic grid ─────────────────────────────────────────────────── */
 .movie-mosaic {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 8px;
   padding: 16px 24px;
+  max-width: 76rem;
+  margin: 0 auto;
 }
 
 /* ── Movie tile ─────────────────────────────────────────────────── */
@@ -523,3 +531,4 @@
     font-size: 0.7rem;
   }
 }
+

@@ -1,0 +1,49 @@
+{
+  "apps": [
+    {
+      "slug": "nexschool",
+      "title": "NexSchool",
+      "tagline": "Unified school & learning management, in your pocket",
+      "desc": "NexSchool is a unified school management and learning management system that acts as a centralised platform to manage every aspect of a school — attendance, grading, timetables, fees, and parent communication. Built mobile-first so teachers, students, and parents stay in sync anywhere.",
+      "icon": "/assets/imgs/project/nexschool/cover.png",
+      "category": "Education",
+      "platform": ["android", "ios"],
+      "version": "1.0.0",
+      "size": "18 MB",
+      "updated": "2025-08-14",
+      "rating": 4.6,
+      "downloads": "500+",
+      "tags": "android, ios, education",
+      "android": "https://example.com/downloads/nexschool.apk",
+      "ios": "https://testflight.apple.com/join/REPLACE_ME",
+      "gallery": [
+        { "type": "image", "url": "/assets/imgs/project/nexschool/nexschool_1.jpg", "ratio": "portrait" },
+        { "type": "image", "url": "/assets/imgs/project/nexschool/nexschool_2.jpg", "ratio": "portrait" },
+        { "type": "image", "url": "/assets/imgs/project/nexschool/nexschool_3.jpg", "ratio": "portrait" },
+        { "type": "image", "url": "/assets/imgs/project/nexschool/nexschool_4.jpg", "ratio": "portrait" }
+      ]
+    },
+    {
+      "slug": "nexcrm",
+      "title": "NexCRM",
+      "tagline": "Sales automation built for SMEs",
+      "desc": "NexCRM is a streamlined sales CRM built from the ground up for SMEs. Add leads and notes to deals, schedule pre-sales activities, and track your pipeline from your phone.",
+      "icon": "/assets/imgs/project/nexcrm/cover.png",
+      "category": "Business",
+      "platform": ["android"],
+      "version": "2.1.0",
+      "size": "22 MB",
+      "updated": "2025-06-02",
+      "rating": 4.4,
+      "downloads": "1k+",
+      "tags": "android, business, sales",
+      "android": "https://example.com/downloads/nexcrm.apk",
+      "ios": "",
+      "gallery": [
+        { "type": "image", "url": "/assets/imgs/project/nexcrm/nexcrm_1.png", "ratio": "portrait" },
+        { "type": "image", "url": "/assets/imgs/project/nexcrm/nexcrm_2.png", "ratio": "portrait" },
+        { "type": "image", "url": "/assets/imgs/project/nexcrm/nexcrm_3.png", "ratio": "portrait" }
+      ]
+    }
+  ]
+}

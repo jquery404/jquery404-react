@@ -51,8 +51,15 @@ const RenderShortLink = (type, url, content) => {
   );
 };
 
-const EventCard = ({ data }) => (
-  <a className='event-row' href={data.url} target='_blank' rel='noreferrer'>
+const EventCard = ({ data, isActive = true }) => (
+  <a
+    className='event-row'
+    href={data.url}
+    target='_blank'
+    rel='noreferrer'
+    aria-hidden={!isActive}
+    tabIndex={isActive ? 0 : -1}
+  >
     <div className='event-thumb' style={{ backgroundImage: `url(${data.thumb})` }} aria-hidden='true' />
     <div className='event-body'>
       <div className='event-meta'>
@@ -70,12 +77,13 @@ const EventCard = ({ data }) => (
   </a>
 );
 
-const ResearchCard = ({ item }) => {
+const ResearchCard = ({ item, isActive = true }) => {
   const handleNavigation = useCardNavigation();
 
   return (
     <article
       className='work-card'
+      aria-hidden={!isActive}
       onClick={() => handleNavigation(item.url)}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -84,7 +92,7 @@ const ResearchCard = ({ item }) => {
         }
       }}
       role='link'
-      tabIndex={0}
+      tabIndex={isActive ? 0 : -1}
     >
       <div className='work-card-media'>
         <img src={`/assets/imgs/research/${item.thumbnail}`} alt='' />
@@ -99,12 +107,13 @@ const ResearchCard = ({ item }) => {
   );
 };
 
-const ProjectCard = ({ item }) => {
+const ProjectCard = ({ item, isActive = true }) => {
   const handleNavigation = useCardNavigation();
 
   return (
     <article
       className='work-card'
+      aria-hidden={!isActive}
       onClick={() => handleNavigation('/p/' + item.slug)}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -113,7 +122,7 @@ const ProjectCard = ({ item }) => {
         }
       }}
       role='link'
-      tabIndex={0}
+      tabIndex={isActive ? 0 : -1}
     >
       <div className='work-card-media'>
         <img src={`/assets/imgs/project/${item.thumbnail}`} alt='' />
@@ -137,13 +146,14 @@ function firstImageFromBody(body) {
   return match ? match[1] : null;
 }
 
-const BlogCard = ({ item }) => {
+const BlogCard = ({ item, isActive = true }) => {
   const handleNavigation = useCardNavigation();
   const thumb = firstImageFromBody(item.body);
 
   return (
     <article
       className='work-card'
+      aria-hidden={!isActive}
       onClick={() => handleNavigation(`/blog/${item.number}`)}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -152,7 +162,7 @@ const BlogCard = ({ item }) => {
         }
       }}
       role='link'
-      tabIndex={0}
+      tabIndex={isActive ? 0 : -1}
     >
       <div className='work-card-media'>
         {thumb ? (

@@ -20,7 +20,7 @@ class Footer extends React.Component {
             </a>
           </div>
           <p className='site-footer-copy'>
-            &copy; {new Date().getFullYear()} Faisal (ΦSAL) · jQuery404
+            &copy; {new Date().getFullYear()} jQuery404
           </p>
         </div>
       </footer>
