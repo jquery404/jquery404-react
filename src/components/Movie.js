@@ -433,19 +433,21 @@ const Movie = () => {
   return (
     <div className='movie-page'>
       <div className='movie-hero'>
-        <h1>Movies</h1>
-        <p>
-          A curated list of films I love — spanning genres, languages, and decades. Click a poster
-          for cast, director, year, and more.
-        </p>
-        <div className='movie-hero-controls'>
-          <button className='btn-movie btn-movie--ghost' onClick={() => setShowAdd(!showAdd)}>
-            {showAdd ? '✕ Cancel' : '+ Add Movie'}
-          </button>
-          <button className='btn-movie btn-movie--accent' onClick={uploadToGitHub} disabled={loading}>
-            ↑ Save to GitHub
-          </button>
-          {!loading && <span className='movie-hero-count'>{localMovies.length} films</span>}
+        <div className='movie-hero-inner'>
+          <h1>Movies</h1>
+          <p>
+            A curated list of films I love — spanning genres, languages, and decades. Click a poster
+            for cast, director, year, and more.
+          </p>
+          <div className='movie-hero-controls'>
+            <button className='btn-movie btn-movie--ghost' onClick={() => setShowAdd(!showAdd)}>
+              {showAdd ? '✕ Cancel' : '+ Add Movie'}
+            </button>
+            <button className='btn-movie btn-movie--accent' onClick={uploadToGitHub} disabled={loading}>
+              ↑ Save to GitHub
+            </button>
+            {!loading && <span className='movie-hero-count'>{localMovies.length} films</span>}
+          </div>
         </div>
       </div>
 

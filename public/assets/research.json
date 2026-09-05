@@ -1,8 +1,9 @@
 {
+  "homeResearch": ["/r/xrgait", "/r/thesis"],
   "project": [
     {
       "type": "research",
-      "title": "CadastrAR: Collaborative Mixed-Reality for Cadastral Field Decision Support",
+      "title": "CadastrAR",
       "publications": [
         {
           "thumbnail": "cadastrar.png",

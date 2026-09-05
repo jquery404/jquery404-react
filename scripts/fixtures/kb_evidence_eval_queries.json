@@ -1,0 +1,43 @@
+{
+  "_meta": {
+    "description": "Evidence-pack evaluation queries (TODO 8). Unsupported set must stay empty of invented employers/skills.",
+    "expectedConfidence": {
+      "unsupported": "must be unsupported",
+      "supported": "strong|moderate|weak acceptable if evidence grounded"
+    }
+  },
+  "unsupported": [
+    { "id": "google", "query": "Did Faisal work at Google?", "expectConfidence": "unsupported" },
+    { "id": "microsoft", "query": "Has he worked at Microsoft?", "expectConfidence": "unsupported" },
+    { "id": "rust", "query": "Does he know Rust?", "expectConfidence": "unsupported" },
+    { "id": "chatgpt", "query": "Did he build ChatGPT?", "expectConfidence": "unsupported" },
+    { "id": "100_engineers", "query": "Has he managed 100 engineers?", "expectConfidence": "unsupported" },
+    { "id": "vc", "query": "Did he raise venture capital?", "expectConfidence": "unsupported" }
+  ],
+  "recruiter": [
+    { "id": "ai", "query": "What has Faisal done with AI?" },
+    { "id": "product_thinking", "query": "What demonstrates product thinking?" },
+    { "id": "ai_eng_role", "query": "Why would he be suitable for an AI engineering role?" },
+    { "id": "leadership", "query": "What work demonstrates technical leadership?" },
+    { "id": "cloud", "query": "What has he done with cloud systems?" },
+    { "id": "impressive", "query": "Show me his most impressive projects." },
+    { "id": "enterprise", "query": "What has he built for enterprise users?" },
+    { "id": "stakeholder", "query": "What evidence is there of stakeholder-facing delivery?" },
+    { "id": "research_eng", "query": "How does his research connect to his engineering work?" },
+    { "id": "different", "query": "What makes him different from a normal software engineer?" },
+    { "id": "mixed_reality", "query": "What has Faisal done with mixed reality?" },
+    { "id": "product_mgmt", "query": "What evidence shows product thinking?" }
+  ],
+  "hybridCompare": [
+    { "id": "ai", "query": "What has Faisal done with AI?" },
+    { "id": "product", "query": "What demonstrates product thinking?" },
+    { "id": "artificial_intelligence", "query": "artificial intelligence" },
+    { "id": "aws", "query": "AWS" },
+    { "id": "cadastrar", "query": "CadastrAR" },
+    { "id": "stakeholder", "query": "stakeholder management" },
+    { "id": "leadership", "query": "technical leadership" },
+    { "id": "cloud", "query": "cloud architecture" },
+    { "id": "collab", "query": "XR collaboration" },
+    { "id": "enterprise", "query": "enterprise users" }
+  ]
+}

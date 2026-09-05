@@ -68,3 +68,11 @@ pnpm-lock.yaml
 Thumbs.db
 ehthumbs.db
 [Dd]esktop.ini
+
+### KB dry-run previews (docs only; not site assets) ###
+/docs/generated/*
+!/docs/generated/README.md
+/docs/generated/embeddings/
+### Browser KB build artifacts ###
+/public/assets/kb/browser_kb_v1.json
+/public/assets/kb/browser_kb_meta.json
