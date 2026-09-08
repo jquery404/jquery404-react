@@ -732,6 +732,19 @@ ${r.text}`).join("\n");
     );
     if (primaries.length >= topK) break;
   }
+  if (options.focusKey && !primaries.some((p) => p.key === options.focusKey)) {
+    const focusRecord = store.get(options.focusKey);
+    if (focusRecord) {
+      primaries.unshift(
+        hitToCandidate(
+          { key: options.focusKey, score: 1, record: focusRecord, reasons: ["focus_page"] },
+          "primary",
+          budget,
+          { relationToQuery: "current_page_focus" }
+        )
+      );
+    }
+  }
   const expanded = [];
   if (expandRelated) {
     for (const primary of primaries.slice(0, topK)) {

@@ -106,9 +106,21 @@ export function AgentProvider({ children }) {
       return undefined;
     }
     let cancelled = false;
-    clientRef.current.health().then((h) => {
-      if (!cancelled) setAvailable(!!h.ok);
-    });
+    let retryTimer = null;
+    // Cold Lambda / provider hiccups shouldn't strand the visitor on "offline"
+    // forever — keep pinging with backoff until it comes up, instead of
+    // requiring a manual Retry click.
+    const backoffMs = [5000, 15000, 30000, 60000];
+    const checkHealth = (attempt = 0) => {
+      clientRef.current.health().then((h) => {
+        if (cancelled) return;
+        setAvailable(!!h.ok);
+        if (!h.ok && attempt < backoffMs.length) {
+          retryTimer = setTimeout(() => checkHealth(attempt + 1), backoffMs[attempt]);
+        }
+      });
+    };
+    checkHealth();
     // Opportunistic MiniLM warm — does not block health/navigation
     const cancelWarm =
       typeof clientRef.current.scheduleWarm === 'function'
@@ -116,6 +128,7 @@ export function AgentProvider({ children }) {
         : () => {};
     return () => {
       cancelled = true;
+      if (retryTimer) clearTimeout(retryTimer);
       cancelWarm();
     };
   }, [enabled]);

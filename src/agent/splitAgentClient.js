@@ -45,9 +45,11 @@ function rewriteFollowUpQuery(message, session) {
   }
   const lower = text.toLowerCase();
   const needsFocus =
-    /\b(there|that|this|it|those|them|his|he|why|how|when|where|connect|relate|related|technology|tech|phd)\b/i.test(
+    /\b(there|that|this|it|those|them|his|he|why|how|when|where|connect|relate|related|technology|tech|phd|page|here|site)\b/i.test(
       text
-    ) || /^(what|which|how|why|when|where)\b/i.test(lower);
+    ) ||
+    /\bsummar(y|ize|ise|izes|ises|izing|ising)\b/i.test(text) ||
+    /^(what|which|how|why|when|where)\b/i.test(lower);
   if (needsFocus && text.split(/\s+/).length <= 16 && focusLabel) {
     return `${text} ${focusSuffix}`;
   }
@@ -288,7 +290,9 @@ export function createSplitAgentClient(gateway) {
       }
 
       const tRet = performance.now();
-      const evidencePack = await engine.buildEvidencePack(retrievalQuery);
+      const evidencePack = await engine.buildEvidencePack(retrievalQuery, {
+        focusKey: session.focus?.key || null,
+      });
       const retrievalMs = Math.round(performance.now() - tRet);
       if (perfStats.firstQueryMs == null) perfStats.firstQueryMs = retrievalMs;
       else perfStats.warmQueryMs = retrievalMs;
