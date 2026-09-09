@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>GeoCart'2026: The go-to geospatial get-together (Archived) — jquery404</title>
+  <meta name="description" content="Archived copy of LINZ's internal staff news story on GeoCart'2026, the National Cartographic Conference, including Faisal Zaman's CadastrAR presentation." />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --page: #f7f5f2;
+      --fg: #1a1a1a;
+      --muted: #666666;
+      --border: #e2ddd3;
+      --accent: #0b5c8a;
+      --banner: #fff8e6;
+      --card: #ffffff;
+      --max: 900px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.55;
+      color: var(--fg);
+      background: var(--page);
+    }
+    .archive-banner {
+      font-size: 0.8rem;
+      line-height: 1.45;
+      background: var(--banner);
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 1.25rem;
+      color: #3d3420;
+    }
+    .archive-banner a { color: var(--accent); }
+    .archive-banner strong { font-weight: 600; }
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      background: var(--bg);
+      padding: 1.75rem 1.5rem 3rem;
+    }
+    .eyebrow {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 0.5rem;
+    }
+    h1 {
+      font-size: clamp(1.4rem, 3vw, 1.8rem);
+      line-height: 1.25;
+      margin: 0 0 0.5rem;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+    .meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin: 0 0 1.5rem;
+    }
+
+    .hero-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+      align-items: start;
+      margin-bottom: 1.5rem;
+    }
+    @media (min-width: 720px) {
+      .hero-row { grid-template-columns: 1.1fr 1fr; }
+    }
+    .intro {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .carousel { width: 100%; }
+    .carousel-track {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      background: #eee;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .carousel-track figure {
+      margin: 0;
+      position: absolute;
+      inset: 0;
+    }
+    .carousel-track img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #eee;
+      display: block;
+    }
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.9rem;
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .carousel-prev, .carousel-next {
+      border: 1px solid var(--border);
+      background: #fff;
+      border-radius: 50%;
+      width: 1.9rem;
+      height: 1.9rem;
+      line-height: 1;
+      font-size: 1.1rem;
+      cursor: pointer;
+      color: var(--accent);
+    }
+    .carousel-prev:hover, .carousel-next:hover { background: #f2f2f2; }
+
+    .entry h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin: 1.9rem 0 0.65rem;
+      line-height: 1.3;
+    }
+    .entry h3 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #333;
+      margin: 1.5rem 0 0.6rem;
+    }
+    .entry p { margin: 0 0 0.9rem; }
+    .entry a { color: var(--accent); }
+
+    .talks {
+      list-style: disc;
+      margin: 0 0 1rem;
+      padding-left: 1.25rem;
+    }
+    .talks li { margin-bottom: 0.4rem; font-size: 0.92rem; }
+    .talks .presenter { font-weight: 600; }
+    .talks .talk-title { color: #333; }
+
+    .quotes {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0 1.75rem;
+      margin-top: 0.75rem;
+    }
+    @media (min-width: 900px) {
+      .quotes { grid-template-columns: repeat(3, 1fr); }
+    }
+    .quote-col { min-width: 0; }
+    blockquote.quote {
+      margin: 0 0 1.5rem;
+      padding: 0;
+      border: 0;
+    }
+    .quote-person {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55rem;
+      margin-bottom: 0.5rem;
+    }
+    .quote-person .avatar {
+      flex: none;
+      width: 2.1rem;
+      height: 2.1rem;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      background: #ddd;
+    }
+    .quote-person .name {
+      display: block;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #1a1a1a;
+    }
+    .quote-person .role {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--muted);
+      line-height: 1.3;
+    }
+    blockquote.quote p {
+      font-size: 0.9rem;
+      line-height: 1.55;
+      color: #2b2b2b;
+      margin: 0 0 0.65rem;
+    }
+    blockquote.quote figure { margin: 0.6rem 0; }
+    blockquote.quote figure img {
+      width: 100%;
+      border-radius: 4px;
+      display: block;
+    }
+    blockquote.quote figcaption {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-top: 0.25rem;
+      font-style: italic;
+    }
+
+    .colophon {
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      margin-top: 2.25rem;
+      padding-top: 1.1rem;
+    }
+    .colophon strong { color: #333; }
+    .colophon p { margin: 0 0 0.5rem; }
+  </style>
+</head>
+<body>
+  <div class="archive-banner">
+    <strong>Archived copy</strong> —
+    retrieved 2026-09-07 from LINZ's internal staff intranet news, which has no
+    public URL to link to. Reproduced here as a record of Faisal's CadastrAR presentation at
+    GeoCart'2026. Original content © Toitū Te Whenua Land Information New Zealand.
+  </div>
+  <article class="wrap">
+    <p class="eyebrow">LINZ internal news</p>
+    <h1>GeoCart'2026: The go-to geospatial get-together</h1>
+    <p class="meta">Published 4 September 2026</p>
+
+    <div class="hero-row">
+      <p class="intro">The GeoCart conferences aim to bring together a wide cross-section of professionals, researchers, and enthusiasts engaged in cartography, map curatorship and research, geovisualisation and GIScience.</p>
+
+      <div class="carousel" id="hero-carousel">
+        <div class="carousel-track">
+          <figure><img src="assets/geocart-keynote.webp" alt="A presenter stands at a lectern in front of a large screen showing a topographic map of Lake Waikaremoana." loading="lazy" /></figure>
+          <figure hidden><img src="assets/geocart-badge.webp" alt="A delegate's GeoCart'2026 conference lanyard and badge, reading Toitū Te Whenua Land Information NZ." loading="lazy" /></figure>
+          <figure hidden><img src="assets/geocart-delegates-01.webp" alt="Conference delegates wearing GeoCart lanyards chatting between sessions." loading="lazy" /></figure>
+          <figure hidden><img src="assets/geocart-delegates-02.webp" alt="Two delegates smiling and pointing at their GeoCart conference badges." loading="lazy" /></figure>
+          <figure hidden><img src="assets/geocart-lunch-chat.webp" alt="Two delegates chatting over lunch, one with a laptop open on the table." loading="lazy" /></figure>
+          <figure hidden><img src="assets/geocart-av-support.webp" alt="A technician at the AV desk keeping the conference screens running." loading="lazy" /></figure>
+        </div>
+        <div class="carousel-controls">
+          <button type="button" class="carousel-prev" aria-label="Previous photo">&lsaquo;</button>
+          <span class="carousel-counter"><span id="carousel-pos">1</span> of <span id="carousel-total">6</span></span>
+          <button type="button" class="carousel-next" aria-label="Next photo">&rsaquo;</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <p>Last week the 12th National Cartographic Conference, GeoCart'2026, was held at Victoria University of Wellington (VUW)'s Te Aro campus. A biennial event, GeoCart has long been supported by Toitū Te Whenua Land Information New Zealand (LINZ), both through the contributions of our kaimahi and financially as Platinum sponsor.</p>
+      <p>This year, LINZ sent a 20-strong delegation to learn from and network with our colleagues in the wider geospatial community. These included Shannon McColley (conference director), Melissa West (organising committee), and presenters Karl Baker, Christopher Stephens, and Faisal Zaman.</p>
+
+      <h2>A need for maps</h2>
+      <p>The theme of GeoCart'2026 was <em>Mapping in Times of Need</em>. This is especially poignant in an era of rapidly changing environments, new technologies, climate change and geopolitical uncertainty. The conference saw its largest attendance since 2018, with representatives from New Zealand, Australia and the United States. Keynotes from John Nelson from Esri, Mairéad de Róiste from VUW, and Robin Skinner from VUW brought fresh energy, enthusiasm and excitement for exploring maps and spatial data, both contemporary and historical.</p>
+
+      <h2>Quickfire Cartography</h2>
+      <p>A brand-new session for 2026 was Quickfire Cartography. Presenters had just four minutes each to showcase how they made a map. It was so popular, you can be sure it'll return for 2028, hopefully with more presenters from LINZ!</p>
+
+      <h2>Swapping treasures</h2>
+      <p>Returning for the second time was the Map Swap, a table full of maps, books, and other cartographic treasures brought by attendees to find new homes. Many surplus maps were donated by LINZ and most went home with someone else! The Map Swap proves there is demand for old cartographic materials if the geospatial community is given an opportunity to claim them.</p>
+
+      <h3>Presentations by LINZ kaimahi:</h3>
+      <ul class="talks">
+        <li><span class="presenter">Karl Baker</span> - <span class="talk-title">A tour of New Zealand's Future Topographic Mapping Project</span></li>
+        <li><span class="presenter">Karl Baker</span> - <span class="talk-title">Using QGIS 4.0 to meticulously place labels: How the pros do it</span></li>
+        <li><span class="presenter">Christopher Stephens</span> - <span class="talk-title">The review of New Zealand's Antarctic place names</span></li>
+        <li><span class="presenter">Faisal Zaman</span> - <span class="talk-title">CadastrAR: Collaborative mixed-reality for cadastral field decision support</span></li>
+      </ul>
+
+      <h2>Some comments and feedback from presenters and attendees</h2>
+
+      <div class="quotes">
+        <div class="quote-col">
+          <blockquote class="quote">
+            <header class="quote-person">
+              <img class="avatar" src="assets/avatar-geoff-omalley.png" alt="" />
+              <span class="who"><span class="name">Geoff O'Malley</span><span class="role">Matanga Tātai Wāhi Matamua / Principal Geospatial Specialist</span></span>
+            </header>
+            <p>&ldquo;Another great NZ Cartographic Society GeoCart conference! An amazing array of Cartographic/GIScience presentations with international and national speakers from business, central and local government, education and Māori communities.&rdquo;</p>
+          </blockquote>
+
+          <blockquote class="quote">
+            <header class="quote-person">
+              <img class="avatar" src="assets/avatar-christine-clarke.png" alt="" />
+              <span class="who"><span class="name">Christine Clarke</span><span class="role">Matanga Tātai Wāhi / Geospatial Specialist</span></span>
+            </header>
+            <p>&ldquo;My favourite speaker was Robin Skinner, presenting &lsquo;The first map of the city of Wellington?: Heaphy's plan of Britannia&rsquo;. Robin was by far the most thoroughly engaging and passionate speaker I encountered. Asked to prepare and fill in at the last minute, he was highly prepared and entertaining. The history jumped out the map and came to life &ndash; truly mesmerising for the audience.&rdquo;</p>
+            <p>The &ldquo;Plan of the City of Britannia in Lambton Harbour, Port Nicholson, New Zealand&rdquo; by nineteen-year-old Charles Heaphy held at Te Papa Tongarewa is often described as &ldquo;the earliest known map of Wellington&rdquo;. This paper attempts to place the plan in the context of the activities of the New Zealand Company in the early 1840s. It is argued that, while this is the oldest surviving plan, it is in fact the second plan, produced as an archival copy. Further information was added over time, with some significant annotations discernible, offering insight into the workings of the settlement and the exchanges with company officials in London in the colony's first months. Finally, the paper speculates on how the plan survived, while the original plan and surveyors' initial terrain records have been lost. <em>(Abstract, source cartography.org.nz | geocart 2026 schedule)</em></p>
+            <p>Wendy Shaw, NZ Geographic Board also add some valuable additional insights, that without the support of local Māori, many of the European settlers would not have survived initially as they did not arrive to the urbanised infrastructure they were expecting in the earliest days of the new settlement to be known as &lsquo;Wellington&rsquo;.&rdquo;</p>
+          </blockquote>
+
+          <blockquote class="quote">
+            <header class="quote-person">
+              <img class="avatar" src="assets/avatar-chris-stephens.png" alt="" />
+              <span class="who"><span class="name">Chris Stephens</span><span class="role">Matanga Ture Kiritaki / Customer Regulatory Specialist</span></span>
+            </header>
+            <p>I was impressed and entertained by the creativity and technical depths of John Nelson in his keynote, but especially in the later &lsquo;Map Wizardry!&rsquo; session on Friday with John Nelson and (GeoCart returnee) Ken Field. Their presentation skills are second to none.</p>
+            <p>A thought-provoking presentation was by Amy L. Griffin (RMIT University) on overcoming accessibility challenges for static and dynamic maps. Under the Web Accessibility Standard 1.2 which LINZ must comply with, there's a carve out for &lsquo;Complex visual maps&rsquo;, essentially because it's &lsquo;too hard&rsquo;. But the presentation explored what was in fact, possible and useful for accessibility.</p>
+            <p>A recurring theme across nearly all presentations was the benefits of the open-source data ecosystem NZ with numerous shout outs to LINZ's open data. There would be significant impacts to innovation and research across government, business, academia if this ever changed.&rsquo;</p>
+          </blockquote>
+        </div>
+
+        <div class="quote-col">
+          <blockquote class="quote">
+            <header class="quote-person">
+              <img class="avatar" src="assets/avatar-melissa-west.png" alt="" />
+              <span class="who"><span class="name">Melissa West</span><span class="role">Matanga Tātai Wāhi Matamua / Principal Geospatial Specialist</span></span>
+            </header>
+            <p>&ldquo;It was great to be at this year's conference and see the continued range of innovative work happening across the geospatial community. One thing it reinforced for me is that all of these amazing applications, products, and services rely on strong foundations.</p>
+            <p>&lsquo;The LINZ Topo Maps squad plays a vital and important role in providing that foundation through authoritative topographic data.</p>
+            <p>&lsquo;Our work often sits behind the scenes, but it's rewarding to see how it helps enable everything from emergency response and planning through to analysis, navigation, and decision-making. Seeing what others are building on top of that data is a great reminder of why our work matters.&rdquo;</p>
+          </blockquote>
+
+          <blockquote class="quote">
+            <header class="quote-person">
+              <img class="avatar" src="assets/avatar-faisal-zaman.png" alt="" />
+              <span class="who"><span class="name">Faisal Zaman</span><span class="role">Matanga Matihiko Matua / Senior Digital Specialist - Development</span></span>
+            </header>
+            <p>&ldquo;Having the chance to present at GeoCart was a real highlight for me. I enjoyed hearing from others across the geospatial community and seeing the wide range of ways location data is being applied to solve real world problems. It was also great to be back at VUW, as the conference venue brought back fond memories of my time studying there.&rdquo;</p>
+            <figure>
+              <img src="assets/geocart-faisal-presenting.jpg" alt="Faisal Zaman presenting CadastrAR at GeoCart'2026, with the closing slide and QR code on screen." loading="lazy" />
+              <figcaption>Presenting CadastrAR.</figcaption>
+            </figure>
+          </blockquote>
+
+          <blockquote class="quote">
+            <header class="quote-person">
+              <img class="avatar" src="assets/avatar-joanna-barnes-wylie.png" alt="" />
+              <span class="who"><span class="name">Joanna Barnes-Wylie</span><span class="role">Matanga Ture Kiritaki Matua / Senior Customer Regulatory Specialist</span></span>
+            </header>
+            <p>&lsquo;I attended the last day of GeoCart and my favourite presentation was the map wizardry session by Ken Field and John Nelson from ESRI, demonstrating the power of ArcGIS to create innovative and unusual maps about absolutely anything.</p>
+            <p>&lsquo;They were seasoned presenters with great wit, gags and some amazing maps to showcase. My favourite maps were the Football World Cup map and the map showing Ozzy Osbourne and Black Sabbath concerts (where Ozzy was lead singer) around the world, both designed by Ken Field.&rsquo; <em>Note: the map is in the top row, second from left.</em></p>
+          </blockquote>
+
+          <blockquote class="quote">
+            <header class="quote-person">
+              <img class="avatar" src="assets/avatar-shi-chen.png" alt="" />
+              <span class="who"><span class="name">Shi Chen</span><span class="role">Matanga Tātai Wāhi / Geospatial Specialist</span></span>
+            </header>
+            <p>&lsquo;The conference featured a high calibre of speakers and provided valuable insights across the geospatial sector. One of my key takeaways was that maps can be much more than tools for navigation and analysis.</p>
+            <p>&lsquo;The conference opened my mind to different ways maps can be expressed, including as a form of art and storytelling. I particularly enjoyed learning about the stories, history, and perspectives behind maps, which gave me a deeper appreciation of their cultural and human significance.&rsquo;</p>
+          </blockquote>
+        </div>
+
+        <div class="quote-col">
+          <blockquote class="quote">
+            <header class="quote-person">
+              <img class="avatar" src="assets/avatar-karl-baker.png" alt="" />
+              <span class="who"><span class="name">Karl Baker</span><span class="role">Matanga Tātai Wāhi Matamua / Principal Geospatial Specialist</span></span>
+            </header>
+            <p>&lsquo;It was my 5th GeoCart and would have to be one of my favourites. A pinch-me moment was John Nelson and I talking about a map I made using his online tutorial, to make maps jump off the paper. I was so tied up in the moment I only half noticed the person on my shoulder.</p>
+            <figure>
+              <img src="assets/geocart-map-swap.webp" alt="Karl Baker and John Nelson discussing large topographic maps spread across a table." loading="lazy" />
+              <figcaption>John and Karl discussing the maps.</figcaption>
+            </figure>
+            <p>To me, the map is the snapshot of the first 20 years of my life and incredibly deep &ndash; 1980s Rotorua.</p>
+            <p>A special comment he made was that it was very cool that the map had become a gift. It was given to Api as an A2.</p>
+            <p>My takeaway was that Future Topographic Maps (FTM) is on-track. The second photo (below) is an NZDF laptop making a NZTopo50 map during a keynote speech.</p>
+            <figure>
+              <img src="assets/geocart-quickfire-tablet.webp" alt="A tablet with keyboard displaying GIS mapping software; conference room screens in the background show aerial city maps." loading="lazy" />
+              <figcaption>The NZDF laptop making a NZTopo50 map as mentioned by Karl.</figcaption>
+            </figure>
+            <p>This was set up via instructions from our shared Slack channel.</p>
+            <p>FTM is placing the technology so that the concept can be implemented and then the story for change can be shown and not just told.</p>
+            <p>My favourite session was the one I was in - a single connected topic and four independent but connected talks.</p>
+            <p>The Australian speaker who started acknowledged mana whenua, which was the only time outside the opening session that I heard it.</p>
+            <p>My talk started with a mihi that acknowledged the place, people, university and visitors.</p>
+            <p>My favourite speaker was Mairéad de Róiste for her Keynote. It went from total embarrassment for me when she showed my LinkedIn profile and started talking about that post, to satisfaction when she explained how it had boosted her as a result. Plus, watching a map made using embroidery is riveting.</p>
+            <p>My favourite moment was sharing a dinner table with the LINZ &ldquo;kids&rdquo;. Hearing what they were getting from the conference and understanding what matters to them was great. Also, when they said how much they enjoyed the presenters that are my good friends, feeling that kōrero tuku iho.&rsquo;</p>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+
+    <div class="colophon">
+      <p><strong>Author:</strong> Shannon McColley, Matanga Tātai Wāhi / Geospatial Specialist</p>
+      <p><strong>Publisher:</strong> Sam Anderson, Hoa Kotui Pakihi / Business Partner - Strategic Communications</p>
+    </div>
+  </article>
+
+  <script>
+    (function () {
+      var track = document.querySelector('#hero-carousel .carousel-track');
+      if (!track) return;
+      var figs = track.querySelectorAll('figure');
+      var posEl = document.getElementById('carousel-pos');
+      var idx = 0;
+      function show(i) {
+        idx = (i + figs.length) % figs.length;
+        figs.forEach(function (f, j) { f.hidden = j !== idx; });
+        posEl.textContent = idx + 1;
+      }
+      document.querySelector('.carousel-prev').addEventListener('click', function () { show(idx - 1); });
+      document.querySelector('.carousel-next').addEventListener('click', function () { show(idx + 1); });
+      show(0);
+    })();
+  </script>
+</body>
+</html>

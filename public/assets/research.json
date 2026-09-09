@@ -281,6 +281,15 @@
       "slides": {
         "header": "Slides",
         "list": []
+      },
+      "articles": {
+        "header": "Press Coverage",
+        "list": [
+          {
+            "header": "GeoCart'2026: The go-to geospatial get-together",
+            "archive": "/archive/press/linz-geocart-2026/go.html"
+          }
+        ]
       }
     },
     {
