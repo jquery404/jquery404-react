@@ -125,7 +125,7 @@ function sortRecords(records) {
 export function parseEventsFromSource(sourceText) {
   const events = [];
   const blockRe =
-    /\{\s*thumb:\s*('[^']*'|"[^"]*")\s*,\s*date:\s*("[^"]*"|'[^']*')\s*,\s*title:\s*("[^"]*"|'[^']*')\s*,\s*place:\s*("[^"]*"|'[^']*')\s*,\s*role:\s*('[^']*'|"[^"]*")\s*,(?:\s*award:\s*('[^']*'|"[^"]*")\s*,)?\s*url:\s*('[^']*'|"[^"]*")/g;
+    /\{\s*thumb:\s*('[^']*'|"[^"]*")\s*,\s*date:\s*("[^"]*"|'[^']*')\s*,\s*title:\s*("[^"]*"|'[^']*')\s*,\s*place:\s*("[^"]*"|'[^']*')\s*,\s*role:\s*('[^']*'|"[^"]*")\s*,(?:\s*award:\s*('[^']*'|"[^"]*")\s*,)?\s*url:\s*('[^']*'|"[^"]*")\s*,(?:\s*relatedResearch:\s*(\[[^\]]*\])\s*,)?/g;
 
   let match;
   while ((match = blockRe.exec(sourceText)) !== null) {
@@ -137,6 +137,9 @@ export function parseEventsFromSource(sourceText) {
       role: unquote(match[5]),
       award: match[6] ? unquote(match[6]) : undefined,
       url: unquote(match[7]),
+      relatedResearch: match[8]
+        ? [...match[8].matchAll(/'([^']+)'|"([^"]+)"/g)].map((m) => m[1] || m[2])
+        : undefined,
     });
   }
   return events;
@@ -633,10 +636,12 @@ export function normalizeKnowledgeBase(data, options = {}) {
   // Attach event relationships onto research + emit provisional event records
   for (const ev of events) {
     const eventId = slugify(`${ev.title}-${ev.date}`);
-    const linkedSlug = extractResearchSlugFromUrl(ev.url);
+    const linkedSlugs = Array.isArray(ev.relatedResearch) && ev.relatedResearch.length
+      ? ev.relatedResearch
+      : [extractResearchSlugFromUrl(ev.url)].filter(Boolean);
     const related = [];
 
-    if (linkedSlug) {
+    for (const linkedSlug of linkedSlugs) {
       if (researchIds.has(linkedSlug)) {
         related.push({
           type: 'research',
