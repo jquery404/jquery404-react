@@ -70,6 +70,7 @@ const events = [
     role: 'presented',
     award: 'Audience Choice Award',
     url: 'https://s2023.siggraph.org/presentation/?id=real_106&sess=sess258',
+    relatedResearch: ['rtstage'],
     html: "<i class='fab fa-pagelines'></i> https://s2023.siggraph.org/",
   },
   {
