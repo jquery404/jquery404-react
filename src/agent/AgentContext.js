@@ -17,26 +17,36 @@ import { recruiterSafeError } from './recruiterSafeError';
 
 const AgentContext = createContext(null);
 
-function presentableLinksFromPack(pack) {
+function presentableLinksFromPack(pack, evidenceIds) {
+  const cited = new Set(evidenceIds || []);
   const seen = new Set();
   const out = [];
-  for (const e of pack?.evidence || []) {
-    if (!['research', 'project', 'app'].includes(e.type)) continue;
-    if (!e.route || !e.title) continue;
-    const to = hashRouteToPath(e.route);
-    if (!to || seen.has(e.id)) continue;
-    seen.add(e.id);
-    out.push({
-      id: e.id,
-      type: e.type,
-      title: e.title,
-      to,
-      thumbnail: e.thumbnail || null,
-      tags: e.tags || [],
-      desc: e.desc || null,
-    });
-    if (out.length >= 3) break;
-  }
+  const candidates = pack?.evidence || [];
+
+  const addFrom = (list) => {
+    for (const e of list) {
+      if (out.length >= 3) break;
+      if (!['research', 'project', 'app'].includes(e.type)) continue;
+      if (!e.route || !e.title) continue;
+      const to = hashRouteToPath(e.route);
+      if (!to || seen.has(e.id)) continue;
+      seen.add(e.id);
+      out.push({
+        id: e.id,
+        type: e.type,
+        title: e.title,
+        to,
+        thumbnail: e.thumbnail || null,
+        tags: e.tags || [],
+        desc: e.desc || null,
+      });
+    }
+  };
+
+  // Prefer what the model actually cited in its answer; only backfill from
+  // raw retrieval order if there aren't enough cited items to show.
+  addFrom(candidates.filter((e) => cited.has(e.key)));
+  if (out.length < 3) addFrom(candidates);
   return out;
 }
 
@@ -227,7 +237,7 @@ export function AgentProvider({ children }) {
           setSessionId(result.sessionId);
         }
 
-        const presentableLinks = presentableLinksFromPack(result.evidencePack);
+        const presentableLinks = presentableLinksFromPack(result.evidencePack, result.evidenceIds);
         const assistantMsg = {
           id: `a_${Date.now()}`,
           role: 'assistant',

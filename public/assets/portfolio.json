@@ -3,10 +3,10 @@
     {
       "title": "Plan Generation in New Landonline",
       "slug": "linz",
-      "desc": "Use Plan Generation to define and layout diagrams for Survey and Title sheets, and generate Records of Survey and Title plans for a survey dataset.",
+      "desc": "Plan Generation is a module in Toitū Te Whenua Land Information New Zealand's (LINZ) new Landonline platform — the government system used to define and layout diagrams for Survey and Title sheets, and generate Records of Survey and Title plans for cadastral survey datasets across New Zealand.",
       "thumbnail": "plangen/cover.png",
       "url": "https://www.linz.govt.nz/guidance/landonline-support/new-landonline-survey-support/transitioning-new-landonline-survey",
-      "tags": "web",
+      "tags": "LINZ, Toitū Te Whenua, Land Information New Zealand, Landonline, government, New Zealand, cadastral, survey, web",
       "gallery": [
         {
           "type": "video",
@@ -333,10 +333,10 @@
     {
       "title": "Musicalight",
       "slug": "musicalight",
-      "desc": "A personalised online card builder that you can solve like a jigsaw puzzle. It allows you to create and design your own online card and send it to a friend in a unique style in under a minute.",
+      "desc": "Musicalight is an Android app that turns the phone into a disco light. It uses the camera's LED flash and the microphone to create lighting effects that follow the beat of whatever music is playing, so no separate glow sticks or party lights are needed. Features include a beat visualizer, an always-on screen mode, battery optimization, and multi-color output at full brightness and saturation.",
       "thumbnail": "musicalight/cover.jpg",
-      "url": "https://test.jigmail.com",
-      "tags": "app, android",
+      "url": "",
+      "tags": "app, android, music, disco light, LED, party",
       "gallery": [
         {
           "type": "video",

@@ -129,6 +129,51 @@
         "research:xrgait"
       ],
       "notes": "Direct from XR/MR/VR research titles, tags, and venues."
+    },
+    {
+      "id": "web_development",
+      "capability": "web_development",
+      "label": "Web development",
+      "claimStrength": "direct",
+      "queryTerms": [
+        "web development",
+        "frontend",
+        "front-end",
+        "full-stack",
+        "web app",
+        "React",
+        "JavaScript"
+      ],
+      "evidenceKeys": [
+        "project:linz",
+        "project:nexschool",
+        "project:nexcrm",
+        "project:jigmail",
+        "project:grabgetgo",
+        "project:covid-data-tracker"
+      ],
+      "notes": "Direct evidence from shipped web products across government (LINZ), SME SaaS (NexSchool, NexCRM), and custom software client work (Jigmail, GrabGetGo)."
+    },
+    {
+      "id": "geospatial_gis",
+      "capability": "geospatial_gis",
+      "label": "Geospatial / GIS",
+      "claimStrength": "direct",
+      "queryTerms": [
+        "geospatial",
+        "GIS",
+        "cadastral",
+        "land information",
+        "mapping",
+        "cartography",
+        "survey"
+      ],
+      "evidenceKeys": [
+        "project:linz",
+        "research:cadastrar",
+        "press:linz-geocart-2026"
+      ],
+      "notes": "Direct evidence from LINZ (Toitū Te Whenua Land Information New Zealand) day-to-day work on Landonline, CadastrAR research on cadastral field decision support, and presenting CadastrAR at GeoCart’2026."
     }
   ]
 }
