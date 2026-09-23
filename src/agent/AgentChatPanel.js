@@ -14,6 +14,9 @@ function evidenceLink(id) {
   if (type === 'research') return `/r/${slug}`;
   if (type === 'project') return `/p/${slug}`;
   if (type === 'app') return `/a/${slug}`;
+  if (type === 'interest') {
+    return { movies: '/movies', photography: '/photo', travel: '/travel' }[slug] || null;
+  }
   return null;
 }
 

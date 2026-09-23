@@ -1,4 +1,4 @@
-import { validateToolCall, deriveToolFromAnswer } from './toolContract';
+import { validateToolCall, deriveToolFromAnswer, isBlockedInterestAction } from './toolContract';
 import { isRedundantNavigation } from './executeTool';
 import {
   loadBrowserKbEngine,
@@ -383,7 +383,12 @@ export function createSplitAgentClient(gateway) {
       });
       if (
         answerObj.suggestedAction &&
-        !(proposed && ['showContact', 'showCV', 'closeView'].includes(proposed.tool))
+        !(proposed && ['showContact', 'showCV', 'closeView'].includes(proposed.tool)) &&
+        !isBlockedInterestAction({
+          query: userMessage,
+          evidencePack,
+          suggestedAction: answerObj.suggestedAction,
+        })
       ) {
         const sa = answerObj.suggestedAction;
         proposed = sa.tool

@@ -17,6 +17,7 @@ import {
 import {
   validateToolCall,
   deriveToolFromAnswer,
+  isBlockedInterestAction,
   TOOL_DEFINITIONS,
 } from './kb-agent-tools.mjs';
 
@@ -403,7 +404,14 @@ export function createAgentRuntime(pipeline, options = {}) {
     if (!appIntent) {
       if (answerObj.tool && answerObj.args) {
         proposed = { tool: answerObj.tool, args: answerObj.args };
-      } else if (answerObj.suggestedAction) {
+      } else if (
+        answerObj.suggestedAction &&
+        !isBlockedInterestAction({
+          query: userMessage,
+          evidencePack,
+          suggestedAction: answerObj.suggestedAction,
+        })
+      ) {
         proposed = answerObj.suggestedAction.route
           ? { tool: 'openRoute', args: { route: answerObj.suggestedAction.route } }
           : { tool: 'openRecord', args: { id: answerObj.suggestedAction.recordId } };
