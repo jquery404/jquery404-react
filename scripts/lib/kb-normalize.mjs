@@ -13,10 +13,14 @@ const CREDENTIALS_PATH = 'public/assets/credentials.json';
 const CAPABILITIES_PATH = 'public/assets/capabilities.json';
 const EVENTS_PATH = 'src/components/Events.js';
 const PRESS_GLOB_ROOT = 'public/archive/press';
+const MOVIES_PATH = 'public/movies/movdb.json';
+const TRAVEL_PATH = 'src/components/WorldMap.js';
+const PHOTO_PATH = 'src/components/Photo.js';
 
 const RECORD_TYPE_PREFIXES = [
   'list_research',
   'credential',
+  'interest',
   'capability',
   'research',
   'project',
@@ -90,6 +94,14 @@ export function slugify(input) {
     .slice(0, 80);
 }
 
+/** "Chocolat (2000 film)" -> "Chocolat (2000)"; "Rope (film)" -> "Rope". */
+export function cleanMovieTitle(title) {
+  return stripHtml(title)
+    .replace(/\s*\((\d{4})\s+film\)$/i, ' ($1)')
+    .replace(/\s*\(film\)$/i, '')
+    .trim();
+}
+
 export function extractResearchSlugFromUrl(url) {
   if (!url || typeof url !== 'string') return null;
   const m = url.match(/\/(?:#\/)?r\/([a-z0-9_-]+)/i);
@@ -143,6 +155,29 @@ export function parseEventsFromSource(sourceText) {
     });
   }
   return events;
+}
+
+/** Visited countries + cities from the WorldMap component's `geomap` literal. */
+export function parseTravelFromSource(sourceText) {
+  const src = String(sourceText || '');
+  const countriesMatch = src.match(/countries:\s*\[([^\]]*)\]/);
+  const countries = countriesMatch
+    ? [...countriesMatch[1].matchAll(/"([^"]+)"|'([^']+)'/g)].map((m) => m[1] || m[2])
+    : [];
+  const cities = [...src.matchAll(/\{\s*name:\s*"([^"]+)",\s*country:\s*"([^"]+)"/g)].map((m) => ({
+    name: m[1],
+    country: m[2],
+  }));
+  return { countries, cities };
+}
+
+/** Intro copy + gallery years from the Photo component. */
+export function parsePhotoFromSource(sourceText) {
+  const src = String(sourceText || '');
+  const introMatch = src.match(/<h1[^>]*>Photography<\/h1>\s*<p>([\s\S]*?)<\/p>/);
+  const intro = introMatch ? stripHtml(introMatch[1].replace(/<br\s*\/?>/g, ' ')) : '';
+  const years = [...src.matchAll(/^\s*(\d{4}):\s*\[/gm)].map((m) => Number(m[1])).sort((a, b) => a - b);
+  return { intro, years: [...new Set(years)] };
 }
 
 function buildResearchText(detail) {
@@ -236,6 +271,7 @@ export function normalizeKnowledgeBase(data, options = {}) {
       books: 0,
       credentials: 0,
       capabilities: 0,
+      movies: 0,
     },
     generated: {},
     duplicatesMerged: 0,
@@ -249,6 +285,9 @@ export function normalizeKnowledgeBase(data, options = {}) {
   const events = data.events || [];
   const credentialsJson = data.credentialsJson || { credentials: [] };
   const capabilitiesJson = data.capabilitiesJson || { capabilities: [] };
+  const moviesJson = Array.isArray(data.moviesJson) ? data.moviesJson : [];
+  const travel = data.travel || { countries: [], cities: [] };
+  const photo = data.photo || { intro: '', years: [] };
 
   assert(researchJson && typeof researchJson === 'object', 'research.json missing or invalid root', errors);
   assert(portfolioJson && typeof portfolioJson === 'object', 'portfolio.json missing or invalid root', errors);
@@ -879,6 +918,126 @@ export function normalizeKnowledgeBase(data, options = {}) {
     );
   }
 
+  const movieTitles = moviesJson
+    .map((m) => cleanMovieTitle(m?.title))
+    .filter(Boolean);
+  stats.canonical.movies = movieTitles.length;
+  const hobbyLine =
+    'Hobbies outside work (what he does for fun): movies, photography, and travel adventures.';
+  if (movieTitles.length) {
+    const text = [
+      'Hobby: movies.',
+      'Faisal watches a lot of movies. These are films he has watched and liked (his own taste, not recommendations):',
+      movieTitles.join('; '),
+      'He keeps this list on the Movies page of his site.',
+      hobbyLine,
+    ].join('\n');
+
+    records.push(
+      finalizeRecord({
+        type: 'interest',
+        id: 'movies',
+        route: '/#/movies',
+        title: 'Movies watched and liked',
+        text,
+        tags: splitTags('interest,hobby,personal,movies,films,cinema,watched,favourite movies'),
+        related: [],
+        provenance: {
+          sourceType: 'movdb.json',
+          sourcePath: MOVIES_PATH,
+          sourceId: 'movies',
+          fieldsUsed: ['title'],
+        },
+        extras: { movieCount: movieTitles.length },
+      })
+    );
+  }
+
+  if (photo.years.length) {
+    const first = photo.years[0];
+    const last = photo.years[photo.years.length - 1];
+    const text = [
+      'Hobby: photography.',
+      photo.intro
+        ? `Faisal loves photography. In his own words on the page: "${photo.intro}"`
+        : 'Faisal loves photography.',
+      `His photo gallery collects favourite shots from ${first} to ${last}, organised by year.`,
+      'He keeps them on the Photography page of his site.',
+      hobbyLine,
+    ].join('\n');
+    records.push(
+      finalizeRecord({
+        type: 'interest',
+        id: 'photography',
+        route: '/#/photo',
+        title: 'Photography',
+        text,
+        tags: splitTags('interest,hobby,personal,photography,photos,pictures,camera,landscape,nature,city'),
+        related: [],
+        provenance: {
+          sourceType: 'Photo.js',
+          sourcePath: PHOTO_PATH,
+          sourceId: 'photography',
+          fieldsUsed: ['intro', 'years'],
+        },
+        extras: { years: photo.years },
+      })
+    );
+  }
+
+  if (travel.countries.length) {
+    const citiesByCountry = new Map();
+    for (const c of travel.cities) {
+      if (!citiesByCountry.has(c.country)) citiesByCountry.set(c.country, []);
+      citiesByCountry.get(c.country).push(c.name);
+    }
+    const placeList = travel.countries
+      .map((country) => {
+        const cities = citiesByCountry.get(country) || [];
+        return cities.length ? `${country} (${cities.join(', ')})` : country;
+      })
+      .join('; ');
+    const text = [
+      'Hobby: travel and adventures.',
+      `Faisal likes to travel and go on adventures. Countries and cities he has been to: ${placeList}.`,
+      'He maps these places on the Travel page of his site.',
+      hobbyLine,
+    ].join('\n');
+    records.push(
+      finalizeRecord({
+        type: 'interest',
+        id: 'travel',
+        route: '/#/travel',
+        title: 'Travel and adventures',
+        text,
+        tags: splitTags(
+          [
+            'interest',
+            'hobby',
+            'personal',
+            'travel',
+            'travelled',
+            'traveled',
+            'visited',
+            'places',
+            'adventures',
+            'trips',
+            'countries',
+            ...travel.countries,
+          ].join(',')
+        ),
+        related: [],
+        provenance: {
+          sourceType: 'WorldMap.js',
+          sourcePath: TRAVEL_PATH,
+          sourceId: 'travel',
+          fieldsUsed: ['countries', 'cities'],
+        },
+        extras: { countries: travel.countries, cities: travel.cities },
+      })
+    );
+  }
+
   if (errors.length) {
     const err = new Error(errors.join('\n'));
     err.validationErrors = errors;
@@ -995,6 +1154,16 @@ export function loadCanonicalFromDisk(root = REPO_ROOT) {
   const capabilitiesJson = fs.existsSync(capabilitiesPath)
     ? readJson(capabilitiesPath)
     : { capabilities: [] };
+  const moviesPath = path.join(root, MOVIES_PATH);
+  const moviesJson = fs.existsSync(moviesPath) ? readJson(moviesPath) : [];
+  const travelPath = path.join(root, TRAVEL_PATH);
+  const travel = fs.existsSync(travelPath)
+    ? parseTravelFromSource(fs.readFileSync(travelPath, 'utf8'))
+    : { countries: [], cities: [] };
+  const photoPath = path.join(root, PHOTO_PATH);
+  const photo = fs.existsSync(photoPath)
+    ? parsePhotoFromSource(fs.readFileSync(photoPath, 'utf8'))
+    : { intro: '', years: [] };
 
   const pressDir = path.join(root, PRESS_GLOB_ROOT);
   const pressMetas = [];
@@ -1022,6 +1191,9 @@ export function loadCanonicalFromDisk(root = REPO_ROOT) {
     events,
     credentialsJson,
     capabilitiesJson,
+    moviesJson,
+    travel,
+    photo,
   };
 }
 

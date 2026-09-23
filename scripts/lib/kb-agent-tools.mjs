@@ -123,7 +123,7 @@ export function isAllowedAppRoute(route) {
   if (Object.values(APP_ROUTES).includes(r)) return true;
   if (/^\/#\/(r|p|a)\/[a-z0-9_-]+$/i.test(r)) return true;
   if (r === '/#/updates' || r === '/#/research' || r === '/#/project' || r === '/#/apps') return true;
-  if (r === '/#/contact' || r === '/#/' || r === '/#') return true;
+  if (r === '/#/contact' || r === '/#/movies' || r === '/#/photo' || r === '/#/travel' || r === '/#/' || r === '/#') return true;
   return false;
 }
 
@@ -228,6 +228,21 @@ export function validateToolCall(toolCall, ctx) {
 /**
  * Derive a safe tool suggestion from the answer + pack (local/deterministic).
  */
+/** Personal-interest pages (movies, photos, travel) open only on an explicit ask. */
+export function wantsInterestNavigation(query) {
+  return /\b(show|open|see|look at|navigate|take me)\b/i.test(String(query || ''));
+}
+
+export function isBlockedInterestAction({ query, evidencePack, suggestedAction }) {
+  if (!suggestedAction || wantsInterestNavigation(query)) return false;
+  const targets = new Set(
+    (evidencePack?.evidence || [])
+      .filter((e) => e.type === 'interest')
+      .flatMap((e) => [e.id, e.key, e.route].filter(Boolean))
+  );
+  return targets.has(suggestedAction.recordId) || targets.has(suggestedAction.route);
+}
+
 export function deriveToolFromAnswer({ query, evidencePack, answer }) {
   const q = String(query || '').toLowerCase();
 
@@ -245,16 +260,20 @@ export function deriveToolFromAnswer({ query, evidencePack, answer }) {
     return null;
   }
 
+  const evidence = evidencePack?.evidence || [];
+  const wantsInterestPage = wantsInterestNavigation(query);
+
   // Prefer suggestedAction / top evidence with a route
   const sa = answer?.suggestedAction;
-  if (sa?.recordId) {
-    return { tool: 'openRecord', args: { id: sa.recordId } };
-  }
-  if (sa?.route && isAllowedAppRoute(sa.route)) {
-    return { tool: 'openRoute', args: { route: sa.route } };
+  if (!isBlockedInterestAction({ query, evidencePack, suggestedAction: sa })) {
+    if (sa?.recordId) {
+      return { tool: 'openRecord', args: { id: sa.recordId } };
+    }
+    if (sa?.route && isAllowedAppRoute(sa.route)) {
+      return { tool: 'openRoute', args: { route: sa.route } };
+    }
   }
 
-  const evidence = evidencePack?.evidence || [];
   const presentable = evidence.find(
     (e) =>
       ['research', 'project', 'app'].includes(e.type) &&
@@ -270,7 +289,7 @@ export function deriveToolFromAnswer({ query, evidencePack, answer }) {
   }
 
   const primary = evidence.find((e) => e.route);
-  if (primary && wantsShow) {
+  if (primary && wantsShow && (primary.type !== 'interest' || wantsInterestPage)) {
     return { tool: 'openRecord', args: { id: primary.id } };
   }
 

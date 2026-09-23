@@ -460,6 +460,11 @@ function inferIntentHints(query) {
     hints.push("site_meta");
     if (!hints.includes("portfolio_overview")) hints.push("portfolio_overview");
   }
+  if (/\b(hobby|hobbies|for fun|free time|spare time|outside (of )?work|personal life|passions?|(?<!research )interests?|adventures?)\b/.test(
+    q
+  )) {
+    hints.push("personal_interests");
+  }
   return hints;
 }
 function expandRetrievalQuery(query, intentHints = []) {
@@ -542,6 +547,9 @@ function applyIntentBoost(hit, intentHints) {
   if (intentHints.includes("stakeholder_enterprise")) {
     if (key === "capability:product_thinking") boost += 0.4;
     if (/cadastrar|linz|nexschool|nexcrm|myeg/.test(key)) boost += 0.2;
+  }
+  if (intentHints.includes("personal_interests") && hit.type === "interest") {
+    boost += 0.3;
   }
   if (intentHints.includes("portfolio_overview")) {
     if (key === "capability:product_thinking" || key === "capability:research" || key === "capability:mobile_engineering" || key === "capability:spatial_computing_xr" || key === "capability:collaboration") {
@@ -709,6 +717,10 @@ ${r.text}`).join("\n");
     }
     if (hit.score < floor * 0.85) {
       discarded.push(`${hit.key}:below_soft_floor`);
+      continue;
+    }
+    if (hit.type === "interest" && !intentHints.includes("personal_interests") && !hasContentfulLexicalOverlap(hit, retrievalQuery, relevance)) {
+      discarded.push(`${hit.key}:personal_off_topic`);
       continue;
     }
     const sufficiency = isRelevantEvidenceHit(hit, {

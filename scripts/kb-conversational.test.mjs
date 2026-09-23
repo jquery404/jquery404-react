@@ -145,6 +145,62 @@ test('site / portfolio meta questions retrieve overview evidence', async () => {
   }
 });
 
+test('movie questions retrieve the personal movies interest record', async () => {
+  for (const query of ['movies', 'does he like movies?', 'what films does Faisal like?']) {
+    const pack = await packFor(query);
+    const hit = pack.evidence.find((e) => e.key === 'interest:movies');
+    assert.ok(hit, `${query} keys=${pack.evidence.map((e) => e.key).join(',')}`);
+    assert.equal(hit.route, '/#/movies');
+    assert.notEqual(pack.confidence, 'none');
+  }
+  const work = await packFor('mixed reality');
+  assert.ok(!work.evidence.some((e) => e.type === 'interest'));
+});
+
+test('hobby questions surface every personal interest; topic questions find theirs', async () => {
+  for (const query of ['hobbies', 'what does he do for fun?', 'what are his interests?']) {
+    const keys = (await packFor(query)).evidence.map((e) => e.key);
+    for (const k of ['interest:movies', 'interest:photography', 'interest:travel']) {
+      assert.ok(keys.includes(k), `${query} missing ${k}; got ${keys.join(',')}`);
+    }
+  }
+  const topics = {
+    'where has he travelled?': ['interest:travel', '/#/travel'],
+    'has he been to Japan?': ['interest:travel', '/#/travel'],
+    'does he take photos?': ['interest:photography', '/#/photo'],
+  };
+  for (const [query, [key, route]] of Object.entries(topics)) {
+    const hit = (await packFor(query)).evidence.find((e) => e.key === key);
+    assert.ok(hit, `${query} → ${key}`);
+    assert.equal(hit.route, route);
+  }
+  const research = await packFor('what are his research interests?');
+  assert.ok(!research.evidence.some((e) => e.type === 'interest'));
+});
+
+test('grounding policy frames interests as personal taste, not recommendations', () => {
+  assert.match(GROUNDING_SYSTEM_POLICY, /"interest" \(movies, photography, travel\)/);
+  assert.match(GROUNDING_SYSTEM_POLICY, /Do not recommend films or destinations/);
+});
+
+test('interest pages open only when the visitor asks to see them', () => {
+  const evidencePack = {
+    confidence: 'strong',
+    evidence: [{ key: 'interest:travel', id: 'travel', type: 'interest', route: '/#/travel' }],
+    suggestedViews: [],
+  };
+  const answer = { suggestedAction: { recordId: null, route: '/#/travel' } };
+  assert.equal(deriveToolFromAnswer({ query: 'where has he been?', evidencePack, answer }), null);
+  assert.equal(
+    deriveToolFromAnswer({ query: 'tell me about his travels', evidencePack, answer }),
+    null
+  );
+  assert.deepEqual(deriveToolFromAnswer({ query: 'show me his travel map', evidencePack, answer }), {
+    tool: 'openRoute',
+    args: { route: '/#/travel' },
+  });
+});
+
 test('casual packs do not derive navigation tools', () => {
   const tool = deriveToolFromAnswer({
     query: 'hello',

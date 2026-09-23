@@ -6,7 +6,26 @@ import {
   diffSnapshots,
   extractResearchSlugFromUrl,
   stripHtml,
+  cleanMovieTitle,
+  parseTravelFromSource,
+  parsePhotoFromSource,
+  loadCanonicalFromDisk,
 } from './lib/kb-normalize.mjs';
+
+test('interest source parsers read the live site components', () => {
+  assert.equal(cleanMovieTitle('Chocolat (2000 film)'), 'Chocolat (2000)');
+  assert.equal(cleanMovieTitle('Rope (film)'), 'Rope');
+
+  const disk = loadCanonicalFromDisk();
+  assert.ok(disk.moviesJson.length > 0, 'movdb.json titles');
+  assert.ok(disk.travel.countries.includes('Japan'), 'WorldMap countries');
+  assert.ok(disk.travel.cities.some((c) => c.name === 'Tokyo' && c.country === 'Japan'));
+  assert.ok(disk.photo.years.length > 0, 'Photo gallery years');
+  assert.match(disk.photo.intro, /photography/i);
+
+  assert.deepEqual(parseTravelFromSource('nothing here'), { countries: [], cities: [] });
+  assert.deepEqual(parsePhotoFromSource(''), { intro: '', years: [] });
+});
 
 const baseFixture = () => ({
   researchJson: {
